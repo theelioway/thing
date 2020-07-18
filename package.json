@@ -1,0 +1,20 @@
+{
+  "description": "Starter pack for an elioThing app.",
+  "name": "crispr",
+  "title": "crispr",
+  "version": "0.0.1",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "qunit": "^2.10.0"
+  },
+  "keywords": [
+    "elioway",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "qunit tests/*.js",
+    "prettier:hbs": "prettier  --write **/*.hbs --parser=glimmer",
+    "prettier": "prettier --write \"**/*.{js,json,scss,md,html}\" \"!package.json\""
+  }
+}
