@@ -177,7 +177,7 @@ module.exports = class Crispr {
    * @param {integer} depth we need to go to resolve Model dependancies.
    * @returns {Array} of Models.
    */
-  getRequiredModelsFor(modelsWanted, depth, currentDepth) {
+  modelMiner(modelsWanted, depth, currentDepth) {
     if (!currentDepth) currentDepth = 0
     let requiredModels = new Set(modelsWanted)
     for (let modelName of modelsWanted) {
@@ -202,7 +202,7 @@ module.exports = class Crispr {
       }
     }
     if (currentDepth < depth) {
-      return this.getRequiredModelsFor(
+      return this.modelMiner(
         [...requiredModels],
         depth,
         (currentDepth += 1)
