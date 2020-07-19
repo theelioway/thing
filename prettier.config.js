@@ -1,5 +1,4 @@
-// prettier.config.js or .prettierrc.js
 module.exports = {
   arrowParens: "avoid",
-  semi: false
+  semi: false,
 }
