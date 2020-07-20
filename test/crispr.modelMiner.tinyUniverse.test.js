@@ -1,3 +1,4 @@
+const should = require("chai").should()
 const Crispr = require("../crispr")
 
 describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
@@ -14,19 +15,16 @@ describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Integer", 
       },
     ]
   })
-  test("depth 0", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos"],
-      0
-    )
-    expect(result).toEqual(["Cosmos", "Bigness"])
+
+  it("depth 0", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos"], 0)
+      .should.have.members(["Cosmos"])
   })
-  test("depth 1", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos"],
-      1
-    )
-    expect(result).toEqual(["Cosmos", "Bigness"])
+  it("depth 1", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos"], 1)
+      .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
@@ -45,19 +43,15 @@ describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Text", () 
     ]
   })
 
-  test(" depth 0", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos"],
-      0
-    )
-    expect(result).toEqual(["Cosmos"])
+  it("depth 0", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos"], 0)
+      .should.have.members(["Cosmos"])
   })
-  test("depth 1", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos"],
-      1
-    )
-    expect(result).toEqual(["Cosmos"])
+  it("depth 1", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos"], 1)
+      .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
@@ -75,18 +69,14 @@ describe("class | Crispr | modelMiner tinyUniverse [Cosmos, Bigness] Primitive T
       },
     ]
   })
-  test("depth 0", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos", "Bigness"],
-      0
-    )
-    expect(result).toEqual(["Cosmos", "Bigness"])
+  it("depth 0", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos", "Bigness"], 0)
+      .should.have.members(["Cosmos", "Bigness"])
   })
-  test("depth 1", () => {
-    let result = new Crispr(this.tinyUniverse, "d:/").modelMiner(
-      ["Cosmos", "Bigness"],
-      1
-    )
-    expect(result).toEqual(["Cosmos", "Bigness"])
+  it("depth 1", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos", "Bigness"], 1)
+      .should.have.members(["Cosmos", "Bigness"])
   })
 })

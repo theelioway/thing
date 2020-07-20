@@ -1,3 +1,8 @@
+const _ = require("lodash")
+const logger = require("./utils/logger")
+
+const log = logger.debug
+
 module.exports = class Crispr {
   /**
    * @file
@@ -10,9 +15,9 @@ module.exports = class Crispr {
    */
   constructor(graphList, domain) {
     this.domain = domain
-    this.models = new Map()
-    this.fields = new Map()
-    this.primts = new Map()
+    this.MODELS = new Map()
+    this.FIELDS = new Map()
+    this.PRIMTS = new Map()
     this.crispify(graphList)
   }
 
@@ -25,15 +30,15 @@ module.exports = class Crispr {
    * @param {Array} graphList of schema objects from jsonld.
    */
   async crispify(graphList) {
-    this.models = new Map()
-    this.fields = new Map()
+    this.MODELS = new Map()
+    this.FIELDS = new Map()
     for (let schemaObj of graphList) {
       let schemaType = schemaObj["@type"]
       let schemaName = schemaObj["rdfs:label"]
       let schemaComment = schemaObj["rdfs:comment"]
       // Handle Primitives
       if (schemaType.includes(`${this.domain}DataType`)) {
-        this.primts.set(schemaName, {
+        this.PRIMTS.set(schemaName, {
           name: schemaName,
           help: schemaComment,
         })
@@ -49,7 +54,7 @@ module.exports = class Crispr {
       else if (schemaType === "rdf:Property") {
         let typeOf = this._setOf(schemaObj, `${this.domain}rangeIncludes`)
         let fieldOf = this._setOf(schemaObj, `${this.domain}domainIncludes`)
-        this.fields.set(schemaName, {
+        this.FIELDS.set(schemaName, {
           name: schemaName,
           help: schemaComment,
           types: typeOf,
@@ -77,20 +82,20 @@ module.exports = class Crispr {
    */
   _setModel(name, opts) {
     // Just check to see if this is a primitive.
-    let primts = [...this.primts.keys()]
+    let primts = [...this.PRIMTS.keys()]
     if (
       opts.subs &&
       [...opts.subs].filter(sub => primts.includes(sub)).length
     ) {
-      let p = this.primts.get(name) || {
+      let p = this.PRIMTS.get(name) || {
         name: name,
         help: opts.help,
       }
-      this.primts.set(name, p)
+      this.PRIMTS.set(name, p)
       return
     }
     // Other handle as normal type.
-    let t = this.models.get(name) || {
+    let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
       enums: new Set(),
@@ -99,7 +104,7 @@ module.exports = class Crispr {
     t.subs = opts.subs ? opts.subs : t.subs
     t.fields = opts.field ? new Set([...t.fields]).add(opts.field) : t.fields
     t.enums = opts.enum ? new Set([...t.enums]).add(opts.enum) : t.enums
-    this.models.set(name, t)
+    this.MODELS.set(name, t)
   }
 
   /**
@@ -158,57 +163,96 @@ module.exports = class Crispr {
    * @author Tim Bushell
    *
    * @tutorial
-   * In the list of Models wanted, we need to check for Parent Models and include
-   * these in the final list of models to build.
+   * In the list of Models wanted, we need to check for Parent Models and
+   * include these in the final list of models to build.
    *
-   * Fields belongiing to the wanted Models can be also be Models,
-   * i.e. Foreign Keys. Model needs to be created to cover those cases. Often
-   * Fields have more than 1 Type. We will take the approach that if a Field has
-   * a PrimitiveType, we will use that unless it also has a ModelType that is
-   * already included in the original list of Models wanted. If the Field has no
-   * PrimitiveType, we will use the ModelType if the depth allows. If the depth
-   * is 0, we will use Text as the Default Primitive Type. But if the depth is
-   * higher we will use the ModelType. WORSE CASE: Some ModelTypes have Fields
-   * which are also Types. This is where the the depth arg is most important
-   * ensuring we start substituting ModelTypes with a PrimitiveType once the
-   * depth has been reached.
+   * Fields belongiing to the wanted Models can be also be Models, i.e. Foreign
+   * Keys. Models need to be created to cover those cases. Often Fields have
+   * more than 1 Type.
    *
-   * @param {Array} modelsWanted in the target elioWay application.
+   * We will take the approach that if a Field has a PrimitiveType, we will use
+   * that UNLESS it also has a ModelType that is already included in the
+   * original list of Models wanted. If the Field has no PrimitiveType, we will
+   * use the ModelType if the depth allows. If the depth is 0, we will use Text
+   * as the Default Primitive Type. But if the depth is higher we will use the
+   * ModelType.
+   *
+   * WORSE CASE: Some ModelTypes have Fields which are also Types. This is where
+   * the the depth arg is most important ensuring we start substituting
+   * ModelTypes with a PrimitiveType once the depth has been reached.
+   *
+   * @param {Array} selectedModels in the target elioWay application.
    * @param {integer} depth we need to go to resolve Model dependancies.
+   * @param {Array} {opt} candidateModels more models to search.
+   * @param {integer} {opt} currentDepth we need to go to resolve Model dependancies.
    * @returns {Array} of Models.
    */
-  modelMiner(modelsWanted, depth, currentDepth) {
+  modelMiner(selectedModels, depth, candidateModels, currentDepth) {
+    // Defaults for recursive parameters.
     if (!currentDepth) currentDepth = 0
-    let requiredModels = new Set(modelsWanted)
-    for (let modelName of modelsWanted) {
-      let modelDef = this.models.get(modelName)
-      requiredModels = new Set([...requiredModels].concat([...modelDef.subs]))
-      for (let fieldName of modelDef.fields) {
-        let fieldDef = this.fields.get(fieldName)
-        // Put them in order: modelsWanted, primitives, this field's types.
-        let selectFromModels = modelsWanted
-          .concat([...this.primts.keys()])
-          .concat([...fieldDef.types])
-        // Select the most appropriate type for this fieldDef.
-        let chosenFieldType = this._bestFieldType(
-          fieldDef.types,
-          selectFromModels
-        )
-        // See whether this is ModelType, or a simple Primitive.
-        if (this.models.get(chosenFieldType)) {
-          // Add to the Set of models we will need.
-          requiredModels.add(chosenFieldType)
-        }
-      }
+    // At each depth, search with the current models and the candidates.
+    candidateModels = _.union(selectedModels, candidateModels)
+
+    let PRIMITIVES = [...this.PRIMTS.keys()]
+    log(`PRIMITIVES: ${PRIMITIVES}`)
+    log(`DEPTH: ${currentDepth}`)
+    log(`${currentDepth} selectedModels: ${selectedModels}`)
+    log(`${currentDepth} candidateModels: ${candidateModels}`)
+    // Models mined at this depth.
+    let modelsMined = new Array()
+    // Models to check for the next depth.
+    let deeperModels = new Array()
+    // The set of models we want to search against.
+    for (let modelName of candidateModels) {
+      let modelDef = this.MODELS.get(modelName)
+      // Null if Primitive type. Ignore.
+      if (modelDef) {
+        // Check the ModelType(s) of its fields.
+        log(`$currentDepth modelDef.fields: ${[...modelDef.fields]}`)
+        for (let fieldName of modelDef.fields) {
+          let fieldDef = this.FIELDS.get(fieldName)
+          // Put them in order: selectedModels, candidateModels then primitives.
+          // We're adding candidateModels here because there's a chance we might
+          // use them,
+          let selectFromModels = _.union(candidateModels, PRIMITIVES)
+          // Select the most appropriate type for this fieldDef.
+          log(
+            `${currentDepth} fieldDef.types ${[...fieldDef.types]}`
+          )
+          let chosenFieldType = this._bestFieldType(
+            fieldDef.types,
+            selectFromModels
+          )
+          log(`${currentDepth} chosenFieldType: ${chosenFieldType}`)
+          // See whether this is a ModelType, or a simple Primitive.
+          if (this.MODELS.get(chosenFieldType)) {
+            // If ModelType, add to the Set of models we will need.
+            modelsMined.push(chosenFieldType)
+          } else {
+            // Build a list of future Models to check.
+            let fieldsModelTypes = _.difference([...fieldDef.types], PRIMITIVES)
+            log(
+              `${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`
+            )
+            deeperModels = _.union(deeperModels, fieldsModelTypes)
+          }
+        } // end for each field of modelDef
+      } // end if modelDef
     }
-    if (currentDepth < depth) {
+    let modelResults = _.union(selectedModels, modelsMined)
+    // Only go deeper if there are unmined ModelTypes.
+    deeperModels = _.difference(deeperModels, modelResults)
+    // Allow to go deeper?
+    if (currentDepth < depth && deeperModels) {
       return this.modelMiner(
-        [...requiredModels],
+        modelResults,
         depth,
+        deeperModels,
         (currentDepth += 1)
       )
     } else {
-      return [...requiredModels]
+      // Return as Array
+      return modelResults
     }
   }
 }
