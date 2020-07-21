@@ -4,7 +4,7 @@
   <img src="star.png" alt="">
 </figure>
 
-> Everything you need to play god **the elioWay**
+> In the grand scheme of Things, **the elioWay**
 
 ![experimental](https://elioway.gitlab.io/static/experimental.png "experimental")
 

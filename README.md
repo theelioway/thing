@@ -1,12 +1,10 @@
 ![](elio-crispr-logo.png)
 
-> Transforming Schema, **the elioWay**
+> In the grand scheme of Things, **the elioWay**
 
 # crispr
 
-A class which converts
-
-<schema.org> jsonld files into JSON models.</schema.org>
+A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Crispr is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
 - [crispr Documentation](https://elioway.gitlab.io/eliothing/crispr/)
 
