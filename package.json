@@ -1,11 +1,13 @@
 {
+  "author": "Tim Bushell",
   "description": "In the grand scheme of Things, the elioWay",
-  "name": "crispr",
+  "name": "@elioway/crispr",
   "title": "crispr",
   "version": "0.0.1",
   "chisel": {
     "host": "eliothing",
     "Python": [
+      "crispr",
       "dna-django",
       "genes"
     ],
@@ -13,27 +15,29 @@
       "generator-thing"
     ]
   },
-  "devDependencies": {
-    "prettier": "1.16.4"
+  "dependencies": {
+    "jsonld": "^3.1.1",
+    "lodash": "^4.17.19",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   },
+  "homepage": "https://elioway.gitlab.io/eliothing/crispr",
   "keywords": [
     "elioway",
     "nodejs"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/elioway/eliothing/crispr"
+  },
   "scripts": {
     "test": "mocha",
     "prettier:hbs": "prettier  --write **/*.hbs --parser=glimmer",
     "prettier": "prettier --write \"**/*.{js,json,scss,md,html}\" \"!package.json\""
-  },
-  "dependencies": {
-    "jsonld": "^3.1.1",
-    "lodash": "^4.17.19",
-    "winston": "^3.3.3"
   }
 }
