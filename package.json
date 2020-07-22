@@ -3,6 +3,19 @@
   "name": "crispr",
   "title": "crispr",
   "version": "0.0.1",
+  "chisel": {
+    "host": "eliothing",
+    "Python": [
+      "dna-django",
+      "genes"
+    ],
+    "Tools": [
+      "generator-thing"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "1.16.4"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
