@@ -19,7 +19,7 @@ describe("class | Crispr | crispify tinyUniverse", () => {
         },
         {
           "@type": "rdfs:Class",
-          "rdfs:label": "Bigness",
+          "rdfs:label": { "@language": "en", "@value": "Bigness" },
           "rdfs:comment": "Comment Bigness",
         },
         {
@@ -33,7 +33,8 @@ describe("class | Crispr | crispify tinyUniverse", () => {
           "rdfs:comment": "Comment Text",
         },
       ],
-      "d:/"
+      "d:/",
+      []
     )
     crispr.domain.should.equal("d:/")
     crispr.MODELS.size.should.equal(2)

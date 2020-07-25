@@ -3,6 +3,16 @@ module.exports = {
     { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
     {
       "@type": "rdf:Property",
+      "rdfs:label": "name",
+      "d:/domainIncludes": [
+        { "@id": "d:/Belt" },
+        { "@id": "d:/GPS" },
+        { "@id": "d:/Cosmos" },
+      ],
+      "d:/rangeIncludes": { "@id": "d:/Text" },
+    },
+    {
+      "@type": "rdf:Property",
       "rdfs:label": "isInteresting",
       "d:/domainIncludes": { "@id": "d:/Cosmos" },
       "d:/rangeIncludes": { "@id": "d:/Interestingness" },
@@ -57,16 +67,6 @@ module.exports = {
       "@type": "rdf:Property",
       "rdfs:label": "satelliteName",
       "d:/domainIncludes": [{ "@id": "d:/Satellite" }, { "@id": "d:/GPS" }],
-      "d:/rangeIncludes": { "@id": "d:/Text" },
-    },
-    {
-      "@type": "rdf:Property",
-      "rdfs:label": "name",
-      "d:/domainIncludes": [
-        { "@id": "d:/Belt" },
-        { "@id": "d:/GPS" },
-        { "@id": "d:/Cosmos" },
-      ],
       "d:/rangeIncludes": { "@id": "d:/Text" },
     },
     {
@@ -170,10 +170,10 @@ module.exports = {
     },
     {
       "@type": "rdfs:Class",
+      "rdfs:label": "ImageObject",
       "http://www.w3.org/2002/07/owl#equivalentClass": {
         "@id": "http://purl.org/dc/dcmitype/Image",
       },
-      "rdfs:label": "ImageObject",
       "rdfs:subClassOf": { "@id": "d:/MeteorObject" },
     },
     {

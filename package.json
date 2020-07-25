@@ -16,7 +16,6 @@
     ]
   },
   "dependencies": {
-    "jsonld": "^3.1.1",
     "lodash": "^4.17.19",
     "winston": "^3.3.3"
   },
@@ -37,7 +36,6 @@
   },
   "scripts": {
     "test": "mocha",
-    "prettier:hbs": "prettier  --write **/*.hbs --parser=glimmer",
-    "prettier": "prettier --write \"**/*.{js,json,scss,md,html}\" \"!package.json\""
+    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   }
 }

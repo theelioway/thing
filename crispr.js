@@ -11,13 +11,24 @@ module.exports = class Crispr {
    * @tutorial Doing this makes it easier to build the "DNA" of Models.
    *
    * @param {Array} graphList of schema objects from jsonld.
-   * @param {Array} graphList of schema objects from jsonld.
+   * @param {str} domain used in jsonld.
+   * @param {Array} fixedPrimitives names we'll always treat as Primitive datatypes.
+   *        For instance, depending on the database, you might choose to make
+   *        "ImageObject" a Primitive if your database supports it.
    */
-  constructor(graphList, domain) {
+  constructor(graphList, domain, fixedPrimitives) {
     this.domain = domain
     this.MODELS = new Map()
     this.FIELDS = new Map()
     this.PRIMTS = new Map()
+    if (Array.isArray(fixedPrimitives) && fixedPrimitives.length) {
+      for (let primitiveName of fixedPrimitives) {
+        this.PRIMTS.set(primitiveName, {
+          name: primitiveName,
+          help: "Fixed as Primitive in constructor.",
+        })
+      }
+    }
     this.crispify(graphList)
   }
 
@@ -33,25 +44,25 @@ module.exports = class Crispr {
     this.MODELS = new Map()
     this.FIELDS = new Map()
     for (let schemaObj of graphList) {
-      let schemaType = schemaObj["@type"]
-      let schemaName = schemaObj["rdfs:label"]
+      let schemaName = this._labelOf(schemaObj["rdfs:label"])
+      let schemaType = this._typeOf(schemaObj["@type"])
       let schemaComment = schemaObj["rdfs:comment"]
       // Handle Primitives
-      if (schemaType.includes(`${this.domain}DataType`)) {
+      if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
           name: schemaName,
           help: schemaComment,
         })
       }
       // Handle a Type/Class/Model
-      else if (schemaType === "rdfs:Class") {
+      else if (schemaType === "Class") {
         this._setModel(schemaName, {
           help: schemaComment,
           subs: this._setOf(schemaObj, "rdfs:subClassOf"),
         })
       }
       // Handle a Property/Field
-      else if (schemaType === "rdf:Property") {
+      else if (schemaType === "Property") {
         let typeOf = this._setOf(schemaObj, `${this.domain}rangeIncludes`)
         let fieldOf = this._setOf(schemaObj, `${this.domain}domainIncludes`)
         this.FIELDS.set(schemaName, {
@@ -67,8 +78,10 @@ module.exports = class Crispr {
       }
       // Handle a Enumerated Type Value
       else {
-        let enumeratorOf = schemaType.replace(this.domain, "")
-        this._setModel(enumeratorOf, { enum: schemaName })
+        for (let typeOf of schemaType) {
+          let enumeratorOf = typeOf.replace(this.domain, "")
+          this._setModel(enumeratorOf, { enum: schemaName })
+        }
       }
     }
   }
@@ -81,7 +94,7 @@ module.exports = class Crispr {
    * @param {Object} opts with values to create/update the Model/Type/Class.
    */
   _setModel(name, opts) {
-    // Just check to see if this is a primitive.
+    // Check to see if subClasses a primitive.
     let primts = [...this.PRIMTS.keys()]
     if (
       opts.subs &&
@@ -94,7 +107,7 @@ module.exports = class Crispr {
       this.PRIMTS.set(name, p)
       return
     }
-    // Other handle as normal type.
+    // Otherwise handle as normal type.
     let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
@@ -123,6 +136,57 @@ module.exports = class Crispr {
     return Array.isArray(obj) ? obj : [obj]
   }
 
+  /** @file Resolve variations in the "@type" property of a Schema.org jsonld object.
+   * @author Tim Bushell
+   *
+   * @tutorial
+   * Variations are:
+   * - Class Type i.e. "rdfs:Class"
+   * - Property Type i.e. "rdf:Property"
+   * - Primitive Type i.e. [ "rdfs:Class", "http://schema.org/DataType" ]
+   * - Schema Type e.g. "http://schema.org/RestrictedDiet"
+   * - Schema Types e.g. ["http://schema.org/RestrictedDiet", "http://schema.org/MedicalDiet"]
+   * @param {operand} value is from the schema obj "@type" property.
+   * @returns {str/Array} String or Array representing the type of Schema.org jsonld object.
+   */
+  _typeOf(value) {
+    if (value === "rdfs:Class") {
+      return "Class"
+    } else if (value === "rdf:Property") {
+      return "Property"
+    } else if (
+      Array.isArray(value) &&
+      value.includes(`${this.domain}DataType`)
+    ) {
+      return "Primitive"
+    } else if (Array.isArray(value) || value.includes(this.domain)) {
+      // List anyway philosophy (if some are a list - force a list).
+      return this._listAnyway(value)
+    } else {
+      throw `Unknown @type: ${value}.`
+    }
+  }
+
+  /** @file Resolve variations in the "rdfs:label" property of a Schema.org jsonld object.
+   * @author Tim Bushell
+   *
+   * @tutorial
+   * Variations are:
+   * - String i.e. "Rocket"
+   * - Language i.e. { "@language": "en", "@value": "publisherImprint" }
+   * @param {operand} value is from the schema obj "rdfs:label" property.
+   * @returns {str} representing the label of Schema.org jsonld object.
+   */
+  _labelOf(value) {
+    if (typeof value === "string") {
+      return value
+    } else if (typeof value === "object") {
+      return value["@value"]
+    } else {
+      throw `Unknown rdfs:label: ${value}.`
+    }
+  }
+
   /**
    * @file Utility function to handle a schema's relationship properties.
    * @author Tim Bushell
@@ -140,6 +204,37 @@ module.exports = class Crispr {
     )
   }
 
+  /**
+   * @file Utility to show all the types which subclass the given types.
+   * @author Tim Bushell
+   *
+   * @param {graphList} obj is the schema
+   * @param {Array} types you want to see which classes are subclass of.
+   * @returns {Set} of types which subclass any of those types.
+   */
+  subClassesOf(graphList, types) {
+    for (let schemaObj of graphList["@graph"]) {
+      let subClasses = new Map()
+      for (let schemaObj of graphList) {
+        if (schemaObj["@type"] === "rdfs:Class") {
+          let schemaObjLabel = labelOf(schemaObj["rdfs:label"])
+          for (let sub of listAnyway(schemaObj["rdfs:subClassOf"])) {
+            if (sub) {
+              let subName = sub["@id"].replace("http://schema.org/", "")
+              if (types.includes(subName)) {
+                let subs = rtn.get(schemaObjLabel)
+                if (!subs) subs = new Set()
+                subs.add(subName)
+                subClasses.set(schemaObjLabel, subs)
+              }
+            }
+          }
+        }
+      }
+      return rtn
+    }
+  }
+
   /** @file Utility class to find the best Matching Type.
    * @author Tim Bushell
    *
@@ -155,6 +250,21 @@ module.exports = class Crispr {
     for (let type of modelsAvailable) {
       if (fieldTypes.has(type)) return type
     }
+  }
+
+  /** @file Subclass miner
+   * @author Tim Bushell */
+  _parentClassesOf(knownSubs) {
+    let newSubs = new Array()
+    for (let parent of knownSubs) {
+      let parentClass = this.MODELS.get(parent)
+      let unKnownSubs = _.difference([...parentClass.subs], knownSubs)
+      newSubs = _.union(newSubs, unKnownSubs)
+    }
+    if (newSubs.length) {
+      knownSubs = _.union(this._parentClassesOf(newSubs), knownSubs)
+    }
+    return knownSubs
   }
 
   /**
@@ -195,7 +305,8 @@ module.exports = class Crispr {
 
     let PRIMITIVES = [...this.PRIMTS.keys()]
     log(`PRIMITIVES: ${PRIMITIVES}`)
-    log(`DEPTH: ${currentDepth}`)
+    log(`DEPTH: ${depth}`)
+    log(`CURRENTDEPTH: ${currentDepth}`)
     log(`${currentDepth} selectedModels: ${selectedModels}`)
     log(`${currentDepth} candidateModels: ${candidateModels}`)
     // Models mined at this depth.
@@ -207,8 +318,13 @@ module.exports = class Crispr {
       let modelDef = this.MODELS.get(modelName)
       // Null if Primitive type. Ignore.
       if (modelDef) {
+        modelsMined = _.union(
+          modelsMined,
+          this._parentClassesOf([...modelDef.subs])
+        )
+        log(`${currentDepth} SubsMined: ${modelsMined}`)
         // Check the ModelType(s) of its fields.
-        log(`$currentDepth modelDef.fields: ${[...modelDef.fields]}`)
+        log(`${currentDepth} modelDef.fields: ${[...modelDef.fields]}`)
         for (let fieldName of modelDef.fields) {
           let fieldDef = this.FIELDS.get(fieldName)
           // Put them in order: selectedModels, candidateModels then primitives.
@@ -216,9 +332,7 @@ module.exports = class Crispr {
           // use them,
           let selectFromModels = _.union(candidateModels, PRIMITIVES)
           // Select the most appropriate type for this fieldDef.
-          log(
-            `${currentDepth} fieldDef.types ${[...fieldDef.types]}`
-          )
+          log(`${currentDepth} fieldDef.types ${[...fieldDef.types]}`)
           let chosenFieldType = this._bestFieldType(
             fieldDef.types,
             selectFromModels
@@ -231,19 +345,27 @@ module.exports = class Crispr {
           } else {
             // Build a list of future Models to check.
             let fieldsModelTypes = _.difference([...fieldDef.types], PRIMITIVES)
-            log(
-              `${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`
-            )
+            log(`${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`)
             deeperModels = _.union(deeperModels, fieldsModelTypes)
           }
         } // end for each field of modelDef
       } // end if modelDef
     }
-    let modelResults = _.union(selectedModels, modelsMined)
+    let modelResults = _.union(
+      selectedModels,
+      _.difference(modelsMined, PRIMITIVES)
+    )
+    log("------")
     // Only go deeper if there are unmined ModelTypes.
-    deeperModels = _.difference(deeperModels, modelResults)
+    deeperModels = _.union(
+      _.difference(deeperModels, modelResults),
+      _.difference(modelResults, deeperModels)
+    )
+    log(`${currentDepth} modelResults: ${modelResults}`)
+    log(`${currentDepth} deeperModels: ${deeperModels}`)
+    log(`==================== end depth ${currentDepth}`)
     // Allow to go deeper?
-    if (currentDepth < depth && deeperModels) {
+    if (currentDepth < depth && deeperModels && deeperModels.length) {
       return this.modelMiner(
         modelResults,
         depth,

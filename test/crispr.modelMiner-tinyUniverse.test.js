@@ -26,6 +26,11 @@ describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Integer", 
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
+  it("depth 2", () => {
+    new Crispr(this.tinyUniverse, "d:/")
+      .modelMiner(["Cosmos"], 2)
+      .should.have.members(["Cosmos", "Bigness"])
+  })
 })
 
 describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
