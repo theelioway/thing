@@ -52,20 +52,20 @@ describe("class | Crispr | modelMaker tinyUniverse", () => {
   it("depth 0", () => {
     let modelsMined = this.crispr.modelMiner(["Cosmos"], 0)
     this.crispr
-      .modelMaker("Cosmos", modelsMined)
+      .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
     this.crispr
-      .modelMaker("Cosmos", modelsMined)
+      .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
     let modelsMined = this.crispr.modelMiner(["Cosmos"], 1)
-    this.crispr.modelMaker("Cosmos", modelsMined).should.eql({
+    this.crispr.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
       fields: {
         size: {
           type: "Text",

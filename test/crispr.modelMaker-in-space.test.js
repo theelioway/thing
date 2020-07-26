@@ -1,62 +1,135 @@
 const should = require("chai").should()
 const Crispr = require("../crispr")
 const space = require("./space")
-const fs = require("fs")
 
 before(() => {
   this.crispr = new Crispr(space["@graph"], "d:/")
-  this.jay = {}
-})
-
-after(() => {
-  fs.writeFileSync(`./expected.json`, JSON.stringify(this.jay))
 })
 
 for (let [model, tests] of Object.entries({
   Cosmos: {
-    0: {},
-    1: {},
+    "0": {
+      fields: {
+        name: { type: "Text" },
+        isInteresting: { type: "Text" },
+      },
+      name: "Cosmos",
+      subs: [],
+    },
+    "1": {
+      fields: {
+        name: { type: "Text" },
+        isInteresting: {
+          type: "Text",
+          enums: ["Boring", "Whatever", "Fascinating"],
+        },
+      },
+      name: "Cosmos",
+      subs: [],
+    },
   },
   Universe: {
-    0: {},
+    "0": {
+      fields: {},
+      name: "Universe",
+      subs: ["Cosmos"],
+    },
   },
   Galaxy: {
-    0: {},
-    1: {},
+    "0": {
+      fields: { milkiness: { type: "DateTime" } },
+      name: "Galaxy",
+      subs: ["Cosmos"],
+    },
+    "1": {
+      fields: { milkiness: { type: "Universe" } },
+      name: "Galaxy",
+      subs: ["Cosmos"],
+    },
   },
   SolarSystem: {
-    0: {},
-    1: {},
+    "0": {
+      fields: { qualifications: { type: "Text" } },
+      name: "SolarSystem",
+      subs: ["Cosmos"],
+    },
+    "1": {
+      fields: {
+        qualifications: { type: "Galaxy" },
+      },
+      name: "SolarSystem",
+      subs: ["Cosmos"],
+    },
   },
   Sun: {
-    0: {},
-    1: {},
+    "0": {
+      fields: { naics: { type: "Boolean" } },
+      name: "Sun",
+      subs: ["Cosmos"],
+    },
+    "1": {
+      fields: { naics: { type: "SolarSystem" } },
+      name: "Sun",
+      subs: ["Cosmos"],
+    },
   },
   Planet: {
-    0: {},
-    1: {},
+    "0": {
+      fields: {
+        email: { type: "Date" },
+        sunny: { type: "Text" },
+      },
+      name: "Planet",
+      subs: ["Cosmos"],
+    },
+    "1": {
+      fields: {
+        email: { type: "Date" },
+        sunny: { type: "Sun" },
+      },
+      name: "Planet",
+      subs: ["Cosmos"],
+    },
   },
   Moon: {
-    0: {},
+    "0": {
+      fields: { moonShine: { type: "Number" } },
+      name: "Moon",
+      subs: ["Planet"],
+    },
   },
   Asteroid: {
-    0: {},
-    1: {},
+    "0": {
+      fields: { belt: { type: "Text" } },
+      name: "Asteroid",
+      subs: ["Moon", "Sun"],
+    },
   },
   Satellite: {
-    0: {},
+    "0": {
+      fields: { satelliteName: { type: "Text" } },
+      name: "Satellite",
+      subs: ["Cosmos"],
+    },
   },
   GPS: {
-    0: {},
+    "0": {
+      fields: {
+        name: { type: "Text" },
+        satelliteName: { type: "Text" },
+      },
+      name: "GPS",
+      subs: ["Satellite"],
+    },
   },
 })) {
   describe(`class | Crispr | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
-      it.only(`${model} at depth ${depth}`, () => {
+      it(`${model} at depth ${depth}`, () => {
         let modelsMined = this.crispr.modelMiner([model], depth)
-        let modelMade = this.crispr.modelMaker(model, modelsMined)
-        if (!this.jay.hasOwnProperty(model)) this.jay[model] = {}
-        this.jay[model][depth] = modelMade
+        let modelMade = this.crispr.modelMaker(model, modelsMined, {
+          help: false,
+        })
         modelMade.should.be.eql(expectModelMade)
       })
     }

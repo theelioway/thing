@@ -258,8 +258,10 @@ module.exports = class Crispr {
     let newSubs = new Array()
     for (let parent of knownSubs) {
       let parentClass = this.MODELS.get(parent)
-      let unKnownSubs = _.difference([...parentClass.subs], knownSubs)
-      newSubs = _.union(newSubs, unKnownSubs)
+      if (parentClass) {
+        let unKnownSubs = _.difference([...parentClass.subs], knownSubs)
+        newSubs = _.union(newSubs, unKnownSubs)
+      }
     }
     if (newSubs.length) {
       knownSubs = _.union(this._parentClassesOf(newSubs), knownSubs)
@@ -399,7 +401,7 @@ module.exports = class Crispr {
    * @param {Array} baseModels output from this.modelMiner.
    * @returns {Object} JSON format version of the Model.
    */
-  modelMaker(selectedModelName, baseModels) {
+  modelMaker(selectedModelName, baseModels, opts) {
     // Convinient for a single call.
     if (!baseModels) {
       baseModels = this.modelMiner([selectedModelName])
@@ -419,7 +421,9 @@ module.exports = class Crispr {
     model.fields = new Object()
     model.name = selectedModelName
     model.subs = [...modelDef.subs]
-    model.help = modelDef.help || `${selectedModelName} Help`
+    if (opts.help) {
+      model.help = modelDef.help
+    }
     // Resolve this Model's fields
     for (let fieldName of modelDef.fields) {
       // Internal Field definition resolved by `crispify` function.
@@ -451,10 +455,11 @@ module.exports = class Crispr {
       } else {
         fieldTypeDef = this.PRIMTS.get(field.type)
       }
-      field.help = fieldTypeDef.help || `${fieldName} Help`
+      if (opts.help) {
+        field.help = fieldDef.help
+      }
       model.fields[fieldName] = field
     }
-    console.log(model)
     return model
   }
 }
