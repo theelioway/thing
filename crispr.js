@@ -377,4 +377,84 @@ module.exports = class Crispr {
       return modelResults
     }
   }
+
+  modelsMaker(selectedModels, depth) {
+    let models = new Map()
+    let baseModels = this.modelMiner(selectedModels, depth)
+    for (let selectedModelName of selectedModels) {
+      models.set(
+        selectedModelName,
+        this.modelMaker(selectedModelName, baseModels)
+      )
+    }
+    return models
+  }
+  /**
+   * @file Make a simple JSON, version of a Model.
+   * @tutorial To build a Model prepared for a backend database, you have two
+   * choices. Either override this function, or use it's return value as the
+   * basis for a custom function.
+   *
+   * @param {str} selectedModelName to build.
+   * @param {Array} baseModels output from this.modelMiner.
+   * @returns {Object} JSON format version of the Model.
+   */
+  modelMaker(selectedModelName, baseModels) {
+    // Convinient for a single call.
+    if (!baseModels) {
+      baseModels = this.modelMiner([selectedModelName])
+    }
+    // Fall back if Field Type is not a Schema Class.
+    let PRIMITIVES = [...this.PRIMTS.keys()]
+    // Internal Model definition resolved by `crispify` function.
+    let modelDef = this.MODELS.get(selectedModelName)
+    if (!modelDef) {
+      throw new RangeError(
+        "Model not found. Sure this is a Class Type in the Schema?"
+      )
+    }
+    // Return object.
+    let model = new Object()
+    // Instantiate return object's fields and other properties.
+    model.fields = new Object()
+    model.name = selectedModelName
+    model.subs = [...modelDef.subs]
+    model.help = modelDef.help || `${selectedModelName} Help`
+    // Resolve this Model's fields
+    for (let fieldName of modelDef.fields) {
+      // Internal Field definition resolved by `crispify` function.
+      let fieldDef = this.FIELDS.get(fieldName)
+      // Current field object.
+      let field = new Object()
+      // Schema fields often have 2 or more Types. We need to logically select
+      // one of those types. `baseModels` are the models we have previously
+      // mined depending on the depth we will tolerate and it will be the first
+      // field type to matches one of those Models which will be selected -
+      // otherwise we will default to a Primitive. In the unlikely event none
+      // are matched: Fallsback to Text.
+      let selectFromModels = _.union(baseModels, PRIMITIVES)
+      field.type =
+        this._bestFieldType(fieldDef.types, selectFromModels) || "Text"
+      // Internal Model definition resolved by `crispify` function.
+      let fieldTypeDef = this.MODELS.get(field.type)
+      if (fieldTypeDef) {
+        // If Model Type is enumerated, convert to Text field type and attached
+        // the valid list of Schema enumerated values.
+        if (fieldTypeDef.enums) {
+          let fieldEnums = [...fieldTypeDef.enums.values()]
+          if (fieldEnums.length) {
+            // Convert to Text + enumerated values.
+            field.type = "Text"
+            field.enums = [...fieldTypeDef.enums]
+          }
+        }
+      } else {
+        fieldTypeDef = this.PRIMTS.get(field.type)
+      }
+      field.help = fieldTypeDef.help || `${fieldName} Help`
+      model.fields[fieldName] = field
+    }
+    console.log(model)
+    return model
+  }
 }

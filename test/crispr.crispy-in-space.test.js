@@ -8,7 +8,6 @@ describe("class | Crispr | crispify space", () => {
     crispr.domain.should.equal("d:/")
 
     crispr.MODELS.size.should.equal(16)
-
     crispr.MODELS.should.have.deep.keys([
       "Cosmos",
       "Universe",
