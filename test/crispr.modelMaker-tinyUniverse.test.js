@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 
-describe("class | Crispr | modelMaker tinyUniverse", () => {
+describe("class | Crisp | modelMaker tinyUniverse", () => {
   before(() => {
-    this.crispr = new Crispr(
+    this.crispy = new Crisp(
       [
         {
           "@type": "rdfs:Class",
@@ -50,22 +50,22 @@ describe("class | Crispr | modelMaker tinyUniverse", () => {
   }
 
   it("depth 0", () => {
-    let modelsMined = this.crispr.modelMiner(["Cosmos"], 0)
-    this.crispr
+    let modelsMined = this.crispy.modelMiner(["Cosmos"], 0)
+    this.crispy
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
-    this.crispr
+    this.crispy
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
-    let modelsMined = this.crispr.modelMiner(["Cosmos"], 1)
-    this.crispr.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
+    let modelsMined = this.crispy.modelMiner(["Cosmos"], 1)
+    this.crispy.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
       fields: {
         size: {
           type: "Text",
@@ -81,7 +81,7 @@ describe("class | Crispr | modelMaker tinyUniverse", () => {
 
   it("raises an error", () => {
     ;() =>
-      this.crispr
+      this.crispy
         .modelMaker("ForSureThisModelDoesNotExist")
         .should.throw(RangeError, /Model not found/)
   })

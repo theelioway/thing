@@ -1,4 +1,4 @@
-# crispr
+# crispy
 
 <figure>
   <img src="star.png" alt="">

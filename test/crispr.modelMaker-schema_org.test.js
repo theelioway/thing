@@ -1,5 +1,5 @@
 const should = require("chai").should()
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 const fs = require("fs")
 
 const schema_path = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
@@ -9,7 +9,7 @@ const SCHEMA = JSON.parse(schema_contents)
 let debug = false
 
 before(() => {
-  this.crispr = new Crispr(SCHEMA["@graph"], "http://schema.org/")
+  this.crispy = new Crisp(SCHEMA["@graph"], "http://schema.org/")
   if (debug) this.jay = {}
 })
 
@@ -1269,11 +1269,11 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | Crispr | ${model} modelMaker in space`, () => {
+  describe(`class | Crisp | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let modelsMined = this.crispr.modelMiner([model], depth)
-        let modelMade = this.crispr.modelMaker(model, modelsMined, {
+        let modelsMined = this.crispy.modelMiner([model], depth)
+        let modelMade = this.crispy.modelMaker(model, modelsMined, {
           help: false,
         })
         if (debug) {

@@ -1,13 +1,13 @@
 {
   "author": "Tim Bushell",
   "description": "In the grand scheme of Things, the elioWay",
-  "name": "@elioway/crispr",
-  "title": "crispr",
+  "name": "@elioway/crispy",
+  "title": "crispy",
   "version": "0.0.1",
   "chisel": {
     "host": "eliothing",
     "Python": [
-      "crispr",
+      "crispy",
       "dna-django",
       "genes"
     ],
@@ -24,7 +24,7 @@
     "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://elioway.gitlab.io/eliothing/crispr",
+  "homepage": "https://elioway.gitlab.io/eliothing/crispy",
   "keywords": [
     "elioway",
     "nodejs"
@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/elioway/eliothing/crispr"
+    "url": "https://gitlab.com/elioway/eliothing/crispy"
   },
   "scripts": {
     "test": "mocha",

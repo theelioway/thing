@@ -3,7 +3,7 @@ const logger = require("./utils/logger")
 
 const log = logger.debug
 
-module.exports = class Crispr {
+module.exports = class Crisp {
   /**
    * @file
    * @author Tim Bushell

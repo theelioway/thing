@@ -1,13 +1,13 @@
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 const should = require("chai").should()
 const fs = require("fs")
 
 const schema_path =
-  "/home/tim/repo/elioway/eliothing/crispr/schemaorg/data/releases/3.9/all-layers.jsonld"
+  "/home/tim/repo/elioway/eliothing/crispy/schemaorg/data/releases/3.9/all-layers.jsonld"
 const schema_contents = fs.readFileSync(schema_path, "utf-8")
 const SCHEMA = JSON.parse(schema_contents)
 
-describe("class | Crispr | modelMiner schemaorg", () => {
+describe("class | Crisp | modelMiner schemaorg", () => {
   before(() => {
     this.fixedPrimitives = [
       "Boolean",
@@ -18,7 +18,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
       "Time",
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
-    this.crispr = new Crispr(
+    this.crispy = new Crisp(
       SCHEMA["@graph"],
       "http://schema.org/",
       this.fixedPrimitives
@@ -26,12 +26,12 @@ describe("class | Crispr | modelMiner schemaorg", () => {
   })
 
   it("Thing", () => {
-    let modelsMined = this.crispr.modelMiner(["Thing"])
+    let modelsMined = this.crispy.modelMiner(["Thing"])
     modelsMined.should.have.members(["Thing"])
   })
 
   it("Thing at depth 0", () => {
-    let modelsMined = this.crispr.modelMiner(["Thing"], 0)
+    let modelsMined = this.crispy.modelMiner(["Thing"], 0)
     modelsMined.should.have.members(["Thing"])
   })
 
@@ -47,7 +47,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
       "Thing",
       "StructuredValue",
     ]
-    let modelsMined = this.crispr.modelMiner(["Thing"], 1)
+    let modelsMined = this.crispy.modelMiner(["Thing"], 1)
     modelsMined.should.have.members(thus)
   })
 
@@ -88,14 +88,14 @@ describe("class | Crispr | modelMiner schemaorg", () => {
       "EntryPoint",
       "ContactPoint",
     ]
-    let modelsMined = this.crispr.modelMiner(["Thing"], 2)
+    let modelsMined = this.crispy.modelMiner(["Thing"], 2)
     modelsMined.should.have.members(thus)
   })
 
   /**Three tier subclasses otherwise only primitive types because no depth.*/
   it("MusicComposition at depth 0", () => {
     let thus = ["CreativeWork", "MusicComposition", "Thing"]
-    let modelsMined = this.crispr.modelMiner(["MusicComposition"])
+    let modelsMined = this.crispy.modelMiner(["MusicComposition"])
     modelsMined.should.have.members(thus)
   })
 
@@ -109,7 +109,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
       "Place",
       "Thing",
     ]
-    let modelsMined = this.crispr.modelMiner(["Notary"])
+    let modelsMined = this.crispy.modelMiner(["Notary"])
     // Subclass dependency otherwise primitive types.
     modelsMined.should.have.members(thus)
   })
@@ -123,7 +123,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
     7: 91, // eventually we reach a max
   })) {
     it(`Thing at depth ${depth}`, () => {
-      let modelsMined = this.crispr.modelMiner(["Thing"], depth)
+      let modelsMined = this.crispy.modelMiner(["Thing"], depth)
       modelsMined.length.should.be.equal(modelCount)
     })
   }
@@ -138,7 +138,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
     7: 99, // eventually we reach a max
   })) {
     it(`MusicComposition at depth ${depth}`, () => {
-      let modelsMined = this.crispr.modelMiner(["MusicComposition"], depth)
+      let modelsMined = this.crispy.modelMiner(["MusicComposition"], depth)
       modelsMined.length.should.be.equal(modelCount)
     })
   }
@@ -154,7 +154,7 @@ describe("class | Crispr | modelMiner schemaorg", () => {
     8: 98, // eventually we reach a max
   })) {
     it(`Notary at depth ${depth}`, () => {
-      let modelsMined = this.crispr.modelMiner(["Notary"], depth)
+      let modelsMined = this.crispy.modelMiner(["Notary"], depth)
       modelsMined.length.should.be.equal(modelCount)
     })
   }

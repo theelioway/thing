@@ -1,4 +1,4 @@
-# Quickstart crispr
+# Quickstart crispy
 
 ## Nutshell
 

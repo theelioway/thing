@@ -1,8 +1,8 @@
 const should = require("chai").should()
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 
 before(() => {
-  this.crispr = new Crispr(
+  this.crispy = new Crisp(
     [
       { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
       { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
@@ -18,41 +18,41 @@ before(() => {
   )
 })
 
-describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
+describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
-    this.crispr.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.crispr
+    this.crispy
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 2", () => {
-    this.crispr
+    this.crispy
       .modelMiner(["Cosmos"], 2)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Crispr | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
+describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
   it("depth 0", () => {
-    this.crispr.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.crispr
+    this.crispy
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Crispr | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
+describe("class | Crisp | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
   it("depth 0", () => {
-    this.crispr
+    this.crispy
       .modelMiner(["Cosmos", "Bigness"], 0)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 1", () => {
-    this.crispr
+    this.crispy
       .modelMiner(["Cosmos", "Bigness"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })

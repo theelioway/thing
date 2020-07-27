@@ -1,14 +1,14 @@
 const should = require("chai").should()
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 const space = require("./space")
 
-describe("class | Crispr | crispify space", () => {
+describe("class | Crisp | crispify space", () => {
   it("Maps Models and Fields", () => {
-    let crispr = new Crispr(space["@graph"], "d:/", [])
-    crispr.domain.should.equal("d:/")
+    let crispy = new Crisp(space["@graph"], "d:/", [])
+    crispy.domain.should.equal("d:/")
 
-    crispr.MODELS.size.should.equal(16)
-    crispr.MODELS.should.have.deep.keys([
+    crispy.MODELS.size.should.equal(16)
+    crispy.MODELS.should.have.deep.keys([
       "Cosmos",
       "Universe",
       "Galaxy",
@@ -27,8 +27,8 @@ describe("class | Crispr | crispify space", () => {
       "MeteorObject",
     ])
 
-    crispr.FIELDS.size.should.equal(11)
-    crispr.FIELDS.should.have.deep.keys([
+    crispy.FIELDS.size.should.equal(11)
+    crispy.FIELDS.should.have.deep.keys([
       "name",
       "isInteresting",
       "milkiness",
@@ -42,8 +42,8 @@ describe("class | Crispr | crispify space", () => {
       "satelliteName",
     ])
 
-    crispr.PRIMTS.size.should.equal(11)
-    crispr.PRIMTS.should.have.deep.keys(
+    crispy.PRIMTS.size.should.equal(11)
+    crispy.PRIMTS.should.have.deep.keys(
       ["Boolean", "DateTime", "Date", "Number", "Text", "Time"].concat(
         // + Sub Classes of Primitive
         ["Duration", "Float", "Integer", "Quantity", "URL"]

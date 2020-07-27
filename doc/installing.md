@@ -1,4 +1,4 @@
-# Installing crispr
+# Installing crispy
 
 ## Prerequisites
 
@@ -10,8 +10,8 @@
 Install into your SASS projects.
 
 ```
-npm install @elioway/crispr
-yarn add @elioway/crispr
+npm install @elioway/crispy
+yarn add @elioway/crispy
 ```
 
 ## Development
@@ -20,5 +20,5 @@ yarn add @elioway/crispr
 cd elioway
 git clone https://gitlab.com/elioway/eliothing.git
 cd eliothing
-git clone https://gitlab.com/eliothing/crispr.git
+git clone https://gitlab.com/eliothing/crispy.git
 ```

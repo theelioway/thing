@@ -1,16 +1,16 @@
-![](elio-crispr-logo.png)
+![](elio-crispy-logo.png)
 
 > In the grand scheme of Things, **the elioWay**
 
-# crispr
+# crispy
 
-A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Crispr is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Crisp is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
-- [crispr Documentation](https://elioway.gitlab.io/eliothing/crispr/)
+- [crispy Documentation](https://elioway.gitlab.io/eliothing/crispy/)
 
 ## Installing
 
-- [Installing crispr](https://elioway.gitlab.io/eliothing/crispr/installing.html)
+- [Installing crispy](https://elioway.gitlab.io/eliothing/crispy/installing.html)
 
 ## Requirements
 
@@ -31,7 +31,7 @@ You're seeing it.
 
 ## Nutshell
 
-- [crispr Quickstart](https://elioway.gitlab.io/eliothing/crispr/quickstart.html)
+- [crispy Quickstart](https://elioway.gitlab.io/eliothing/crispy/quickstart.html)
 
 ## License
 

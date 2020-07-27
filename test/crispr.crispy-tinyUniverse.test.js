@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crispr = require("../crispr")
+const Crisp = require("../crispy")
 
-describe("class | Crispr | crispify tinyUniverse", () => {
+describe("class | Crisp | crispify tinyUniverse", () => {
   it("Maps Models and Fields", () => {
-    let crispr = new Crispr(
+    let crispy = new Crisp(
       [
         {
           "@type": "rdfs:Class",
@@ -36,31 +36,31 @@ describe("class | Crispr | crispify tinyUniverse", () => {
       "d:/",
       []
     )
-    crispr.domain.should.equal("d:/")
-    crispr.MODELS.size.should.equal(2)
-    crispr.MODELS.get("Cosmos").should.eql({
+    crispy.domain.should.equal("d:/")
+    crispy.MODELS.size.should.equal(2)
+    crispy.MODELS.get("Cosmos").should.eql({
       enums: new Set(),
       fields: new Set(["size"]),
       help: "Comment Cosmos",
       name: "Cosmos",
       subs: new Set(),
     })
-    crispr.MODELS.get("Bigness").should.eql({
+    crispy.MODELS.get("Bigness").should.eql({
       enums: new Set(["Big"]),
       fields: new Set(),
       help: "Comment Bigness",
       name: "Bigness",
       subs: new Set(),
     })
-    crispr.FIELDS.size.should.equal(1)
-    crispr.FIELDS.get("size").should.eql({
+    crispy.FIELDS.size.should.equal(1)
+    crispy.FIELDS.get("size").should.eql({
       name: "size",
       help: "Comment size",
       models: new Set(["Cosmos"]),
       types: new Set(["Bigness", "Text"]),
     })
-    crispr.PRIMTS.size.should.equal(1)
-    crispr.PRIMTS.get("Text").should.eql({
+    crispy.PRIMTS.size.should.equal(1)
+    crispy.PRIMTS.get("Text").should.eql({
       name: "Text",
       help: "Comment Text",
     })

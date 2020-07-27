@@ -1,4 +1,4 @@
-# crispr Credits
+# crispy Credits
 
 ## Artwork
 
