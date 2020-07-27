@@ -95,14 +95,14 @@ for (let [model, tests] of Object.entries({
     "0": {
       fields: { moonShine: { type: "Number" } },
       name: "Moon",
-      subs: ["Planet"],
+      subs: ["Cosmos", "Planet"],
     },
   },
   Asteroid: {
     "0": {
       fields: { belt: { type: "Text" } },
       name: "Asteroid",
-      subs: ["Moon", "Sun"],
+      subs: ["Planet", "Cosmos", "Moon", "Sun"],
     },
   },
   Satellite: {
@@ -119,7 +119,7 @@ for (let [model, tests] of Object.entries({
         satelliteName: { type: "Text" },
       },
       name: "GPS",
-      subs: ["Satellite"],
+      subs: ["Cosmos", "Satellite"],
     },
   },
 })) {

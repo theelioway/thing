@@ -204,37 +204,6 @@ module.exports = class Crispr {
     )
   }
 
-  /**
-   * @file Utility to show all the types which subclass the given types.
-   * @author Tim Bushell
-   *
-   * @param {graphList} obj is the schema
-   * @param {Array} types you want to see which classes are subclass of.
-   * @returns {Set} of types which subclass any of those types.
-   */
-  subClassesOf(graphList, types) {
-    for (let schemaObj of graphList["@graph"]) {
-      let subClasses = new Map()
-      for (let schemaObj of graphList) {
-        if (schemaObj["@type"] === "rdfs:Class") {
-          let schemaObjLabel = labelOf(schemaObj["rdfs:label"])
-          for (let sub of listAnyway(schemaObj["rdfs:subClassOf"])) {
-            if (sub) {
-              let subName = sub["@id"].replace("http://schema.org/", "")
-              if (types.includes(subName)) {
-                let subs = rtn.get(schemaObjLabel)
-                if (!subs) subs = new Set()
-                subs.add(subName)
-                subClasses.set(schemaObjLabel, subs)
-              }
-            }
-          }
-        }
-      }
-      return rtn
-    }
-  }
-
   /** @file Utility class to find the best Matching Type.
    * @author Tim Bushell
    *
@@ -252,8 +221,13 @@ module.exports = class Crispr {
     }
   }
 
-  /** @file Subclass miner
-   * @author Tim Bushell */
+  /**
+   * @file Utility to "climb the tree" of class type inheritance.
+   * @author Tim Bushell
+   *
+   * @param {Array} subs are usually the direct classes.
+   * @returns {Array} the entire tree of inheritance.
+   */
   _parentClassesOf(knownSubs) {
     let newSubs = new Array()
     for (let parent of knownSubs) {
@@ -420,7 +394,7 @@ module.exports = class Crispr {
     // Instantiate return object's fields and other properties.
     model.fields = new Object()
     model.name = selectedModelName
-    model.subs = [...modelDef.subs]
+    model.subs = this._parentClassesOf([...modelDef.subs])
     if (opts.help) {
       model.help = modelDef.help
     }
@@ -447,9 +421,14 @@ module.exports = class Crispr {
         if (fieldTypeDef.enums) {
           let fieldEnums = [...fieldTypeDef.enums.values()]
           if (fieldEnums.length) {
-            // Convert to Text + enumerated values.
-            field.type = "Text"
-            field.enums = [...fieldTypeDef.enums]
+            if (!_.difference(fieldEnums, ["True", "False"]).length) {
+              // Convert to Text + enumerated values.
+              field.type = "Boolean"
+            } else {
+              // Convert to Text + enumerated values.
+              field.type = "Text"
+              field.enums = fieldEnums
+            }
           }
         }
       } else {
