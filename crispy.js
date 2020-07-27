@@ -1,5 +1,8 @@
 const _ = require("lodash")
 const logger = require("./utils/logger")
+const difference = require("./utils/difference")
+const union = require("./utils/union")
+const xor = require("./utils/xor")
 
 const log = logger.debug
 
@@ -333,10 +336,7 @@ module.exports = class Crisp {
     )
     log("------")
     // Only go deeper if there are unmined ModelTypes.
-    deeperModels = _.union(
-      _.difference(deeperModels, modelResults),
-      _.difference(modelResults, deeperModels)
-    )
+    deeperModels = xor(modelResults, deeperModels)
     log(`${currentDepth} modelResults: ${modelResults}`)
     log(`${currentDepth} deeperModels: ${deeperModels}`)
     log(`==================== end depth ${currentDepth}`)

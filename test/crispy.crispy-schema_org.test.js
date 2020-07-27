@@ -25,6 +25,16 @@ describe("class | Crisp | crispify schemaorg", () => {
     )
     /**Correct as of 3.9.*/
     crispy.MODELS.size.should.be.equal(795)
+
+    let modelDefs = [...crispy.MODELS.values()]
+    let enumedModels = modelDefs.filter(m => m.enums.size)
+    enumedModels.length.should.be.equal(49)
+
+    let enumsSize = modelDefs.reduce((enumsTotalLength, m) => {
+      return m.enums.size + enumsTotalLength
+    }, 0)
+    enumsSize.should.be.equal(264)
+
     crispy.FIELDS.size.should.be.equal(1268)
     crispy.PRIMTS.size.should.be.equal(16)
     crispy.PRIMTS.should.have.deep.keys(

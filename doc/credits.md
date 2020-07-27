@@ -9,3 +9,4 @@
 
 - [elioWay](https://elioway.gitlab.io)
 - [Yeoman](http://yeoman.io/)
+- <https://2ality.com/2015/01/es6-set-operations.html>
