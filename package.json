@@ -4,6 +4,7 @@
   "name": "@elioway/crispy",
   "title": "crispy",
   "version": "0.2.0",
+  "bin": "./bin/index.js",
   "chisel": {
     "host": "eliothing",
     "Python": [
@@ -30,6 +31,7 @@
     "nodejs"
   ],
   "license": "MIT",
+  "main": "./crispy.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/elioway/eliothing/crispy"
