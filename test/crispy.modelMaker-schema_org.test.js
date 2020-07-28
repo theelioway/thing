@@ -1,10 +1,12 @@
+'use strict'
 const should = require("chai").should()
-const Crisp = require("../crispy")
-const fs = require("fs")
 
+const Crisp = require("../crispy")
 const schema_path = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
 const schema_contents = fs.readFileSync(schema_path, "utf-8")
 const SCHEMA = JSON.parse(schema_contents)
+
+const fs = require("fs")
 
 let debug = false
 
