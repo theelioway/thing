@@ -3,7 +3,7 @@
   "description": "In the grand scheme of Things, the elioWay",
   "name": "@elioway/crispy",
   "title": "crispy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "bin": "./bin/index.js",
   "chisel": {
     "host": "eliothing",
