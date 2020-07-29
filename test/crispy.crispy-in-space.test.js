@@ -1,10 +1,10 @@
 const should = require("chai").should()
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 const space = require("./space")
 
-describe("class | Crisp | crispify space", () => {
+describe("class | Crispy | crispify space", () => {
   it("Maps Models and Fields", () => {
-    let crispy = new Crisp(space["@graph"], "d:/", [])
+    let crispy = new Crispy(space["@graph"], "d:/", [])
     crispy.domain.should.equal("d:/")
 
     crispy.MODELS.size.should.equal(16)

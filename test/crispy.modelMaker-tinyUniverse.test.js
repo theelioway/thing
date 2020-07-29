@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 
-describe("class | Crisp | modelMaker tinyUniverse", () => {
+describe("class | Crispy | modelMaker tinyUniverse", () => {
   before(() => {
-    this.crispy = new Crisp(
+    this.crispy = new Crispy(
       [
         {
           "@type": "rdfs:Class",

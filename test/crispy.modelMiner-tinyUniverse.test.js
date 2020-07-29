@@ -1,8 +1,8 @@
 const should = require("chai").should()
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 
 before(() => {
-  this.crispy = new Crisp(
+  this.crispy = new Crispy(
     [
       { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
       { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
@@ -18,7 +18,7 @@ before(() => {
   )
 })
 
-describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
+describe("class | Crispy | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
     this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
@@ -34,7 +34,7 @@ describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Integer", (
   })
 })
 
-describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
+describe("class | Crispy | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
   it("depth 0", () => {
     this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
@@ -45,7 +45,7 @@ describe("class | Crisp | modelMiner tinyUniverse [Cosmos] Primitive Text", () =
   })
 })
 
-describe("class | Crisp | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
+describe("class | Crispy | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
   it("depth 0", () => {
     this.crispy
       .modelMiner(["Cosmos", "Bigness"], 0)

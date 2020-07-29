@@ -6,7 +6,7 @@ const xor = require("./utils/xor")
 
 const log = logger.debug
 
-module.exports = class Crisp {
+module.exports = class Crispy {
   /**
    * @file
    * @author Tim Bushell
@@ -416,13 +416,13 @@ module.exports = class Crisp {
       // Internal Model definition resolved by `crispify` function.
       let fieldTypeDef = this.MODELS.get(field.type)
       if (fieldTypeDef) {
-        fieldTypeDef.foreign = true
+        field.foreign = true
         // If Model Type is enumerated, convert to Text field type and attached
         // the valid list of Schema enumerated values.
         if (fieldTypeDef.enums) {
-          fieldTypeDef.foreign = false
           let fieldEnums = [...fieldTypeDef.enums.values()]
           if (fieldEnums.length) {
+            delete field.foreign
             if (!_.difference(fieldEnums, ["True", "False"]).length) {
               // Convert to Text + enumerated values.
               field.type = "Boolean"

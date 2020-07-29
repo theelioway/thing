@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 const space = require("./space")
 
 before(() => {
-  this.crispy = new Crisp(space["@graph"], "d:/")
+  this.crispy = new Crispy(space["@graph"], "d:/")
 })
 
 for (let [model, tests] of Object.entries({
@@ -42,7 +42,7 @@ for (let [model, tests] of Object.entries({
       subs: ["Cosmos"],
     },
     "1": {
-      fields: { milkiness: { type: "Universe" } },
+      fields: { milkiness: { type: "Universe", foreign: true } },
       name: "Galaxy",
       subs: ["Cosmos"],
     },
@@ -55,7 +55,7 @@ for (let [model, tests] of Object.entries({
     },
     "1": {
       fields: {
-        qualifications: { type: "Galaxy" },
+        qualifications: { type: "Galaxy", foreign: true },
       },
       name: "SolarSystem",
       subs: ["Cosmos"],
@@ -68,7 +68,7 @@ for (let [model, tests] of Object.entries({
       subs: ["Cosmos"],
     },
     "1": {
-      fields: { naics: { type: "SolarSystem" } },
+      fields: { naics: { type: "SolarSystem", foreign: true } },
       name: "Sun",
       subs: ["Cosmos"],
     },
@@ -85,7 +85,7 @@ for (let [model, tests] of Object.entries({
     "1": {
       fields: {
         email: { type: "Date" },
-        sunny: { type: "Sun" },
+        sunny: { type: "Sun", foreign: true },
       },
       name: "Planet",
       subs: ["Cosmos"],
@@ -123,7 +123,7 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | Crisp | ${model} modelMaker in space`, () => {
+  describe(`class | Crispy | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
         let modelsMined = this.crispy.modelMiner([model], depth)

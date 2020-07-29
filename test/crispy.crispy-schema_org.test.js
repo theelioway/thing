@@ -1,4 +1,4 @@
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 const should = require("chai").should()
 const fs = require("fs")
 
@@ -7,7 +7,7 @@ const schema_path =
 const schema_contents = fs.readFileSync(schema_path, "utf-8")
 const SCHEMA = JSON.parse(schema_contents)
 
-describe("class | Crisp | crispify schemaorg", () => {
+describe("class | Crispy | crispify schemaorg", () => {
   it("crispy_schema_versioning_members", () => {
     let fixedPrimitives = [
       "Boolean",
@@ -18,7 +18,7 @@ describe("class | Crisp | crispify schemaorg", () => {
       "Time",
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
-    let crispy = new Crisp(
+    let crispy = new Crispy(
       SCHEMA["@graph"],
       "http://schema.org/",
       fixedPrimitives

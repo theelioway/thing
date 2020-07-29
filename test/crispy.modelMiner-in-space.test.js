@@ -1,4 +1,4 @@
-const Crisp = require("../crispy")
+const Crispy = require("../crispy")
 const should = require("chai").should()
 const space = require("./space")
 
@@ -11,7 +11,7 @@ before(() => {
     "Text",
     "Time",
   ]
-  this.crispy = new Crisp(space["@graph"], "d:/", this.fixedPrimitives)
+  this.crispy = new Crispy(space["@graph"], "d:/", this.fixedPrimitives)
 })
 
 for (let [model, tests] of Object.entries({
@@ -209,7 +209,7 @@ for (let [model, tests] of Object.entries({
     1: ["MeteorObject", "CreativeForce", "Cosmos"],
   },
 })) {
-  describe(`class | Crisp | modelMiner space ${model}`, () => {
+  describe(`class | Crispy | modelMiner space ${model}`, () => {
     for (let [depth, modelsRequired] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
         let modelsMined = this.crispy.modelMiner([model], depth)
