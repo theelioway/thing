@@ -1,14 +1,14 @@
 {
   "author": "Tim Bushell",
   "description": "In the grand scheme of Things, the elioWay",
-  "name": "@elioway/crispy",
-  "title": "crispy",
+  "name": "@elioway/schema",
+  "title": "schema",
   "version": "0.2.3",
   "bin": "./bin/index.js",
   "chisel": {
     "host": "eliothing",
     "Python": [
-      "crispy",
+      "schema",
       "dna-django",
       "genes"
     ],
@@ -25,16 +25,16 @@
     "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://elioway.gitlab.io/eliothing/crispy",
+  "homepage": "https://elioway.gitlab.io/eliothing/schema",
   "keywords": [
     "elioway",
     "nodejs"
   ],
   "license": "MIT",
-  "main": "./crispy.js",
+  "main": "./schema.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/elioway/eliothing/crispy"
+    "url": "https://gitlab.com/elioway/eliothing/schema"
   },
   "scripts": {
     "test": "mocha",

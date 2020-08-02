@@ -1,14 +1,14 @@
 const should = require("chai").should()
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 const space = require("./space")
 
-describe("class | Crispy | crispify space", () => {
+describe("class | Schema | schemify space", () => {
   it("Maps Models and Fields", () => {
-    let crispy = new Crispy(space["@graph"], "d:/", [])
-    crispy.domain.should.equal("d:/")
+    let schema = new Schema(space["@graph"], "d:/", [])
+    schema.domain.should.equal("d:/")
 
-    crispy.MODELS.size.should.equal(16)
-    crispy.MODELS.should.have.deep.keys([
+    schema.MODELS.size.should.equal(16)
+    schema.MODELS.should.have.deep.keys([
       "Cosmos",
       "Universe",
       "Galaxy",
@@ -27,8 +27,8 @@ describe("class | Crispy | crispify space", () => {
       "MeteorObject",
     ])
 
-    crispy.FIELDS.size.should.equal(11)
-    crispy.FIELDS.should.have.deep.keys([
+    schema.FIELDS.size.should.equal(11)
+    schema.FIELDS.should.have.deep.keys([
       "name",
       "isInteresting",
       "milkiness",
@@ -42,8 +42,8 @@ describe("class | Crispy | crispify space", () => {
       "satelliteName",
     ])
 
-    crispy.PRIMTS.size.should.equal(11)
-    crispy.PRIMTS.should.have.deep.keys(
+    schema.PRIMTS.size.should.equal(11)
+    schema.PRIMTS.should.have.deep.keys(
       ["Boolean", "DateTime", "Date", "Number", "Text", "Time"].concat(
         // + Sub Classes of Primitive
         ["Duration", "Float", "Integer", "Quantity", "URL"]

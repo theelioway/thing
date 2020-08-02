@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 
-describe("class | Crispy | modelMaker tinyUniverse", () => {
+describe("class | Schema | modelMaker tinyUniverse", () => {
   before(() => {
-    this.crispy = new Crispy(
+    this.schema = new Schema(
       [
         {
           "@type": "rdfs:Class",
@@ -50,22 +50,22 @@ describe("class | Crispy | modelMaker tinyUniverse", () => {
   }
 
   it("depth 0", () => {
-    let modelsMined = this.crispy.modelMiner(["Cosmos"], 0)
-    this.crispy
+    let modelsMined = this.schema.modelMiner(["Cosmos"], 0)
+    this.schema
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
-    this.crispy
+    this.schema
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
-    let modelsMined = this.crispy.modelMiner(["Cosmos"], 1)
-    this.crispy.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
+    let modelsMined = this.schema.modelMiner(["Cosmos"], 1)
+    this.schema.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
       fields: {
         size: {
           type: "Text",
@@ -81,7 +81,7 @@ describe("class | Crispy | modelMaker tinyUniverse", () => {
 
   it("raises an error", () => {
     ;() =>
-      this.crispy
+      this.schema
         .modelMaker("ForSureThisModelDoesNotExist")
         .should.throw(RangeError, /Model not found/)
   })

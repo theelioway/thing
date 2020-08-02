@@ -1,4 +1,4 @@
-# Installing crispy
+# Installing schema
 
 ## Prerequisites
 
@@ -10,8 +10,8 @@
 Install into your SASS projects.
 
 ```
-npm install @elioway/crispy
-yarn add @elioway/crispy
+npm install @elioway/schema
+yarn add @elioway/schema
 ```
 
 ## Development
@@ -20,5 +20,5 @@ yarn add @elioway/crispy
 cd elioway
 git clone https://gitlab.com/elioway/eliothing.git
 cd eliothing
-git clone https://gitlab.com/eliothing/crispy.git
+git clone https://gitlab.com/eliothing/schema.git
 ```

@@ -1,4 +1,4 @@
-# crispy Credits
+# schema Credits
 
 ## Artwork
 

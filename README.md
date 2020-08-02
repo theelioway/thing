@@ -1,18 +1,18 @@
-![](https://elioway.gitlab.io/eliothing/dna-django/elio-crispy-logo.png)
+![](https://elioway.gitlab.io/eliothing/dna-django/elio-schema-logo.png)
 
 > In the grand scheme of Things, **the elioWay**
 
-# crispy
+# schema
 
 ![experimental](https://elioway.gitlab.io/static/experimental.png "experimental")
 
-A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Crispy is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Schema is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
-- [crispy Documentation](https://elioway.gitlab.io/eliothing/crispy/)
+- [schema Documentation](https://elioway.gitlab.io/eliothing/schema/)
 
 ## Installing
 
-- [Installing crispy](https://elioway.gitlab.io/eliothing/crispy/installing.html)
+- [Installing schema](https://elioway.gitlab.io/eliothing/schema/installing.html)
 
 ## Requirements
 
@@ -33,7 +33,7 @@ You're seeing it.
 
 ## Nutshell
 
-- [crispy Quickstart](https://elioway.gitlab.io/eliothing/crispy/quickstart.html)
+- [schema Quickstart](https://elioway.gitlab.io/eliothing/schema/quickstart.html)
 
 ## License
 

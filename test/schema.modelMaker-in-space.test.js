@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 const space = require("./space")
 
 before(() => {
-  this.crispy = new Crispy(space["@graph"], "d:/")
+  this.schema = new Schema(space["@graph"], "d:/")
 })
 
 for (let [model, tests] of Object.entries({
@@ -123,11 +123,11 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | Crispy | ${model} modelMaker in space`, () => {
+  describe(`class | Schema | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let modelsMined = this.crispy.modelMiner([model], depth)
-        let modelMade = this.crispy.modelMaker(model, modelsMined, {
+        let modelsMined = this.schema.modelMiner([model], depth)
+        let modelMade = this.schema.modelMaker(model, modelsMined, {
           help: false,
         })
         modelMade.should.be.eql(expectModelMade)

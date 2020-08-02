@@ -6,7 +6,7 @@ const xor = require("./utils/xor")
 
 const log = logger.debug
 
-module.exports = class Crispy {
+module.exports = class Schema {
   /**
    * @file
    * @author Tim Bushell
@@ -32,7 +32,7 @@ module.exports = class Crispy {
         })
       }
     }
-    this.crispify(graphList)
+    this.schemify(graphList)
   }
 
   /**
@@ -43,7 +43,7 @@ module.exports = class Crispy {
    *
    * @param {Array} graphList of schema objects from jsonld.
    */
-  async crispify(graphList) {
+  async schemify(graphList) {
     this.MODELS = new Map()
     this.FIELDS = new Map()
     for (let schemaObj of graphList) {
@@ -382,7 +382,7 @@ module.exports = class Crispy {
     }
     // Fall back if Field Type is not a Schema Class.
     let PRIMITIVES = [...this.PRIMTS.keys()]
-    // Internal Model definition resolved by `crispify` function.
+    // Internal Model definition resolved by `schemify` function.
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
       throw new RangeError(
@@ -400,7 +400,7 @@ module.exports = class Crispy {
     }
     // Resolve this Model's fields
     for (let fieldName of modelDef.fields) {
-      // Internal Field definition resolved by `crispify` function.
+      // Internal Field definition resolved by `schemify` function.
       let fieldDef = this.FIELDS.get(fieldName)
       // Current field object.
       let field = new Object()
@@ -413,7 +413,7 @@ module.exports = class Crispy {
       let selectFromModels = _.union(baseModels, PRIMITIVES)
       field.type =
         this._bestFieldType(fieldDef.types, selectFromModels) || "Text"
-      // Internal Model definition resolved by `crispify` function.
+      // Internal Model definition resolved by `schemify` function.
       let fieldTypeDef = this.MODELS.get(field.type)
       if (fieldTypeDef) {
         field.foreign = true

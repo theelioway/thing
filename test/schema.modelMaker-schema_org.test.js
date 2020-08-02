@@ -2,7 +2,7 @@
 const should = require("chai").should()
 const fs = require("fs")
 
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 const schema_path = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
 const schema_contents = fs.readFileSync(schema_path, "utf-8")
 const SCHEMA = JSON.parse(schema_contents)
@@ -10,7 +10,7 @@ const SCHEMA = JSON.parse(schema_contents)
 let debug = false
 
 before(() => {
-  this.crispy = new Crispy(SCHEMA["@graph"], "http://schema.org/")
+  this.schema = new Schema(SCHEMA["@graph"], "http://schema.org/")
   if (debug) this.jay = {}
 })
 
@@ -1148,11 +1148,11 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | Crispy | ${model} modelMaker schemaorg`, () => {
+  describe(`class | Schema | ${model} modelMaker schemaorg`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let modelsMined = this.crispy.modelMiner([model], depth)
-        let modelMade = this.crispy.modelMaker(model, modelsMined, {
+        let modelsMined = this.schema.modelMiner([model], depth)
+        let modelMade = this.schema.modelMaker(model, modelsMined, {
           help: false,
         })
         if (debug) {

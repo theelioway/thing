@@ -1,4 +1,4 @@
-# Quickstart crispy
+# Quickstart schema
 
 ## Nutshell
 

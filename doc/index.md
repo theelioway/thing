@@ -1,4 +1,4 @@
-# crispy
+# schema
 
 <figure>
   <img src="star.png" alt="">

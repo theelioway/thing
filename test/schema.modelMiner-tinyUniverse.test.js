@@ -1,8 +1,8 @@
 const should = require("chai").should()
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 
 before(() => {
-  this.crispy = new Crispy(
+  this.schema = new Schema(
     [
       { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
       { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
@@ -18,41 +18,41 @@ before(() => {
   )
 })
 
-describe("class | Crispy | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
+describe("class | Schema | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
-    this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.schema.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.crispy
+    this.schema
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 2", () => {
-    this.crispy
+    this.schema
       .modelMiner(["Cosmos"], 2)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Crispy | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
+describe("class | Schema | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
   it("depth 0", () => {
-    this.crispy.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.schema.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.crispy
+    this.schema
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Crispy | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
+describe("class | Schema | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
   it("depth 0", () => {
-    this.crispy
+    this.schema
       .modelMiner(["Cosmos", "Bigness"], 0)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 1", () => {
-    this.crispy
+    this.schema
       .modelMiner(["Cosmos", "Bigness"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })

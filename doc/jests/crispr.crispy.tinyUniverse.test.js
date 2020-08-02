@@ -1,8 +1,8 @@
-const Crispy = require("../crispy")
+const Schema = require("../schema")
 
-describe("class | Crispy | crispify tinyUniverse", () => {
+describe("class | Schema | schemify tinyUniverse", () => {
   test("Maps Models and Fields", () => {
-    let crispy = new Crispy(
+    let schema = new Schema(
       [
         {
           "@type": "rdfs:Class",
@@ -30,24 +30,24 @@ describe("class | Crispy | crispify tinyUniverse", () => {
       ],
       "d:/"
     )
-    expect(crispy.domain).toBe("d:/")
-    expect(crispy.models.size).toBe(2)
-    expect(crispy.fields.size).toBe(1)
-    expect(crispy.models.get("Cosmos")).toEqual({
+    expect(schema.domain).toBe("d:/")
+    expect(schema.models.size).toBe(2)
+    expect(schema.fields.size).toBe(1)
+    expect(schema.models.get("Cosmos")).toEqual({
       enums: new Set(),
       fields: new Set(["size"]),
       help: "Comment Cosmos",
       name: "Cosmos",
       subs: new Set(),
     })
-    expect(crispy.models.get("Bigness")).toEqual({
+    expect(schema.models.get("Bigness")).toEqual({
       enums: new Set(["Big"]),
       fields: new Set(),
       help: "Comment Bigness",
       name: "Bigness",
       subs: new Set(),
     })
-    expect(crispy.fields.get("size")).toEqual({
+    expect(schema.fields.get("size")).toEqual({
       name: "size",
       help: "Comment size",
       models: new Set(["Cosmos"]),
