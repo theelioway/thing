@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 const space = require("./space")
 
 before(() => {
-  this.schema = new Schema(space["@graph"], "d:/")
+  this.thingBuilder = new ThingBuilder(space["@graph"], "d:/")
 })
 
 for (let [model, tests] of Object.entries({
@@ -123,11 +123,11 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | Schema | ${model} modelMaker in space`, () => {
+  describe(`class | ThingBuilder | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let modelsMined = this.schema.modelMiner([model], depth)
-        let modelMade = this.schema.modelMaker(model, modelsMined, {
+        let modelsMined = this.thingBuilder.modelMiner([model], depth)
+        let modelMade = this.thingBuilder.modelMaker(model, modelsMined, {
           help: false,
         })
         modelMade.should.be.eql(expectModelMade)

@@ -1,4 +1,4 @@
-# schema
+# thing
 
 <figure>
   <img src="star.png" alt="">

@@ -1,8 +1,8 @@
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 
-describe("class | Schema | schemify tinyUniverse", () => {
+describe("class | ThingBuilder | schemify tinyUniverse", () => {
   test("Maps Models and Fields", () => {
-    let schema = new Schema(
+    let thingBuilder = new ThingBuilder(
       [
         {
           "@type": "rdfs:Class",
@@ -30,24 +30,24 @@ describe("class | Schema | schemify tinyUniverse", () => {
       ],
       "d:/"
     )
-    expect(schema.domain).toBe("d:/")
-    expect(schema.models.size).toBe(2)
-    expect(schema.fields.size).toBe(1)
-    expect(schema.models.get("Cosmos")).toEqual({
+    expect(thingBuilder.domain).toBe("d:/")
+    expect(thingBuilder.models.size).toBe(2)
+    expect(thingBuilder.fields.size).toBe(1)
+    expect(thingBuilder.models.get("Cosmos")).toEqual({
       enums: new Set(),
       fields: new Set(["size"]),
       help: "Comment Cosmos",
       name: "Cosmos",
       subs: new Set(),
     })
-    expect(schema.models.get("Bigness")).toEqual({
+    expect(thingBuilder.models.get("Bigness")).toEqual({
       enums: new Set(["Big"]),
       fields: new Set(),
       help: "Comment Bigness",
       name: "Bigness",
       subs: new Set(),
     })
-    expect(schema.fields.get("size")).toEqual({
+    expect(thingBuilder.fields.get("size")).toEqual({
       name: "size",
       help: "Comment size",
       models: new Set(["Cosmos"]),

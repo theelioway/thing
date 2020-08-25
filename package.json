@@ -1,14 +1,14 @@
 {
   "author": "Tim Bushell",
   "description": "In the grand scheme of Things, the elioWay",
-  "name": "@elioway/schema",
-  "title": "schema",
-  "version": "0.0.2",
+  "name": "@elioway/thing",
+  "title": "thing",
+  "version": "0.0.1",
   "bin": "./bin/index.js",
   "chisel": {
     "host": "eliothing",
     "Python": [
-      "schema",
+      "thing",
       "dna-django",
       "genes"
     ],
@@ -25,16 +25,16 @@
     "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://elioway.gitlab.io/eliothing/schema",
+  "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "keywords": [
     "elioway",
     "nodejs"
   ],
   "license": "MIT",
-  "main": "./schema.js",
+  "main": "./thing.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/elioway/eliothing/schema"
+    "url": "https://gitlab.com/elioway/eliothing/thing"
   },
   "scripts": {
     "test": "mocha",

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const Schema = require("../schema")
-module.exports = Schema
+const ThingBuilder = require("../thing-builder")
+module.exports = ThingBuilder

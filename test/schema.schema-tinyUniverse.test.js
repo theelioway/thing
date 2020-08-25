@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 
-describe("class | Schema | schemify tinyUniverse", () => {
+describe("class | ThingBuilder | schemify tinyUniverse", () => {
   it("Maps Models and Fields", () => {
-    let schema = new Schema(
+    let thingBuilder = new ThingBuilder(
       [
         {
           "@type": "rdfs:Class",
@@ -36,31 +36,31 @@ describe("class | Schema | schemify tinyUniverse", () => {
       "d:/",
       []
     )
-    schema.domain.should.equal("d:/")
-    schema.MODELS.size.should.equal(2)
-    schema.MODELS.get("Cosmos").should.eql({
+    thingBuilder.domain.should.equal("d:/")
+    thingBuilder.MODELS.size.should.equal(2)
+    thingBuilder.MODELS.get("Cosmos").should.eql({
       enums: new Set(),
       fields: new Set(["size"]),
       help: "Comment Cosmos",
       name: "Cosmos",
       subs: new Set(),
     })
-    schema.MODELS.get("Bigness").should.eql({
+    thingBuilder.MODELS.get("Bigness").should.eql({
       enums: new Set(["Big"]),
       fields: new Set(),
       help: "Comment Bigness",
       name: "Bigness",
       subs: new Set(),
     })
-    schema.FIELDS.size.should.equal(1)
-    schema.FIELDS.get("size").should.eql({
+    thingBuilder.FIELDS.size.should.equal(1)
+    thingBuilder.FIELDS.get("size").should.eql({
       name: "size",
       help: "Comment size",
       models: new Set(["Cosmos"]),
       types: new Set(["Bigness", "Text"]),
     })
-    schema.PRIMTS.size.should.equal(1)
-    schema.PRIMTS.get("Text").should.eql({
+    thingBuilder.PRIMTS.size.should.equal(1)
+    thingBuilder.PRIMTS.get("Text").should.eql({
       name: "Text",
       help: "Comment Text",
     })

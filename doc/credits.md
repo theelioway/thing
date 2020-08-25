@@ -1,4 +1,4 @@
-# schema Credits
+# thing Credits
 
 ## Artwork
 

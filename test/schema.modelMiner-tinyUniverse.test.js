@@ -1,8 +1,8 @@
 const should = require("chai").should()
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 
 before(() => {
-  this.schema = new Schema(
+  this.thingBuilder = new ThingBuilder(
     [
       { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
       { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
@@ -18,41 +18,41 @@ before(() => {
   )
 })
 
-describe("class | Schema | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
+describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
-    this.schema.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.thingBuilder.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.schema
+    this.thingBuilder
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 2", () => {
-    this.schema
+    this.thingBuilder
       .modelMiner(["Cosmos"], 2)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Schema | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
+describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
   it("depth 0", () => {
-    this.schema.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
+    this.thingBuilder.modelMiner(["Cosmos"], 0).should.have.members(["Cosmos"])
   })
   it("depth 1", () => {
-    this.schema
+    this.thingBuilder
       .modelMiner(["Cosmos"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })
 })
 
-describe("class | Schema | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
+describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
   it("depth 0", () => {
-    this.schema
+    this.thingBuilder
       .modelMiner(["Cosmos", "Bigness"], 0)
       .should.have.members(["Cosmos", "Bigness"])
   })
   it("depth 1", () => {
-    this.schema
+    this.thingBuilder
       .modelMiner(["Cosmos", "Bigness"], 1)
       .should.have.members(["Cosmos", "Bigness"])
   })

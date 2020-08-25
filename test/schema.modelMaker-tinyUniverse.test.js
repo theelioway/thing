@@ -1,9 +1,9 @@
 const should = require("chai").should()
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 
-describe("class | Schema | modelMaker tinyUniverse", () => {
+describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
   before(() => {
-    this.schema = new Schema(
+    this.thingBuilder = new ThingBuilder(
       [
         {
           "@type": "rdfs:Class",
@@ -50,22 +50,22 @@ describe("class | Schema | modelMaker tinyUniverse", () => {
   }
 
   it("depth 0", () => {
-    let modelsMined = this.schema.modelMiner(["Cosmos"], 0)
-    this.schema
+    let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 0)
+    this.thingBuilder
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
-    this.schema
+    this.thingBuilder
       .modelMaker("Cosmos", modelsMined, { help: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
-    let modelsMined = this.schema.modelMiner(["Cosmos"], 1)
-    this.schema.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
+    let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 1)
+    this.thingBuilder.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
       fields: {
         size: {
           type: "Text",
@@ -81,7 +81,7 @@ describe("class | Schema | modelMaker tinyUniverse", () => {
 
   it("raises an error", () => {
     ;() =>
-      this.schema
+      this.thingBuilder
         .modelMaker("ForSureThisModelDoesNotExist")
         .should.throw(RangeError, /Model not found/)
   })

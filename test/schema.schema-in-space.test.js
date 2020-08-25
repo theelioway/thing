@@ -1,14 +1,14 @@
 const should = require("chai").should()
-const Schema = require("../schema")
+const ThingBuilder = require("../thing-builder")
 const space = require("./space")
 
-describe("class | Schema | schemify space", () => {
+describe("class | ThingBuilder | schemify space", () => {
   it("Maps Models and Fields", () => {
-    let schema = new Schema(space["@graph"], "d:/", [])
-    schema.domain.should.equal("d:/")
+    let thingBuilder = new ThingBuilder(space["@graph"], "d:/", [])
+    thingBuilder.domain.should.equal("d:/")
 
-    schema.MODELS.size.should.equal(16)
-    schema.MODELS.should.have.deep.keys([
+    thingBuilder.MODELS.size.should.equal(16)
+    thingBuilder.MODELS.should.have.deep.keys([
       "Cosmos",
       "Universe",
       "Galaxy",
@@ -27,8 +27,8 @@ describe("class | Schema | schemify space", () => {
       "MeteorObject",
     ])
 
-    schema.FIELDS.size.should.equal(11)
-    schema.FIELDS.should.have.deep.keys([
+    thingBuilder.FIELDS.size.should.equal(11)
+    thingBuilder.FIELDS.should.have.deep.keys([
       "name",
       "isInteresting",
       "milkiness",
@@ -42,8 +42,8 @@ describe("class | Schema | schemify space", () => {
       "satelliteName",
     ])
 
-    schema.PRIMTS.size.should.equal(11)
-    schema.PRIMTS.should.have.deep.keys(
+    thingBuilder.PRIMTS.size.should.equal(11)
+    thingBuilder.PRIMTS.should.have.deep.keys(
       ["Boolean", "DateTime", "Date", "Number", "Text", "Time"].concat(
         // + Sub Classes of Primitive
         ["Duration", "Float", "Integer", "Quantity", "URL"]

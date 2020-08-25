@@ -1,4 +1,4 @@
-# Installing schema
+# Installing thing
 
 ## Prerequisites
 
@@ -10,8 +10,8 @@
 Install into your SASS projects.
 
 ```
-npm install @elioway/schema
-yarn add @elioway/schema
+npm install @elioway/thing
+yarn add @elioway/thing
 ```
 
 ## Development
@@ -20,5 +20,5 @@ yarn add @elioway/schema
 cd elioway
 git clone https://gitlab.com/elioway/eliothing.git
 cd eliothing
-git clone https://gitlab.com/eliothing/schema.git
+git clone https://gitlab.com/eliothing/thing.git
 ```

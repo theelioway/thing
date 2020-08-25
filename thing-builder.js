@@ -6,7 +6,7 @@ const xor = require("./utils/xor")
 
 const log = logger.debug
 
-module.exports = class Schema {
+module.exports = class ThingBuilder {
   /**
    * @file
    * @author Tim Bushell
@@ -146,9 +146,9 @@ module.exports = class Schema {
    * Variations are:
    * - Class Type i.e. "rdfs:Class"
    * - Property Type i.e. "rdf:Property"
-   * - Primitive Type i.e. [ "rdfs:Class", "http://schema.org/DataType" ]
-   * - Schema Type e.g. "http://schema.org/RestrictedDiet"
-   * - Schema Types e.g. ["http://schema.org/RestrictedDiet", "http://schema.org/MedicalDiet"]
+   * - Primitive Type i.e. [ "rdfs:Class", "http://SCHEMA.ORG/DataType" ]
+   * - Schema Type e.g. "http://SCHEMA.ORG/RestrictedDiet"
+   * - Schema Types e.g. ["http://SCHEMA.ORG/RestrictedDiet", "http://SCHEMA.ORG/MedicalDiet"]
    * @param {operand} value is from the schema obj "@type" property.
    * @returns {str/Array} String or Array representing the type of Schema.org jsonld object.
    */

@@ -1,18 +1,18 @@
-![](https://elioway.gitlab.io/eliothing/dna-django/elio-schema-logo.png)
+![](https://elioway.gitlab.io/eliothing/dna-django/elio-thing-logo.png)
 
 > In the grand scheme of Things, **the elioWay**
 
-# schema
+# thing
 
 ![experimental](https://elioway.gitlab.io/static/experimental.png "experimental")
 
-A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. Schema is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A class which converts [Schema.org](https://SCHEMA.ORG) (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
-- [schema Documentation](https://elioway.gitlab.io/eliothing/schema/)
+- [thing Documentation](https://elioway.gitlab.io/eliothing/thing/)
 
 ## Installing
 
-- [Installing schema](https://elioway.gitlab.io/eliothing/schema/installing.html)
+- [Installing thing](https://elioway.gitlab.io/eliothing/thing/installing.html)
 
 ## Requirements
 
@@ -33,7 +33,7 @@ You're seeing it.
 
 ## Nutshell
 
-- [schema Quickstart](https://elioway.gitlab.io/eliothing/schema/quickstart.html)
+- [thing Quickstart](https://elioway.gitlab.io/eliothing/thing/quickstart.html)
 
 ## License
 

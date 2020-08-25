@@ -1,4 +1,4 @@
-# Quickstart schema
+# Quickstart thing
 
 ## Nutshell
 
