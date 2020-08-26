@@ -2,12 +2,11 @@ const ThingBuilder = require("../thing-builder")
 const should = require("chai").should()
 const fs = require("fs")
 
-const schema_path =
-  "/home/tim/repo/elioway/eliothing/thing/schemaorg/data/releases/3.9/all-layers.jsonld"
-const schema_contents = fs.readFileSync(schema_path, "utf-8")
-const SCHEMA = JSON.parse(schema_contents)
+const schemaPath = "./schemaorg/data/releases/3.9/all-layers.jsonld"
+const schemaContents = fs.readFileSync(schemaPath, "utf-8")
+const SCHEMA = JSON.parse(schemaContents)
 
-describe("class | ThingBuilder | modelMiner schemaorg", () => {
+describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
   before(() => {
     this.fixedPrimitives = [
       "Boolean",
@@ -20,7 +19,7 @@ describe("class | ThingBuilder | modelMiner schemaorg", () => {
     ]
     this.thingBuilder = new ThingBuilder(
       SCHEMA["@graph"],
-      "http://SCHEMA.ORG/",
+      "http://schema.org/",
       this.fixedPrimitives
     )
   })

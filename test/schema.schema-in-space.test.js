@@ -1,6 +1,6 @@
 const should = require("chai").should()
 const ThingBuilder = require("../thing-builder")
-const space = require("./space")
+const space = require("./fixtures/space")
 
 describe("class | ThingBuilder | schemify space", () => {
   it("Maps Models and Fields", () => {

@@ -2,11 +2,12 @@
 
 ## Artwork
 
-- [E Swamy](https://pixabay.com/photos/chemistry-lab-experiment-3005692/)
-- [Scissors](https://publicdomainvectors.org/en/free-clipart/Open-scissors-silhouette-vector-clip-art/32225.html)
+- [Ape_skeletons](https://upload.wikimedia.org/wikipedia/commons/4/49/Ape_skeletons.png)
 
-## Core Thanks!
+## Helpful
 
-- [elioWay](https://elioway.gitlab.io)
-- [Yeoman](http://yeoman.io/)
-- <https://2ality.com/2015/01/es6-set-operations.html>
+- [es6-set-operations](https://2ality.com/2015/01/es6-set-operations.html)
+
+## Core, thanks!
+
+- [Schema.org](https://schema.org)

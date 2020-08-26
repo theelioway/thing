@@ -7,7 +7,7 @@
 
 ## npm
 
-Install into your SASS projects.
+Install into your projects.
 
 ```
 npm install @elioway/thing

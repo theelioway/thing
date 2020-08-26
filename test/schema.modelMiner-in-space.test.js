@@ -1,6 +1,6 @@
 const ThingBuilder = require("../thing-builder")
 const should = require("chai").should()
-const space = require("./space")
+const space = require("./fixtures/space")
 
 before(() => {
   this.fixedPrimitives = [

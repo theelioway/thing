@@ -3,14 +3,14 @@ const should = require("chai").should()
 const fs = require("fs")
 
 const ThingBuilder = require("../thing-builder")
-const schema_path = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
-const schema_contents = fs.readFileSync(schema_path, "utf-8")
-const SCHEMA = JSON.parse(schema_contents)
+const schemaPath = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
+const schemaContents = fs.readFileSync(schemaPath, "utf-8")
+const SCHEMA = JSON.parse(schemaContents)
 
 let debug = false
 
 before(() => {
-  this.thingBuilder = new ThingBuilder(SCHEMA["@graph"], "http://SCHEMA.ORG/")
+  this.thingBuilder = new ThingBuilder(SCHEMA["@graph"], "http://schema.org/")
   if (debug) this.jay = {}
 })
 
@@ -1148,7 +1148,7 @@ for (let [model, tests] of Object.entries({
     },
   },
 })) {
-  describe(`class | ThingBuilder | ${model} modelMaker schemaorg`, () => {
+  describe(`class | ThingBuilder | ${model} modelMaker schemaorg 9.0`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
         let modelsMined = this.thingBuilder.modelMiner([model], depth)

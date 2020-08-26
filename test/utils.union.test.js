@@ -16,6 +16,8 @@ let unionTests = [
   [[1, 1, 1], [1, 1, 1], [1]],
 ]
 
+let speedTests = 11111
+
 describe("utils | _.union", () => {
   for (let [l1, l2, expectUnity] of unionTests) {
     it(`totally united ${l1} + ${l2} == ${expectUnity}`, () => {
@@ -37,23 +39,23 @@ describe("utils | union", () => {
 describe("utils | _.union", () => {
   it.skip("tis fast", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectUnity] of unionTests) {
         let res = _.union(l1, l2)
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })
 
 describe("utils | union", () => {
   it.skip("tis faster", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectUnity] of unionTests) {
         let res = union(l1, l2)
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })

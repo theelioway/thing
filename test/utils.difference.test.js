@@ -16,6 +16,8 @@ let differenceTests = [
   [[1], [1, 2, 1], []],
 ]
 
+let speedTests = 11111
+
 describe("utils | _.difference", () => {
   for (let [l1, l2, expectDifference] of differenceTests) {
     it(`spots whats missing in l2 ${l1} / ${l2} == ${expectDifference}`, () => {
@@ -37,23 +39,23 @@ describe("utils | difference", () => {
 describe("utils | _.difference", () => {
   it.skip("tis fast", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 9999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {
         let res = _.difference(l1, l2)
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })
 
 describe("utils | difference", () => {
   it.skip("tis faster", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 9999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {
         let res = difference(l1, l2)
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })

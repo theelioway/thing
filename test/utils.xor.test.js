@@ -20,6 +20,8 @@ let xorTests = [
   [[1], [1, 2, 1], [2]],
 ]
 
+let speedTests = 11111
+
 describe("utils | _.<xor>", () => {
   for (let [l1, l2, expectXor] of xorTests) {
     it(` xor either way ${l1} - ${l2} == ${expectXor}`, () => {
@@ -41,23 +43,23 @@ describe("utils | xor", () => {
 describe("utils | _.<xor>", () => {
   it.skip("tis faster", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 9999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectXor] of xorTests) {
         let res = _.union(_.difference(l1, l2), _.difference(l2, l1))
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })
 
 describe("utils | xor", () => {
   it.skip("tis faster", () => {
     let stamp = Date.now()
-    for (let i = 0; i < 9999; i++) {
+    for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectXor] of xorTests) {
         let res = xor(l1, l2)
       }
     }
-    ;(Date.now() - stamp).should.be.lt(200)
+    ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })

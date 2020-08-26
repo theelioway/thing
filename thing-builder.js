@@ -1,3 +1,4 @@
+"use strict"
 const _ = require("lodash")
 const logger = require("./utils/logger")
 const difference = require("./utils/difference")
@@ -82,6 +83,7 @@ module.exports = class ThingBuilder {
       // Handle a Enumerated Type Value
       else {
         for (let typeOf of schemaType) {
+          // console.log(typeOf, typeOf)
           let enumeratorOf = typeOf.replace(this.domain, "")
           this._setModel(enumeratorOf, { enum: schemaName })
         }
@@ -146,9 +148,9 @@ module.exports = class ThingBuilder {
    * Variations are:
    * - Class Type i.e. "rdfs:Class"
    * - Property Type i.e. "rdf:Property"
-   * - Primitive Type i.e. [ "rdfs:Class", "http://SCHEMA.ORG/DataType" ]
-   * - Schema Type e.g. "http://SCHEMA.ORG/RestrictedDiet"
-   * - Schema Types e.g. ["http://SCHEMA.ORG/RestrictedDiet", "http://SCHEMA.ORG/MedicalDiet"]
+   * - Primitive Type i.e. [ "rdfs:Class", "http://schema.org/DataType" ]
+   * - Schema Type e.g. "http://schema.org/RestrictedDiet"
+   * - Schema Types e.g. ["http://schema.org/RestrictedDiet", "http://schema.org/MedicalDiet"]
    * @param {operand} value is from the schema obj "@type" property.
    * @returns {str/Array} String or Array representing the type of Schema.org jsonld object.
    */
