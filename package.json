@@ -31,7 +31,7 @@
     "nodejs"
   ],
   "license": "MIT",
-  "main": "./thing.js",
+  "main": "./thing-builder.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/elioway/eliothing/thing"
