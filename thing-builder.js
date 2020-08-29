@@ -475,7 +475,6 @@ module.exports = class ThingBuilder {
     if (!opts) opts = { depth: 0, comment: false }
     let things = new Object()
     let modelsMined = this.modelMiner(selectedModelNames, opts)
-    console.log(modelsMined)
     for (let modelName of modelsMined) {
       let thing = this.thing(modelName, modelsMined, opts)
       things[modelName] = thing
