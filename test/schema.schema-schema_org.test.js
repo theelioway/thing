@@ -4,6 +4,7 @@ const fs = require("fs")
 const ThingBuilder = require("../thing-builder")
 const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
+
 describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
   it("crispy_schema_versioning_members", () => {
     let fixedPrimitives = [

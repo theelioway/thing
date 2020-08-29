@@ -16,14 +16,14 @@ commander
 const ThingBuilder = require("../thing-builder")
 const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
-console.log("Getting ", commander.args, commander.opts())
-
 let thingBuilder = new ThingBuilder(
   getSchema("9.0/schemaorg-all-http"),
   schemaDomainUrl
 )
 let things = thingBuilder.things(commander.args, commander.opts())
 fs.writeFileSync(
-  `./output/${commander.args.join()}.json`,
+  `./output/${commander.args.join("-")}.json`,
   JSON.stringify(things)
 )
+
+console.log("Done! Output:", `./output/${commander.args.join("-")}.json`)
