@@ -257,9 +257,10 @@ module.exports = class ThingBuilder {
    * In the list of Models wanted, we need to check for Parent Models and
    * include these in the final list of models to build.
    *
-   * Fields belongiing to the wanted Models can be also be Models, i.e. Foreign
-   * Keys. Models need to be created to cover those cases. Often Fields have
-   * more than 1 Type.
+   * Also... Fields belonging to the wanted Models can be also be Models, i.e.
+   * Foreign Keys. Models need to be created to cover those cases. Often
+   * Fields have more than 1 Type in Schema, but for purposes of modelling
+   * them for a database, we need to resolve to just 1 of those Types.
    *
    * We will take the approach that if a Field has a PrimitiveType, we will use
    * that UNLESS it also has a ModelType that is already included in the
@@ -269,8 +270,8 @@ module.exports = class ThingBuilder {
    * ModelType.
    *
    * WORSE CASE: Some ModelTypes have Fields which are also Types. This is where
-   * the the depth arg is most important ensuring we start substituting
-   * ModelTypes with a PrimitiveType once the depth has been reached.
+   * the depth option is important, ensuring we start substituting ModelTypes
+   * with a PrimitiveType once the depth has been reached.
    *
    * @param {Array} selectedModels in the target elioWay application.
    * @param {integer} opts including "depth" we need to go to resolve Model dependancies.
@@ -357,13 +358,24 @@ module.exports = class ThingBuilder {
     }
   }
 
+  /**
+   * @file Conveniently makes an array of Models.
+   * @author Tim Bushell
+   *
+   * @param {Array} selectedModels in the target elioWay application.
+   * @param {integer} opts including "depth" we need to go to resolve Model dependancies.
+   * @returns {Array} of Models.
+   */
+
   modelsMaker(selectedModels, opts) {
-    let models = new Map()
+    if (!opts) opts = { depth: 0, comment: false }
+    let models = new Object()
     let baseModels = this.modelMiner(selectedModels, opts)
     for (let selectedModelName of selectedModels) {
-      models.set(
+      models[selectedModelName] = this.modelMaker(
         selectedModelName,
-        this.modelMaker(selectedModelName, baseModels)
+        baseModels,
+        opts
       )
     }
     return models
@@ -451,5 +463,63 @@ module.exports = class ThingBuilder {
       model.fields[fieldName] = field
     }
     return model
+  }
+
+  /**
+   * @file Convenient utility to build all the Schemas your app needs.
+   * @param {str} selectedModelNames to build.
+   * @param {Object} opts {depth, comment}
+   * @returns {Object} JSON format version of the Model.
+   */
+  things(selectedModelNames, opts) {
+    if (!opts) opts = { depth: 0, comment: false }
+    let things = new Object()
+    let modelsMined = this.modelMiner(selectedModelNames, opts)
+    console.log(modelsMined)
+    for (let modelName of modelsMined) {
+      let thing = this.thing(modelName, modelsMined, opts)
+      things[modelName] = thing
+    }
+    return things
+  }
+
+  /**
+   * @file Make a simple JSON, version of a complete Thing.
+   * @tutorial This creates a Thing with the Thing type's fields and an engage
+   * property containing a map to all the sub-Types.
+   *
+   * @param {str} selectedModelName to build.
+   * @param {Array} baseModels output from this.modelMiner.
+   * @param {Object} opts {depth, comment}
+   * @returns {Object} JSON format version of the Model.
+   */
+  thing(selectedModelName, baseModels, opts) {
+    // Default options.
+    if (!opts) opts = { depth: 0, comment: false }
+    // Return a Thing,
+    let thing = new Object()
+    // Make the selectedModel.
+    let selectedModel = this.modelMaker(selectedModelName, baseModels, opts)
+    // If selectedModelName is not the super class.
+    if (selectedModelName !== "Thing") {
+      // Find all the Types this thing subclasses.
+      let subs = selectedModel.subs.map(s => s)
+      // "Thing is definately a Type this subclasses.
+      thing = this.modelMaker("Thing", baseModels, opts).fields
+      // "Engage" the subclasses in the Thing model.
+      thing.engage = new Object()
+      for (let sub of subs) {
+        if (sub !== "Thing") {
+          // "Engage" the selectedModel's subclasses.
+          thing.engage[sub] = this.modelMaker(sub, baseModels, opts).fields
+        }
+      }
+      // "Engage" the selectedModel.
+      thing.engage[selectedModelName] = selectedModel.fields
+    } else {
+      // Just a Thing.
+      thing = selectedModel.fields
+    }
+    return thing
   }
 }

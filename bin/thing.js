@@ -18,10 +18,12 @@ const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
 console.log("Getting ", commander.args, commander.opts())
 
-let thingBuilder = new ThingBuilder(getSchema("9.0/schemaorg-all-http"), schemaDomainUrl)
-let modelsMined = thingBuilder.modelMiner(commander.args, commander.opts())
-for (let model of modelsMined) {
-  let schema = thingBuilder.thing(model, modelsMined, commander.opts())
-  fs.writeFileSync(`./output/${model}.json`, JSON.stringify(schema))
-  console.log(model, schema)
-}
+let thingBuilder = new ThingBuilder(
+  getSchema("9.0/schemaorg-all-http"),
+  schemaDomainUrl
+)
+let things = thingBuilder.things(commander.args, commander.opts())
+fs.writeFileSync(
+  `./output/${commander.args.join()}.json`,
+  JSON.stringify(things)
+)
