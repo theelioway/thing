@@ -41,28 +41,28 @@ describe("class | ThingBuilder | schemify tinyUniverse", () => {
     thingBuilder.MODELS.get("Cosmos").should.eql({
       enums: new Set(),
       fields: new Set(["size"]),
-      help: "Comment Cosmos",
+      comment: "Comment Cosmos",
       name: "Cosmos",
       subs: new Set(),
     })
     thingBuilder.MODELS.get("Bigness").should.eql({
       enums: new Set(["Big"]),
       fields: new Set(),
-      help: "Comment Bigness",
+      comment: "Comment Bigness",
       name: "Bigness",
       subs: new Set(),
     })
     thingBuilder.FIELDS.size.should.equal(1)
     thingBuilder.FIELDS.get("size").should.eql({
       name: "size",
-      help: "Comment size",
+      comment: "Comment size",
       models: new Set(["Cosmos"]),
       types: new Set(["Bigness", "Text"]),
     })
     thingBuilder.PRIMTS.size.should.equal(1)
     thingBuilder.PRIMTS.get("Text").should.eql({
       name: "Text",
-      help: "Comment Text",
+      comment: "Comment Text",
     })
   })
 })

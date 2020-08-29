@@ -6,7 +6,7 @@ const message = printf(({ message }) => {
 })
 
 module.exports = createLogger({
-  level: "error", //error/debug
+  level: "error", // error/debug
   transports: [new transports.Console()],
   format: message,
 })

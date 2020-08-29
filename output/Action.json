@@ -1,0 +1,37 @@
+{
+  "potentialAction": { "type": "Action" },
+  "identifier": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "url": { "type": "URL" },
+  "image": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "name": { "type": "Text" },
+  "description": { "type": "Text" },
+  "mainEntityOfPage": { "type": "URL" },
+  "disambiguatingDescription": { "type": "Text" },
+  "subjectOf": { "type": "Text" },
+  "additionalType": { "type": "URL" },
+  "engage": {
+    "Action": {
+      "instrument": { "type": "Thing" },
+      "endTime": { "type": "Time" },
+      "participant": { "type": "Text" },
+      "result": { "type": "Thing" },
+      "startTime": { "type": "Time" },
+      "actionStatus": {
+        "type": "Text",
+        "enums": [
+          "FailedActionStatus",
+          "CompletedActionStatus",
+          "ActiveActionStatus",
+          "PotentialActionStatus"
+        ]
+      },
+      "target": { "type": "Text" },
+      "agent": { "type": "Text" },
+      "error": { "type": "Thing" },
+      "location": { "type": "Text" },
+      "object": { "type": "Thing" }
+    }
+  }
+}

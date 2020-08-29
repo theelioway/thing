@@ -1,10 +1,8 @@
-const ThingBuilder = require("../thing-builder")
 const should = require("chai").should()
 const fs = require("fs")
 
-const schemaPath = "./schemaorg/data/releases/3.9/all-layers.jsonld"
-const schemaContents = fs.readFileSync(schemaPath, "utf-8")
-const SCHEMA = JSON.parse(schemaContents)
+const ThingBuilder = require("../thing-builder")
+const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
 describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
   before(() => {
@@ -18,8 +16,8 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     this.thingBuilder = new ThingBuilder(
-      SCHEMA["@graph"],
-      "http://schema.org/",
+      getSchema("9.0"),
+      schemaDomainUrl,
       this.fixedPrimitives
     )
   })
@@ -30,7 +28,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
   })
 
   it("Thing at depth 0", () => {
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], 0)
+    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 0 })
     modelsMined.should.have.members(["Thing"])
   })
 
@@ -46,7 +44,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "Thing",
       "StructuredValue",
     ]
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], 1)
+    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 1 })
     modelsMined.should.have.members(thus)
   })
 
@@ -87,7 +85,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "EntryPoint",
       "ContactPoint",
     ]
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], 2)
+    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 2 })
     modelsMined.should.have.members(thus)
   })
 
@@ -122,7 +120,8 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     7: 91, // eventually we reach a max
   })) {
     it(`Thing at depth ${depth}`, () => {
-      let modelsMined = this.thingBuilder.modelMiner(["Thing"], depth)
+      { depth: depth }
+      let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
     })
   }
@@ -137,7 +136,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     7: 99, // eventually we reach a max
   })) {
     it(`MusicComposition at depth ${depth}`, () => {
-      let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"], depth)
+      let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
     })
   }
@@ -153,7 +152,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     8: 98, // eventually we reach a max
   })) {
     it(`Notary at depth ${depth}`, () => {
-      let modelsMined = this.thingBuilder.modelMiner(["Notary"], depth)
+      let modelsMined = this.thingBuilder.modelMiner(["Notary"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
     })
   }

@@ -41,42 +41,44 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
     fields: {
       size: {
         type: "Text",
-        help: "Comment size",
+        comment: "Comment size",
       },
     },
     name: "Cosmos",
-    help: "Comment Cosmos",
+    comment: "Comment Cosmos",
     subs: [],
   }
 
   it("depth 0", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 0)
     this.thingBuilder
-      .modelMaker("Cosmos", modelsMined, { help: true })
+      .modelMaker("Cosmos", modelsMined, { comment: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
     this.thingBuilder
-      .modelMaker("Cosmos", modelsMined, { help: true })
+      .modelMaker("Cosmos", modelsMined, { comment: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
-    let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 1)
-    this.thingBuilder.modelMaker("Cosmos", modelsMined, { help: true }).should.eql({
-      fields: {
-        size: {
-          type: "Text",
-          help: "Comment size",
-          enums: ["Big"],
+    let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], { depth: 1 })
+    this.thingBuilder
+      .modelMaker("Cosmos", modelsMined, { depth: 1, comment: true })
+      .should.eql({
+        fields: {
+          size: {
+            type: "Text",
+            comment: "Comment size",
+            enums: ["Big"],
+          },
         },
-      },
-      name: "Cosmos",
-      help: "Comment Cosmos",
-      subs: [],
-    })
+        name: "Cosmos",
+        comment: "Comment Cosmos",
+        subs: [],
+      })
   })
 
   it("raises an error", () => {

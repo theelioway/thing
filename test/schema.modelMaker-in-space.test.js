@@ -8,15 +8,18 @@ before(() => {
 
 for (let [model, tests] of Object.entries({
   Cosmos: {
-    "0": {
+    0: {
       fields: {
         name: { type: "Text" },
-        isInteresting: { type: "Text" },
+        isInteresting: {
+          type: "Text",
+          enums: ["Boring", "Whatever", "Fascinating"],
+        },
       },
       name: "Cosmos",
       subs: [],
     },
-    "1": {
+    1: {
       fields: {
         name: { type: "Text" },
         isInteresting: {
@@ -29,31 +32,31 @@ for (let [model, tests] of Object.entries({
     },
   },
   Universe: {
-    "0": {
+    0: {
       fields: {},
       name: "Universe",
       subs: ["Cosmos"],
     },
   },
   Galaxy: {
-    "0": {
+    0: {
       fields: { milkiness: { type: "DateTime" } },
       name: "Galaxy",
       subs: ["Cosmos"],
     },
-    "1": {
+    1: {
       fields: { milkiness: { type: "Universe", foreign: true } },
       name: "Galaxy",
       subs: ["Cosmos"],
     },
   },
   SolarSystem: {
-    "0": {
+    0: {
       fields: { qualifications: { type: "Text" } },
       name: "SolarSystem",
       subs: ["Cosmos"],
     },
-    "1": {
+    1: {
       fields: {
         qualifications: { type: "Galaxy", foreign: true },
       },
@@ -62,19 +65,19 @@ for (let [model, tests] of Object.entries({
     },
   },
   Sun: {
-    "0": {
+    0: {
       fields: { naics: { type: "Boolean" } },
       name: "Sun",
       subs: ["Cosmos"],
     },
-    "1": {
+    1: {
       fields: { naics: { type: "SolarSystem", foreign: true } },
       name: "Sun",
       subs: ["Cosmos"],
     },
   },
   Planet: {
-    "0": {
+    0: {
       fields: {
         email: { type: "Date" },
         sunny: { type: "Text" },
@@ -82,7 +85,7 @@ for (let [model, tests] of Object.entries({
       name: "Planet",
       subs: ["Cosmos"],
     },
-    "1": {
+    1: {
       fields: {
         email: { type: "Date" },
         sunny: { type: "Sun", foreign: true },
@@ -92,28 +95,28 @@ for (let [model, tests] of Object.entries({
     },
   },
   Moon: {
-    "0": {
+    0: {
       fields: { moonShine: { type: "Number" } },
       name: "Moon",
       subs: ["Cosmos", "Planet"],
     },
   },
   Asteroid: {
-    "0": {
+    0: {
       fields: { belt: { type: "Text" } },
       name: "Asteroid",
       subs: ["Planet", "Cosmos", "Moon", "Sun"],
     },
   },
   Satellite: {
-    "0": {
+    0: {
       fields: { satelliteName: { type: "Text" } },
       name: "Satellite",
       subs: ["Cosmos"],
     },
   },
   GPS: {
-    "0": {
+    0: {
       fields: {
         name: { type: "Text" },
         satelliteName: { type: "Text" },
@@ -126,10 +129,9 @@ for (let [model, tests] of Object.entries({
   describe(`class | ThingBuilder | ${model} modelMaker in space`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
+        let opts = { depth: depth, comment: false }
         let modelsMined = this.thingBuilder.modelMiner([model], depth)
-        let modelMade = this.thingBuilder.modelMaker(model, modelsMined, {
-          help: false,
-        })
+        let modelMade = this.thingBuilder.modelMaker(model, modelsMined, opts)
         modelMade.should.be.eql(expectModelMade)
       })
     }

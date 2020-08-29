@@ -1,10 +1,8 @@
-const ThingBuilder = require("../thing-builder")
 const should = require("chai").should()
 const fs = require("fs")
 
-const schemaPath = "./schemaorg/data/releases/3.9/all-layers.jsonld"
-const schemaContents = fs.readFileSync(schemaPath, "utf-8")
-const SCHEMA = JSON.parse(schemaContents)
+const ThingBuilder = require("../thing-builder")
+const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
 describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
   it("crispy_schema_versioning_members", () => {
@@ -18,8 +16,8 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     let thingBuilder = new ThingBuilder(
-      SCHEMA["@graph"],
-      "http://schema.org/",
+      getSchema("9.0"),
+      schemaDomainUrl,
       fixedPrimitives
     )
     /**Correct as of 3.9.*/

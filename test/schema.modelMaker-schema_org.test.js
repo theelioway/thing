@@ -3,14 +3,12 @@ const should = require("chai").should()
 const fs = require("fs")
 
 const ThingBuilder = require("../thing-builder")
-const schemaPath = "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld"
-const schemaContents = fs.readFileSync(schemaPath, "utf-8")
-const SCHEMA = JSON.parse(schemaContents)
+const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
 let debug = false
 
 before(() => {
-  this.thingBuilder = new ThingBuilder(SCHEMA["@graph"], "http://schema.org/")
+  this.thingBuilder = new ThingBuilder(getSchema("9.0"), schemaDomainUrl)
   if (debug) this.jay = {}
 })
 
@@ -20,7 +18,7 @@ after(() => {
 
 for (let [model, tests] of Object.entries({
   Thing: {
-    "0": {
+    0: {
       fields: {
         potentialAction: { type: "Text" },
         identifier: { type: "Text" },
@@ -38,7 +36,7 @@ for (let [model, tests] of Object.entries({
       name: "Thing",
       subs: [],
     },
-    "1": {
+    1: {
       fields: {
         potentialAction: { type: "Action", foreign: true },
         identifier: { type: "PropertyValue", foreign: true },
@@ -58,24 +56,24 @@ for (let [model, tests] of Object.entries({
     },
   },
   Action: {
-    "0": {
+    0: {
       fields: {
         instrument: { type: "Thing", foreign: true },
         endTime: { type: "Time" },
         participant: { type: "Text" },
-        result: { type: "Thing", foreign: true  },
+        result: { type: "Thing", foreign: true },
         startTime: { type: "Time" },
         actionStatus: { type: "Text" },
         target: { type: "Text" },
         agent: { type: "Text" },
-        error: { type: "Thing", foreign: true  },
+        error: { type: "Thing", foreign: true },
         location: { type: "Text" },
-        object: { type: "Thing", foreign: true  },
+        object: { type: "Thing", foreign: true },
       },
       name: "Action",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         instrument: { type: "Thing", foreign: true },
         endTime: { type: "Time" },
@@ -102,7 +100,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   CreativeWork: {
-    "0": {
+    0: {
       fields: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -214,7 +212,7 @@ for (let [model, tests] of Object.entries({
       name: "CreativeWork",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -328,7 +326,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Event: {
-    "0": {
+    0: {
       fields: {
         maximumAttendeeCapacity: { type: "Text" },
         typicalAgeRange: { type: "Text" },
@@ -351,8 +349,8 @@ for (let [model, tests] of Object.entries({
         contributor: { type: "Text" },
         review: { type: "Text" },
         sponsor: { type: "Text" },
-        about: { type: "Thing", foreign: true  },
-        subEvent: { type: "Event", foreign: true  },
+        about: { type: "Thing", foreign: true },
+        subEvent: { type: "Event", foreign: true },
         location: { type: "Text" },
         recordedIn: { type: "Text" },
         composer: { type: "Text" },
@@ -367,13 +365,13 @@ for (let [model, tests] of Object.entries({
         translator: { type: "Text" },
         eventAttendanceMode: { type: "Text" },
         startDate: { type: "Date" },
-        superEvent: { type: "Event", foreign: true  },
+        superEvent: { type: "Event", foreign: true },
         previousStartDate: { type: "Date" },
       },
       name: "Event",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         maximumAttendeeCapacity: { type: "Integer", foreign: true },
         typicalAgeRange: { type: "Text" },
@@ -436,7 +434,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   MedicalEntity: {
-    "0": {
+    0: {
       fields: {
         medicineSystem: { type: "Text" },
         guideline: { type: "Text" },
@@ -449,7 +447,7 @@ for (let [model, tests] of Object.entries({
       name: "MedicalEntity",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         medicineSystem: {
           type: "Text",
@@ -520,7 +518,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Organization: {
-    "0": {
+    0: {
       fields: {
         members: { type: "Organization", foreign: true },
         knowsAbout: { type: "Thing", foreign: true },
@@ -590,7 +588,7 @@ for (let [model, tests] of Object.entries({
       name: "Organization",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         members: { type: "Organization", foreign: true },
         knowsAbout: { type: "Thing", foreign: true },
@@ -624,11 +622,11 @@ for (let [model, tests] of Object.entries({
         owns: { type: "Product", foreign: true },
         sponsor: { type: "Organization", foreign: true },
         event: { type: "Event", foreign: true },
-        founder: { type: "Person", foreign: true  },
+        founder: { type: "Person", foreign: true },
         publishingPrinciples: { type: "CreativeWork", foreign: true },
         isicV4: { type: "Text" },
         slogan: { type: "Text" },
-        location: { type: "Place", foreign: true  },
+        location: { type: "Place", foreign: true },
         brand: { type: "Organization", foreign: true },
         memberOf: { type: "Organization", foreign: true },
         vatID: { type: "Text" },
@@ -645,7 +643,7 @@ for (let [model, tests] of Object.entries({
         dissolutionDate: { type: "Date" },
         interactionStatistic: { type: "InteractionCounter", foreign: true },
         logo: { type: "ImageObject", foreign: true },
-        employees: { type: "Person", foreign: true  },
+        employees: { type: "Person", foreign: true },
         telephone: { type: "Text" },
         hasMerchantReturnPolicy: {
           type: "MerchantReturnPolicy",
@@ -668,7 +666,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Person: {
-    "0": {
+    0: {
       fields: {
         birthPlace: { type: "Text" },
         gender: { type: "Text" },
@@ -736,7 +734,7 @@ for (let [model, tests] of Object.entries({
       name: "Person",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         birthPlace: { type: "Place", foreign: true },
         gender: { type: "Text", enums: ["Male", "Female"] },
@@ -809,7 +807,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Place: {
-    "0": {
+    0: {
       fields: {
         maximumAttendeeCapacity: { type: "Text" },
         geoCrosses: { type: "Place", foreign: true },
@@ -861,7 +859,7 @@ for (let [model, tests] of Object.entries({
       name: "Place",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         maximumAttendeeCapacity: { type: "Integer", foreign: true },
         geoCrosses: { type: "Place", foreign: true },
@@ -921,7 +919,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Product: {
-    "0": {
+    0: {
       fields: {
         inProductGroupWithID: { type: "Text" },
         model: { type: "Text" },
@@ -970,7 +968,7 @@ for (let [model, tests] of Object.entries({
       name: "Product",
       subs: ["Thing"],
     },
-    "1": {
+    1: {
       fields: {
         inProductGroupWithID: { type: "Text" },
         model: { type: "ProductModel", foreign: true },
@@ -1032,7 +1030,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   Audiobook: {
-    "0": {
+    0: {
       fields: {
         readBy: { type: "Text" },
         duration: { type: "Text" },
@@ -1040,7 +1038,7 @@ for (let [model, tests] of Object.entries({
       name: "Audiobook",
       subs: ["Thing", "MediaObject", "CreativeWork", "AudioObject", "Book"],
     },
-    "1": {
+    1: {
       fields: {
         readBy: { type: "Person", foreign: true },
         duration: { type: "Duration", foreign: true },
@@ -1050,19 +1048,19 @@ for (let [model, tests] of Object.entries({
     },
   },
   ArriveAction: {
-    "0": {
+    0: {
       fields: {},
       name: "ArriveAction",
       subs: ["Thing", "Action", "MoveAction"],
     },
-    "1": {
+    1: {
       fields: {},
       name: "ArriveAction",
       subs: ["Thing", "Action", "MoveAction"],
     },
   },
   MedicalOrganization: {
-    "0": {
+    0: {
       fields: {
         healthPlanNetworkId: { type: "Text" },
         medicalSpecialty: { type: "Text" },
@@ -1071,7 +1069,7 @@ for (let [model, tests] of Object.entries({
       name: "MedicalOrganization",
       subs: ["Thing", "Organization"],
     },
-    "1": {
+    1: {
       fields: {
         healthPlanNetworkId: { type: "Text" },
         medicalSpecialty: {
@@ -1128,7 +1126,7 @@ for (let [model, tests] of Object.entries({
     },
   },
   ProductGroup: {
-    "0": {
+    0: {
       fields: {
         productGroupID: { type: "Text" },
         hasVariant: { type: "Product", foreign: true },
@@ -1137,7 +1135,7 @@ for (let [model, tests] of Object.entries({
       name: "ProductGroup",
       subs: ["Thing", "Product"],
     },
-    "1": {
+    1: {
       fields: {
         productGroupID: { type: "Text" },
         hasVariant: { type: "Product", foreign: true },
@@ -1151,10 +1149,9 @@ for (let [model, tests] of Object.entries({
   describe(`class | ThingBuilder | ${model} modelMaker schemaorg 9.0`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let modelsMined = this.thingBuilder.modelMiner([model], depth)
-        let modelMade = this.thingBuilder.modelMaker(model, modelsMined, {
-          help: false,
-        })
+        let opts = { depth: depth, comment: false }
+        let modelsMined = this.thingBuilder.modelMiner([model], opts)
+        let modelMade = this.thingBuilder.modelMaker(model, modelsMined, opts)
         if (debug) {
           if (!this.jay.hasOwnProperty(model)) this.jay[model] = {}
           this.jay[model][depth] = modelMade

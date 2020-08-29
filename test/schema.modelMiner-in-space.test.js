@@ -11,7 +11,11 @@ before(() => {
     "Text",
     "Time",
   ]
-  this.thingBuilder = new ThingBuilder(space["@graph"], "d:/", this.fixedPrimitives)
+  this.thingBuilder = new ThingBuilder(
+    space["@graph"],
+    "d:/",
+    this.fixedPrimitives
+  )
 })
 
 for (let [model, tests] of Object.entries({
@@ -211,7 +215,7 @@ for (let [model, tests] of Object.entries({
 })) {
   describe(`class | ThingBuilder | modelMiner space ${model}`, () => {
     for (let [depth, modelsRequired] of Object.entries(tests)) {
-      it(`${model} at depth ${depth}`, () => {
+      it.only(`${model} at depth ${depth}`, () => {
         let modelsMined = this.thingBuilder.modelMiner([model], depth)
         modelsMined.should.have.members(modelsRequired)
       })
