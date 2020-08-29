@@ -49,21 +49,21 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
     subs: [],
   }
 
-  it.skip("depth 0", () => {
+  it.only("depth 0", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 0)
     this.thingBuilder
       .modelMaker("Cosmos", modelsMined, { comment: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
-  it.skip("self mines", () => {
+  it.only("self mines", () => {
     let modelsMined = undefined
     this.thingBuilder
       .modelMaker("Cosmos", modelsMined, { comment: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
-  it.skip("depth 1", () => {
+  it.only("depth 1", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], { depth: 1 })
     this.thingBuilder
       .modelMaker("Cosmos", modelsMined, { depth: 1, comment: true })
@@ -81,7 +81,7 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
       })
   })
 
-  it.skip("raises an error", () => {
+  it.only("raises an error", () => {
     ;() =>
       this.thingBuilder
         .modelMaker("ForSureThisModelDoesNotExist")

@@ -385,6 +385,12 @@ module.exports = class ThingBuilder {
     }
     // Fall back if Field Type is not a Schema Class.
     let PRIMITIVES = [...this.PRIMTS.keys()]
+    let ENUMTYPES = [...this.MODELS.values()]
+      .filter(m => m.enums.size)
+      .map(m => m.name)
+    // Primitives and Enum should permanently be available as Field Types.
+    let PERMANENTLY = _.union(PRIMITIVES, ENUMTYPES)
+    log(`PERMANENTLY: ${PERMANENTLY}`)
     // Internal Model definition resolved by `schemify` function.
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
@@ -413,7 +419,7 @@ module.exports = class ThingBuilder {
       // field type to matches one of those Models which will be selected -
       // otherwise we will default to a Primitive. In the unlikely event none
       // are matched: Fallsback to Text.
-      let selectFromModels = _.union(baseModels, PRIMITIVES)
+      let selectFromModels = _.union(baseModels, PERMANENTLY)
       field.type =
         this._bestFieldType(fieldDef.types, selectFromModels) || "Text"
       // Internal Model definition resolved by `schemify` function.

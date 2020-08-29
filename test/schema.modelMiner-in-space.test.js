@@ -215,7 +215,7 @@ for (let [model, tests] of Object.entries({
 })) {
   describe(`class | ThingBuilder | modelMiner space ${model}`, () => {
     for (let [depth, modelsRequired] of Object.entries(tests)) {
-      it.skip(`${model} at depth ${depth}`, () => {
+      it.only(`${model} at depth ${depth}`, () => {
         let modelsMined = this.thingBuilder.modelMiner([model], { depth : depth })
         modelsMined.should.have.members(modelsRequired)
       })

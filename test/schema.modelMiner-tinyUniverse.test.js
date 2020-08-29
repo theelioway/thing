@@ -19,19 +19,19 @@ before(() => {
 })
 
 describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
-  it.skip("depth 0", () => {
+  it.only("depth 0", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 0 })
       .should.have.members(["Cosmos"])
   })
-  it.skip("depth 1", () => {
+  it.only("depth 1", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 1 })
       .should.have.members(["Cosmos", "Bigness"])
   })
-  it.skip("depth 2", () => {
+  it.only("depth 2", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 2 })
@@ -40,13 +40,13 @@ describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Inte
 })
 
 describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
-  it.skip("depth 0", () => {
+  it.only("depth 0", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 0 })
       .should.have.members(["Cosmos"])
   })
-  it.skip("depth 1", () => {
+  it.only("depth 1", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 1 })
@@ -55,13 +55,13 @@ describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Text
 })
 
 describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
-  it.skip("depth 0", () => {
+  it.only("depth 0", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos", "Bigness"], { depth: 0 })
       .should.have.members(["Cosmos", "Bigness"])
   })
-  it.skip("depth 1", () => {
+  it.only("depth 1", () => {
 
     this.thingBuilder
       .modelMiner(["Cosmos", "Bigness"], { depth: 1 })

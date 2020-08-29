@@ -22,17 +22,17 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     )
   })
 
-  it.skip("Thing", () => {
+  it.only("Thing", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Thing"])
     modelsMined.should.have.members(["Thing"])
   })
 
-  it.skip("Thing at depth 0", () => {
+  it.only("Thing at depth 0", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 0 })
     modelsMined.should.have.members(["Thing"])
   })
 
-  it.skip("Thing at depth 1", () => {
+  it.only("Thing at depth 1", () => {
     let thus = [
       "Action",
       "CreativeWork",
@@ -48,7 +48,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     modelsMined.should.have.members(thus)
   })
 
-  it.skip("Thing at depth 2", () => {
+  it.only("Thing at depth 2", () => {
     let thus = [
       "Thing",
       "ImageObject",
@@ -90,14 +90,14 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
   })
 
   /**Three tier subclasses otherwise only primitive types because no depth.*/
-  it.skip("MusicComposition at depth 0", () => {
+  it.only("MusicComposition at depth 0", () => {
     let thus = ["CreativeWork", "MusicComposition", "Thing"]
     let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"])
     modelsMined.should.have.members(thus)
   })
 
   /**Four tier multi subclasses (LocalBusiness=Place+Org) otherwise primitive types.*/
-  it.skip("Notary at depth 0", () => {
+  it.only("Notary at depth 0", () => {
     let thus = [
       "LegalService",
       "LocalBusiness",
@@ -119,7 +119,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     6: 91,
     7: 91, // eventually we reach a max
   })) {
-    it.skip(`Thing at depth ${depth}`, () => {
+    it.only(`Thing at depth ${depth}`, () => {
       { depth: depth }
       let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
@@ -135,7 +135,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     6: 99,
     7: 99, // eventually we reach a max
   })) {
-    it.skip(`MusicComposition at depth ${depth}`, () => {
+    it.only(`MusicComposition at depth ${depth}`, () => {
       let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
     })
@@ -151,7 +151,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     7: 98,
     8: 98, // eventually we reach a max
   })) {
-    it.skip(`Notary at depth ${depth}`, () => {
+    it.only(`Notary at depth ${depth}`, () => {
       let modelsMined = this.thingBuilder.modelMiner(["Notary"], { depth: depth })
       modelsMined.length.should.be.equal(modelCount)
     })
