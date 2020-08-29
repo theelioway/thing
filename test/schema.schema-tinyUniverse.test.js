@@ -2,7 +2,7 @@ const should = require("chai").should()
 const ThingBuilder = require("../thing-builder")
 
 describe("class | ThingBuilder | schemify tinyUniverse", () => {
-  it("Maps Models and Fields", () => {
+  it.only("Maps Models and Fields", () => {
     let thingBuilder = new ThingBuilder(
       [
         {

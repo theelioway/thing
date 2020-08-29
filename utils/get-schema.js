@@ -3,7 +3,7 @@ const fs = require("fs")
 
 module.exports = {
   getSchema: ver => {
-    const schemaPath = `./schemaorg/data/releases/${ver}/schemaorg-all-http.jsonld`
+    const schemaPath = `./schemaorg/data/releases/${ver}.jsonld`
     const schemaContents = fs.readFileSync(schemaPath, "utf-8")
     return JSON.parse(schemaContents)["@graph"]
   },

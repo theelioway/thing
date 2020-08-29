@@ -5,7 +5,7 @@ const ThingBuilder = require("../thing-builder")
 const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 
 describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
-  it("crispy_schema_versioning_members", () => {
+  it.only("crispy_schema_versioning_members", () => {
     let fixedPrimitives = [
       "Boolean",
       "Date",
@@ -16,7 +16,7 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     let thingBuilder = new ThingBuilder(
-      getSchema("9.0"),
+      getSchema("3.9/all-layers"),
       schemaDomainUrl,
       fixedPrimitives
     )

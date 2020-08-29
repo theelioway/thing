@@ -3,7 +3,7 @@ const ThingBuilder = require("../thing-builder")
 const space = require("./fixtures/space")
 
 describe("class | ThingBuilder | schemify space", () => {
-  it("Maps Models and Fields", () => {
+  it.only("Maps Models and Fields", () => {
     let thingBuilder = new ThingBuilder(space["@graph"], "d:/", [])
     thingBuilder.domain.should.equal("d:/")
 

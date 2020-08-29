@@ -8,7 +8,7 @@ const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
 let debug = true
 
 before(() => {
-  this.thingBuilder = new ThingBuilder(getSchema("9.0"), schemaDomainUrl)
+  this.thingBuilder = new ThingBuilder(getSchema("9.0/schemaorg-all-http"), schemaDomainUrl)
   if (debug) this.jay = {}
 })
 

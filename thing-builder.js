@@ -29,11 +29,11 @@ module.exports = class ThingBuilder {
       for (let primitiveName of fixedPrimitives) {
         this.PRIMTS.set(primitiveName, {
           name: primitiveName,
-          help: "Fixed as Primitive in constructor.",
+          comment: "Fixed as Primitive in constructor.",
         })
       }
     }
-    this.knitModels(graphList)
+    this.schemify(graphList)
   }
 
   /**
@@ -44,7 +44,7 @@ module.exports = class ThingBuilder {
    *
    * @param {Array} graphList of schema objects from jsonld.
    */
-  async knitModels(graphList) {
+  async schemify(graphList) {
     this.MODELS = new Map()
     this.FIELDS = new Map()
     for (let schemaObj of graphList) {
@@ -54,14 +54,14 @@ module.exports = class ThingBuilder {
       // Handle Primitives
       if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
+          comment: schemaComment,
           name: schemaName,
-          help: schemaComment,
         })
       }
       // Handle a Type/Class/Model
       else if (schemaType === "Class") {
         this._setModel(schemaName, {
-          help: schemaComment,
+          comment: schemaComment,
           subs: this._setOf(schemaObj, "rdfs:subClassOf"),
         })
       }
@@ -70,10 +70,10 @@ module.exports = class ThingBuilder {
         let typeOf = this._setOf(schemaObj, `${this.domain}rangeIncludes`)
         let fieldOf = this._setOf(schemaObj, `${this.domain}domainIncludes`)
         this.FIELDS.set(schemaName, {
-          name: schemaName,
-          help: schemaComment,
-          types: typeOf,
+          comment: schemaComment,
           models: fieldOf,
+          name: schemaName,
+          types: typeOf,
         })
         // Add this property to any related Domain/Type/Class/Model
         for (let classType of fieldOf) {
@@ -106,8 +106,8 @@ module.exports = class ThingBuilder {
       [...opts.subs].filter(sub => primts.includes(sub)).length
     ) {
       let p = this.PRIMTS.get(name) || {
+        comment: opts.comment,
         name: name,
-        help: opts.help,
       }
       this.PRIMTS.set(name, p)
       return
@@ -118,7 +118,7 @@ module.exports = class ThingBuilder {
       fields: new Set(),
       enums: new Set(),
     }
-    t.help = opts.help ? opts.help : t.help
+    t.comment = opts.comment ? opts.comment : t.comment
     t.subs = opts.subs ? opts.subs : t.subs
     t.fields = opts.field ? new Set([...t.fields]).add(opts.field) : t.fields
     t.enums = opts.enum ? new Set([...t.enums]).add(opts.enum) : t.enums
@@ -273,12 +273,13 @@ module.exports = class ThingBuilder {
    * ModelTypes with a PrimitiveType once the depth has been reached.
    *
    * @param {Array} selectedModels in the target elioWay application.
-   * @param {integer} depth we need to go to resolve Model dependancies.
+   * @param {integer} opts including "depth" we need to go to resolve Model dependancies.
    * @param {Array} {opt} candidateModels more models to search.
    * @param {integer} {opt} currentDepth we need to go to resolve Model dependancies.
    * @returns {Array} of Models.
    */
-  modelMiner(selectedModels, depth, candidateModels, currentDepth) {
+  modelMiner(selectedModels, opts, candidateModels, currentDepth) {
+    if (!opts) opts = { depth: 0, comment: false }
     // Defaults for recursive parameters.
     if (!currentDepth) currentDepth = 0
     // At each depth, search with the current models and the candidates.
@@ -286,7 +287,7 @@ module.exports = class ThingBuilder {
 
     let PRIMITIVES = [...this.PRIMTS.keys()]
     log(`PRIMITIVES: ${PRIMITIVES}`)
-    log(`DEPTH: ${depth}`)
+    log(`DEPTH: ${opts.depth}`)
     log(`CURRENTDEPTH: ${currentDepth}`)
     log(`${currentDepth} selectedModels: ${selectedModels}`)
     log(`${currentDepth} candidateModels: ${candidateModels}`)
@@ -343,10 +344,10 @@ module.exports = class ThingBuilder {
     log(`${currentDepth} deeperModels: ${deeperModels}`)
     log(`==================== end depth ${currentDepth}`)
     // Allow to go deeper?
-    if (currentDepth < depth.depth && deeperModels && deeperModels.length) {
+    if (currentDepth < opts.depth && deeperModels && deeperModels.length) {
       return this.modelMiner(
         modelResults,
-        depth,
+        opts,
         deeperModels,
         (currentDepth += 1)
       )
@@ -356,9 +357,9 @@ module.exports = class ThingBuilder {
     }
   }
 
-  modelsMaker(selectedModels, depth) {
+  modelsMaker(selectedModels, opts) {
     let models = new Map()
-    let baseModels = this.modelMiner(selectedModels, depth)
+    let baseModels = this.modelMiner(selectedModels, opts)
     for (let selectedModelName of selectedModels) {
       models.set(
         selectedModelName,
@@ -384,7 +385,7 @@ module.exports = class ThingBuilder {
     }
     // Fall back if Field Type is not a Schema Class.
     let PRIMITIVES = [...this.PRIMTS.keys()]
-    // Internal Model definition resolved by `knitModels` function.
+    // Internal Model definition resolved by `schemify` function.
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
       throw new RangeError(
@@ -397,12 +398,12 @@ module.exports = class ThingBuilder {
     model.fields = new Object()
     model.name = selectedModelName
     model.subs = this._parentClassesOf([...modelDef.subs])
-    if (opts.help) {
-      model.help = modelDef.help
+    if (opts.comment) {
+      model.comment = modelDef.comment
     }
     // Resolve this Model's fields
     for (let fieldName of modelDef.fields) {
-      // Internal Field definition resolved by `knitModels` function.
+      // Internal Field definition resolved by `schemify` function.
       let fieldDef = this.FIELDS.get(fieldName)
       // Current field object.
       let field = new Object()
@@ -415,7 +416,7 @@ module.exports = class ThingBuilder {
       let selectFromModels = _.union(baseModels, PRIMITIVES)
       field.type =
         this._bestFieldType(fieldDef.types, selectFromModels) || "Text"
-      // Internal Model definition resolved by `knitModels` function.
+      // Internal Model definition resolved by `schemify` function.
       let fieldTypeDef = this.MODELS.get(field.type)
       if (fieldTypeDef) {
         field.foreign = true
@@ -438,8 +439,8 @@ module.exports = class ThingBuilder {
       } else {
         fieldTypeDef = this.PRIMTS.get(field.type)
       }
-      if (opts.help) {
-        field.help = fieldDef.help
+      if (opts.comment) {
+        field.comment = fieldDef.comment
       }
       model.fields[fieldName] = field
     }
