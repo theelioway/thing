@@ -7,11 +7,15 @@
   "bin": "./bin/index.js",
   "chisel": {
     "host": "eliothing",
-    "Python": [
-      "thing"
+    "Things": [
+      "thing",
+      "thing-liar",
+      "thing-mongoose",
+      "thing-django"
     ],
     "Tools": [
-      "generator-thing"
+      "generator-thing",
+      "thing-sammy"
     ]
   },
   "dependencies": {
