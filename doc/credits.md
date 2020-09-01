@@ -10,4 +10,4 @@
 
 ## Core, thanks!
 
-- [Schema.org](https://schema.org)
+- <https://schema.org>

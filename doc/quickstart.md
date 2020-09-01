@@ -18,7 +18,7 @@ const ThingBuilder = require("@elioway/thing")
 
 ## How to get Schema
 
-A ThingBuilder class converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of its Things. ThingBuilder is the first step to autogenerating date models for your MVC frameworks.
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of its Things. ThingBuilder is the first step to autogenerating date models for your MVC frameworks.
 
 **thing** delivers a JSON object with the meta data you'll need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing. For instance if you selected the MoveAction
 
@@ -97,9 +97,9 @@ Inside the `engage` Map, you'll see the fields for a `Thing` subclass called `Ac
 
 ## Using thing in your frameworks
 
-### `Schema.org`
+### Schema Version
 
-Selecting a specific version of Schema.org
+Selecting a specific version of <https://schema.org>
 
 - `git clone https://github.com/schemaorg/schemaorg.git`
 

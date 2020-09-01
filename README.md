@@ -6,7 +6,7 @@
 
 ![experimental](https://elioway.gitlab.io/artwork/icon/experimental/favicon.png "experimental")
 
-A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
 - [thing Documentation](https://elioway.gitlab.io/eliothing/thing/)
 
@@ -21,7 +21,7 @@ A class which converts [Schema.org](https://schema.org) (and other jsonld format
 ## Seeing is Believing
 
 ```
-cd elioway/eliothing/thing
+git clone https://gitlab.com/eliothing/thing.git
 npm i
 npm run thing Action --depth 2
 ```

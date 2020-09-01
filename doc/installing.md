@@ -17,6 +17,7 @@ yarn add @elioway/thing
 ## Development
 
 ```bash
+git clone https://gitlab.com/elioway/elioway.gitlab.io.git elioway
 cd elioway
 git clone https://gitlab.com/elioway/eliothing.git
 cd eliothing

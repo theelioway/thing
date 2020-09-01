@@ -8,7 +8,7 @@
 
 ![experimental](https://elioway.gitlab.io/artwork/icon/experimental/favicon.png "experimental")
 
-A ThingBuilder class converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
 <div><a href="installing.html">
   <button>Installing</button>
@@ -78,7 +78,7 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
   <dt>
   <a href="https://gitlab.com/eliothing/thing-mongoose">thing-mongoose</a>
 </dt>
-  <dd>Autogenerating, Mongoose ready Schemas representing Schema.org Things.</dd>
+  <dd>Autogenerating, Mongoose ready Schemas representing <a href="https://schema.org">https://schema.org</a> Things.</dd>
   <dt>
   <a href="https://gitlab.com/eliothing/thing-liar">thing-liar</a>
 </dt>
