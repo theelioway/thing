@@ -4,7 +4,7 @@
 
 # thing
 
-![experimental](https://elioway.gitlab.io/static/experimental.png "experimental")
+![experimental](https://elioway.gitlab.io/artwork/icon/experimental/favicon.png "experimental")
 
 A class which converts [Schema.org](https://schema.org) (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
