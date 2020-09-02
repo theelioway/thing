@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - [elioWay Prerequisites](https://elioway.gitlab.io/installing.html)
-- [eliothing Prerequisites](https://elioway.gitlab.io/eliothing/installing.html)
+- [elioThing Prerequisites](https://elioway.gitlab.io/eliothing/installing.html)
 
 ## npm
 

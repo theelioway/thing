@@ -4,9 +4,9 @@
   <img src="star.png" alt="">
 </figure>
 
-> In the grand scheme of Things, **the elioWay**
+> In the grand scheme of Things, the **elioWay**
 
-![experimental](https://elioway.gitlab.io/artwork/icon/experimental/favicon.png "experimental")
+![experimental](/artwork/icon/experimental/favicon.png "experimental")
 
 A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
@@ -68,19 +68,8 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
 }
 ```
 
-## Related
+## Family
 
-<dl>
-  <dt>
-  <a href="https://gitlab.com/eliothing/thing-django">thing-django</a>
-</dt>
-  <dd>Autogenerating, Schema-based, Django Models to power View, Forms and Templates.</dd>
-  <dt>
-  <a href="https://gitlab.com/eliothing/thing-mongoose">thing-mongoose</a>
-</dt>
-  <dd>Autogenerating, Mongoose ready Schemas representing <a href="https://schema.org">https://schema.org</a> Things.</dd>
-  <dt>
-  <a href="https://gitlab.com/eliothing/thing-liar">thing-liar</a>
-</dt>
-  <dd>Fake, Schema-based, data to use in your thing development.</dd>
-</dl>
+- [eliothing/thing-django](/eliothing/thing-django)
+- [eliothing/thing-liar](/eliothing/thing-liar)
+- [eliothing/thing-mongoose](/eliothing/thing-mongoose)
