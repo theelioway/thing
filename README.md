@@ -1,6 +1,6 @@
 ![](https://elioway.gitlab.io/eliothing/dna-django/elio-thing-logo.png)
 
-> In the grand scheme of Things, the **elioWay**
+> In the grand scheme of Things, **the elioWay**
 
 # thing
 

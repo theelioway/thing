@@ -4,7 +4,7 @@
   <img src="star.png" alt="">
 </figure>
 
-> In the grand scheme of Things, the **elioWay**
+> In the grand scheme of Things, **the elioWay**
 
 ![experimental](/artwork/icon/experimental/favicon.png "experimental")
 
