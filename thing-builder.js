@@ -4,6 +4,7 @@ const logger = require("./utils/logger")
 const difference = require("./utils/difference")
 const union = require("./utils/union")
 const xor = require("./utils/xor")
+const { getSchema } = require("../utils/get-schema")
 
 const log = logger.debug
 
@@ -20,7 +21,8 @@ module.exports = class ThingBuilder {
    *        For instance, depending on the database, you might choose to make
    *        "ImageObject" a Primitive if your database supports it.
    */
-  constructor(graphList, domain, fixedPrimitives) {
+  constructor(schemaVersion, domain, fixedPrimitives) {
+    let graphList = getSchema(schemaVersion)
     this.domain = domain
     this.MODELS = new Map()
     this.FIELDS = new Map()
@@ -407,7 +409,7 @@ module.exports = class ThingBuilder {
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
       throw new RangeError(
-        "Model not found. Sure this is a Class Type in the Schema?"
+        `${selectedModelName} Model not found. Is Class Type in Schema?`
       )
     }
     // Return object.

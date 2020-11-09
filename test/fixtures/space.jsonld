@@ -1,4 +1,9 @@
-module.exports = {
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
   "@graph": [
     { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
     {
@@ -7,79 +12,79 @@ module.exports = {
       "d:/domainIncludes": [
         { "@id": "d:/Belt" },
         { "@id": "d:/GPS" },
-        { "@id": "d:/Cosmos" },
+        { "@id": "d:/Cosmos" }
       ],
-      "d:/rangeIncludes": { "@id": "d:/Text" },
+      "d:/rangeIncludes": { "@id": "d:/Text" }
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "isInteresting",
       "d:/domainIncludes": { "@id": "d:/Cosmos" },
-      "d:/rangeIncludes": { "@id": "d:/Interestingness" },
+      "d:/rangeIncludes": { "@id": "d:/Interestingness" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Universe",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Galaxy",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "SolarSystem",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Sun",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Planet",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Moon",
-      "rdfs:subClassOf": { "@id": "d:/Planet" },
+      "rdfs:subClassOf": { "@id": "d:/Planet" }
     },
     { "@type": "rdfs:Class", "rdfs:label": "Belt" },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Asteroid",
-      "rdfs:subClassOf": [{ "@id": "d:/Moon" }, { "@id": "d:/Sun" }],
+      "rdfs:subClassOf": [{ "@id": "d:/Moon" }, { "@id": "d:/Sun" }]
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Satellite",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "GPS",
-      "rdfs:subClassOf": { "@id": "d:/Satellite" },
+      "rdfs:subClassOf": { "@id": "d:/Satellite" }
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "satelliteName",
       "d:/domainIncludes": [{ "@id": "d:/Satellite" }, { "@id": "d:/GPS" }],
-      "d:/rangeIncludes": { "@id": "d:/Text" },
+      "d:/rangeIncludes": { "@id": "d:/Text" }
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "milkiness",
       "d:/domainIncludes": { "@id": "d:/Galaxy" },
-      "d:/rangeIncludes": [{ "@id": "d:/Universe" }, { "@id": "d:/DateTime" }],
+      "d:/rangeIncludes": [{ "@id": "d:/Universe" }, { "@id": "d:/DateTime" }]
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "qualifications",
       "d:/domainIncludes": { "@id": "d:/SolarSystem" },
-      "d:/rangeIncludes": { "@id": "d:/Galaxy" },
+      "d:/rangeIncludes": { "@id": "d:/Galaxy" }
     },
     {
       "@type": "rdf:Property",
@@ -87,20 +92,20 @@ module.exports = {
       "d:/domainIncludes": { "@id": "d:/Sun" },
       "d:/rangeIncludes": [
         { "@id": "d:/SolarSystem" },
-        { "@id": "d:/Boolean" },
-      ],
+        { "@id": "d:/Boolean" }
+      ]
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "email",
       "d:/domainIncludes": { "@id": "d:/Planet" },
-      "d:/rangeIncludes": [{ "@id": "d:/URL" }, { "@id": "d:/Date" }],
+      "d:/rangeIncludes": [{ "@id": "d:/URL" }, { "@id": "d:/Date" }]
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "sunny",
       "d:/domainIncludes": { "@id": "d:/Planet" },
-      "d:/rangeIncludes": [{ "@id": "d:/Sun" }, { "@id": "d:/Text" }],
+      "d:/rangeIncludes": [{ "@id": "d:/Sun" }, { "@id": "d:/Text" }]
     },
     {
       "@type": "rdf:Property",
@@ -109,30 +114,30 @@ module.exports = {
       "d:/rangeIncludes": [
         { "@id": "d:/Text" },
         { "@id": "d:/Number" },
-        { "@id": "d:/Float" },
-      ],
+        { "@id": "d:/Float" }
+      ]
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "image",
       "d:/domainIncludes": { "@id": "d:/Belt" },
-      "d:/rangeIncludes": { "@id": "d:/ImageObject" },
+      "d:/rangeIncludes": { "@id": "d:/ImageObject" }
     },
     {
       "@type": "rdf:Property",
       "rdfs:label": "belt",
       "d:/domainIncludes": { "@id": "d:/Asteroid" },
-      "d:/rangeIncludes": { "@id": "d:/Belt" },
+      "d:/rangeIncludes": { "@id": "d:/Belt" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Gravitation",
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Interestingness",
-      "rdfs:subClassOf": { "@id": "d:/Gravitation" },
+      "rdfs:subClassOf": { "@id": "d:/Gravitation" }
     },
     { "@type": "d:/Interestingness", "rdfs:label": "Boring" },
     { "@type": "d:/Interestingness", "rdfs:label": "Whatever" },
@@ -146,49 +151,49 @@ module.exports = {
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Float",
-      "rdfs:subClassOf": { "@id": "d:/Number" },
+      "rdfs:subClassOf": { "@id": "d:/Number" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Integer",
-      "rdfs:subClassOf": { "@id": "d:/Number" },
+      "rdfs:subClassOf": { "@id": "d:/Number" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "URL",
-      "rdfs:subClassOf": { "@id": "d:/Text" },
+      "rdfs:subClassOf": { "@id": "d:/Text" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Quantity",
-      "rdfs:subClassOf": { "@id": "d:/Number" },
+      "rdfs:subClassOf": { "@id": "d:/Number" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "Duration",
-      "rdfs:subClassOf": { "@id": "d:/Quantity" },
+      "rdfs:subClassOf": { "@id": "d:/Quantity" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "ImageObject",
       "http://www.w3.org/2002/07/owl#equivalentClass": {
-        "@id": "http://purl.org/dc/dcmitype/Image",
+        "@id": "http://purl.org/dc/dcmitype/Image"
       },
-      "rdfs:subClassOf": { "@id": "d:/MeteorObject" },
+      "rdfs:subClassOf": { "@id": "d:/MeteorObject" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "MeteorObject",
-      "rdfs:subClassOf": { "@id": "d:/CreativeForce" },
+      "rdfs:subClassOf": { "@id": "d:/CreativeForce" }
     },
     {
       "@type": "rdfs:Class",
       "rdfs:label": "CreativeForce",
       "http://purl.org/dc/terms/source": {
         "@id":
-          "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews",
+          "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews"
       },
-      "rdfs:subClassOf": { "@id": "d:/Cosmos" },
+      "rdfs:subClassOf": { "@id": "d:/Cosmos" }
     },
   ],
 }

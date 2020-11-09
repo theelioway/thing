@@ -12,7 +12,7 @@ before(() => {
     "Time",
   ]
   this.thingBuilder = new ThingBuilder(
-    space["@graph"],
+    "test/fixtures/space"],
     "d:/",
     this.fixedPrimitives
   )

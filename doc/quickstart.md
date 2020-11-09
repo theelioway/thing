@@ -5,11 +5,7 @@
 - `git clone https://github.com/schemaorg/schemaorg.git` -
 
 ```javascript
-const {
-  getSchema,
-  schemaDomainUrl,
-} = require("@elioway/thing/utils/get-schema")
-const releaseV9 = getSchema("9.0")["@graph"]
+const { schemaDomainUrl } = require("@elioway/thing/utils/get-schema")
 ```
 
 ```javascript
@@ -105,12 +101,9 @@ Selecting a specific version of <https://schema.org>
 
 ```javascript
 const ThingBuilder = require("../thing-builder")
-const {
-  getSchema,
-  schemaDomainUrl,
-} = require("@elioway/thing/utils/get-schema")
-const releaseV7 = getSchema("7.0")["@graph"]
-let thingBuilder = new ThingBuilder(releaseV7, schemaDomainUrl)
+const { schemaDomainUrl } = require("@elioway/thing/utils/get-schema")
+const releaseV9 = "data/releases/9.0/schemaorg-all-http"
+let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 ```
 
 ### `ThingBuilder`

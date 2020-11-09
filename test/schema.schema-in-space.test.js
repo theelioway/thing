@@ -4,7 +4,7 @@ const space = require("./fixtures/space")
 
 describe("class | ThingBuilder | schemify space", () => {
   it("Maps Models and Fields", () => {
-    let thingBuilder = new ThingBuilder(space["@graph"], "d:/", [])
+    let thingBuilder = new ThingBuilder("test/fixtures/space", "d:/", [])
     thingBuilder.domain.should.equal("d:/")
 
     thingBuilder.MODELS.size.should.equal(16)

@@ -3,7 +3,7 @@ const ThingBuilder = require("../thing-builder")
 const space = require("./fixtures/space")
 
 before(() => {
-  this.thingBuilder = new ThingBuilder(space["@graph"], "d:/")
+  this.thingBuilder = new ThingBuilder("test/fixtures/space", "d:/")
 })
 
 for (let [model, tests] of Object.entries({

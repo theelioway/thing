@@ -3,22 +3,12 @@ const ThingBuilder = require("../thing-builder")
 
 before(() => {
   this.thingBuilder = new ThingBuilder(
-    [
-      { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
-      { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
-      { "@type": ["rdfs:Class", "d:/DataType"], "rdfs:label": "Integer" },
-      {
-        "@type": "rdf:Property",
-        "rdfs:label": "isBig",
-        "d:/domainIncludes": { "@id": "d:/Cosmos" },
-        "d:/rangeIncludes": [{ "@id": "d:/Bigness" }, { "@id": "d:/Text" }],
-      },
-    ],
+    "test/fixtures/quantumUniverse",
     "d:/"
   )
 })
 
-describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Integer", () => {
+describe("class | ThingBuilder | modelMiner quantumUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 0 })
@@ -36,7 +26,7 @@ describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Inte
   })
 })
 
-describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Text", () => {
+describe("class | ThingBuilder | modelMiner quantumUniverse [Cosmos] Primitive Text", () => {
   it("depth 0", () => {
     this.thingBuilder
       .modelMiner(["Cosmos"], { depth: 0 })
@@ -49,7 +39,7 @@ describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos] Primitive Text
   })
 })
 
-describe("class | ThingBuilder | modelMiner tinyUniverse [Cosmos, Bigness] Primitive Text", () => {
+describe("class | ThingBuilder | modelMiner quantumUniverse [Cosmos, Bigness] Primitive Text", () => {
   it("depth 0", () => {
     this.thingBuilder
       .modelMiner(["Cosmos", "Bigness"], { depth: 0 })

@@ -14,10 +14,10 @@ commander
   .parse(process.argv)
 
 const ThingBuilder = require("../thing-builder")
-const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
+const { schemaDomainUrl } = require("../utils/get-schema")
 
 let thingBuilder = new ThingBuilder(
-  getSchema("9.0/schemaorg-all-http"),
+  "data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
 let things = thingBuilder.things(commander.args, commander.opts())

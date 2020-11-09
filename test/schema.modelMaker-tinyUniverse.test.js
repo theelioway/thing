@@ -4,35 +4,7 @@ const ThingBuilder = require("../thing-builder")
 describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
   before(() => {
     this.thingBuilder = new ThingBuilder(
-      [
-        {
-          "@type": "rdfs:Class",
-          "rdfs:label": "Cosmos",
-          "rdfs:comment": "Comment Cosmos",
-        },
-        {
-          "@type": "rdf:Property",
-          "rdfs:label": "size",
-          "rdfs:comment": "Comment size",
-          "d:/domainIncludes": { "@id": "d:/Cosmos" },
-          "d:/rangeIncludes": [{ "@id": "d:/Bigness" }, { "@id": "d:/Text" }],
-        },
-        {
-          "@type": "rdfs:Class",
-          "rdfs:label": { "@language": "en", "@value": "Bigness" },
-          "rdfs:comment": "Comment Bigness",
-        },
-        {
-          "@type": "d:/Bigness",
-          "rdfs:label": "Big",
-          "rdfs:comment": "Comment Big",
-        },
-        {
-          "@type": ["rdfs:Class", "d:/DataType"],
-          "rdfs:label": "Text",
-          "rdfs:comment": "Comment Text",
-        },
-      ],
+      "test/fixtures/tinyUniverse",
       "d:/"
     )
   })

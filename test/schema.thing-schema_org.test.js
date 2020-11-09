@@ -3,13 +3,13 @@ const should = require("chai").should()
 const fs = require("fs")
 
 const ThingBuilder = require("../thing-builder")
-const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
+const { schemaDomainUrl } = require("../utils/get-schema")
 
 let debug = true
 
 before(() => {
   this.thingBuilder = new ThingBuilder(
-    getSchema("9.0/schemaorg-all-http"),
+    "data/releases/9.0/schemaorg-all-http",
     schemaDomainUrl
   )
   if (debug) this.jay = {}

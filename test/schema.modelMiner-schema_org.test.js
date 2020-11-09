@@ -2,7 +2,7 @@ const should = require("chai").should()
 const fs = require("fs")
 
 const ThingBuilder = require("../thing-builder")
-const { getSchema, schemaDomainUrl } = require("../utils/get-schema")
+const { schemaDomainUrl } = require("../utils/get-schema")
 
 describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
   before(() => {
@@ -16,7 +16,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     this.thingBuilder = new ThingBuilder(
-      getSchema("3.9/all-layers"),
+      "data/releases/3.9/all-layers",
       schemaDomainUrl,
       this.fixedPrimitives
     )
