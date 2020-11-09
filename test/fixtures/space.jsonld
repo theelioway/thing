@@ -194,6 +194,6 @@
           "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews"
       },
       "rdfs:subClassOf": { "@id": "d:/Cosmos" }
-    },
-  ],
+    }
+  ]
 }

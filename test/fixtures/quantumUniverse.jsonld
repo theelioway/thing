@@ -7,7 +7,7 @@
   "@graph": [
     { "@type": "rdfs:Class", "rdfs:label": "Cosmos" },
     { "@type": "rdfs:Class", "rdfs:label": "Bigness" },
-    { "@type": ["rdfs:Class", "d:/DataType"], "rdfs:label": "Integer" }
+    { "@type": ["rdfs:Class", "d:/DataType"], "rdfs:label": "Integer" },
     {
       "@type": "rdf:Property",
       "rdfs:label": "isBig",

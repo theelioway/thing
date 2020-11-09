@@ -58,7 +58,12 @@
         },
         "actionStatus": {
           "type": "Text",
-          "enums": ["FailedActionStatus", "CompletedActionStatus", "ActiveActionStatus", "PotentialActionStatus"]
+          "enums": [
+            "FailedActionStatus",
+            "CompletedActionStatus",
+            "ActiveActionStatus",
+            "PotentialActionStatus"
+          ]
         },
         "target": {
           "type": "Text"

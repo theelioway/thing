@@ -102,7 +102,7 @@ Selecting a specific version of <https://schema.org>
 ```javascript
 const ThingBuilder = require("../thing-builder")
 const { schemaDomainUrl } = require("@elioway/thing/utils/get-schema")
-const releaseV9 = "data/releases/9.0/schemaorg-all-http"
+const releaseV9 = "schemaorg/data/releases/9.0/schemaorg-all-http"
 let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 ```
 
@@ -226,7 +226,9 @@ Returns:
 Return a fully round Thing with all its fields and fields of those it subclasses.
 
 ```javascript
-let thing = thingBuilder.thing("StructuredValue", modelsMined, { comment: false })
+let thing = thingBuilder.thing("StructuredValue", modelsMined, {
+  comment: false,
+})
 ```
 
 Returns:

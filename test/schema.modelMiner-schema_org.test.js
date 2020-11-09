@@ -16,7 +16,7 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     this.thingBuilder = new ThingBuilder(
-      "data/releases/3.9/all-layers",
+      "schemaorg/data/releases/3.9/all-layers",
       schemaDomainUrl,
       this.fixedPrimitives
     )

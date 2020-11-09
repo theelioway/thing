@@ -1,10 +1,10 @@
 "use strict"
 const _ = require("lodash")
-const logger = require("./utils/logger")
 const difference = require("./utils/difference")
+const logger = require("./utils/logger")
 const union = require("./utils/union")
 const xor = require("./utils/xor")
-const { getSchema } = require("../utils/get-schema")
+const { getSchema } = require("./utils/get-schema")
 
 const log = logger.debug
 

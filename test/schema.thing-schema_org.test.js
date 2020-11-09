@@ -9,7 +9,7 @@ let debug = true
 
 before(() => {
   this.thingBuilder = new ThingBuilder(
-    "data/releases/9.0/schemaorg-all-http",
+    "schemaorg/data/releases/9.0/schemaorg-all-http",
     schemaDomainUrl
   )
   if (debug) this.jay = {}

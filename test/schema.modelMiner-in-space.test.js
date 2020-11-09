@@ -1,6 +1,5 @@
 const ThingBuilder = require("../thing-builder")
 const should = require("chai").should()
-const space = require("./fixtures/space")
 
 before(() => {
   this.fixedPrimitives = [
@@ -12,7 +11,7 @@ before(() => {
     "Time",
   ]
   this.thingBuilder = new ThingBuilder(
-    "test/fixtures/space"],
+    "test/fixtures/space",
     "d:/",
     this.fixedPrimitives
   )

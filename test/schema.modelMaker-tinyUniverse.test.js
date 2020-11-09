@@ -3,10 +3,7 @@ const ThingBuilder = require("../thing-builder")
 
 describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
   before(() => {
-    this.thingBuilder = new ThingBuilder(
-      "test/fixtures/tinyUniverse",
-      "d:/"
-    )
+    this.thingBuilder = new ThingBuilder("test/fixtures/tinyUniverse", "d:/")
   })
 
   let SIMPLESTEXPECTEDMODEL = {

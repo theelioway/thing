@@ -1,6 +1,5 @@
 const should = require("chai").should()
 const ThingBuilder = require("../thing-builder")
-const space = require("./fixtures/space")
 
 before(() => {
   this.thingBuilder = new ThingBuilder("test/fixtures/space", "d:/")

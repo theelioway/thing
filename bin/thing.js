@@ -17,7 +17,7 @@ const ThingBuilder = require("../thing-builder")
 const { schemaDomainUrl } = require("../utils/get-schema")
 
 let thingBuilder = new ThingBuilder(
-  "data/releases/9.0/schemaorg-all-http",
+  "schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
 let things = thingBuilder.things(commander.args, commander.opts())

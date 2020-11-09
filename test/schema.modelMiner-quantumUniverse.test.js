@@ -2,10 +2,7 @@ const should = require("chai").should()
 const ThingBuilder = require("../thing-builder")
 
 before(() => {
-  this.thingBuilder = new ThingBuilder(
-    "test/fixtures/quantumUniverse",
-    "d:/"
-  )
+  this.thingBuilder = new ThingBuilder("test/fixtures/quantumUniverse", "d:/")
 })
 
 describe("class | ThingBuilder | modelMiner quantumUniverse [Cosmos] Primitive Integer", () => {
