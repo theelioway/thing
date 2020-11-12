@@ -23,7 +23,7 @@ A class which converts <https://schema.org> (and other jsonld formats) into simp
 ```
 git clone https://gitlab.com/eliothing/thing.git
 npm i
-npm run thing Action --depth 2
+npm run thing -- Action --depth 2
 ```
 
 ## Nutshell

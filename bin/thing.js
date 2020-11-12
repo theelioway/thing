@@ -22,8 +22,8 @@ let thingBuilder = new ThingBuilder(
 )
 let things = thingBuilder.things(commander.args, commander.opts())
 fs.writeFileSync(
-  `./output/${commander.args.join("-")}.json`,
+  `./pretty/ugly/${commander.args.join("-")}.json`,
   JSON.stringify(things)
 )
 
-console.log("Done! Output:", `./output/${commander.args.join("-")}.json`)
+console.log("Done! Output:", `./pretty/ugly/${commander.args.join("-")}.json`)

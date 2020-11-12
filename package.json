@@ -20,7 +20,11 @@
   },
   "dependencies": {
     "commander": "^6.0.0",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-prettier": "^3.0.0",
     "lodash": "^4.17.19",
+    "vinyl-paths": "^3.0.1",
     "winston": "^3.3.3"
   },
   "devDependencies": {
