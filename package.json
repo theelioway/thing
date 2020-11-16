@@ -10,8 +10,8 @@
     "Things": [
       "thing",
       "thing-liar",
-      "thing-mongoose",
-      "thing-django"
+      "mongoose-thing",
+      "django-thing"
     ],
     "Tools": [
       "generator-thing",

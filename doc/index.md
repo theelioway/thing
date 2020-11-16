@@ -70,6 +70,6 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
 
 ## Family
 
-- [eliothing/thing-django](/eliothing/thing-django)
+- [eliothing/django-thing](/eliothing/django-thing)
 - [eliothing/thing-liar](/eliothing/thing-liar)
-- [eliothing/thing-mongoose](/eliothing/thing-mongoose)
+- [eliothing/mongoose-thing](/eliothing/mongoose-thing)
