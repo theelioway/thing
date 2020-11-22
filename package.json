@@ -4,19 +4,31 @@
   "name": "@elioway/thing",
   "title": "thing",
   "version": "0.1.0",
-  "bin": "./bin/index.js",
-  "chisel": {
-    "host": "eliothing",
-    "Things": [
+  "__________": "______________________________",
+  "kleio": {
+    "art": {
+      "elioName": "thing",
+      "pluginName": "",
+      "splashQuote": "In the grand scheme of Things, the elioWay"
+    },
+    "branciaos": [
       "thing",
-      "thing-liar",
-      "mongoose-thing",
-      "django-thing"
+      "eliothing"
     ],
-    "Tools": [
-      "generator-thing",
-      "thing-sammy"
-    ]
+    "chisel": {
+      "Home": "eliothing"
+    },
+    "twig": {
+      "workingBranch": "main",
+      "mergeIntoBranch": "main"
+    }
+  },
+  "bin": "./bin/index.js",
+  "main": "./thing-builder.js",
+  "scripts": {
+    "thing": "node bin/thing.js",
+    "test": "mocha",
+    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   },
   "dependencies": {
     "commander": "^6.0.0",
@@ -32,20 +44,27 @@
     "mocha": "^8.0.1",
     "prettier": "^2.0.5"
   },
+  "chisel": {
+    "host": "eliothing",
+    "Things": [
+      "thing",
+      "thing-liar",
+      "mongoose-thing",
+      "django-thing"
+    ],
+    "Tools": [
+      "generator-thing",
+      "thing-sammy"
+    ]
+  },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "keywords": [
     "elioway",
     "nodejs"
   ],
   "license": "MIT",
-  "main": "./thing-builder.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/elioway/eliothing/thing"
-  },
-  "scripts": {
-    "thing": "node bin/thing.js",
-    "test": "mocha",
-    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   }
 }

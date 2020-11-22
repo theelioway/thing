@@ -1,5 +1,7 @@
 # Quickstart thing
 
+- [Prerequisites](./prerequisites)
+
 ## Nutshell
 
 - `git clone https://github.com/schemaorg/schemaorg.git` -

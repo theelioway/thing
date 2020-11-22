@@ -6,7 +6,7 @@
 
 > In the grand scheme of Things, **the elioWay**
 
-![experimental](/artwork/icon/experimental/favicon.png "experimental")
+![experimental](//docs.elioway/./elioangels/icon/experimental/favicon.png "experimental")
 
 A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
@@ -70,6 +70,6 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
 
 ## Family
 
-- [eliothing/django-thing](/eliothing/django-thing)
-- [eliothing/thing-liar](/eliothing/thing-liar)
-- [eliothing/mongoose-thing](/eliothing/mongoose-thing)
+- [eliothing/django-thing](//docs.elioway/./eliothing/django-thing)
+- [eliothing/thing-liar](//docs.elioway/./eliothing/thing-liar)
+- [eliothing/mongoose-thing](//docs.elioway/./eliothing/mongoose-thing)

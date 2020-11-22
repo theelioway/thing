@@ -1,9 +1,6 @@
 # Installing thing
 
-## Prerequisites
-
-- [elioWay Prerequisites](https://elioway.gitlab.io/installing.html)
-- [elioThing Prerequisites](https://elioway.gitlab.io/eliothing/installing.html)
+- [Prerequisites](./prerequisites)
 
 ## npm
 
@@ -14,7 +11,7 @@ npm install @elioway/thing
 yarn add @elioway/thing
 ```
 
-## Development
+## Contributing
 
 ```shell
 git clone https://gitlab.com/elioway/elioway.gitlab.io.git elioway
