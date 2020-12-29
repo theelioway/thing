@@ -1,0 +1,29 @@
+{
+  "potentialAction": "",
+  "identifier": "",
+  "sameAs": "",
+  "url": "",
+  "image": "",
+  "alternateName": "",
+  "name": "",
+  "description": "",
+  "mainEntityOfPage": "",
+  "disambiguatingDescription": "",
+  "subjectOf": "",
+  "additionalType": "Action",
+  "engage": {
+    "Action": {
+      "instrument": "",
+      "endTime": "",
+      "participant": "",
+      "result": "",
+      "startTime": "",
+      "actionStatus": "",
+      "target": "",
+      "agent": "",
+      "error": "",
+      "location": "",
+      "object": ""
+    }
+  }
+}

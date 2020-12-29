@@ -85,7 +85,6 @@ module.exports = class ThingBuilder {
       // Handle a Enumerated Type Value
       else {
         for (let typeOf of schemaType) {
-          // console.log(typeOf, typeOf)
           let enumeratorOf = typeOf.replace(this.domain, "")
           this._setModel(enumeratorOf, { enum: schemaName })
         }
@@ -468,23 +467,6 @@ module.exports = class ThingBuilder {
   }
 
   /**
-   * @file Convenient utility to build all the Schemas your app needs.
-   * @param {str} selectedModelNames to build.
-   * @param {Object} opts {depth, comment}
-   * @returns {Object} JSON format version of the Model.
-   */
-  things(selectedModelNames, opts) {
-    if (!opts) opts = { depth: 0, comment: false }
-    let things = new Object()
-    let modelsMined = this.modelMiner(selectedModelNames, opts)
-    for (let modelName of modelsMined) {
-      let thing = this.thing(modelName, modelsMined, opts)
-      things[modelName] = thing
-    }
-    return things
-  }
-
-  /**
    * @file Make a simple JSON, version of a complete Thing.
    * @tutorial This creates a Thing with the Thing type's fields and an engage
    * property containing a map to all the sub-Types.
@@ -494,7 +476,7 @@ module.exports = class ThingBuilder {
    * @param {Object} opts {depth, comment}
    * @returns {Object} JSON format version of the Model.
    */
-  thing(selectedModelName, baseModels, opts) {
+  _Thing(selectedModelName, baseModels, opts) {
     // Default options.
     if (!opts) opts = { depth: 0, comment: false }
     // Return a Thing,
@@ -522,5 +504,66 @@ module.exports = class ThingBuilder {
       thing = selectedModel.fields
     }
     return thing
+  }
+
+
+  /**
+   * @file Convenient utility to build all the Schemas your app needs.
+   * @param {str} selectedModelNames to build.
+   * @param {Object} opts {depth, comment}
+   * @returns {Object} JSON format version of the Model.
+   */
+  Thing(selectedModelNames, opts) {
+    if (!opts) opts = { depth: 0, comment: false }
+    let things = new Object()
+    let modelsMined = this.modelMiner(selectedModelNames, opts)
+    for (let modelName of modelsMined) {
+      let thing = this._Thing(modelName, modelsMined, opts)
+      things[modelName] = thing
+    }
+    let Thing = Object.fromEntries([Object.entries(things).shift()])
+    return Thing[Object.keys(Thing).shift()]
+  }
+
+  thing(Thing, thingType) {
+    Object.entries(Thing).forEach(([field, def]) => {
+      if (field === "additionalType"){
+        Thing[field] = thingType
+      } else if (["Date", "DateTime", "String", "Time", "URL"].includes(def.type)) {
+        Thing[field] = ""
+      } else if (
+        [
+          "Boolean",
+          "Distance",
+          "Duration",
+          "Integer",
+          "Number",
+          "Quantity",
+          "Time",
+        ].includes(def.type)
+      ) {
+        Thing[field] = 0
+      } else {
+        if (field === "engage") {
+          Object.keys(Thing["engage"]).forEach(type => {
+            Thing[field][type] = this.thing(Thing["engage"][type], type)
+          })
+        } else if (
+          [
+            "minPrice",
+            "maxPrice",
+            "minValue",
+            "maxValue",
+            "price",
+            "value",
+          ].includes(field)
+        ) {
+          Thing[field] = 0
+        } else {
+          Thing[field] = ""
+        }
+      }
+    })
+    return Thing
   }
 }

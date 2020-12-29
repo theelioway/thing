@@ -16,6 +16,5 @@ let watchTask = () => {
   return watch(prettyUglyFiles, prettyUglyTask)
 }
 
-
 exports.prettyUgly = watchTask
 exports.default = prettyUglyTask
