@@ -16,7 +16,7 @@ module.exports = class ThingBuilder {
    * @tutorial Doing this makes it easier to build the "DNA" of Models.
    *
    * @param {Array} graphList of schema objects from jsonld.
-   * @param {str} domain used in jsonld.
+   * @param {String} domain used in jsonld.
    * @param {Array} fixedPrimitives names we'll always treat as Primitive datatypes.
    *        For instance, depending on the database, you might choose to make
    *        "ImageObject" a Primitive if your database supports it.
