@@ -506,12 +506,11 @@ module.exports = class ThingBuilder {
     return thing
   }
 
-
   /**
-   * @file Convenient utility to build all the Schemas your app needs.
+   * @file Build all the Schemas, with meta, your app needs.
    * @param {str} selectedModelNames to build.
    * @param {Object} opts {depth, comment}
-   * @returns {Object} JSON format version of the Model.
+   * @returns {Object} JSON format version of the Model with data types.
    */
   Thing(selectedModelNames, opts) {
     if (!opts) opts = { depth: 0, comment: false }
@@ -521,15 +520,22 @@ module.exports = class ThingBuilder {
       let thing = this._Thing(modelName, modelsMined, opts)
       things[modelName] = thing
     }
-    let Thing = Object.fromEntries([Object.entries(things).shift()])
-    return Thing[Object.keys(Thing).shift()]
+    return things
   }
 
-  thing(Thing, thingType) {
+  /**
+   * @file Convenient utility to build an instance of a Thing (a thinglet), no meta, just empty fields.
+   * @param {str} selectedModel to build.
+   * @param {Object} opts {depth, comment}
+   * @returns {Object} JSON format instance of a Thing.
+   */
+  thinglet(Thing, thingType) {
     Object.entries(Thing).forEach(([field, def]) => {
-      if (field === "additionalType"){
+      if (field === "additionalType") {
         Thing[field] = thingType
-      } else if (["Date", "DateTime", "String", "Time", "URL"].includes(def.type)) {
+      } else if (
+        ["Date", "DateTime", "String", "Time", "URL"].includes(def.type)
+      ) {
         Thing[field] = ""
       } else if (
         [
@@ -543,22 +549,22 @@ module.exports = class ThingBuilder {
         ].includes(def.type)
       ) {
         Thing[field] = 0
+      } else if (
+        [
+          "minPrice",
+          "maxPrice",
+          "minValue",
+          "maxValue",
+          "price",
+          "value",
+        ].includes(field)
+      ) {
+        Thing[field] = 0.0
       } else {
         if (field === "engage") {
           Object.keys(Thing["engage"]).forEach(type => {
-            Thing[field][type] = this.thing(Thing["engage"][type], type)
+            Thing[field][type] = this.thinglet(Thing["engage"][type], type)
           })
-        } else if (
-          [
-            "minPrice",
-            "maxPrice",
-            "minValue",
-            "maxValue",
-            "price",
-            "value",
-          ].includes(field)
-        ) {
-          Thing[field] = 0
         } else {
           Thing[field] = ""
         }

@@ -1,4 +1,4 @@
-![](https://elioway.gitlab.io/eliothing/dna-django/elio-thing-logo.png)
+![](https://elioway.gitlab.io/eliothing/dna-django/elio-thing-Thing-logo.png)
 
 > In the grand scheme of Things, **the elioWay**
 

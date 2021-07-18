@@ -16,7 +16,9 @@ before(() => {
 })
 
 after(() => {
-  if (debug) fs.writeFileSync(`./expected.json`, JSON.stringify(this.jay))
+  if (debug && this.jay) {
+    fs.writeFileSync(`./expected.json`, JSON.stringify(this.jay))
+  }
 })
 
 for (let [model, tests] of Object.entries({
