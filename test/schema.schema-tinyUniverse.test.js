@@ -5,7 +5,7 @@ describe("class | ThingBuilder | schemify tinyUniverse", () => {
   it("Maps Models and Fields", () => {
     let thingBuilder = new ThingBuilder("test/fixtures/tinyUniverse", "d:/", [])
     thingBuilder.domain.should.equal("d:/")
-    thingBuilder.MODELS.size.should.equal(2)
+    thingBuilder.MODELS.size.should.equal(9)
     thingBuilder.MODELS.get("Cosmos").should.eql({
       enums: new Set(),
       fields: new Set(["size"]),

@@ -1,0 +1,26 @@
+{
+  "potentialAction": "",
+  "identifier": "",
+  "sameAs": "",
+  "url": "",
+  "image": "",
+  "alternateName": "",
+  "name": "",
+  "description": "",
+  "mainEntityOfPage": "",
+  "disambiguatingDescription": "",
+  "subjectOf": "",
+  "additionalType": "Permit",
+  "engage": {
+    "Intangible": {},
+    "Permit": {
+      "validUntil": "",
+      "validFor": "",
+      "permitAudience": "",
+      "validIn": "",
+      "validFrom": "",
+      "issuedBy": "",
+      "issuedThrough": ""
+    }
+  }
+}

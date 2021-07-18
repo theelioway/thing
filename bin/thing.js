@@ -23,11 +23,15 @@ let thingBuilder = new ThingBuilder(
 )
 console.log(commander.args, commander.opts())
 let Thing = thingBuilder.Thing(commander.args, commander.opts())
-let fileName = commander.args.join("-")
-if (commander.hatch) {
-  fileName = fileName.toLowerCase()
-  Thing = thingBuilder.thing(Thing, commander.args.shift())
-}
-fs.writeFileSync(`./pretty/ugly/${fileName}.json`, JSON.stringify(Thing))
+Object.entries(Thing).forEach(([thingType, thing]) => {
+  fs.writeFileSync(`./pretty/ugly/${thingType}.json`, JSON.stringify(thing))
+  if (commander.hatch) {
+    let thinglet = thingBuilder.thinglet(thing, thingType)
+    fs.writeFileSync(
+      `./pretty/ugly/${thingType.toLowerCase()}.json`,
+      JSON.stringify(thinglet)
+    )
+  }
+})
 
 console.log("Done! Output:", `./pretty/ugly/${commander.args.join("-")}.json`)

@@ -143,7 +143,7 @@ for (let [model, tests] of Object.entries({
         copyrightYear: { type: "Number" },
         awards: { type: "Text" },
         publisherImprint: { type: "Text" },
-        commentCount: { type: "Text" },
+        commentCount: { type: "Integer" },
         spatial: { type: "Text" },
         recordedAt: { type: "Text" },
         abstract: { type: "Text" },
@@ -255,7 +255,7 @@ for (let [model, tests] of Object.entries({
         copyrightYear: { type: "Number" },
         awards: { type: "Text" },
         publisherImprint: { type: "Organization", foreign: true },
-        commentCount: { type: "Integer", foreign: true },
+        commentCount: { type: "Integer" },
         spatial: { type: "Place", foreign: true },
         recordedAt: { type: "Event", foreign: true },
         abstract: { type: "Text" },
@@ -267,7 +267,7 @@ for (let [model, tests] of Object.entries({
         educationalAlignment: { type: "AlignmentObject", foreign: true },
         associatedMedia: { type: "MediaObject", foreign: true },
         funder: { type: "Person", foreign: true },
-        position: { type: "Integer", foreign: true },
+        position: { type: "Text" },
         audio: { type: "AudioObject", foreign: true },
         workExample: { type: "CreativeWork", foreign: true },
         encoding: { type: "MediaObject", foreign: true },
@@ -341,7 +341,7 @@ for (let [model, tests] of Object.entries({
   Event: {
     0: {
       fields: {
-        maximumAttendeeCapacity: { type: "Text" },
+        maximumAttendeeCapacity: { type: "Integer" },
         typicalAgeRange: { type: "Text" },
         organizer: { type: "Text" },
         attendees: { type: "Text" },
@@ -351,8 +351,8 @@ for (let [model, tests] of Object.entries({
         workFeatured: { type: "Text" },
         inLanguage: { type: "Text" },
         funder: { type: "Text" },
-        remainingAttendeeCapacity: { type: "Text" },
-        maximumPhysicalAttendeeCapacity: { type: "Text" },
+        remainingAttendeeCapacity: { type: "Integer" },
+        maximumPhysicalAttendeeCapacity: { type: "Integer" },
         audience: { type: "Text", enums: ["Researcher"] },
         actor: { type: "Text" },
         performers: { type: "Text" },
@@ -383,7 +383,7 @@ for (let [model, tests] of Object.entries({
         },
         director: { type: "Text" },
         duration: { type: "Text" },
-        maximumVirtualAttendeeCapacity: { type: "Text" },
+        maximumVirtualAttendeeCapacity: { type: "Integer" },
         translator: { type: "Text" },
         eventAttendanceMode: {
           type: "Text",
@@ -402,7 +402,7 @@ for (let [model, tests] of Object.entries({
     },
     1: {
       fields: {
-        maximumAttendeeCapacity: { type: "Integer", foreign: true },
+        maximumAttendeeCapacity: { type: "Integer" },
         typicalAgeRange: { type: "Text" },
         organizer: { type: "Organization", foreign: true },
         attendees: { type: "Organization", foreign: true },
@@ -412,8 +412,8 @@ for (let [model, tests] of Object.entries({
         workFeatured: { type: "CreativeWork", foreign: true },
         inLanguage: { type: "Language", foreign: true },
         funder: { type: "Organization", foreign: true },
-        remainingAttendeeCapacity: { type: "Integer", foreign: true },
-        maximumPhysicalAttendeeCapacity: { type: "Integer", foreign: true },
+        remainingAttendeeCapacity: { type: "Integer" },
+        maximumPhysicalAttendeeCapacity: { type: "Integer" },
         audience: { type: "Text", enums: ["Researcher"] },
         actor: { type: "Person", foreign: true },
         performers: { type: "Organization", foreign: true },
@@ -444,7 +444,7 @@ for (let [model, tests] of Object.entries({
         },
         director: { type: "Person", foreign: true },
         duration: { type: "Duration", foreign: true },
-        maximumVirtualAttendeeCapacity: { type: "Integer", foreign: true },
+        maximumVirtualAttendeeCapacity: { type: "Integer" },
         translator: { type: "Organization", foreign: true },
         eventAttendanceMode: {
           type: "Text",
@@ -894,7 +894,7 @@ for (let [model, tests] of Object.entries({
   Place: {
     0: {
       fields: {
-        maximumAttendeeCapacity: { type: "Text" },
+        maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
         aggregateRating: { type: "Text" },
         reviews: { type: "Text" },
@@ -946,7 +946,7 @@ for (let [model, tests] of Object.entries({
     },
     1: {
       fields: {
-        maximumAttendeeCapacity: { type: "Integer", foreign: true },
+        maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
         aggregateRating: { type: "AggregateRating", foreign: true },
         reviews: { type: "Review", foreign: true },

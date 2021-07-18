@@ -52,7 +52,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       additionalType: "HealthAndBeautyBusiness",
       engage: {
         Place: {
-          maximumAttendeeCapacity: "",
+          maximumAttendeeCapacity: 0,
           geoCrosses: "",
           aggregateRating: "",
           reviews: "",
@@ -216,7 +216,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
           copyrightYear: 0,
           awards: "",
           publisherImprint: "",
-          commentCount: "",
+          commentCount: 0,
           spatial: "",
           recordedAt: "",
           abstract: "",
@@ -316,7 +316,6 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       let opts = { depth: 0, comment: false }
       let Thing = this.thingBuilder.Thing([modelName], opts)
       let thinglet = this.thingBuilder.thinglet(Thing[modelName], modelName)
-      this.jay = thinglet
       thinglet.should.be.eql(expectThinglet)
     })
   }

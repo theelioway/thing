@@ -47,8 +47,10 @@ module.exports = class ThingBuilder {
    * @param {Array} graphList of schema objects from jsonld.
    */
   async schemify(graphList) {
+    // Zero out.
     this.MODELS = new Map()
     this.FIELDS = new Map()
+    // Collect all the known Primitives first.
     for (let schemaObj of graphList) {
       let schemaName = this._labelOf(schemaObj["rdfs:label"])
       let schemaType = this._typeOf(schemaObj["@type"])
@@ -60,8 +62,15 @@ module.exports = class ThingBuilder {
           name: schemaName,
         })
       }
+    }
+
+    // Collect all the known Primitives first.
+    for (let schemaObj of graphList) {
+      let schemaName = this._labelOf(schemaObj["rdfs:label"])
+      let schemaType = this._typeOf(schemaObj["@type"])
+      let schemaComment = schemaObj["rdfs:comment"]
       // Handle a Type/Class/Model
-      else if (schemaType === "Class") {
+      if (schemaType === "Class") {
         this._setModel(schemaName, {
           comment: schemaComment,
           subs: this._setOf(schemaObj, "rdfs:subClassOf"),
