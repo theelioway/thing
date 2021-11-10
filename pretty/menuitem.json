@@ -1,5 +1,5 @@
 {
-  "additionalType": "Intangible",
+  "additionalType": "MenuItem",
   "alternateName": "",
   "description": "",
   "disambiguatingDescription": "",
@@ -16,6 +16,12 @@
       "itemListElement": "",
       "itemListOrder": "",
       "numberOfItems": 0
+    },
+    "MenuItem": {
+      "menuAddOn": "",
+      "nutrition": "",
+      "offers": "",
+      "suitableForDiet": ""
     },
     "Intangible": {}
   }

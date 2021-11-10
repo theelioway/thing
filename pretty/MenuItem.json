@@ -16,6 +16,28 @@
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
       "numberOfItems": { "type": "Integer" }
-    }
+    },
+    "MenuItem": {
+      "menuAddOn": { "type": "MenuItem", "foreign": true },
+      "nutrition": { "type": "Text" },
+      "offers": { "type": "Offer", "foreign": true },
+      "suitableForDiet": {
+        "type": "Text",
+        "enums": [
+          "HinduDiet",
+          "GlutenFreeDiet",
+          "VeganDiet",
+          "VegetarianDiet",
+          "KosherDiet",
+          "DiabeticDiet",
+          "LowSaltDiet",
+          "LowFatDiet",
+          "LowLactoseDiet",
+          "HalalDiet",
+          "LowCalorieDiet"
+        ]
+      }
+    },
+    "Intangible": {}
   }
 }

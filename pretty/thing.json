@@ -1,14 +1,22 @@
 {
-  "potentialAction": "",
-  "identifier": "",
-  "sameAs": "",
-  "url": "",
-  "image": "",
+  "additionalType": "Thing",
   "alternateName": "",
-  "name": "",
   "description": "",
-  "mainEntityOfPage": "",
   "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
   "subjectOf": "",
-  "additionalType": "Thing"
+  "url": "",
+  "engage": {
+    "ListItem": {
+      "position": "",
+      "nextItem": "",
+      "item": "",
+      "previousItem": ""
+    }
+  }
 }

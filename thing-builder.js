@@ -489,28 +489,24 @@ module.exports = class ThingBuilder {
     // Default options.
     if (!opts) opts = { depth: 0, comment: false }
     // Return a Thing,
-    let thing = new Object()
-    // Make the selectedModel.
-    let selectedModel = this.modelMaker(selectedModelName, baseModels, opts)
+    let thing = this.sortObjKeysAlphabetically(this.modelMaker("Thing", baseModels, opts).fields)
+    // "Engage" the subclasses in the Thing model.
+    thing.engage = new Object()
+    thing.engage.ItemList = this.sortObjKeysAlphabetically(this.modelMaker("ItemList", baseModels, opts).fields)
     // If selectedModelName is not the super class.
     if (selectedModelName !== "Thing") {
+      // Make the selectedModel.
+      let selectedModel = this.modelMaker(selectedModelName, baseModels, opts)
+      // "Engage" the selectedModel.
+      thing.engage[selectedModelName] = this.sortObjKeysAlphabetically(selectedModel.fields)
       // Find all the Types this thing subclasses.
       let subs = selectedModel.subs.map(s => s)
-      // "Thing is definately a Type this subclasses.
-      thing = this.modelMaker("Thing", baseModels, opts).fields
-      // "Engage" the subclasses in the Thing model.
-      thing.engage = new Object()
       for (let sub of subs) {
-        if (sub !== "Thing") {
+        if (sub !== "Thing" && sub !== "ItemList") {
           // "Engage" the selectedModel's subclasses.
-          thing.engage[sub] = this.modelMaker(sub, baseModels, opts).fields
+          thing.engage[sub] = this.sortObjKeysAlphabetically(this.modelMaker(sub, baseModels, opts).fields)
         }
       }
-      // "Engage" the selectedModel.
-      thing.engage[selectedModelName] = selectedModel.fields
-    } else {
-      // Just a Thing.
-      thing = selectedModel.fields
     }
     return thing
   }
@@ -580,5 +576,13 @@ module.exports = class ThingBuilder {
       }
     })
     return Thing
+  }
+
+  /** @credit https://gist.github.com/farskid/b1c128639cd42e44734282e2d9e3beb2 */
+  sortObjKeysAlphabetically(obj) {
+    return Object.keys(obj).sort().reduce((result, key) => {
+      result[key] = obj[key];
+  	return result;
+    }, {});
   }
 }

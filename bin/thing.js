@@ -21,17 +21,19 @@ let thingBuilder = new ThingBuilder(
   "schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
-console.log(commander.args, commander.opts())
+let { hatch, depth, comment } = commander.opts()
 let Thing = thingBuilder.Thing(commander.args, commander.opts())
 Object.entries(Thing).forEach(([thingType, thing]) => {
   fs.writeFileSync(`./pretty/ugly/${thingType}.json`, JSON.stringify(thing))
-  if (commander.hatch) {
+  console.log("- ", thingType)
+  if (hatch) {
     let thinglet = thingBuilder.thinglet(thing, thingType)
     fs.writeFileSync(
       `./pretty/ugly/${thingType.toLowerCase()}.json`,
       JSON.stringify(thinglet)
     )
+    console.log("       hatched thinglet ✔ ")
   }
 })
 
-console.log("Done! Output:", `./pretty/ugly/${commander.args.join("-")}.json`)
+console.log("Done! Output:", `./pretty/ugly/`, "Type `gulp` to prettify")

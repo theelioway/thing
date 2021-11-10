@@ -1,5 +1,5 @@
 {
-  "additionalType": "Intangible",
+  "additionalType": "Action",
   "alternateName": "",
   "description": "",
   "disambiguatingDescription": "",
@@ -17,6 +17,18 @@
       "itemListOrder": "",
       "numberOfItems": 0
     },
-    "Intangible": {}
+    "Action": {
+      "actionStatus": "",
+      "agent": "",
+      "endTime": "",
+      "error": "",
+      "instrument": "",
+      "location": "",
+      "object": "",
+      "participant": "",
+      "result": "",
+      "startTime": "",
+      "target": ""
+    }
   }
 }

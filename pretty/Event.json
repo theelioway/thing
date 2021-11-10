@@ -1,0 +1,78 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "engage": {
+    "ItemList": {
+      "itemListElement": { "type": "Thing", "foreign": true },
+      "itemListOrder": { "type": "Text" },
+      "numberOfItems": { "type": "Integer" }
+    },
+    "Event": {
+      "about": { "type": "Thing", "foreign": true },
+      "actor": { "type": "Person", "foreign": true },
+      "aggregateRating": { "type": "Text" },
+      "attendee": { "type": "Organization", "foreign": true },
+      "attendees": { "type": "Organization", "foreign": true },
+      "audience": { "type": "Text", "enums": ["Researcher"] },
+      "composer": { "type": "Organization", "foreign": true },
+      "contributor": { "type": "Organization", "foreign": true },
+      "director": { "type": "Person", "foreign": true },
+      "doorTime": { "type": "Time" },
+      "duration": { "type": "Text" },
+      "endDate": { "type": "Date" },
+      "eventAttendanceMode": {
+        "type": "Text",
+        "enums": [
+          "OnlineEventAttendanceMode",
+          "MixedEventAttendanceMode",
+          "OfflineEventAttendanceMode"
+        ]
+      },
+      "eventSchedule": { "type": "Text" },
+      "eventStatus": {
+        "type": "Text",
+        "enums": [
+          "EventPostponed",
+          "EventMovedOnline",
+          "EventRescheduled",
+          "EventScheduled",
+          "EventCancelled"
+        ]
+      },
+      "funder": { "type": "Organization", "foreign": true },
+      "inLanguage": { "type": "Text" },
+      "isAccessibleForFree": { "type": "Boolean" },
+      "location": { "type": "Place", "foreign": true },
+      "maximumAttendeeCapacity": { "type": "Integer" },
+      "maximumPhysicalAttendeeCapacity": { "type": "Integer" },
+      "maximumVirtualAttendeeCapacity": { "type": "Integer" },
+      "offers": { "type": "Offer", "foreign": true },
+      "organizer": { "type": "Organization", "foreign": true },
+      "performer": { "type": "Organization", "foreign": true },
+      "performers": { "type": "Organization", "foreign": true },
+      "previousStartDate": { "type": "Date" },
+      "recordedIn": { "type": "CreativeWork", "foreign": true },
+      "remainingAttendeeCapacity": { "type": "Integer" },
+      "review": { "type": "Text" },
+      "sponsor": { "type": "Organization", "foreign": true },
+      "startDate": { "type": "Date" },
+      "subEvent": { "type": "Event", "foreign": true },
+      "subEvents": { "type": "Event", "foreign": true },
+      "superEvent": { "type": "Event", "foreign": true },
+      "translator": { "type": "Organization", "foreign": true },
+      "typicalAgeRange": { "type": "Text" },
+      "workFeatured": { "type": "CreativeWork", "foreign": true },
+      "workPerformed": { "type": "CreativeWork", "foreign": true }
+    }
+  }
+}
