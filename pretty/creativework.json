@@ -12,11 +12,6 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ItemList": {
-      "itemListElement": "",
-      "itemListOrder": "",
-      "numberOfItems": 0
-    },
     "CreativeWork": {
       "about": "",
       "abstract": "",
@@ -124,6 +119,11 @@
       "video": "",
       "workExample": "",
       "workTranslation": ""
+    },
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
     }
   }
 }

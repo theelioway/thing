@@ -12,12 +12,6 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ItemList": {
-      "itemListElement": "",
-      "itemListOrder": "",
-      "numberOfItems": 0
-    },
-    "EmailMessage": {},
     "CreativeWork": {
       "about": "",
       "abstract": "",
@@ -125,6 +119,12 @@
       "video": "",
       "workExample": "",
       "workTranslation": ""
+    },
+    "EmailMessage": {},
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
     },
     "Message": {
       "bccRecipient": "",

@@ -12,6 +12,7 @@
   "subjectOf": "",
   "url": "",
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": "",
       "itemListOrder": "",
@@ -40,7 +41,6 @@
       "paymentMethodId": "",
       "paymentUrl": "",
       "seller": ""
-    },
-    "Intangible": {}
+    }
   }
 }

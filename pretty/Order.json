@@ -12,6 +12,7 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
@@ -52,7 +53,6 @@
       "paymentMethodId": { "type": "Text" },
       "paymentUrl": { "type": "URL" },
       "seller": { "type": "Organization", "foreign": true }
-    },
-    "Intangible": {}
+    }
   }
 }

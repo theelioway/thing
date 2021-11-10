@@ -12,11 +12,6 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ItemList": {
-      "itemListElement": "",
-      "itemListOrder": "",
-      "numberOfItems": 0
-    },
     "Action": {
       "actionStatus": "",
       "agent": "",
@@ -29,6 +24,11 @@
       "result": "",
       "startTime": "",
       "target": ""
+    },
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
     }
   }
 }

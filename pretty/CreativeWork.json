@@ -12,11 +12,6 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
-    "ItemList": {
-      "itemListElement": { "type": "Thing", "foreign": true },
-      "itemListOrder": { "type": "Text" },
-      "numberOfItems": { "type": "Integer" }
-    },
     "CreativeWork": {
       "about": { "type": "Thing", "foreign": true },
       "abstract": { "type": "Text" },
@@ -124,6 +119,11 @@
       "video": { "type": "Text" },
       "workExample": { "type": "CreativeWork", "foreign": true },
       "workTranslation": { "type": "CreativeWork", "foreign": true }
+    },
+    "ItemList": {
+      "itemListElement": { "type": "Thing", "foreign": true },
+      "itemListOrder": { "type": "Text" },
+      "numberOfItems": { "type": "Integer" }
     }
   }
 }

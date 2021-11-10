@@ -12,11 +12,10 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ListItem": {
-      "position": "",
-      "nextItem": "",
-      "item": "",
-      "previousItem": ""
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
     }
   }
 }

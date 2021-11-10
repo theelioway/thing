@@ -12,11 +12,6 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
-    "ItemList": {
-      "itemListElement": { "type": "Thing", "foreign": true },
-      "itemListOrder": { "type": "Text" },
-      "numberOfItems": { "type": "Integer" }
-    },
     "Action": {
       "actionStatus": {
         "type": "Text",
@@ -37,6 +32,11 @@
       "result": { "type": "Thing", "foreign": true },
       "startTime": { "type": "Time" },
       "target": { "type": "Text" }
+    },
+    "ItemList": {
+      "itemListElement": { "type": "Thing", "foreign": true },
+      "itemListOrder": { "type": "Text" },
+      "numberOfItems": { "type": "Integer" }
     }
   }
 }

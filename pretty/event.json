@@ -12,11 +12,6 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ItemList": {
-      "itemListElement": "",
-      "itemListOrder": "",
-      "numberOfItems": 0
-    },
     "Event": {
       "about": "",
       "actor": "",
@@ -57,6 +52,11 @@
       "typicalAgeRange": "",
       "workFeatured": "",
       "workPerformed": ""
+    },
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
     }
   }
 }

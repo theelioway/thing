@@ -12,6 +12,7 @@
   "subjectOf": "",
   "url": "",
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": "",
       "itemListOrder": "",
@@ -22,7 +23,6 @@
       "nutrition": "",
       "offers": "",
       "suitableForDiet": ""
-    },
-    "Intangible": {}
+    }
   }
 }

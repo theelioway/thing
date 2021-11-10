@@ -12,6 +12,7 @@
   "subjectOf": "",
   "url": "",
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": "",
       "itemListOrder": "",
@@ -25,7 +26,6 @@
       "validFrom": "",
       "validIn": "",
       "validUntil": ""
-    },
-    "Intangible": {}
+    }
   }
 }

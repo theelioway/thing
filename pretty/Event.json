@@ -12,11 +12,6 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
-    "ItemList": {
-      "itemListElement": { "type": "Thing", "foreign": true },
-      "itemListOrder": { "type": "Text" },
-      "numberOfItems": { "type": "Integer" }
-    },
     "Event": {
       "about": { "type": "Thing", "foreign": true },
       "actor": { "type": "Person", "foreign": true },
@@ -73,6 +68,11 @@
       "typicalAgeRange": { "type": "Text" },
       "workFeatured": { "type": "CreativeWork", "foreign": true },
       "workPerformed": { "type": "CreativeWork", "foreign": true }
+    },
+    "ItemList": {
+      "itemListElement": { "type": "Thing", "foreign": true },
+      "itemListOrder": { "type": "Text" },
+      "numberOfItems": { "type": "Integer" }
     }
   }
 }

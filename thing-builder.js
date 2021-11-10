@@ -508,6 +508,7 @@ module.exports = class ThingBuilder {
         }
       }
     }
+    thing.engage = this.sortObjKeysAlphabetically(thing.engage)
     return thing
   }
 

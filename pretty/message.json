@@ -12,22 +12,6 @@
   "subjectOf": "",
   "url": "",
   "engage": {
-    "ItemList": {
-      "itemListElement": "",
-      "itemListOrder": "",
-      "numberOfItems": 0
-    },
-    "Message": {
-      "bccRecipient": "",
-      "ccRecipient": "",
-      "dateRead": "",
-      "dateReceived": "",
-      "dateSent": "",
-      "messageAttachment": "",
-      "recipient": "",
-      "sender": "",
-      "toRecipient": ""
-    },
     "CreativeWork": {
       "about": "",
       "abstract": "",
@@ -135,6 +119,22 @@
       "video": "",
       "workExample": "",
       "workTranslation": ""
+    },
+    "ItemList": {
+      "itemListElement": "",
+      "itemListOrder": "",
+      "numberOfItems": 0
+    },
+    "Message": {
+      "bccRecipient": "",
+      "ccRecipient": "",
+      "dateRead": "",
+      "dateReceived": "",
+      "dateSent": "",
+      "messageAttachment": "",
+      "recipient": "",
+      "sender": "",
+      "toRecipient": ""
     }
   }
 }

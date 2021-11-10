@@ -12,6 +12,7 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
@@ -86,7 +87,6 @@
       "validFrom": { "type": "Date" },
       "validThrough": { "type": "Date" },
       "warranty": { "type": "Text" }
-    },
-    "Intangible": {}
+    }
   }
 }

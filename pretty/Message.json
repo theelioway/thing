@@ -12,22 +12,6 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
-    "ItemList": {
-      "itemListElement": { "type": "Thing", "foreign": true },
-      "itemListOrder": { "type": "Text" },
-      "numberOfItems": { "type": "Integer" }
-    },
-    "Message": {
-      "bccRecipient": { "type": "Organization", "foreign": true },
-      "ccRecipient": { "type": "Organization", "foreign": true },
-      "dateRead": { "type": "Date" },
-      "dateReceived": { "type": "DateTime" },
-      "dateSent": { "type": "DateTime" },
-      "messageAttachment": { "type": "CreativeWork", "foreign": true },
-      "recipient": { "type": "Organization", "foreign": true },
-      "sender": { "type": "Organization", "foreign": true },
-      "toRecipient": { "type": "Organization", "foreign": true }
-    },
     "CreativeWork": {
       "about": { "type": "Thing", "foreign": true },
       "abstract": { "type": "Text" },
@@ -135,6 +119,22 @@
       "video": { "type": "Text" },
       "workExample": { "type": "CreativeWork", "foreign": true },
       "workTranslation": { "type": "CreativeWork", "foreign": true }
+    },
+    "ItemList": {
+      "itemListElement": { "type": "Thing", "foreign": true },
+      "itemListOrder": { "type": "Text" },
+      "numberOfItems": { "type": "Integer" }
+    },
+    "Message": {
+      "bccRecipient": { "type": "Organization", "foreign": true },
+      "ccRecipient": { "type": "Organization", "foreign": true },
+      "dateRead": { "type": "Date" },
+      "dateReceived": { "type": "DateTime" },
+      "dateSent": { "type": "DateTime" },
+      "messageAttachment": { "type": "CreativeWork", "foreign": true },
+      "recipient": { "type": "Organization", "foreign": true },
+      "sender": { "type": "Organization", "foreign": true },
+      "toRecipient": { "type": "Organization", "foreign": true }
     }
   }
 }

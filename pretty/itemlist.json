@@ -12,11 +12,11 @@
   "subjectOf": "",
   "url": "",
   "engage": {
+    "Intangible": {},
     "ItemList": {
       "itemListElement": "",
       "itemListOrder": "",
       "numberOfItems": 0
-    },
-    "Intangible": {}
+    }
   }
 }
