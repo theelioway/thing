@@ -12,6 +12,7 @@
   "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
+    "CollectionPage": {},
     "CreativeWork": {
       "about": { "type": "Thing", "foreign": true },
       "abstract": { "type": "Text" },
@@ -124,6 +125,19 @@
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
       "numberOfItems": { "type": "Integer" }
+    },
+    "MediaGallery": {},
+    "WebPage": {
+      "breadcrumb": { "type": "Text" },
+      "lastReviewed": { "type": "Date" },
+      "mainContentOfPage": { "type": "Text" },
+      "primaryImageOfPage": { "type": "Text" },
+      "relatedLink": { "type": "URL" },
+      "reviewedBy": { "type": "Text" },
+      "significantLink": { "type": "URL" },
+      "significantLinks": { "type": "URL" },
+      "speakable": { "type": "URL" },
+      "specialty": { "type": "Text" }
     }
   }
 }

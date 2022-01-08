@@ -124,6 +124,18 @@
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
       "numberOfItems": { "type": "Integer" }
+    },
+    "WebPage": {
+      "breadcrumb": { "type": "Text" },
+      "lastReviewed": { "type": "Date" },
+      "mainContentOfPage": { "type": "Text" },
+      "primaryImageOfPage": { "type": "Text" },
+      "relatedLink": { "type": "URL" },
+      "reviewedBy": { "type": "Text" },
+      "significantLink": { "type": "URL" },
+      "significantLinks": { "type": "URL" },
+      "speakable": { "type": "URL" },
+      "specialty": { "type": "Text" }
     }
   }
 }

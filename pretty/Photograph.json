@@ -124,6 +124,7 @@
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
       "numberOfItems": { "type": "Integer" }
-    }
+    },
+    "Photograph": {}
   }
 }

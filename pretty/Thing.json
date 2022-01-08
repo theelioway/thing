@@ -5,11 +5,11 @@
   "disambiguatingDescription": { "type": "Text" },
   "identifier": { "type": "Text" },
   "image": { "type": "URL" },
-  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "mainEntityOfPage": { "type": "URL" },
   "name": { "type": "Text" },
-  "potentialAction": { "type": "Action", "foreign": true },
+  "potentialAction": { "type": "Text" },
   "sameAs": { "type": "URL" },
-  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "subjectOf": { "type": "Text" },
   "url": { "type": "URL" },
   "engage": {
     "ItemList": {

@@ -14,8 +14,8 @@
   "engage": {
     "FoodEstablishment": {
       "acceptsReservations": { "type": "Text" },
-      "hasMenu": { "type": "Text" },
-      "menu": { "type": "Text" },
+      "hasMenu": { "type": "Menu", "foreign": true },
+      "menu": { "type": "Menu", "foreign": true },
       "servesCuisine": { "type": "Text" },
       "starRating": { "type": "Text" }
     },
