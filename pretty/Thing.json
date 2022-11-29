@@ -4,12 +4,12 @@
   "description": { "type": "Text" },
   "disambiguatingDescription": { "type": "Text" },
   "identifier": { "type": "Text" },
-  "image": { "type": "URL" },
-  "mainEntityOfPage": { "type": "URL" },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
   "name": { "type": "Text" },
   "potentialAction": { "type": "Text" },
   "sameAs": { "type": "URL" },
-  "subjectOf": { "type": "Text" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
   "url": { "type": "URL" },
   "engage": {
     "ItemList": {

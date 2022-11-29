@@ -120,10 +120,35 @@
       "workExample": { "type": "CreativeWork", "foreign": true },
       "workTranslation": { "type": "CreativeWork", "foreign": true }
     },
+    "ImageObject": {
+      "caption": { "type": "MediaObject", "foreign": true },
+      "exifData": { "type": "Text" },
+      "representativeOfPage": { "type": "Boolean" },
+      "thumbnail": { "type": "ImageObject", "foreign": true }
+    },
     "ItemList": {
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
       "numberOfItems": { "type": "Integer" }
+    },
+    "MediaObject": {
+      "associatedArticle": { "type": "Text" },
+      "bitrate": { "type": "Text" },
+      "contentSize": { "type": "Text" },
+      "contentUrl": { "type": "URL" },
+      "duration": { "type": "Text" },
+      "embedUrl": { "type": "URL" },
+      "encodesCreativeWork": { "type": "CreativeWork", "foreign": true },
+      "encodingFormat": { "type": "Text" },
+      "endTime": { "type": "Time" },
+      "height": { "type": "Text" },
+      "playerType": { "type": "Text" },
+      "productionCompany": { "type": "Text" },
+      "regionsAllowed": { "type": "Text" },
+      "requiresSubscription": { "type": "Boolean" },
+      "startTime": { "type": "Time" },
+      "uploadDate": { "type": "Date" },
+      "width": { "type": "Text" }
     }
   }
 }

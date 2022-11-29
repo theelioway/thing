@@ -33,6 +33,7 @@
       "startTime": { "type": "Time" },
       "target": { "type": "Text" }
     },
+    "CreateAction": {},
     "ItemList": {
       "itemListElement": { "type": "Thing", "foreign": true },
       "itemListOrder": { "type": "Text" },
