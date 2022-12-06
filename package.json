@@ -7,8 +7,8 @@
   "__________": "______________________________",
   "tew": {
     "art": {
-      "elioName": "thing",
-      "pluginName": "",
+      "name": "thing",
+      "potentialAction": "",
       "disambiguatingDescription": "In the grand scheme of Things, the elioWay"
     },
     "branciaos": [
