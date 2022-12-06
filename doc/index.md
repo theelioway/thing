@@ -1,0 +1,68 @@
+# thing
+
+<figure>
+  <img src="star.png" alt="">
+</figure>
+
+> In the grand scheme of Things, **the elioWay**
+
+![experimental](/eliosin/icon/devops/experimental/favicon.ico "experimental")
+
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+
+## What to expect
+
+**thing** delivers a JSON object with the meta data your need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing.
+
+For instance, the `npm run thing MoveAction --depth 1` command returns:
+
+```
+{
+  "MoveAction": {
+    "name": {
+      "type": "String"
+    },
+    // ... + all the other Fields for `schema.org/Thing`
+    "engage": {
+      "Action": {
+        "endTime": {
+          "type": "Time"
+        },
+        // ... + all the other Fields for `schema.org/Action`
+      },
+      "MoveAction": {
+        "toLocation": {
+          "type": "Text"
+        },
+        // ... + all the other Fields for `schema.org/MoveAction`
+      }
+    }
+  },
+  "Thing": {
+    "name": {
+      "type": "String"
+    },
+    // ... + all the other Fields for `schema.org/Thing`
+  },
+  "Action": {
+    "name": {
+      "type": "String"
+    },
+    // ... + all the other Fields for `schema.org/Thing`
+    "engage": {
+      "Action": {
+        "endTime": {
+          "type": "Time"
+        },
+        // ... + all the other Fields for `schema.org/Action`
+      }
+    }
+  }
+}
+```
+
+## Family
+
+- [eliothing/django-thing](/eliothing/django-thing)
+- [eliothing/thing-liar](/eliothing/thing-liar)
+- [eliothing/mongoose-thing](/eliothing/mongoose-thing)
