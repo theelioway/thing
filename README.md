@@ -1,8 +1,10 @@
-![](https://elioway.gitlab.io/eliothing/dna-django/elio-thing-Thing-logo.png)
+![](https://elioway.gitlab.io/eliothing/thing/elio-thing-Thing-logo.png)
 
 > In the grand scheme of Things, **the elioWay**
 
 # thing
+
+![experimental](https://elioway.gitlab.io/eliosin/icon/devops/experimental/favicon.ico "experimental")
 
 ## TODO from this day forward.
 
@@ -15,8 +17,6 @@
 - Thou shalt multiple theyself, Thing, across many types, formats and contexts.
 
 TODO Index of Commands
-
-![experimental](https://elioway.gitlab.io/eliosin/icon/devops/experimental/favicon.ico "experimental")
 
 A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
@@ -50,4 +50,4 @@ npm run prettier
 
 [MIT](license)
 
-![](apple-touch-icon.png)
+![](https://elioway.gitlab.io/eliothing/thing/apple-touch-icon.png)

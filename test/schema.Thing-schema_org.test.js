@@ -3978,8 +3978,6 @@ describe(`class | ThingBuilder | Thing schemaorg 9.0`, () => {
   it(`builds things single Action`, () => {
     let opts = { depth: 2, comment: false }
     let thing = this.thingBuilder.Thing(["Action"], opts)
-    fs.writeFileSync("./expectThing.json", JSON.stringify(thing))
-    fs.writeFileSync("./expectAction.json", JSON.stringify(expectAction))
     thing.should.be.eql(expectAction)
   })
   it(`builds things single HealthAndBeautyBusiness`, () => {
