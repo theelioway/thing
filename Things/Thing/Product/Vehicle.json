@@ -1,1 +1,145 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"Vehicle":{"accelerationTime":{"type":"QuantitativeValue","foreign":true},"bodyType":{"type":"QualitativeValue","foreign":true},"callSign":{"type":"Text"},"cargoVolume":{"type":"QuantitativeValue","foreign":true},"dateVehicleFirstRegistered":{"type":"Date"},"driveWheelConfiguration":{"type":"Text","enums":["FrontWheelDriveConfiguration","FourWheelDriveConfiguration","AllWheelDriveConfiguration","RearWheelDriveConfiguration"]},"emissionsCO2":{"type":"Number"},"fuelCapacity":{"type":"QuantitativeValue","foreign":true},"fuelConsumption":{"type":"QuantitativeValue","foreign":true},"fuelEfficiency":{"type":"QuantitativeValue","foreign":true},"fuelType":{"type":"QualitativeValue","foreign":true},"knownVehicleDamages":{"type":"Text"},"meetsEmissionStandard":{"type":"QualitativeValue","foreign":true},"mileageFromOdometer":{"type":"QuantitativeValue","foreign":true},"modelDate":{"type":"Date"},"numberOfAirbags":{"type":"Text"},"numberOfAxles":{"type":"QuantitativeValue","foreign":true},"numberOfDoors":{"type":"QuantitativeValue","foreign":true},"numberOfForwardGears":{"type":"QuantitativeValue","foreign":true},"numberOfPreviousOwners":{"type":"QuantitativeValue","foreign":true},"payload":{"type":"QuantitativeValue","foreign":true},"productionDate":{"type":"Date"},"purchaseDate":{"type":"Date"},"seatingCapacity":{"type":"QuantitativeValue","foreign":true},"speed":{"type":"QuantitativeValue","foreign":true},"steeringPosition":{"type":"Text","enums":["RightHandDriving","LeftHandDriving"]},"stupidProperty":{"type":"QuantitativeValue","foreign":true},"tongueWeight":{"type":"QuantitativeValue","foreign":true},"trailerWeight":{"type":"QuantitativeValue","foreign":true},"vehicleConfiguration":{"type":"Text"},"vehicleEngine":{"type":"EngineSpecification","foreign":true},"vehicleIdentificationNumber":{"type":"Text"},"vehicleInteriorColor":{"type":"Text"},"vehicleInteriorType":{"type":"Text"},"vehicleModelDate":{"type":"Date"},"vehicleSeatingCapacity":{"type":"QuantitativeValue","foreign":true},"vehicleSpecialUsage":{"type":"Text","enums":["TaxiVehicleUsage","RentalVehicleUsage","DrivingSchoolVehicleUsage"]},"vehicleTransmission":{"type":"QualitativeValue","foreign":true},"weightTotal":{"type":"QuantitativeValue","foreign":true},"wheelbase":{"type":"QuantitativeValue","foreign":true}},"Product":{"additionalProperty":{"type":"PropertyValue","foreign":true},"aggregateRating":{"type":"AggregateRating","foreign":true},"audience":{"type":"Text","enums":["Researcher"]},"award":{"type":"Text"},"awards":{"type":"Text"},"brand":{"type":"Organization","foreign":true},"category":{"type":"Thing","foreign":true},"color":{"type":"Text"},"depth":{"type":"Distance","foreign":true},"gtin":{"type":"Text"},"gtin12":{"type":"Text"},"gtin13":{"type":"Text"},"gtin14":{"type":"Text"},"gtin8":{"type":"Text"},"hasMerchantReturnPolicy":{"type":"MerchantReturnPolicy","foreign":true},"hasProductReturnPolicy":{"type":"ProductReturnPolicy","foreign":true},"height":{"type":"Distance","foreign":true},"inProductGroupWithID":{"type":"Text"},"isAccessoryOrSparePartFor":{"type":"Product","foreign":true},"isConsumableFor":{"type":"Product","foreign":true},"isRelatedTo":{"type":"Service","foreign":true},"isSimilarTo":{"type":"Service","foreign":true},"isVariantOf":{"type":"ProductGroup","foreign":true},"itemCondition":{"type":"Text","enums":["DamagedCondition","RefurbishedCondition","UsedCondition","NewCondition"]},"logo":{"type":"ImageObject","foreign":true},"manufacturer":{"type":"Organization","foreign":true},"material":{"type":"Product","foreign":true},"model":{"type":"ProductModel","foreign":true},"mpn":{"type":"Text"},"nsn":{"type":"Text"},"offers":{"type":"Demand","foreign":true},"pattern":{"type":"DefinedTerm","foreign":true},"productID":{"type":"Text"},"productionDate":{"type":"Date"},"purchaseDate":{"type":"Date"},"releaseDate":{"type":"Date"},"review":{"type":"Review","foreign":true},"reviews":{"type":"Review","foreign":true},"size":{"type":"DefinedTerm","foreign":true},"sku":{"type":"Text"},"slogan":{"type":"Text"},"weight":{"type":"QuantitativeValue","foreign":true},"width":{"type":"Distance","foreign":true}}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "Vehicle": {
+    "accelerationTime": { "type": "QuantitativeValue", "foreign": true },
+    "bodyType": { "type": "QualitativeValue", "foreign": true },
+    "callSign": { "type": "Text" },
+    "cargoVolume": { "type": "QuantitativeValue", "foreign": true },
+    "dateVehicleFirstRegistered": { "type": "Date" },
+    "driveWheelConfiguration": {
+      "type": "Text",
+      "enums": [
+        "FrontWheelDriveConfiguration",
+        "FourWheelDriveConfiguration",
+        "AllWheelDriveConfiguration",
+        "RearWheelDriveConfiguration"
+      ]
+    },
+    "emissionsCO2": { "type": "Number" },
+    "fuelCapacity": { "type": "QuantitativeValue", "foreign": true },
+    "fuelConsumption": { "type": "QuantitativeValue", "foreign": true },
+    "fuelEfficiency": { "type": "QuantitativeValue", "foreign": true },
+    "fuelType": { "type": "QualitativeValue", "foreign": true },
+    "knownVehicleDamages": { "type": "Text" },
+    "meetsEmissionStandard": { "type": "QualitativeValue", "foreign": true },
+    "mileageFromOdometer": { "type": "QuantitativeValue", "foreign": true },
+    "modelDate": { "type": "Date" },
+    "numberOfAirbags": { "type": "Text" },
+    "numberOfAxles": { "type": "QuantitativeValue", "foreign": true },
+    "numberOfDoors": { "type": "QuantitativeValue", "foreign": true },
+    "numberOfForwardGears": { "type": "QuantitativeValue", "foreign": true },
+    "numberOfPreviousOwners": { "type": "QuantitativeValue", "foreign": true },
+    "payload": { "type": "QuantitativeValue", "foreign": true },
+    "productionDate": { "type": "Date" },
+    "purchaseDate": { "type": "Date" },
+    "seatingCapacity": { "type": "QuantitativeValue", "foreign": true },
+    "speed": { "type": "QuantitativeValue", "foreign": true },
+    "steeringPosition": {
+      "type": "Text",
+      "enums": ["RightHandDriving", "LeftHandDriving"]
+    },
+    "stupidProperty": { "type": "QuantitativeValue", "foreign": true },
+    "tongueWeight": { "type": "QuantitativeValue", "foreign": true },
+    "trailerWeight": { "type": "QuantitativeValue", "foreign": true },
+    "vehicleConfiguration": { "type": "Text" },
+    "vehicleEngine": { "type": "EngineSpecification", "foreign": true },
+    "vehicleIdentificationNumber": { "type": "Text" },
+    "vehicleInteriorColor": { "type": "Text" },
+    "vehicleInteriorType": { "type": "Text" },
+    "vehicleModelDate": { "type": "Date" },
+    "vehicleSeatingCapacity": { "type": "QuantitativeValue", "foreign": true },
+    "vehicleSpecialUsage": {
+      "type": "Text",
+      "enums": [
+        "TaxiVehicleUsage",
+        "RentalVehicleUsage",
+        "DrivingSchoolVehicleUsage"
+      ]
+    },
+    "vehicleTransmission": { "type": "QualitativeValue", "foreign": true },
+    "weightTotal": { "type": "QuantitativeValue", "foreign": true },
+    "wheelbase": { "type": "QuantitativeValue", "foreign": true }
+  },
+  "Product": {
+    "additionalProperty": { "type": "PropertyValue", "foreign": true },
+    "aggregateRating": { "type": "AggregateRating", "foreign": true },
+    "audience": { "type": "Text", "enums": ["Researcher"] },
+    "award": { "type": "Text" },
+    "awards": { "type": "Text" },
+    "brand": { "type": "Organization", "foreign": true },
+    "category": { "type": "Thing", "foreign": true },
+    "color": { "type": "Text" },
+    "depth": { "type": "Distance", "foreign": true },
+    "gtin": { "type": "Text" },
+    "gtin12": { "type": "Text" },
+    "gtin13": { "type": "Text" },
+    "gtin14": { "type": "Text" },
+    "gtin8": { "type": "Text" },
+    "hasMerchantReturnPolicy": {
+      "type": "MerchantReturnPolicy",
+      "foreign": true
+    },
+    "hasProductReturnPolicy": {
+      "type": "ProductReturnPolicy",
+      "foreign": true
+    },
+    "height": { "type": "Distance", "foreign": true },
+    "inProductGroupWithID": { "type": "Text" },
+    "isAccessoryOrSparePartFor": { "type": "Product", "foreign": true },
+    "isConsumableFor": { "type": "Product", "foreign": true },
+    "isRelatedTo": { "type": "Service", "foreign": true },
+    "isSimilarTo": { "type": "Service", "foreign": true },
+    "isVariantOf": { "type": "ProductGroup", "foreign": true },
+    "itemCondition": {
+      "type": "Text",
+      "enums": [
+        "DamagedCondition",
+        "RefurbishedCondition",
+        "UsedCondition",
+        "NewCondition"
+      ]
+    },
+    "logo": { "type": "ImageObject", "foreign": true },
+    "manufacturer": { "type": "Organization", "foreign": true },
+    "material": { "type": "Product", "foreign": true },
+    "model": { "type": "ProductModel", "foreign": true },
+    "mpn": { "type": "Text" },
+    "nsn": { "type": "Text" },
+    "offers": { "type": "Demand", "foreign": true },
+    "pattern": { "type": "DefinedTerm", "foreign": true },
+    "productID": { "type": "Text" },
+    "productionDate": { "type": "Date" },
+    "purchaseDate": { "type": "Date" },
+    "releaseDate": { "type": "Date" },
+    "review": { "type": "Review", "foreign": true },
+    "reviews": { "type": "Review", "foreign": true },
+    "size": { "type": "DefinedTerm", "foreign": true },
+    "sku": { "type": "Text" },
+    "slogan": { "type": "Text" },
+    "weight": { "type": "QuantitativeValue", "foreign": true },
+    "width": { "type": "Distance", "foreign": true }
+  }
+}

@@ -1,1 +1,22 @@
-{"additionalType":"MusicAlbumReleaseType","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"MusicAlbumReleaseType":{},"Intangible":{},"Enumeration":{"supersededBy":""}}
+{
+  "additionalType": "MusicAlbumReleaseType",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MusicAlbumReleaseType": {},
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" }
+}

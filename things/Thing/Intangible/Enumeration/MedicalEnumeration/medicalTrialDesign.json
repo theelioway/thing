@@ -1,1 +1,23 @@
-{"additionalType":"MedicalTrialDesign","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"MedicalTrialDesign":{},"Intangible":{},"Enumeration":{"supersededBy":""},"MedicalEnumeration":{}}
+{
+  "additionalType": "MedicalTrialDesign",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalTrialDesign": {},
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" },
+  "MedicalEnumeration": {}
+}

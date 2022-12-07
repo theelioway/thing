@@ -1,1 +1,116 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"MedicalProcedure":{"bodyLocation":{"type":"Text"},"followup":{"type":"Text"},"howPerformed":{"type":"Text"},"preparation":{"type":"MedicalEntity","foreign":true},"procedureType":{"type":"Text","enums":["NoninvasiveProcedure","PercutaneousProcedure"]},"status":{"type":"Text","enums":["Terminated","ActiveNotRecruiting","Withdrawn","EnrollingByInvitation","NotYetRecruiting","Recruiting","ResultsNotAvailable","Completed","ResultsAvailable","Suspended"]}},"MedicalEntity":{"code":{"type":"MedicalCode","foreign":true},"guideline":{"type":"MedicalGuideline","foreign":true},"legalStatus":{"type":"MedicalEnumeration","foreign":true},"medicineSystem":{"type":"Text","enums":["TraditionalChinese","Homeopathic","Osteopathic","WesternConventional","Ayurvedic","Chiropractic"]},"recognizingAuthority":{"type":"Organization","foreign":true},"relevantSpecialty":{"type":"Text","enums":["PrimaryCare","SpeechPathology","Genetic","Rheumatologic","Anesthesia","Emergency","Gynecologic","Surgical","Dentistry","Nursing","Hematologic","Pulmonary","Neurologic","PharmacySpecialty","PublicHealth","Geriatric","Podiatric","Urologic","Midwifery","Musculoskeletal","Dermatology","DietNutrition","Physiotherapy","RespiratoryTherapy","Psychiatric","CommunityHealth","Cardiovascular","Toxicologic","Gastroenterologic","Oncologic","Renal","Dermatologic","PlasticSurgery","LaboratoryScience","Obstetric","Otolaryngologic","Endocrine","Pathology","Infectious","Optometric","Pediatric","Radiography"]},"study":{"type":"MedicalStudy","foreign":true}}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "MedicalProcedure": {
+    "bodyLocation": { "type": "Text" },
+    "followup": { "type": "Text" },
+    "howPerformed": { "type": "Text" },
+    "preparation": { "type": "MedicalEntity", "foreign": true },
+    "procedureType": {
+      "type": "Text",
+      "enums": ["NoninvasiveProcedure", "PercutaneousProcedure"]
+    },
+    "status": {
+      "type": "Text",
+      "enums": [
+        "Terminated",
+        "ActiveNotRecruiting",
+        "Withdrawn",
+        "EnrollingByInvitation",
+        "NotYetRecruiting",
+        "Recruiting",
+        "ResultsNotAvailable",
+        "Completed",
+        "ResultsAvailable",
+        "Suspended"
+      ]
+    }
+  },
+  "MedicalEntity": {
+    "code": { "type": "MedicalCode", "foreign": true },
+    "guideline": { "type": "MedicalGuideline", "foreign": true },
+    "legalStatus": { "type": "MedicalEnumeration", "foreign": true },
+    "medicineSystem": {
+      "type": "Text",
+      "enums": [
+        "TraditionalChinese",
+        "Homeopathic",
+        "Osteopathic",
+        "WesternConventional",
+        "Ayurvedic",
+        "Chiropractic"
+      ]
+    },
+    "recognizingAuthority": { "type": "Organization", "foreign": true },
+    "relevantSpecialty": {
+      "type": "Text",
+      "enums": [
+        "PrimaryCare",
+        "SpeechPathology",
+        "Genetic",
+        "Rheumatologic",
+        "Anesthesia",
+        "Emergency",
+        "Gynecologic",
+        "Surgical",
+        "Dentistry",
+        "Nursing",
+        "Hematologic",
+        "Pulmonary",
+        "Neurologic",
+        "PharmacySpecialty",
+        "PublicHealth",
+        "Geriatric",
+        "Podiatric",
+        "Urologic",
+        "Midwifery",
+        "Musculoskeletal",
+        "Dermatology",
+        "DietNutrition",
+        "Physiotherapy",
+        "RespiratoryTherapy",
+        "Psychiatric",
+        "CommunityHealth",
+        "Cardiovascular",
+        "Toxicologic",
+        "Gastroenterologic",
+        "Oncologic",
+        "Renal",
+        "Dermatologic",
+        "PlasticSurgery",
+        "LaboratoryScience",
+        "Obstetric",
+        "Otolaryngologic",
+        "Endocrine",
+        "Pathology",
+        "Infectious",
+        "Optometric",
+        "Pediatric",
+        "Radiography"
+      ]
+    },
+    "study": { "type": "MedicalStudy", "foreign": true }
+  }
+}

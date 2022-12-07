@@ -1,1 +1,28 @@
-{"additionalType":"RepaymentSpecification","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"RepaymentSpecification":{"downPayment":"","earlyPrepaymentPenalty":"","loanPaymentAmount":"","loanPaymentFrequency":0,"numberOfLoanPayments":0},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": "RepaymentSpecification",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "RepaymentSpecification": {
+    "downPayment": "",
+    "earlyPrepaymentPenalty": "",
+    "loanPaymentAmount": "",
+    "loanPaymentFrequency": 0,
+    "numberOfLoanPayments": 0
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

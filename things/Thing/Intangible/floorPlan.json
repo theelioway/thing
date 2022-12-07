@@ -1,1 +1,33 @@
-{"additionalType":"FloorPlan","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"FloorPlan":{"amenityFeature":"","floorSize":"","isPlanForApartment":"","numberOfAccommodationUnits":"","numberOfAvailableAccommodationUnits":"","numberOfBathroomsTotal":0,"numberOfBedrooms":"","numberOfFullBathrooms":0,"numberOfPartialBathrooms":0,"numberOfRooms":"","petsAllowed":""},"Intangible":{}}
+{
+  "additionalType": "FloorPlan",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "FloorPlan": {
+    "amenityFeature": "",
+    "floorSize": "",
+    "isPlanForApartment": "",
+    "numberOfAccommodationUnits": "",
+    "numberOfAvailableAccommodationUnits": "",
+    "numberOfBathroomsTotal": 0,
+    "numberOfBedrooms": "",
+    "numberOfFullBathrooms": 0,
+    "numberOfPartialBathrooms": 0,
+    "numberOfRooms": "",
+    "petsAllowed": ""
+  },
+  "Intangible": {}
+}

@@ -1,1 +1,32 @@
-{"additionalType":"GeospatialGeometry","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"GeospatialGeometry":{"geoContains":"","geoCoveredBy":"","geoCovers":"","geoCrosses":"","geoDisjoint":"","geoEquals":"","geoIntersects":"","geoOverlaps":"","geoTouches":"","geoWithin":""},"Intangible":{}}
+{
+  "additionalType": "GeospatialGeometry",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "GeospatialGeometry": {
+    "geoContains": "",
+    "geoCoveredBy": "",
+    "geoCovers": "",
+    "geoCrosses": "",
+    "geoDisjoint": "",
+    "geoEquals": "",
+    "geoIntersects": "",
+    "geoOverlaps": "",
+    "geoTouches": "",
+    "geoWithin": ""
+  },
+  "Intangible": {}
+}

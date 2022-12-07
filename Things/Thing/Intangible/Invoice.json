@@ -1,1 +1,54 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"Invoice":{"accountId":{"type":"Text"},"billingPeriod":{"type":"Duration","foreign":true},"broker":{"type":"Person","foreign":true},"category":{"type":"Thing","foreign":true},"confirmationNumber":{"type":"Text"},"customer":{"type":"Person","foreign":true},"minimumPaymentDue":{"type":"PriceSpecification","foreign":true},"paymentDue":{"type":"DateTime"},"paymentDueDate":{"type":"Date"},"paymentMethod":{"type":"PaymentMethod","foreign":true},"paymentMethodId":{"type":"Text"},"paymentStatus":{"type":"Text","enums":["PaymentComplete","PaymentPastDue","PaymentDue","PaymentAutomaticallyApplied","PaymentDeclined"]},"provider":{"type":"Person","foreign":true},"referencesOrder":{"type":"Order","foreign":true},"scheduledPaymentDate":{"type":"Date"},"totalPaymentDue":{"type":"PriceSpecification","foreign":true}},"Intangible":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "Invoice": {
+    "accountId": { "type": "Text" },
+    "billingPeriod": { "type": "Duration", "foreign": true },
+    "broker": { "type": "Person", "foreign": true },
+    "category": { "type": "Thing", "foreign": true },
+    "confirmationNumber": { "type": "Text" },
+    "customer": { "type": "Person", "foreign": true },
+    "minimumPaymentDue": { "type": "PriceSpecification", "foreign": true },
+    "paymentDue": { "type": "DateTime" },
+    "paymentDueDate": { "type": "Date" },
+    "paymentMethod": { "type": "PaymentMethod", "foreign": true },
+    "paymentMethodId": { "type": "Text" },
+    "paymentStatus": {
+      "type": "Text",
+      "enums": [
+        "PaymentComplete",
+        "PaymentPastDue",
+        "PaymentDue",
+        "PaymentAutomaticallyApplied",
+        "PaymentDeclined"
+      ]
+    },
+    "provider": { "type": "Person", "foreign": true },
+    "referencesOrder": { "type": "Order", "foreign": true },
+    "scheduledPaymentDate": { "type": "Date" },
+    "totalPaymentDue": { "type": "PriceSpecification", "foreign": true }
+  },
+  "Intangible": {}
+}

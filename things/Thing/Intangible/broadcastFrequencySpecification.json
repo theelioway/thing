@@ -1,1 +1,25 @@
-{"additionalType":"BroadcastFrequencySpecification","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"BroadcastFrequencySpecification":{"broadcastFrequencyValue":"","broadcastSignalModulation":"","broadcastSubChannel":""},"Intangible":{}}
+{
+  "additionalType": "BroadcastFrequencySpecification",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "BroadcastFrequencySpecification": {
+    "broadcastFrequencyValue": "",
+    "broadcastSignalModulation": "",
+    "broadcastSubChannel": ""
+  },
+  "Intangible": {}
+}

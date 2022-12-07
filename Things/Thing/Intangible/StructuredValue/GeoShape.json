@@ -1,1 +1,38 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"GeoShape":{"address":{"type":"PostalAddress","foreign":true},"addressCountry":{"type":"Country","foreign":true},"box":{"type":"Text"},"circle":{"type":"Text"},"elevation":{"type":"Text"},"line":{"type":"Text"},"polygon":{"type":"Text"},"postalCode":{"type":"Text"}},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "GeoShape": {
+    "address": { "type": "PostalAddress", "foreign": true },
+    "addressCountry": { "type": "Country", "foreign": true },
+    "box": { "type": "Text" },
+    "circle": { "type": "Text" },
+    "elevation": { "type": "Text" },
+    "line": { "type": "Text" },
+    "polygon": { "type": "Text" },
+    "postalCode": { "type": "Text" }
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

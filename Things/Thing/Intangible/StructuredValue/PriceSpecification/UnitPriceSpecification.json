@@ -1,1 +1,49 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"UnitPriceSpecification":{"billingIncrement":{"type":"Number"},"priceType":{"type":"Text"},"referenceQuantity":{"type":"QuantitativeValue","foreign":true},"unitCode":{"type":"Text"},"unitText":{"type":"Text"}},"Intangible":{},"StructuredValue":{},"PriceSpecification":{"eligibleQuantity":{"type":"QuantitativeValue","foreign":true},"eligibleTransactionVolume":{"type":"PriceSpecification","foreign":true},"maxPrice":{"type":"Number"},"minPrice":{"type":"Number"},"price":{"type":"Text"},"priceCurrency":{"type":"Text"},"validFrom":{"type":"Date"},"validThrough":{"type":"Date"},"valueAddedTaxIncluded":{"type":"Boolean"}}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "UnitPriceSpecification": {
+    "billingIncrement": { "type": "Number" },
+    "priceType": { "type": "Text" },
+    "referenceQuantity": { "type": "QuantitativeValue", "foreign": true },
+    "unitCode": { "type": "Text" },
+    "unitText": { "type": "Text" }
+  },
+  "Intangible": {},
+  "StructuredValue": {},
+  "PriceSpecification": {
+    "eligibleQuantity": { "type": "QuantitativeValue", "foreign": true },
+    "eligibleTransactionVolume": {
+      "type": "PriceSpecification",
+      "foreign": true
+    },
+    "maxPrice": { "type": "Number" },
+    "minPrice": { "type": "Number" },
+    "price": { "type": "Text" },
+    "priceCurrency": { "type": "Text" },
+    "validFrom": { "type": "Date" },
+    "validThrough": { "type": "Date" },
+    "valueAddedTaxIncluded": { "type": "Boolean" }
+  }
+}

@@ -1,1 +1,35 @@
-{"additionalType":"VoteAction","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"VoteAction":{"candidate":""},"Action":{"actionStatus":"","agent":"","endTime":"","error":"","instrument":"","location":"","object":"","participant":"","result":"","startTime":"","target":""},"AssessAction":{},"ChooseAction":{"actionOption":"","option":""}}
+{
+  "additionalType": "VoteAction",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "VoteAction": { "candidate": "" },
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "AssessAction": {},
+  "ChooseAction": { "actionOption": "", "option": "" }
+}

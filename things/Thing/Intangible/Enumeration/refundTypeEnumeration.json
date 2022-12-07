@@ -1,1 +1,22 @@
-{"additionalType":"RefundTypeEnumeration","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"RefundTypeEnumeration":{},"Intangible":{},"Enumeration":{"supersededBy":""}}
+{
+  "additionalType": "RefundTypeEnumeration",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "RefundTypeEnumeration": {},
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" }
+}

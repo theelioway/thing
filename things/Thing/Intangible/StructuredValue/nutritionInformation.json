@@ -1,1 +1,35 @@
-{"additionalType":"NutritionInformation","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"NutritionInformation":{"calories":"","carbohydrateContent":"","cholesterolContent":"","fatContent":"","fiberContent":"","proteinContent":"","saturatedFatContent":"","servingSize":"","sodiumContent":"","sugarContent":"","transFatContent":"","unsaturatedFatContent":""},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": "NutritionInformation",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "NutritionInformation": {
+    "calories": "",
+    "carbohydrateContent": "",
+    "cholesterolContent": "",
+    "fatContent": "",
+    "fiberContent": "",
+    "proteinContent": "",
+    "saturatedFatContent": "",
+    "servingSize": "",
+    "sodiumContent": "",
+    "sugarContent": "",
+    "transFatContent": "",
+    "unsaturatedFatContent": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

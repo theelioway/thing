@@ -1,1 +1,35 @@
-{"additionalType":"Reservation","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"Reservation":{"bookingAgent":"","bookingTime":"1970-01-01T00:00:00.000Z","broker":"","modifiedTime":"1970-01-01T00:00:00.000Z","priceCurrency":"","programMembershipUsed":"","provider":"","reservationFor":"","reservationId":"","reservationStatus":"","reservedTicket":"","totalPrice":"","underName":""},"Intangible":{}}
+{
+  "additionalType": "Reservation",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Reservation": {
+    "bookingAgent": "",
+    "bookingTime": "1970-01-01T00:00:00.000Z",
+    "broker": "",
+    "modifiedTime": "1970-01-01T00:00:00.000Z",
+    "priceCurrency": "",
+    "programMembershipUsed": "",
+    "provider": "",
+    "reservationFor": "",
+    "reservationId": "",
+    "reservationStatus": "",
+    "reservedTicket": "",
+    "totalPrice": "",
+    "underName": ""
+  },
+  "Intangible": {}
+}

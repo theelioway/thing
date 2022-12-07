@@ -1,1 +1,76 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"JobPosting":{"applicantLocationRequirements":{"type":"AdministrativeArea","foreign":true},"applicationContact":{"type":"ContactPoint","foreign":true},"baseSalary":{"type":"PriceSpecification","foreign":true},"benefits":{"type":"Text"},"datePosted":{"type":"Date"},"educationRequirements":{"type":"EducationalOccupationalCredential","foreign":true},"eligibilityToWorkRequirement":{"type":"Text"},"employerOverview":{"type":"Text"},"employmentType":{"type":"Text"},"employmentUnit":{"type":"Organization","foreign":true},"estimatedSalary":{"type":"MonetaryAmountDistribution","foreign":true},"experienceRequirements":{"type":"Text"},"hiringOrganization":{"type":"Organization","foreign":true},"incentiveCompensation":{"type":"Text"},"incentives":{"type":"Text"},"industry":{"type":"DefinedTerm","foreign":true},"jobBenefits":{"type":"Text"},"jobImmediateStart":{"type":"Boolean"},"jobLocation":{"type":"Place","foreign":true},"jobLocationType":{"type":"Text"},"jobStartDate":{"type":"Text"},"occupationalCategory":{"type":"CategoryCode","foreign":true},"physicalRequirement":{"type":"DefinedTerm","foreign":true},"qualifications":{"type":"EducationalOccupationalCredential","foreign":true},"relevantOccupation":{"type":"Occupation","foreign":true},"responsibilities":{"type":"Text"},"salaryCurrency":{"type":"Text"},"securityClearanceRequirement":{"type":"Text"},"sensoryRequirement":{"type":"DefinedTerm","foreign":true},"skills":{"type":"DefinedTerm","foreign":true},"specialCommitments":{"type":"Text"},"title":{"type":"Text"},"totalJobOpenings":{"type":"Integer"},"validThrough":{"type":"Date"},"workHours":{"type":"Text"}},"Intangible":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "JobPosting": {
+    "applicantLocationRequirements": {
+      "type": "AdministrativeArea",
+      "foreign": true
+    },
+    "applicationContact": { "type": "ContactPoint", "foreign": true },
+    "baseSalary": { "type": "PriceSpecification", "foreign": true },
+    "benefits": { "type": "Text" },
+    "datePosted": { "type": "Date" },
+    "educationRequirements": {
+      "type": "EducationalOccupationalCredential",
+      "foreign": true
+    },
+    "eligibilityToWorkRequirement": { "type": "Text" },
+    "employerOverview": { "type": "Text" },
+    "employmentType": { "type": "Text" },
+    "employmentUnit": { "type": "Organization", "foreign": true },
+    "estimatedSalary": {
+      "type": "MonetaryAmountDistribution",
+      "foreign": true
+    },
+    "experienceRequirements": { "type": "Text" },
+    "hiringOrganization": { "type": "Organization", "foreign": true },
+    "incentiveCompensation": { "type": "Text" },
+    "incentives": { "type": "Text" },
+    "industry": { "type": "DefinedTerm", "foreign": true },
+    "jobBenefits": { "type": "Text" },
+    "jobImmediateStart": { "type": "Boolean" },
+    "jobLocation": { "type": "Place", "foreign": true },
+    "jobLocationType": { "type": "Text" },
+    "jobStartDate": { "type": "Text" },
+    "occupationalCategory": { "type": "CategoryCode", "foreign": true },
+    "physicalRequirement": { "type": "DefinedTerm", "foreign": true },
+    "qualifications": {
+      "type": "EducationalOccupationalCredential",
+      "foreign": true
+    },
+    "relevantOccupation": { "type": "Occupation", "foreign": true },
+    "responsibilities": { "type": "Text" },
+    "salaryCurrency": { "type": "Text" },
+    "securityClearanceRequirement": { "type": "Text" },
+    "sensoryRequirement": { "type": "DefinedTerm", "foreign": true },
+    "skills": { "type": "DefinedTerm", "foreign": true },
+    "specialCommitments": { "type": "Text" },
+    "title": { "type": "Text" },
+    "totalJobOpenings": { "type": "Integer" },
+    "validThrough": { "type": "Date" },
+    "workHours": { "type": "Text" }
+  },
+  "Intangible": {}
+}

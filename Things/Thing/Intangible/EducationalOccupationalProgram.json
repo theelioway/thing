@@ -1,1 +1,76 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"EducationalOccupationalProgram":{"applicationDeadline":{"type":"Date"},"applicationStartDate":{"type":"Date"},"dayOfWeek":{"type":"Text","enums":["PublicHolidays","Monday","Friday","Wednesday","Sunday","Thursday","Tuesday","Saturday"]},"educationalCredentialAwarded":{"type":"EducationalOccupationalCredential","foreign":true},"educationalProgramMode":{"type":"Text"},"endDate":{"type":"Date"},"financialAidEligible":{"type":"DefinedTerm","foreign":true},"maximumEnrollment":{"type":"Integer"},"numberOfCredits":{"type":"StructuredValue","foreign":true},"occupationalCategory":{"type":"CategoryCode","foreign":true},"occupationalCredentialAwarded":{"type":"EducationalOccupationalCredential","foreign":true},"offers":{"type":"Demand","foreign":true},"programPrerequisites":{"type":"EducationalOccupationalCredential","foreign":true},"programType":{"type":"DefinedTerm","foreign":true},"provider":{"type":"Person","foreign":true},"salaryUponCompletion":{"type":"MonetaryAmountDistribution","foreign":true},"startDate":{"type":"Date"},"termDuration":{"type":"Duration","foreign":true},"termsPerYear":{"type":"Number"},"timeOfDay":{"type":"Text"},"timeToComplete":{"type":"Duration","foreign":true},"trainingSalary":{"type":"MonetaryAmountDistribution","foreign":true},"typicalCreditsPerTerm":{"type":"StructuredValue","foreign":true}},"Intangible":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "EducationalOccupationalProgram": {
+    "applicationDeadline": { "type": "Date" },
+    "applicationStartDate": { "type": "Date" },
+    "dayOfWeek": {
+      "type": "Text",
+      "enums": [
+        "PublicHolidays",
+        "Monday",
+        "Friday",
+        "Wednesday",
+        "Sunday",
+        "Thursday",
+        "Tuesday",
+        "Saturday"
+      ]
+    },
+    "educationalCredentialAwarded": {
+      "type": "EducationalOccupationalCredential",
+      "foreign": true
+    },
+    "educationalProgramMode": { "type": "Text" },
+    "endDate": { "type": "Date" },
+    "financialAidEligible": { "type": "DefinedTerm", "foreign": true },
+    "maximumEnrollment": { "type": "Integer" },
+    "numberOfCredits": { "type": "StructuredValue", "foreign": true },
+    "occupationalCategory": { "type": "CategoryCode", "foreign": true },
+    "occupationalCredentialAwarded": {
+      "type": "EducationalOccupationalCredential",
+      "foreign": true
+    },
+    "offers": { "type": "Demand", "foreign": true },
+    "programPrerequisites": {
+      "type": "EducationalOccupationalCredential",
+      "foreign": true
+    },
+    "programType": { "type": "DefinedTerm", "foreign": true },
+    "provider": { "type": "Person", "foreign": true },
+    "salaryUponCompletion": {
+      "type": "MonetaryAmountDistribution",
+      "foreign": true
+    },
+    "startDate": { "type": "Date" },
+    "termDuration": { "type": "Duration", "foreign": true },
+    "termsPerYear": { "type": "Number" },
+    "timeOfDay": { "type": "Text" },
+    "timeToComplete": { "type": "Duration", "foreign": true },
+    "trainingSalary": { "type": "MonetaryAmountDistribution", "foreign": true },
+    "typicalCreditsPerTerm": { "type": "StructuredValue", "foreign": true }
+  },
+  "Intangible": {}
+}

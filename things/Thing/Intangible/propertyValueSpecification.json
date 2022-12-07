@@ -1,1 +1,33 @@
-{"additionalType":"PropertyValueSpecification","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"PropertyValueSpecification":{"defaultValue":"","maxValue":0,"minValue":0,"multipleValues":0,"readonlyValue":0,"stepValue":0,"valueMaxLength":0,"valueMinLength":0,"valueName":"","valuePattern":"","valueRequired":0},"Intangible":{}}
+{
+  "additionalType": "PropertyValueSpecification",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PropertyValueSpecification": {
+    "defaultValue": "",
+    "maxValue": 0,
+    "minValue": 0,
+    "multipleValues": 0,
+    "readonlyValue": 0,
+    "stepValue": 0,
+    "valueMaxLength": 0,
+    "valueMinLength": 0,
+    "valueName": "",
+    "valuePattern": "",
+    "valueRequired": 0
+  },
+  "Intangible": {}
+}

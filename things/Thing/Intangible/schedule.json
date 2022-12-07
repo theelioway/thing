@@ -1,1 +1,35 @@
-{"additionalType":"Schedule","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"Schedule":{"byDay":"","byMonth":0,"byMonthDay":0,"byMonthWeek":0,"duration":0,"endDate":"1970-01-01","endTime":"","exceptDate":"1970-01-01","repeatCount":0,"repeatFrequency":0,"scheduleTimezone":"","startDate":"1970-01-01","startTime":""},"Intangible":{}}
+{
+  "additionalType": "Schedule",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Schedule": {
+    "byDay": "",
+    "byMonth": 0,
+    "byMonthDay": 0,
+    "byMonthWeek": 0,
+    "duration": 0,
+    "endDate": "1970-01-01",
+    "endTime": "",
+    "exceptDate": "1970-01-01",
+    "repeatCount": 0,
+    "repeatFrequency": 0,
+    "scheduleTimezone": "",
+    "startDate": "1970-01-01",
+    "startTime": ""
+  },
+  "Intangible": {}
+}

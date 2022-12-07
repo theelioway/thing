@@ -1,1 +1,29 @@
-{"additionalType":"QuantitativeValueDistribution","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"QuantitativeValueDistribution":{"duration":0,"median":0,"percentile10":0,"percentile25":0,"percentile75":0,"percentile90":0},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": "QuantitativeValueDistribution",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "QuantitativeValueDistribution": {
+    "duration": 0,
+    "median": 0,
+    "percentile10": 0,
+    "percentile25": 0,
+    "percentile75": 0,
+    "percentile90": 0
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

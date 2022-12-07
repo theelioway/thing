@@ -1,1 +1,26 @@
-{"additionalType":"Property","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"Property":{"domainIncludes":"","inverseOf":"","rangeIncludes":"","supersededBy":""},"Intangible":{}}
+{
+  "additionalType": "Property",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Property": {
+    "domainIncludes": "",
+    "inverseOf": "",
+    "rangeIncludes": "",
+    "supersededBy": ""
+  },
+  "Intangible": {}
+}

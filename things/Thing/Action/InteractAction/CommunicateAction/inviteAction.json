@@ -1,1 +1,40 @@
-{"additionalType":"InviteAction","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"InviteAction":{"event":""},"Action":{"actionStatus":"","agent":"","endTime":"","error":"","instrument":"","location":"","object":"","participant":"","result":"","startTime":"","target":""},"InteractAction":{},"CommunicateAction":{"about":"","inLanguage":"","language":"","recipient":""}}
+{
+  "additionalType": "InviteAction",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "InviteAction": { "event": "" },
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "InteractAction": {},
+  "CommunicateAction": {
+    "about": "",
+    "inLanguage": "",
+    "language": "",
+    "recipient": ""
+  }
+}

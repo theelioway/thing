@@ -1,1 +1,47 @@
-{"additionalType":"Taxi","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"Taxi":{},"Intangible":{},"Service":{"aggregateRating":"","areaServed":"","audience":"","availableChannel":"","award":"","brand":"","broker":"","category":"","hasOfferCatalog":"","hoursAvailable":"","isRelatedTo":"","isSimilarTo":"","logo":"","offers":"","produces":"","provider":"","providerMobility":"","review":"","serviceArea":"","serviceAudience":"","serviceOutput":"","serviceType":"","slogan":"","termsOfService":""}}
+{
+  "additionalType": "Taxi",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Taxi": {},
+  "Intangible": {},
+  "Service": {
+    "aggregateRating": "",
+    "areaServed": "",
+    "audience": "",
+    "availableChannel": "",
+    "award": "",
+    "brand": "",
+    "broker": "",
+    "category": "",
+    "hasOfferCatalog": "",
+    "hoursAvailable": "",
+    "isRelatedTo": "",
+    "isSimilarTo": "",
+    "logo": "",
+    "offers": "",
+    "produces": "",
+    "provider": "",
+    "providerMobility": "",
+    "review": "",
+    "serviceArea": "",
+    "serviceAudience": "",
+    "serviceOutput": "",
+    "serviceType": "",
+    "slogan": "",
+    "termsOfService": ""
+  }
+}

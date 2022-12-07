@@ -1,1 +1,23 @@
-{"additionalType":"UKNonprofitType","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"UKNonprofitType":{},"Intangible":{},"Enumeration":{"supersededBy":""},"NonprofitType":{}}
+{
+  "additionalType": "UKNonprofitType",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "UKNonprofitType": {},
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" },
+  "NonprofitType": {}
+}

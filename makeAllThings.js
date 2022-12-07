@@ -21,7 +21,7 @@ fs.writeFileSync(`./things.json`, JSON.stringify(things))
 
 let Thing = thingBuilder.Thing(things)
 
-console.log(   thingBuilder._parentClassesOf(["ProductCollection"]) )
+console.log(thingBuilder._parentClassesOf(["ProductCollection"]))
 
 Object.entries(Thing).forEach(([thingType, thing]) => {
   let hierarchy = thingBuilder._parentClassesOf([thingType])

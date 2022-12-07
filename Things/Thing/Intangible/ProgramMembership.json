@@ -1,1 +1,35 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"ProgramMembership":{"hostingOrganization":{"type":"Organization","foreign":true},"member":{"type":"Person","foreign":true},"members":{"type":"Person","foreign":true},"membershipNumber":{"type":"Text"},"membershipPointsEarned":{"type":"QuantitativeValue","foreign":true},"programName":{"type":"Text"}},"Intangible":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "ProgramMembership": {
+    "hostingOrganization": { "type": "Organization", "foreign": true },
+    "member": { "type": "Person", "foreign": true },
+    "members": { "type": "Person", "foreign": true },
+    "membershipNumber": { "type": "Text" },
+    "membershipPointsEarned": { "type": "QuantitativeValue", "foreign": true },
+    "programName": { "type": "Text" }
+  },
+  "Intangible": {}
+}

@@ -1,1 +1,25 @@
-{"additionalType":"PostalCodeRangeSpecification","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"PostalCodeRangeSpecification":{"postalCodeBegin":"","postalCodeEnd":""},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": "PostalCodeRangeSpecification",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PostalCodeRangeSpecification": {
+    "postalCodeBegin": "",
+    "postalCodeEnd": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

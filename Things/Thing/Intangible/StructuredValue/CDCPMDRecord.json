@@ -1,1 +1,47 @@
-{"additionalType":{"type":"URL"},"alternateName":{"type":"Text"},"description":{"type":"Text"},"disambiguatingDescription":{"type":"Text"},"identifier":{"type":"PropertyValue","foreign":true},"image":{"type":"ImageObject","foreign":true},"mainEntityOfPage":{"type":"CreativeWork","foreign":true},"name":{"type":"Text"},"potentialAction":{"type":"Action","foreign":true},"sameAs":{"type":"URL"},"subjectOf":{"type":"CreativeWork","foreign":true},"url":{"type":"URL"},"ItemList":{"itemListElement":{"type":"ListItem","foreign":true},"itemListOrder":{"type":"Text","enums":["ItemListOrderDescending","ItemListUnordered","ItemListOrderAscending"]},"numberOfItems":{"type":"Integer"}},"CDCPMDRecord":{"cvdCollectionDate":{"type":"Text"},"cvdFacilityCounty":{"type":"Text"},"cvdFacilityId":{"type":"Text"},"cvdNumBeds":{"type":"Number"},"cvdNumBedsOcc":{"type":"Number"},"cvdNumC19Died":{"type":"Number"},"cvdNumC19HOPats":{"type":"Number"},"cvdNumC19HospPats":{"type":"Number"},"cvdNumC19MechVentPats":{"type":"Number"},"cvdNumC19OFMechVentPats":{"type":"Number"},"cvdNumC19OverflowPats":{"type":"Number"},"cvdNumICUBeds":{"type":"Number"},"cvdNumICUBedsOcc":{"type":"Number"},"cvdNumTotBeds":{"type":"Number"},"cvdNumVent":{"type":"Number"},"cvdNumVentUse":{"type":"Number"},"datePosted":{"type":"Date"}},"Intangible":{},"StructuredValue":{}}
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "ImageObject", "foreign": true },
+  "mainEntityOfPage": { "type": "CreativeWork", "foreign": true },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "CreativeWork", "foreign": true },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": {
+      "type": "Text",
+      "enums": [
+        "ItemListOrderDescending",
+        "ItemListUnordered",
+        "ItemListOrderAscending"
+      ]
+    },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "CDCPMDRecord": {
+    "cvdCollectionDate": { "type": "Text" },
+    "cvdFacilityCounty": { "type": "Text" },
+    "cvdFacilityId": { "type": "Text" },
+    "cvdNumBeds": { "type": "Number" },
+    "cvdNumBedsOcc": { "type": "Number" },
+    "cvdNumC19Died": { "type": "Number" },
+    "cvdNumC19HOPats": { "type": "Number" },
+    "cvdNumC19HospPats": { "type": "Number" },
+    "cvdNumC19MechVentPats": { "type": "Number" },
+    "cvdNumC19OFMechVentPats": { "type": "Number" },
+    "cvdNumC19OverflowPats": { "type": "Number" },
+    "cvdNumICUBeds": { "type": "Number" },
+    "cvdNumICUBedsOcc": { "type": "Number" },
+    "cvdNumTotBeds": { "type": "Number" },
+    "cvdNumVent": { "type": "Number" },
+    "cvdNumVentUse": { "type": "Number" },
+    "datePosted": { "type": "Date" }
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

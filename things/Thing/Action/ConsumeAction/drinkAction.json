@@ -1,1 +1,37 @@
-{"additionalType":"DrinkAction","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"DrinkAction":{},"Action":{"actionStatus":"","agent":"","endTime":"","error":"","instrument":"","location":"","object":"","participant":"","result":"","startTime":"","target":""},"ConsumeAction":{"actionAccessibilityRequirement":"","expectsAcceptanceOf":""}}
+{
+  "additionalType": "DrinkAction",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "DrinkAction": {},
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "ConsumeAction": {
+    "actionAccessibilityRequirement": "",
+    "expectsAcceptanceOf": ""
+  }
+}

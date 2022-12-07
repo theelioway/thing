@@ -1,1 +1,27 @@
-{"additionalType":"OrderItem","alternateName":"","description":"","disambiguatingDescription":"","identifier":"","image":"","mainEntityOfPage":"","name":"","potentialAction":"","sameAs":"","subjectOf":"","url":"","ItemList":{"itemListElement":[],"itemListOrder":"","numberOfItems":0},"OrderItem":{"orderDelivery":"","orderedItem":"","orderItemNumber":"","orderItemStatus":"","orderQuantity":0},"Intangible":{}}
+{
+  "additionalType": "OrderItem",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "OrderItem": {
+    "orderDelivery": "",
+    "orderedItem": "",
+    "orderItemNumber": "",
+    "orderItemStatus": "",
+    "orderQuantity": 0
+  },
+  "Intangible": {}
+}

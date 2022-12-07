@@ -10,4 +10,4 @@ git clone https://gitlab.com/eliothing/thing.git
 
 ## TODOS
 
-1. TODOS
+1. Why does `Things/CreativeWork/Thing/Collection/Product/ProductCollection.json` organise like that? Issue with `thingBuilder._parentClassesOf([thingType])` of `makeAllThings.js`
