@@ -34,24 +34,22 @@ For instance, calling `ThingBuilder.thing("MoveAction")` or from the command lik
       "type": "String"
     },
     // ... + all the other Fields for `schema.org/Thing`
-    "engage": {
-      "Action": {
-        "endTime": {
-          "type": "Time"
-        },
-        "actionStatus": {
-          "type": "Text",
-          "enums": ["FailedActionStatus", "CompletedActionStatus", "ActiveActionStatus", "PotentialActionStatus"]
-        },
-        // ... + all the other Fields for `schema.org/Action`
+    "Action": {
+      "endTime": {
+        "type": "Time"
       },
-      "MoveAction": {
-        "toLocation": {
-          "type": "Text"
-        },
-        "fromLocation": {
-          "type": "Text"
-        }
+      "actionStatus": {
+        "type": "Text",
+        "enums": ["FailedActionStatus", "CompletedActionStatus", "ActiveActionStatus", "PotentialActionStatus"]
+      },
+      // ... + all the other Fields for `schema.org/Action`
+    },
+    "MoveAction": {
+      "toLocation": {
+        "type": "Text"
+      },
+      "fromLocation": {
+        "type": "Text"
       }
     }
   },
@@ -74,17 +72,15 @@ For instance, calling `ThingBuilder.thing("MoveAction")` or from the command lik
       "type": "String"
     },
     // ... + all the other Fields for `schema.org/Thing`
-    "engage": {
-      "Action": {
-        "endTime": {
-          "type": "Time"
-        },
-        "actionStatus": {
-          "type": "Text",
-          "enums": ["FailedActionStatus", "CompletedActionStatus", "ActiveActionStatus", "PotentialActionStatus"]
-        },
-        // ... + all the other Fields for `schema.org/Action`
-      }
+    "Action": {
+      "endTime": {
+        "type": "Time"
+      },
+      "actionStatus": {
+        "type": "Text",
+        "enums": ["FailedActionStatus", "CompletedActionStatus", "ActiveActionStatus", "PotentialActionStatus"]
+      },
+      // ... + all the other Fields for `schema.org/Action`
     }
   }
 }
@@ -275,10 +271,8 @@ Returns:
     "additionalType": {
       "type": "URL"
     },
-    "engage": {
-      "Intangible": {},
-      "StructuredValue": {}
-    }
+    "Intangible": {},
+    "StructuredValue": {}
   },
   "Thing": {
     "potentialAction": {
@@ -355,9 +349,7 @@ Returns:
     "additionalType": {
       "type": "URL"
     },
-    "engage": {
-      "Intangible": {}
-    }
+    "Intangible": {}
   }
 }
 ```

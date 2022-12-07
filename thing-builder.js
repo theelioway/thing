@@ -575,10 +575,8 @@ module.exports = class ThingBuilder {
       ) {
         Thing[field] = 0.0
       } else {
-        if (field === "engage") {
-          Object.keys(Thing["engage"]).forEach(type => {
-            Thing[field][type] = this.thinglet(Thing["engage"][type], type)
-          })
+        if (typeof def === "object") {
+          Thing[field] = this.thinglet(Thing[field], type)
         } else {
           Thing[field] = ""
         }

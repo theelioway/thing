@@ -35,7 +35,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Action: {
         instrument: { type: "Thing", foreign: true },
         endTime: { type: "Time" },
@@ -57,7 +56,6 @@ let expectAction = {
         location: { type: "PostalAddress", foreign: true },
         object: { type: "Thing", foreign: true },
       },
-    },
   },
   Thing: {
     potentialAction: { type: "Action", foreign: true },
@@ -86,7 +84,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Person: {
         birthPlace: { type: "Place", foreign: true },
         gender: { type: "Text", enums: ["Male", "Female"] },
@@ -154,7 +151,6 @@ let expectAction = {
         naics: { type: "Text" },
         hasPOS: { type: "Place", foreign: true },
       },
-    },
   },
   ActionStatusType: {
     potentialAction: { type: "Action", foreign: true },
@@ -169,12 +165,10 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Enumeration: { supersededBy: { type: "Enumeration", foreign: true } },
       StatusEnumeration: {},
       ActionStatusType: {},
-    },
   },
   EntryPoint: {
     potentialAction: { type: "Action", foreign: true },
@@ -189,7 +183,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       EntryPoint: {
         application: { type: "SoftwareApplication", foreign: true },
@@ -200,7 +193,6 @@ let expectAction = {
         contentType: { type: "Text" },
         httpMethod: { type: "Text" },
       },
-    },
   },
   PostalAddress: {
     potentialAction: { type: "Action", foreign: true },
@@ -215,7 +207,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       ContactPoint: {
@@ -241,7 +232,6 @@ let expectAction = {
         addressCountry: { type: "Country", foreign: true },
         addressRegion: { type: "Text" },
       },
-    },
   },
   Place: {
     potentialAction: { type: "Action", foreign: true },
@@ -256,7 +246,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -309,7 +298,6 @@ let expectAction = {
         geoCovers: { type: "Place", foreign: true },
         geoEquals: { type: "Place", foreign: true },
       },
-    },
   },
   Organization: {
     potentialAction: { type: "Action", foreign: true },
@@ -324,7 +312,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Organization: {
         members: { type: "Person", foreign: true },
         knowsAbout: { type: "Thing", foreign: true },
@@ -397,7 +384,6 @@ let expectAction = {
         naics: { type: "Text" },
         hasPOS: { type: "Place", foreign: true },
       },
-    },
   },
   Intangible: {
     potentialAction: { type: "Action", foreign: true },
@@ -412,7 +398,7 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: { Intangible: {} },
+    Intangible: {} ,
   },
   Enumeration: {
     potentialAction: { type: "Action", foreign: true },
@@ -427,10 +413,8 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Enumeration: { supersededBy: { type: "Enumeration", foreign: true } },
-    },
   },
   StatusEnumeration: {
     potentialAction: { type: "Action", foreign: true },
@@ -445,11 +429,9 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Enumeration: { supersededBy: { type: "Enumeration", foreign: true } },
       StatusEnumeration: {},
-    },
   },
   StructuredValue: {
     potentialAction: { type: "Action", foreign: true },
@@ -464,7 +446,7 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: { Intangible: {}, StructuredValue: {} },
+    Intangible: {}, StructuredValue: {} ,
   },
   ContactPoint: {
     potentialAction: { type: "Action", foreign: true },
@@ -479,7 +461,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       ContactPoint: {
@@ -496,7 +477,6 @@ let expectAction = {
         telephone: { type: "Text" },
         email: { type: "Text" },
         contactType: { type: "Text" },
-      },
     },
   },
   PropertyValue: {
@@ -512,7 +492,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       PropertyValue: {
@@ -525,7 +504,6 @@ let expectAction = {
         maxValue: { type: "Number" },
         minValue: { type: "Number" },
       },
-    },
   },
   ImageObject: {
     potentialAction: { type: "Action", foreign: true },
@@ -540,7 +518,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -674,7 +651,6 @@ let expectAction = {
         caption: { type: "MediaObject", foreign: true },
         representativeOfPage: { type: "Boolean" },
       },
-    },
   },
   CreativeWork: {
     potentialAction: { type: "Action", foreign: true },
@@ -689,7 +665,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -798,7 +773,6 @@ let expectAction = {
         expires: { type: "Date" },
         comment: { type: "Text" },
       },
-    },
   },
   GenderType: {
     potentialAction: { type: "Action", foreign: true },
@@ -813,11 +787,9 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Enumeration: { supersededBy: { type: "Enumeration", foreign: true } },
       GenderType: {},
-    },
   },
   Offer: {
     potentialAction: { type: "Action", foreign: true },
@@ -832,7 +804,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Offer: {
         availability: {
@@ -907,7 +878,6 @@ let expectAction = {
         deliveryLeadTime: { type: "QuantitativeValue", foreign: true },
         availabilityEnds: { type: "Time" },
       },
-    },
   },
   PriceSpecification: {
     potentialAction: { type: "Action", foreign: true },
@@ -922,7 +892,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       PriceSpecification: {
@@ -939,8 +908,6 @@ let expectAction = {
         validThrough: { type: "Date" },
         price: { type: "Text" },
       },
-    },
-  },
   Demand: {
     potentialAction: { type: "Action", foreign: true },
     identifier: { type: "PropertyValue", foreign: true },
@@ -954,7 +921,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Demand: {
         availability: {
@@ -1018,7 +984,6 @@ let expectAction = {
         deliveryLeadTime: { type: "QuantitativeValue", foreign: true },
         availabilityEnds: { type: "Time" },
       },
-    },
   },
   Distance: {
     potentialAction: { type: "Action", foreign: true },
@@ -1033,7 +998,7 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: { Intangible: {}, Quantity: {}, Distance: {} },
+     Intangible: {}, Quantity: {}, Distance: {} ,
   },
   Occupation: {
     potentialAction: { type: "Action", foreign: true },
@@ -1048,7 +1013,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Occupation: {
         skills: { type: "DefinedTerm", foreign: true },
@@ -1066,7 +1030,6 @@ let expectAction = {
         occupationalCategory: { type: "Text" },
         experienceRequirements: { type: "Text" },
       },
-    },
   },
   DefinedTerm: {
     potentialAction: { type: "Action", foreign: true },
@@ -1081,13 +1044,11 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       DefinedTerm: {
         termCode: { type: "Text" },
         inDefinedTermSet: { type: "URL" },
       },
-    },
   },
   OfferCatalog: {
     potentialAction: { type: "Action", foreign: true },
@@ -1102,7 +1063,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       ItemList: {
         itemListOrder: { type: "Text" },
@@ -1110,7 +1070,6 @@ let expectAction = {
         numberOfItems: { type: "Integer" },
       },
       OfferCatalog: {},
-    },
   },
   Product: {
     potentialAction: { type: "Action", foreign: true },
@@ -1125,7 +1084,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Product: {
         inProductGroupWithID: { type: "Text" },
         model: { type: "Text" },
@@ -1182,7 +1140,6 @@ let expectAction = {
         isRelatedTo: { type: "Product", foreign: true },
         productID: { type: "Text" },
       },
-    },
   },
   Country: {
     potentialAction: { type: "Action", foreign: true },
@@ -1197,7 +1154,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -1252,7 +1208,6 @@ let expectAction = {
       },
       AdministrativeArea: {},
       Country: {},
-    },
   },
   EducationalOccupationalCredential: {
     potentialAction: { type: "Action", foreign: true },
@@ -1267,7 +1222,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -1384,7 +1338,6 @@ let expectAction = {
         credentialCategory: { type: "DefinedTerm", foreign: true },
         validIn: { type: "AdministrativeArea", foreign: true },
       },
-    },
   },
   Language: {
     potentialAction: { type: "Action", foreign: true },
@@ -1399,7 +1352,7 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: { Intangible: {}, Language: {} },
+    Intangible: {}, Language: {} ,
   },
   Event: {
     potentialAction: { type: "Action", foreign: true },
@@ -1414,7 +1367,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Event: {
         maximumAttendeeCapacity: { type: "Integer" },
         typicalAgeRange: { type: "Text" },
@@ -1472,7 +1424,6 @@ let expectAction = {
         superEvent: { type: "Event", foreign: true },
         previousStartDate: { type: "Date" },
       },
-    },
   },
   InteractionCounter: {
     potentialAction: { type: "Action", foreign: true },
@@ -1487,7 +1438,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       InteractionCounter: {
@@ -1495,7 +1445,6 @@ let expectAction = {
         userInteractionCount: { type: "Integer" },
         interactionType: { type: "Action", foreign: true },
       },
-    },
   },
   QuantitativeValue: {
     potentialAction: { type: "Action", foreign: true },
@@ -1510,7 +1459,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       QuantitativeValue: {
@@ -1522,7 +1470,6 @@ let expectAction = {
         maxValue: { type: "Number" },
         minValue: { type: "Number" },
       },
-    },
   },
   SoftwareApplication: {
     potentialAction: { type: "Action", foreign: true },
@@ -1537,7 +1484,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -1672,7 +1618,6 @@ let expectAction = {
         countriesSupported: { type: "Text" },
         softwareHelp: { type: "CreativeWork", foreign: true },
       },
-    },
   },
   AggregateRating: {
     potentialAction: { type: "Action", foreign: true },
@@ -1687,7 +1632,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Rating: {
         ratingValue: { type: "Text" },
@@ -1702,7 +1646,6 @@ let expectAction = {
         ratingCount: { type: "Integer" },
         reviewCount: { type: "Integer" },
       },
-    },
   },
   Review: {
     potentialAction: { type: "Action", foreign: true },
@@ -1717,7 +1660,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -1832,7 +1774,6 @@ let expectAction = {
         reviewAspect: { type: "Text" },
         reviewRating: { type: "Rating", foreign: true },
       },
-    },
   },
   Map: {
     potentialAction: { type: "Action", foreign: true },
@@ -1847,7 +1788,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -1962,7 +1902,6 @@ let expectAction = {
           enums: ["ParkingMap", "VenueMap", "TransitMap", "SeatingMap"],
         },
       },
-    },
   },
   OpeningHoursSpecification: {
     potentialAction: { type: "Action", foreign: true },
@@ -1977,7 +1916,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       OpeningHoursSpecification: {
@@ -1999,7 +1937,6 @@ let expectAction = {
         opens: { type: "Time" },
         closes: { type: "Time" },
       },
-    },
   },
   LocationFeatureSpecification: {
     potentialAction: { type: "Action", foreign: true },
@@ -2014,7 +1951,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       PropertyValue: {
@@ -2032,7 +1968,6 @@ let expectAction = {
         validFrom: { type: "Date" },
         validThrough: { type: "Date" },
       },
-    },
   },
   GeoShape: {
     potentialAction: { type: "Action", foreign: true },
@@ -2047,7 +1982,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       GeoShape: {
@@ -2060,7 +1994,6 @@ let expectAction = {
         box: { type: "Text" },
         addressCountry: { type: "Country", foreign: true },
       },
-    },
   },
   ProductReturnPolicy: {
     potentialAction: { type: "Action", foreign: true },
@@ -2075,13 +2008,11 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       ProductReturnPolicy: {
         productReturnDays: { type: "Integer" },
         productReturnLink: { type: "URL" },
       },
-    },
   },
   Article: {
     potentialAction: { type: "Action", foreign: true },
@@ -2096,7 +2027,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -2215,7 +2145,6 @@ let expectAction = {
         wordCount: { type: "Integer" },
         articleBody: { type: "Text" },
       },
-    },
   },
   NonprofitType: {
     potentialAction: { type: "Action", foreign: true },
@@ -2230,11 +2159,9 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Enumeration: { supersededBy: { type: "Enumeration", foreign: true } },
       NonprofitType: {},
-    },
   },
   MerchantReturnPolicy: {
     potentialAction: { type: "Action", foreign: true },
@@ -2249,7 +2176,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       MerchantReturnPolicy: {
         returnFees: {
@@ -2277,7 +2203,6 @@ let expectAction = {
         inStoreReturnsOffered: { type: "Boolean" },
         merchantReturnLink: { type: "URL" },
       },
-    },
   },
   MediaObject: {
     potentialAction: { type: "Action", foreign: true },
@@ -2292,7 +2217,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -2420,7 +2344,6 @@ let expectAction = {
         duration: { type: "Text" },
         encodesCreativeWork: { type: "CreativeWork", foreign: true },
       },
-    },
   },
   Quantity: {
     potentialAction: { type: "Action", foreign: true },
@@ -2435,7 +2358,7 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: { Intangible: {}, Quantity: {} },
+    Intangible: {}, Quantity: {} ,
   },
   MonetaryAmount: {
     potentialAction: { type: "Action", foreign: true },
@@ -2450,7 +2373,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       StructuredValue: {},
       MonetaryAmount: {
@@ -2461,7 +2383,6 @@ let expectAction = {
         maxValue: { type: "Number" },
         minValue: { type: "Number" },
       },
-    },
   },
   ItemList: {
     potentialAction: { type: "Action", foreign: true },
@@ -2476,14 +2397,12 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       ItemList: {
         itemListOrder: { type: "Text" },
         itemListElement: { type: "Thing", foreign: true },
         numberOfItems: { type: "Integer" },
       },
-    },
   },
   AdministrativeArea: {
     potentialAction: { type: "Action", foreign: true },
@@ -2498,7 +2417,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -2552,7 +2470,6 @@ let expectAction = {
         geoEquals: { type: "Place", foreign: true },
       },
       AdministrativeArea: {},
-    },
   },
   Rating: {
     potentialAction: { type: "Action", foreign: true },
@@ -2567,7 +2484,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       Intangible: {},
       Rating: {
         ratingValue: { type: "Text" },
@@ -2577,7 +2493,6 @@ let expectAction = {
         author: { type: "Person", foreign: true },
         worstRating: { type: "Text" },
       },
-    },
   },
   WebPage: {
     potentialAction: { type: "Action", foreign: true },
@@ -2592,7 +2507,6 @@ let expectAction = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "CreativeWork", foreign: true },
     additionalType: { type: "URL" },
-    engage: {
       CreativeWork: {
         typicalAgeRange: { type: "Text" },
         hasPart: { type: "CreativeWork", foreign: true },
@@ -2713,7 +2627,6 @@ let expectAction = {
         lastReviewed: { type: "Date" },
         mainContentOfPage: { type: "Text" },
       },
-    },
   },
 }
 
@@ -2731,7 +2644,6 @@ let expectHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -2852,7 +2764,6 @@ let expectHealthAndBeautyBusiness = {
         paymentAccepted: { type: "Text" },
       },
       HealthAndBeautyBusiness: {},
-    },
   },
   Thing: {
     potentialAction: { type: "Text" },
@@ -2881,7 +2792,6 @@ let expectHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -2928,7 +2838,6 @@ let expectHealthAndBeautyBusiness = {
         geoCovers: { type: "Place", foreign: true },
         geoEquals: { type: "Place", foreign: true },
       },
-    },
   },
   Organization: {
     potentialAction: { type: "Text" },
@@ -2943,7 +2852,6 @@ let expectHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Organization: {
         members: { type: "Organization", foreign: true },
         knowsAbout: { type: "Thing", foreign: true },
@@ -3010,7 +2918,6 @@ let expectHealthAndBeautyBusiness = {
         naics: { type: "Text" },
         hasPOS: { type: "Place", foreign: true },
       },
-    },
   },
   LocalBusiness: {
     potentialAction: { type: "Text" },
@@ -3025,7 +2932,6 @@ let expectHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -3145,7 +3051,6 @@ let expectHealthAndBeautyBusiness = {
         branchOf: { type: "Organization", foreign: true },
         paymentAccepted: { type: "Text" },
       },
-    },
   },
 }
 
@@ -3163,7 +3068,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       MedicalEntity: {
         medicineSystem: {
           type: "Text",
@@ -3230,7 +3134,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         study: { type: "Text" },
       },
       DrugClass: { drug: { type: "Text" } },
-    },
   },
   HealthAndBeautyBusiness: {
     potentialAction: { type: "Text" },
@@ -3245,7 +3148,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -3366,7 +3268,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         paymentAccepted: { type: "Text" },
       },
       HealthAndBeautyBusiness: {},
-    },
   },
   Thing: {
     potentialAction: { type: "Text" },
@@ -3395,7 +3296,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       MedicalEntity: {
         medicineSystem: {
           type: "Text",
@@ -3461,7 +3361,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         code: { type: "Text" },
         study: { type: "Text" },
       },
-    },
   },
   Place: {
     potentialAction: { type: "Text" },
@@ -3476,7 +3375,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -3523,7 +3421,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         geoCovers: { type: "Place", foreign: true },
         geoEquals: { type: "Place", foreign: true },
       },
-    },
   },
   Organization: {
     potentialAction: { type: "Text" },
@@ -3538,7 +3435,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Organization: {
         members: { type: "Organization", foreign: true },
         knowsAbout: { type: "Thing", foreign: true },
@@ -3605,7 +3501,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         naics: { type: "Text" },
         hasPOS: { type: "Place", foreign: true },
       },
-    },
   },
   LocalBusiness: {
     potentialAction: { type: "Text" },
@@ -3620,7 +3515,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
     disambiguatingDescription: { type: "Text" },
     subjectOf: { type: "Text" },
     additionalType: { type: "URL" },
-    engage: {
       Place: {
         maximumAttendeeCapacity: { type: "Integer" },
         geoCrosses: { type: "Place", foreign: true },
@@ -3740,7 +3634,6 @@ let expectDrugClassHealthAndBeautyBusiness = {
         branchOf: { type: "Organization", foreign: true },
         paymentAccepted: { type: "Text" },
       },
-    },
   },
 }
 

@@ -50,7 +50,6 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       disambiguatingDescription: "",
       subjectOf: "",
       additionalType: "HealthAndBeautyBusiness",
-      engage: {
         Place: {
           maximumAttendeeCapacity: 0,
           geoCrosses: "",
@@ -171,7 +170,6 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
           paymentAccepted: "",
         },
         HealthAndBeautyBusiness: {},
-      },
     },
     ComicIssue: {
       potentialAction: "",
@@ -186,7 +184,6 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       disambiguatingDescription: "",
       subjectOf: "",
       additionalType: "ComicIssue",
-      engage: {
         CreativeWork: {
           typicalAgeRange: "",
           hasPart: "",
@@ -309,7 +306,6 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
           letterer: "",
           penciler: "",
         },
-      },
     },
   })) {
     it(`${modelName} thing`, () => {

@@ -23,19 +23,17 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
       "type": "String"
     },
     // ... + all the other Fields for `schema.org/Thing`
-    "engage": {
-      "Action": {
-        "endTime": {
-          "type": "Time"
-        },
-        // ... + all the other Fields for `schema.org/Action`
+    "Action": {
+      "endTime": {
+        "type": "Time"
       },
-      "MoveAction": {
-        "toLocation": {
-          "type": "Text"
-        },
-        // ... + all the other Fields for `schema.org/MoveAction`
-      }
+      // ... + all the other Fields for `schema.org/Action`
+    },
+    "MoveAction": {
+      "toLocation": {
+        "type": "Text"
+      },
+      // ... + all the other Fields for `schema.org/MoveAction`
     }
   },
   "Thing": {
@@ -49,13 +47,11 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
       "type": "String"
     },
     // ... + all the other Fields for `schema.org/Thing`
-    "engage": {
-      "Action": {
-        "endTime": {
-          "type": "Time"
-        },
-        // ... + all the other Fields for `schema.org/Action`
-      }
+    "Action": {
+      "endTime": {
+        "type": "Time"
+      },
+      // ... + all the other Fields for `schema.org/Action`
     }
   }
 }
