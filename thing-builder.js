@@ -17,7 +17,7 @@ module.exports = class ThingBuilder {
    *
    * @param {Array} graphList of schema objects from jsonld.
    * @param {String} domain used in jsonld.
-   * @param {Array} fixedPrimitives names we'll always treat as Primitive datatypes.
+   * @param {Array} fixedPrimitives names we'll treat as Primitive datatypes.
    *        For instance, depending on the database, you might choose to make
    *        "ImageObject" a Primitive if your database supports it.
    */
@@ -151,7 +151,8 @@ module.exports = class ThingBuilder {
     return Array.isArray(obj) ? obj : [obj]
   }
 
-  /** @file Resolve variations in the "@type" property of a Schema.org jsonld object.
+  /** @file Resolve variations in the "@type" property of a Schema.org jsonld
+   * object.
    * @author Tim Bushell
    *
    * @tutorial
@@ -162,7 +163,8 @@ module.exports = class ThingBuilder {
    * - Schema Type e.g. "http://schema.org/RestrictedDiet"
    * - Schema Types e.g. ["http://schema.org/RestrictedDiet", "http://schema.org/MedicalDiet"]
    * @param {operand} value is from the schema obj "@type" property.
-   * @returns {str/Array} String or Array representing the type of Schema.org jsonld object.
+   * @returns {str/Array} String or Array representing the type of Schema.org
+   * jsonld object.
    */
   _typeOf(value) {
     if (value === "rdfs:Class") {
@@ -313,7 +315,7 @@ module.exports = class ThingBuilder {
       if (modelDef) {
         modelsMined = _.union(
           modelsMined,
-          this._parentClassesOf([...modelDef.subs])
+          this._parentClassesOf([...(modelDef.subs || [])])
         )
         log(`${currentDepth} SubsMined: ${modelsMined}`)
         // Check the ModelType(s) of its fields.
@@ -477,8 +479,8 @@ module.exports = class ThingBuilder {
 
   /**
    * @file Make a simple JSON, version of a complete Thing.
-   * @tutorial This creates a Thing with the Thing type's fields and an engage
-   * property containing a map to all the sub-Types.
+   * @tutorial This creates a Thing with the Thing type's fields and  a map
+   * of all the sub-Types.
    *
    * @param {str} selectedModelName to build.
    * @param {Array} baseModels output from this.modelMiner.
@@ -492,17 +494,19 @@ module.exports = class ThingBuilder {
     let thing = this.sortObjKeysAlphabetically(
       this.modelMaker("Thing", baseModels, opts).fields
     )
-    // "Engage" the subclasses in the Thing model.
-    thing.engage = new Object()
-    thing.engage.ItemList = this.sortObjKeysAlphabetically(
+    // Add ItemList to the the Thing model.
+    thing.ItemList = this.sortObjKeysAlphabetically(
       this.modelMaker("ItemList", baseModels, opts).fields
     )
-    // If selectedModelName is not the super class.
-    if (selectedModelName !== "Thing") {
+    // If selectedModelName is not super class.
+    if (
+      selectedModelName !== "Thing" &&
+      typeof selectedModelName === "string"
+    ) {
       // Make the selectedModel.
       let selectedModel = this.modelMaker(selectedModelName, baseModels, opts)
       // "Engage" the selectedModel.
-      thing.engage[selectedModelName] = this.sortObjKeysAlphabetically(
+      thing[selectedModelName] = this.sortObjKeysAlphabetically(
         selectedModel.fields
       )
       // Find all the Types this thing subclasses.
@@ -510,13 +514,12 @@ module.exports = class ThingBuilder {
       for (let sub of subs) {
         if (sub !== "Thing" && sub !== "ItemList") {
           // "Engage" the selectedModel's subclasses.
-          thing.engage[sub] = this.sortObjKeysAlphabetically(
+          thing[sub] = this.sortObjKeysAlphabetically(
             this.modelMaker(sub, baseModels, opts).fields
           )
         }
       }
     }
-    thing.engage = this.sortObjKeysAlphabetically(thing.engage)
     return thing
   }
 
@@ -531,52 +534,57 @@ module.exports = class ThingBuilder {
     let things = new Object()
     let modelsMined = this.modelMiner(selectedModelNames, opts)
     for (let modelName of modelsMined) {
-      let thing = this._Thing(modelName, modelsMined, opts)
-      things[modelName] = thing
+      things[modelName] = this._Thing(modelName, modelsMined, opts)
     }
     return things
   }
 
   /**
-   * @file Convenient utility to build an instance of a Thing (a thinglet), no meta, just empty fields.
+   * @file Convenient utility to build an instance of a Thing (a thinglet),
+   * no meta, just empty fields.
    * @param {str} selectedModel to build.
-   * @param {Object} opts {depth, comment}
    * @returns {Object} JSON format instance of a Thing.
    */
   thinglet(Thing, thingType) {
     Object.entries(Thing).forEach(([field, def]) => {
-      if (field === "additionalType") {
-        Thing[field] = thingType
-      } else if (
-        ["Date", "DateTime", "String", "Time", "URL"].includes(def.type)
-      ) {
-        Thing[field] = ""
-      } else if (
-        [
-          "Boolean",
-          "Distance",
-          "Duration",
-          "Integer",
-          "Number",
-          "Quantity",
-          "Time",
-        ].includes(def.type)
-      ) {
-        Thing[field] = 0
-      } else if (
-        [
-          "minPrice",
-          "maxPrice",
-          "minValue",
-          "maxValue",
-          "price",
-          "value",
-        ].includes(field)
-      ) {
-        Thing[field] = 0.0
+      if (!def.hasOwnProperty("type")) {
+        Thing[field] = this.thinglet(def, field)
       } else {
-        if (typeof def === "object") {
-          Thing[field] = this.thinglet(Thing[field], type)
+        if (field === "additionalType") {
+          Thing[field] = thingType
+        } else if (field === "itemListElement") {
+          Thing[field] = []
+        } else if (["String", "Time", "URL"].includes(def.type)) {
+          Thing[field] = ""
+        } else if (["DateTime"].includes(def.type)) {
+          Thing[field] = new Date(0).toISOString()
+        } else if (["Time"].includes(def.type)) {
+          Thing[field] = new Date(0).toISOString().slice(11)
+        } else if (["Date"].includes(def.type)) {
+          Thing[field] = new Date(0).toISOString().slice(0, 10)
+        } else if (
+          [
+            "Boolean",
+            "Distance",
+            "Duration",
+            "Integer",
+            "Number",
+            "Quantity",
+            "Time",
+          ].includes(def.type)
+        ) {
+          Thing[field] = 0
+        } else if (
+          [
+            "minPrice",
+            "maxPrice",
+            "minValue",
+            "maxValue",
+            "price",
+            "value",
+          ].includes(field)
+        ) {
+          Thing[field] = 0.0
         } else {
           Thing[field] = ""
         }
@@ -588,7 +596,7 @@ module.exports = class ThingBuilder {
   /** @credit https://gist.github.com/farskid/b1c128639cd42e44734282e2d9e3beb2 */
   sortObjKeysAlphabetically(obj) {
     return Object.keys(obj)
-      .sort()
+      .sort(new Intl.Collator("en", { caseFirst: "lower" }).compare)
       .reduce((result, key) => {
         result[key] = obj[key]
         return result

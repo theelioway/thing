@@ -35,13 +35,11 @@ A class which converts <https://schema.org> (and other jsonld formats) into simp
 ```bash
 git clone https://gitlab.com/eliothing/thing.git
 npm i
-gulp
 # New terminal
 npm run thing -- Permit Action --depth 2 # --comment false
 npm run thing -- PhotographAction  --hatch
-# output to `pretty/ugly`
-gulp prettyUgly
-# formatted to `pretty`
+# output to `Thing/things`
+npm run prettier
 ```
 
 ## Nutshell

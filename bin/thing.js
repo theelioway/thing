@@ -22,14 +22,15 @@ let thingBuilder = new ThingBuilder(
   schemaDomainUrl
 )
 let { hatch, depth, comment } = commander.opts()
+console.log(commander.args)
 let Thing = thingBuilder.Thing(commander.args, commander.opts())
 Object.entries(Thing).forEach(([thingType, thing]) => {
-  fs.writeFileSync(`./pretty/ugly/${thingType}.json`, JSON.stringify(thing))
+  fs.writeFileSync(`./Things/${thingType}.json`, JSON.stringify(thing))
   console.log("- ", thingType)
   if (hatch) {
     let thinglet = thingBuilder.thinglet(thing, thingType)
     fs.writeFileSync(
-      `./pretty/ugly/${thingType.toLowerCase()}.json`,
+      `./things/${thingType[0].toLowerCase() + thingType.slice(1)}.json`,
       JSON.stringify(thinglet)
     )
     console.log("       hatched thinglet ✔ ")
