@@ -2,34 +2,13 @@
   "author": "Tim Bushell",
   "description": "In the grand scheme of Things, the elioWay",
   "name": "@elioway/thing",
-  "title": "thing",
   "version": "1.0.1",
-  "__________": "______________________________",
   "tew": {
-    "art": {
-      "name": "thing",
-      "potentialAction": "",
-      "disambiguatingDescription": "In the grand scheme of Things, the elioWay"
-    },
-    "branciaos": [
-      "thing",
-      "eliothing"
-    ],
     "chisel": {
       "Home": "eliothing"
-    },
-    "twig": {
-      "workingBranch": "main",
-      "mergeIntoBranch": "main"
     }
   },
   "bin": "./bin/index.js",
-  "main": "./thing-builder.js",
-  "scripts": {
-    "thing": "node bin/thing.js",
-    "test": "mocha",
-    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
-  },
   "dependencies": {
     "commander": "^9.4.1",
     "lodash": "^4.17.21",
@@ -40,27 +19,20 @@
     "mocha": "^10.1.0",
     "prettier": "^2.8.0"
   },
-  "chisel": {
-    "host": "eliothing",
-    "Things": [
-      "thing",
-      "thing-liar",
-      "mongoose-thing",
-      "django-thing"
-    ],
-    "Tools": [
-      "generator-thing",
-      "thing-sammy"
-    ]
-  },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "keywords": [
     "elioway",
     "nodejs"
   ],
   "license": "MIT",
+  "main": "./thing-builder.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/elioway/eliothing/thing"
+  },
+  "scripts": {
+    "thing": "node bin/thing.js",
+    "test": "mocha",
+    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   }
 }
