@@ -1,0 +1,24 @@
+{
+  "additionalType": "ItemListOrderType",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ItemListOrderType": {},
+  "Intangible": {},
+  "Enumeration": {
+    "supersededBy": ""
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "additionalType": "ExerciseAction",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ExerciseAction": {
+    "course": "",
+    "diet": "",
+    "distance": 0,
+    "exerciseCourse": "",
+    "exercisePlan": "",
+    "exerciseRelatedDiet": "",
+    "exerciseType": "",
+    "fromLocation": "",
+    "opponent": "",
+    "sportsActivityLocation": "",
+    "sportsEvent": "",
+    "sportsTeam": "",
+    "toLocation": ""
+  },
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "PlayAction": {
+    "audience": "",
+    "event": ""
+  }
+}

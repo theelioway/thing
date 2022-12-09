@@ -32,7 +32,7 @@
   },
   "scripts": {
     "thing": "node bin/index.js",
-    "allThingsBrightAndBeautiful": "node makeAllThings.js",
+    "allThingsBrightAndBeautiful": "node allThingsBrightAndBeautiful.js",
     "test": "mocha --recursive",
     "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   }

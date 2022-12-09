@@ -1,0 +1,39 @@
+{
+  "additionalType": "Bone",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Bone": {},
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  },
+  "AnatomicalStructure": {
+    "associatedPathophysiology": "",
+    "bodyLocation": "",
+    "connectedTo": "",
+    "diagram": "",
+    "partOfSystem": "",
+    "relatedCondition": "",
+    "relatedTherapy": "",
+    "subStructure": ""
+  }
+}

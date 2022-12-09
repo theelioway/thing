@@ -605,26 +605,29 @@ module.exports = class ThingBuilder {
         return result
       }, {})
   }
-
+  say(msg) {
+    console.log(msg)
+  }
   writeOut(thingType, Thing, opts) {
     let hierarchy = this._parentClassesOf([thingType])
     hierarchy.pop()
-    let thingPath = path.join(opts.rooted)
+    let thingPath = path.join(opts.rootedIn)
     let thinglet = this.thinglet(Thing, thingType)
     sh.mkdir("-p", thingPath)
     fs.writeFileSync(
-      path.join(        thingPath,         `${opts.thingletName}.json`      ),
+      path.join(thingPath, `${opts.thingletName}.json`),
       JSON.stringify(thinglet, null, "  ")
     )
-    console.log("- ", thingType)
+    this.say(`- ${thingType}`)
+    this.say("       thinglet ✔ ")
     if (opts.scheme) {
-      let thingSchemaPath = path.join(opts.rooted, "Schema",  ...hierarchy)
+      let thingSchemaPath = path.join(opts.rootedIn, "Schema", ...hierarchy)
       sh.mkdir("-p", thingSchemaPath)
       fs.writeFileSync(
         path.join(thingSchemaPath, `${thingType}.json`),
         JSON.stringify(Thing, null, "  ")
       )
-      console.log("       schemed ✔ ")
+      this.say("       schemed ✔ ")
     }
   }
 }

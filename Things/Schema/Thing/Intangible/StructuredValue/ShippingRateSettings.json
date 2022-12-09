@@ -1,0 +1,29 @@
+{
+  "additionalType": "ShippingRateSettings",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ShippingRateSettings": {
+    "doesNotShip": 0,
+    "freeShippingThreshold": "",
+    "isUnlabelledFallback": 0,
+    "shippingDestination": "",
+    "shippingLabel": "",
+    "shippingRate": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

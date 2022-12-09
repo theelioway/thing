@@ -1,0 +1,36 @@
+{
+  "additionalType": "MedicalDevice",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalDevice": {
+    "adverseOutcome": "",
+    "contraindication": "",
+    "postOp": "",
+    "preOp": "",
+    "procedure": "",
+    "seriousAdverseOutcome": ""
+  },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  }
+}

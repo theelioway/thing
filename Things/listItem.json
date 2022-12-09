@@ -1,0 +1,26 @@
+{
+  "additionalType": "ListItem",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ListItem": {
+    "item": "",
+    "nextItem": "",
+    "position": "",
+    "previousItem": ""
+  },
+  "Intangible": {}
+}

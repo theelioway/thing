@@ -1,0 +1,37 @@
+{
+  "additionalType": "TrainTrip",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "TrainTrip": {
+    "arrivalPlatform": "",
+    "arrivalStation": "",
+    "departurePlatform": "",
+    "departureStation": "",
+    "trainName": "",
+    "trainNumber": ""
+  },
+  "Intangible": {},
+  "Trip": {
+    "arrivalTime": "",
+    "departureTime": "",
+    "itinerary": "",
+    "offers": "",
+    "partOfTrip": "",
+    "provider": "",
+    "subTrip": ""
+  }
+}

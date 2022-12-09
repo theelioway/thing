@@ -23,17 +23,23 @@ const ThingBuilder = require("../thing-builder")
 const { schemaDomainUrl } = require("../utils/get-schema")
 
 let thingBuilder = new ThingBuilder(
-  path.join(__dirname ,  "../schemaorg/data/releases/9.0/schemaorg-all-http"),
+  path.join(__dirname, "../schemaorg/data/releases/9.0/schemaorg-all-http"),
   schemaDomainUrl
 )
 let { comment, depth, rooted, scheme } = commander.opts()
 // Default here.
-rooted = rooted ? rooted : `./`
+let rootedIn = rooted ? rooted : `./`
 // Build
 let Thing = thingBuilder.Thing(commander.args, commander.opts())
 // Write Out
-Object.entries(Thing).forEach(([thingType, thing]) =>{
-if (commander.args.includes(thingType)) {
-  thingBuilder.writeOut(thingType, thing, { scheme,  rooted, thingletName:  thingType[0].toLowerCase() + thingType.slice(1) })}})
+Object.entries(Thing).forEach(([thingType, thing]) => {
+  if (commander.args.includes(thingType)) {
+    thingBuilder.writeOut(thingType, thing, {
+      rootedIn,
+      scheme,
+      thingletName: thingType[0].toLowerCase() + thingType.slice(1),
+    })
+  }
+})
 
-console.log("Done! Output:", rooted)
+console.log("Done. Did it here: ", rooted)

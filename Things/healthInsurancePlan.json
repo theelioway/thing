@@ -1,0 +1,31 @@
+{
+  "additionalType": "HealthInsurancePlan",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "HealthInsurancePlan": {
+    "benefitsSummaryUrl": "",
+    "contactPoint": "",
+    "healthPlanDrugOption": "",
+    "healthPlanDrugTier": "",
+    "healthPlanId": "",
+    "healthPlanMarketingUrl": "",
+    "includesHealthPlanFormulary": "",
+    "includesHealthPlanNetwork": "",
+    "usesHealthPlanIdStandard": ""
+  },
+  "Intangible": {}
+}

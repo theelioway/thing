@@ -1,6 +1,6 @@
 const should = require("chai").should()
-const difference = require("../utils/difference")
-const _ = require("lodash")
+const customDifference = require("../utils/difference")
+const { difference } = require("lodash")
 
 let differenceTests = [
   [[], [], []],
@@ -40,15 +40,6 @@ let differenceTests = [
 
 let speedTests = 11111
 
-describe("utils | _.difference", () => {
-  for (let [l1, l2, expectDifference] of differenceTests) {
-    it(`spots whats missing in l2 ${l1} / ${l2} == ${expectDifference}`, () => {
-      let res = _.difference(l1, l2)
-      res.should.have.members(expectDifference)
-    })
-  }
-})
-
 describe("utils | difference", () => {
   for (let [l1, l2, expectDifference] of differenceTests) {
     it(`spots whats missing in l2 ${l1} / ${l2} == ${expectDifference}`, () => {
@@ -58,24 +49,33 @@ describe("utils | difference", () => {
   }
 })
 
-describe("utils | _.difference", () => {
+describe("utils | customDifference", () => {
+  for (let [l1, l2, expectDifference] of differenceTests) {
+    it(`spots whats missing in l2 ${l1} / ${l2} == ${expectDifference}`, () => {
+      let res = customDifference(l1, l2)
+      res.should.have.members(expectDifference)
+    })
+  }
+})
+
+describe("utils | difference", () => {
   it.skip("tis fast", () => {
     let stamp = Date.now()
     for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {
-        let res = _.difference(l1, l2)
+        let res = difference(l1, l2)
       }
     }
     ;(Date.now() - stamp).should.be.lt(speedTests / 75)
   })
 })
 
-describe("utils | difference", () => {
+describe("utils | customDifference", () => {
   it.skip("tis faster", () => {
     let stamp = Date.now()
     for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {
-        let res = difference(l1, l2)
+        let res = customDifference(l1, l2)
       }
     }
     ;(Date.now() - stamp).should.be.lt(speedTests / 75)

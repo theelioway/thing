@@ -1,0 +1,36 @@
+{
+  "additionalType": "DrugCost",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "DrugCost": {
+    "applicableLocation": "",
+    "costCategory": "",
+    "costCurrency": "",
+    "costOrigin": "",
+    "costPerUnit": "",
+    "drugUnit": ""
+  },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  }
+}

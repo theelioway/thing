@@ -1,0 +1,41 @@
+{
+  "additionalType": "PostalAddress",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PostalAddress": {
+    "addressCountry": "",
+    "addressLocality": "",
+    "addressRegion": "",
+    "postalCode": "",
+    "postOfficeBoxNumber": "",
+    "streetAddress": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {},
+  "ContactPoint": {
+    "areaServed": "",
+    "availableLanguage": "",
+    "contactOption": "",
+    "contactType": "",
+    "email": "",
+    "faxNumber": "",
+    "hoursAvailable": "",
+    "productSupported": "",
+    "serviceArea": "",
+    "telephone": ""
+  }
+}

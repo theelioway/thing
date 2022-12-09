@@ -1,0 +1,61 @@
+{
+  "additionalType": "PaymentCard",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PaymentCard": {
+    "cashBack": 0,
+    "contactlessPayment": 0,
+    "floorLimit": "",
+    "monthlyMinimumRepaymentAmount": ""
+  },
+  "Intangible": {},
+  "Service": {
+    "aggregateRating": "",
+    "areaServed": "",
+    "audience": "",
+    "availableChannel": "",
+    "award": "",
+    "brand": "",
+    "broker": "",
+    "category": "",
+    "hasOfferCatalog": "",
+    "hoursAvailable": "",
+    "isRelatedTo": "",
+    "isSimilarTo": "",
+    "logo": "",
+    "offers": "",
+    "produces": "",
+    "provider": "",
+    "providerMobility": "",
+    "review": "",
+    "serviceArea": "",
+    "serviceAudience": "",
+    "serviceOutput": "",
+    "serviceType": "",
+    "slogan": "",
+    "termsOfService": ""
+  },
+  "Enumeration": {
+    "supersededBy": ""
+  },
+  "FinancialProduct": {
+    "annualPercentageRate": "",
+    "feesAndCommissionsSpecification": "",
+    "interestRate": ""
+  },
+  "PaymentMethod": {}
+}

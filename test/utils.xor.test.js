@@ -1,6 +1,6 @@
 const should = require("chai").should()
 const xor = require("../utils/xor")
-const _ = require("lodash")
+const { difference, union } = require("lodash")
 
 let xorTests = [
   [[], [], []],
@@ -58,7 +58,7 @@ let speedTests = 11111
 describe("utils | _.<xor>", () => {
   for (let [l1, l2, expectXor] of xorTests) {
     it(` xor either way ${l1} - ${l2} == ${expectXor}`, () => {
-      let res = _.union(_.difference(l1, l2), _.difference(l2, l1))
+      let res = union(difference(l1, l2), difference(l2, l1))
       res.should.have.members(expectXor)
     })
   }
@@ -78,7 +78,7 @@ describe("utils | _.<xor>", () => {
     let stamp = Date.now()
     for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectXor] of xorTests) {
-        let res = _.union(_.difference(l1, l2), _.difference(l2, l1))
+        let res = union(difference(l1, l2), difference(l2, l1))
       }
     }
     ;(Date.now() - stamp).should.be.lt(speedTests / 75)

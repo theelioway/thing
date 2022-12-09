@@ -1,0 +1,25 @@
+{
+  "additionalType": "WarrantyPromise",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "WarrantyPromise": {
+    "durationOfWarranty": "",
+    "warrantyScope": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

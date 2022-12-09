@@ -1,0 +1,31 @@
+{
+  "additionalType": "PropertyValue",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PropertyValue": {
+    "maxValue": 0,
+    "measurementTechnique": "",
+    "minValue": 0,
+    "propertyID": "",
+    "unitCode": "",
+    "unitText": "",
+    "value": 0,
+    "valueReference": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}
