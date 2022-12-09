@@ -25,7 +25,7 @@ git clone https://gitlab.com/eliothing/thing.git
 npm i
 # New terminal
 npm run thing -- Permit Action --depth 2 # --comment false
-npm run thing -- PhotographAction  --hatch
+npm run thing -- PhotographAction  --schema
 # output to `Thing/things`
 npm run prettier
 ```

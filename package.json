@@ -21,8 +21,8 @@
   },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "keywords": [
-    "elioway",
-    "nodejs"
+    "nodejs",
+    "schema"
   ],
   "license": "MIT",
   "main": "./thing-builder.js",
@@ -31,8 +31,8 @@
     "url": "https://gitlab.com/elioway/eliothing/thing"
   },
   "scripts": {
-    "thing": "node bin/thing.js",
-    "test": "mocha",
+    "thing": "node bin/index.js",
+    "test": "mocha --recursive",
     "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
   }
 }

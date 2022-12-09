@@ -1,12 +1,18 @@
 "use strict"
 const _ = require("lodash")
 const difference = require("./utils/difference")
+const fs = require("fs")
 const logger = require("./utils/logger")
+const path = require("path")
+const sh = require("shelljs")
 const union = require("./utils/union")
 const xor = require("./utils/xor")
 const { getSchema } = require("./utils/get-schema")
 
 const log = logger.debug
+
+
+console.log("eliothing/thing/thing-builder.js")
 
 module.exports = class ThingBuilder {
   /**
@@ -601,5 +607,27 @@ module.exports = class ThingBuilder {
         result[key] = obj[key]
         return result
       }, {})
+  }
+
+  writeOut(thingType, Thing, opts) {
+    let hierarchy = this._parentClassesOf([thingType])
+    hierarchy.pop()
+    let thingPath = path.join(opts.rooted)
+    let thinglet = this.thinglet(Thing, thingType)
+    sh.mkdir("-p", thingPath)
+    fs.writeFileSync(
+      path.join(        thingPath,         "thing.json"      ),
+      JSON.stringify(thinglet, null, "  ")
+    )
+    console.log("- ", thingType)
+    if (opts.scheme) {
+      let thingSchemaPath = path.join(opts.rooted, "Schema",  ...hierarchy)
+      sh.mkdir("-p", thingSchemaPath)
+      fs.writeFileSync(
+        path.join(thingSchemaPath, `${thingType}.json`),
+        JSON.stringify(Thing, null, "  ")
+      )
+      console.log("       schemed ✔ ")
+    }
   }
 }
