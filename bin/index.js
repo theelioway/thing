@@ -23,7 +23,7 @@ const ThingBuilder = require("../thing-builder")
 const { schemaDomainUrl } = require("../utils/get-schema")
 
 let thingBuilder = new ThingBuilder(
-  path.join(__dirname, "../schemaorg/data/releases/9.0/schemaorg-all-http"),
+  "schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
 let { comment, depth, rooted, scheme } = commander.opts()
@@ -42,4 +42,4 @@ Object.entries(Thing).forEach(([thingType, thing]) => {
   }
 })
 
-console.log("Done. Did it here: ", rooted)
+console.log("Done. Did it here: ", rootedIn)

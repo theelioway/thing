@@ -25,7 +25,7 @@ module.exports = class ThingBuilder {
    *        "ImageObject" a Primitive if your database supports it.
    */
   constructor(schemaVersion, domain, fixedPrimitives) {
-    let graphList = getSchema(schemaVersion)
+    let graphList = getSchema(path.join(__dirname, `./${schemaVersion}`))
     this.domain = domain
     this.MODELS = new Map()
     this.FIELDS = new Map()
