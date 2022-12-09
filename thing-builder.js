@@ -11,9 +11,6 @@ const { getSchema } = require("./utils/get-schema")
 
 const log = logger.debug
 
-
-console.log("eliothing/thing/thing-builder.js")
-
 module.exports = class ThingBuilder {
   /**
    * @file
@@ -616,7 +613,7 @@ module.exports = class ThingBuilder {
     let thinglet = this.thinglet(Thing, thingType)
     sh.mkdir("-p", thingPath)
     fs.writeFileSync(
-      path.join(        thingPath,         "thing.json"      ),
+      path.join(        thingPath,         `${opts.thingletName}.json`      ),
       JSON.stringify(thinglet, null, "  ")
     )
     console.log("- ", thingType)

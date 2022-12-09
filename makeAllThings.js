@@ -1,4 +1,6 @@
-
+const fs = require("fs")
+const sh = require("shelljs")
+const { set } = require("lodash")
 const ThingBuilder = require("./thing-builder")
 const { getSchema, schemaDomainUrl } = require("./utils/get-schema")
 
@@ -15,11 +17,17 @@ const things = graphList
   )
   .map(a => a["rdfs:label"])
 
-fs.writeFileSync(`./things.json`, JSON.stringify(things))
+let allThingsPath = "./Things/"
+// fs.writeFileSync(`${allThingsPath}allThingsBrightAndBeautiful.json`, JSON.stringify(things, null,"  "))
+
+let entireHierarchy = {}
+sh.mkdir("-p", allThingsPath)
 
 let Thing = thingBuilder.Thing(things)
+Object.entries(Thing).forEach(([thingType, thing]) => {
+  let hierarchy = thingBuilder._parentClassesOf([thingType])
+  set(entireHierarchy, hierarchy.join("."), true)
+  thingBuilder.writeOut( thingType, thing, {rooted: allThingsPath, scheme: true, thingletName: thingType[0].toLowerCase() + thingType.slice(1) })
+})
 
-console.log(thingBuilder._parentClassesOf(["ProductCollection"]))
-
-Object.entries(Thing).forEach(([thingType, thing]) =>
-  thingBuilder.write( thingType, thing, {rooted: `./Things/`, schema: true }))
+fs.writeFileSync(`./entireHierarchy.json`, JSON.stringify(entireHierarchy, null,"  "))

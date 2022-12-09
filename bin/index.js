@@ -34,6 +34,6 @@ let Thing = thingBuilder.Thing(commander.args, commander.opts())
 // Write Out
 Object.entries(Thing).forEach(([thingType, thing]) =>{
 if (commander.args.includes(thingType)) {
-  thingBuilder.writeOut(thingType, thing, { scheme,  rooted })}})
+  thingBuilder.writeOut(thingType, thing, { scheme,  rooted, thingletName:  thingType[0].toLowerCase() + thingType.slice(1) })}})
 
 console.log("Done! Output:", rooted)
