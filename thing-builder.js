@@ -549,22 +549,23 @@ module.exports = class ThingBuilder {
    * @returns {Object} JSON format instance of a Thing.
    */
   thinglet(Thing, thingType) {
+    let thing = {}
     Object.entries(Thing).forEach(([field, def]) => {
       if (!def.hasOwnProperty("type")) {
-        Thing[field] = this.thinglet(def, field)
+        thing[field] = this.thinglet(def, field)
       } else {
         if (field === "additionalType") {
-          Thing[field] = thingType
+          thing[field] = thingType
         } else if (field === "itemListElement") {
-          Thing[field] = []
+          thing[field] = []
         } else if (["String", "Time", "URL"].includes(def.type)) {
-          Thing[field] = ""
+          thing[field] = ""
         } else if (["DateTime"].includes(def.type)) {
-          Thing[field] = new Date(0).toISOString()
+          thing[field] = new Date(0).toISOString()
         } else if (["Time"].includes(def.type)) {
-          Thing[field] = new Date(0).toISOString().slice(11)
+          thing[field] = new Date(0).toISOString().slice(11)
         } else if (["Date"].includes(def.type)) {
-          Thing[field] = new Date(0).toISOString().slice(0, 10)
+          thing[field] = new Date(0).toISOString().slice(0, 10)
         } else if (
           [
             "Boolean",
@@ -576,7 +577,7 @@ module.exports = class ThingBuilder {
             "Time",
           ].includes(def.type)
         ) {
-          Thing[field] = 0
+          thing[field] = 0
         } else if (
           [
             "minPrice",
@@ -587,13 +588,13 @@ module.exports = class ThingBuilder {
             "value",
           ].includes(field)
         ) {
-          Thing[field] = 0.0
+          thing[field] = 0.0
         } else {
-          Thing[field] = ""
+          thing[field] = ""
         }
       }
     })
-    return Thing
+    return thing
   }
 
   /** @credit https://gist.github.com/farskid/b1c128639cd42e44734282e2d9e3beb2 */
@@ -609,10 +610,12 @@ module.exports = class ThingBuilder {
     console.log(msg)
   }
   writeOut(thingType, Thing, opts) {
+    console.log(Thing)
     let hierarchy = this._parentClassesOf([thingType])
     hierarchy.pop()
     let thingPath = path.join(opts.rootedIn)
     let thinglet = this.thinglet(Thing, thingType)
+      console.log(Thing)
     sh.mkdir("-p", thingPath)
     fs.writeFileSync(
       path.join(thingPath, `${opts.thingletName}.json`),
