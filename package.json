@@ -1,6 +1,6 @@
 {
   "author": "Tim Bushell",
-  "description": "In the grand scheme of Things, the elioWay",
+  "description": "In the grand scheme of Things, **the elioWay**",
   "name": "@elioway/thing",
   "version": "1.0.1",
   "tew": {
@@ -34,6 +34,6 @@
     "thing": "node bin/index.js",
     "allThingsBrightAndBeautiful": "node allThingsBrightAndBeautiful.js",
     "test": "mocha --recursive",
-    "prettier": "prettier --write \"**/*.{js,json,md}\" \"!package.json\""
+    "prettier": "prettier --write \"**/*.{css,html,js,json,md,mjs,scss,ts,yaml}\" \"!package.json\""
   }
 }

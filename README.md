@@ -1,6 +1,6 @@
 ![](https://elioway.gitlab.io/eliothing/thing/elio-thing-Thing-logo.png)
 
-> In the grand scheme of Things, **the elioWay**
+> whose eye, Views all things at one view, **the elioWay**
 
 # thing
 
@@ -22,11 +22,25 @@ A class which converts <https://schema.org> (and other jsonld formats) into simp
 
 ```bash
 git clone https://gitlab.com/eliothing/thing.git
+cd thing
 npm i
-# New terminal
-npm run thing -- Permit Action --depth 2 # --comment false
-npm run thing -- PhotographAction  --schema
-# output to `Thing/things`
+# prints "thinglet" to screen
+npm run thing -- Action
+# prints "thinglet" to screen
+npm run thing -- Action --thinglet
+# prints "schema" to screen
+npm run thing -- Action --schema
+# prints "schema" with schema comments to screen
+npm run thing -- Action --schema --comment
+# writes out "schema" to a hierarchical folder inside `output`
+npm run thing -- Action --schema --output="~/MyStuff/"
+# writes out "thinglet" inside `output`
+npm run thing -- Action --thinglet --output="~/MyStuff/"
+# writes out "thinglet" AND "schema"  inside `output`
+npm run thing -- Action --schema --thinglet  --output="~/MyStuff/"
+# prints "schema" with schema comments to screen
+npm run thing -- Permit Action --depth 2 --schema
+# Shouldn't be needed, but for prettier output
 npm run prettier
 ```
 

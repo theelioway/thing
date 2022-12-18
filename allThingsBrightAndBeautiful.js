@@ -30,8 +30,8 @@ Object.entries(Thing).forEach(([thingType, thing]) => {
   set(entireHierarchy, hierarchy.join("."), hierarchy.at(-2))
   // Write out this thing.
   thingBuilder.writeOut(thingType, thing, {
-    rootedIn: allThingsPath,
-    scheme: true,
+    output: allThingsPath,
+    schema: true,
     thingletName: thingType[0].toLowerCase() + thingType.slice(1),
   })
 })

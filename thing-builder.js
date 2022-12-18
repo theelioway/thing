@@ -610,27 +610,36 @@ module.exports = class ThingBuilder {
     console.log(msg)
   }
   writeOut(thingType, Thing, opts) {
-    console.log(Thing)
-    let hierarchy = this._parentClassesOf([thingType])
-    hierarchy.pop()
-    let thingPath = path.join(opts.rootedIn)
     let thinglet = this.thinglet(Thing, thingType)
-      console.log(Thing)
-    sh.mkdir("-p", thingPath)
-    fs.writeFileSync(
-      path.join(thingPath, `${opts.thingletName}.json`),
-      JSON.stringify(thinglet, null, "  ")
-    )
     this.say(`- ${thingType}`)
-    this.say("       thinglet ✔ ")
-    if (opts.scheme) {
-      let thingSchemaPath = path.join(opts.rootedIn, "Schema", ...hierarchy)
-      sh.mkdir("-p", thingSchemaPath)
-      fs.writeFileSync(
-        path.join(thingSchemaPath, `${thingType}.json`),
-        JSON.stringify(Thing, null, "  ")
-      )
-      this.say("       schemed ✔ ")
+    if (!opts.write) {
+      if (opts.thinglet) {
+        this.say("thinglet")
+        this.say(JSON.stringify(thinglet, null, "  "))
+      }
+      if (opts.schema) {
+        this.say("schema")
+        this.say(JSON.stringify(Thing, null, "  "))
+      }
+    } else {
+      let hierarchy = this._parentClassesOf([thingType])
+      hierarchy.pop()
+      let thingPath = path.join(opts.write)
+      sh.mkdir("-p", thingPath)
+      if (opts.thinglet) {
+        let writePath = path.join(thingPath, `${opts.thingletName}.json`)
+        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  ")    )
+        this.say("       thinglet ✔ ")
+        this.say(`           ${writePath}`)
+      }
+      if (opts.schema) {
+        let thingSchemaPath = path.join(opts.write, ...hierarchy)
+        let writePath =   path.join(thingSchemaPath, `${thingType}.json`)
+        sh.mkdir("-p", thingSchemaPath)
+        fs.writeFileSync(writePath, JSON.stringify(Thing, null, "  ")        )
+        this.say("       schemed ✔ ")
+        this.say(`           ${writePath}`)
+      }
     }
   }
 }

@@ -11,12 +11,12 @@ commander
     0
   )
   .option(
-    "-r, --rooted <str>",
-    "The root path to write JSON, relative to here.",
-    0
+    "-w, --write <str>",
+    "The root path to write JSON, relative to here. No write if blank."
   )
   .option("-c, --comment", "Include the Schema Comments?", false)
-  .option("-t, --scheme", "Create the schema?", false)
+  .option("-s, --schema", "Create the schema?", false)
+  .option("-t, --thinglet", "Create the thinglet?", false)
   .parse(process.argv)
 
 const ThingBuilder = require("../thing-builder")
@@ -26,20 +26,19 @@ let thingBuilder = new ThingBuilder(
   "schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
-let { comment, depth, rooted, scheme } = commander.opts()
-// Default here.
-let rootedIn = rooted ? rooted : `./`
+let { comment, depth, write, schema, thinglet } = commander.opts()
+// It has to do something!
+if (!schema && !thinglet) {
+  thinglet = true
+}
 // Build
 let Thing = thingBuilder.Thing(commander.args, commander.opts())
 // Write Out
 Object.entries(Thing).forEach(([thingType, thing]) => {
   if (commander.args.includes(thingType)) {
     thingBuilder.writeOut(thingType, thing, {
-      rootedIn,
-      scheme,
+      write, schema, thinglet,
       thingletName: thingType[0].toLowerCase() + thingType.slice(1),
     })
   }
 })
-
-console.log("Done. Did it here: ", rootedIn)
