@@ -8,33 +8,21 @@ let schemaVersion = "schemaorg/data/releases/9.0/schemaorg-all-http"
 let thingBuilder = new ThingBuilder(schemaVersion, schemaDomainUrl)
 let graphList = getSchema(schemaVersion)
 
-const things = graphList
-  .filter(
-    a =>
-      a["@type"] === "rdfs:Class" &&
-      a["rdfs:comment"].slice(0, 10) !== "Data type:" &&
-      !["CssSelectorType", "DataType", "XPathType"].includes(a["rdfs:label"])
-  )
-  .map(a => a["rdfs:label"])
+
 
 let allThingsPath = "./Things/"
-let entireHierarchy = {}
-let Thing = thingBuilder.Thing(things)
+let Thing = thingBuilder.Thing("Thing")
+let entireHierarchy = { Thing: thingBuilder._listOfSubs("Thing") }
 
 sh.mkdir("-p", allThingsPath)
-Object.entries(Thing).forEach(([thingType, thing]) => {
-  // Use the hierarchy list to build a hierarchical object.
-  /** @TODO This hierarchy list is ... occasionally subversive (the lower
-   * classes are rising). */
-  let hierarchy = thingBuilder._parentClassesOf([thingType])
-  set(entireHierarchy, hierarchy.join("."), hierarchy.at(-2))
-  // Write out this thing.
-  thingBuilder.writeOut(thingType, thing, {
-    output: allThingsPath,
-    schema: true,
-    thingletName: thingType[0].toLowerCase() + thingType.slice(1)
+const appendSubTypes (list, key) => {
+
+  list.forEach((thingType) => {
+
+    list[thingType] = appendSubTypes(thingBuilder._listOfSubs(thingType)    )
   })
-})
+}
+appendSubTypes(entireHierarchy, key)
 
 // Write out hierarchical object.
 fs.writeFileSync(

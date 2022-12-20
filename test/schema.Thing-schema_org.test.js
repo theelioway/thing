@@ -3976,17 +3976,17 @@ let expectDrugClassHealthAndBeautyBusiness = {
 
 describe(`class | ThingBuilder | Thing schemaorg 9.0`, () => {
   it(`builds things single Action`, () => {
-    let opts = { depth: 2, comment: false }
+    let opts = { depth: 2, comments: false }
     let thing = this.thingBuilder.Thing(["Action"], opts)
     thing.should.be.eql(expectAction)
   })
   it(`builds things single HealthAndBeautyBusiness`, () => {
-    let opts = { depth: 0, comment: false }
+    let opts = { depth: 0, comments: false }
     let thing = this.thingBuilder.Thing(["HealthAndBeautyBusiness"], opts)
     thing.should.be.eql(expectHealthAndBeautyBusiness)
   })
   it(`builds things multi DrugClass+HealthAndBeautyBusiness`, () => {
-    let opts = { depth: 0, comment: false }
+    let opts = { depth: 0, comments: false }
     let thing = this.thingBuilder.Thing(
       ["DrugClass", "HealthAndBeautyBusiness"],
       opts

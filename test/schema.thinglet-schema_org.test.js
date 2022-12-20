@@ -324,7 +324,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
     }
   })) {
     it(`${modelName} thing`, () => {
-      let opts = { depth: 0, comment: false }
+      let opts = { depth: 0, comments: false }
       let Thing = this.thingBuilder.Thing([modelName], opts)
       let thinglet = this.thingBuilder.thinglet(Thing[modelName], modelName)
       thinglet.should.be.eql(expectThinglet)

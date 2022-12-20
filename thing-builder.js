@@ -27,6 +27,7 @@ module.exports = class ThingBuilder {
   constructor(schemaVersion, domain, fixedPrimitives) {
     let graphList = getSchema(path.join(__dirname, `./${schemaVersion}`))
     this.domain = domain
+    this.graphList = graphList
     this.MODELS = new Map()
     this.FIELDS = new Map()
     this.PRIMTS = new Map()
@@ -109,17 +110,17 @@ module.exports = class ThingBuilder {
    * @author Tim Bushell
    *
    * @param {str} name of the Model/Type/Class.
-   * @param {Object} opts with values to create/update the Model/Type/Class.
+   * @param {Object} cfg with values to create/update the Model/Type/Class.
    */
-  _setModel(name, opts) {
+  _setModel(name, cfg) {
     // Check to see if subClasses a primitive.
     let primts = [...this.PRIMTS.keys()]
     if (
-      opts.subs &&
-      [...opts.subs].filter(sub => primts.includes(sub)).length
+      cfg.subs &&
+      [...cfg.subs].filter(sub => primts.includes(sub)).length
     ) {
       let p = this.PRIMTS.get(name) || {
-        comment: opts.comment,
+        comment: cfg.comment,
         name: name
       }
       this.PRIMTS.set(name, p)
@@ -131,10 +132,10 @@ module.exports = class ThingBuilder {
       fields: new Set(),
       enums: new Set()
     }
-    t.comment = opts.comment ? opts.comment : t.comment
-    t.subs = opts.subs ? opts.subs : t.subs
-    t.fields = opts.field ? new Set([...t.fields]).add(opts.field) : t.fields
-    t.enums = opts.enum ? new Set([...t.enums]).add(opts.enum) : t.enums
+    t.comment = cfg.comment ? cfg.comment : t.comment
+    t.subs = cfg.subs ? cfg.subs : t.subs
+    t.fields = cfg.field ? new Set([...t.fields]).add(cfg.field) : t.fields
+    t.enums = cfg.enum ? new Set([...t.enums]).add(cfg.enum) : t.enums
     this.MODELS.set(name, t)
   }
 
@@ -146,8 +147,7 @@ module.exports = class ThingBuilder {
    * just convert the singles to an array of one item so that the rest of the
    * the code doesn't have to worry about it!
    *
-   * @param {str} name of the Model/Type/Class.
-   * @param {Object} opts with values to create/update the Model/Type/Class.
+   * @param {obj} name of the Model/Type/Class.
    * @returns {Array} whether it was originally an Array or not.
    */
   _listAnyway(obj) {
@@ -295,7 +295,7 @@ module.exports = class ThingBuilder {
    * @returns {Array} of Models.
    */
   modelMiner(selectedModels, opts, candidateModels, currentDepth) {
-    if (!opts) opts = { depth: 0, comment: false }
+    if (!opts) opts = { depth: 0, comments: false }
     // Defaults for recursive parameters.
     if (!currentDepth) currentDepth = 0
     // At each depth, search with the current models and the candidates.
@@ -383,7 +383,7 @@ module.exports = class ThingBuilder {
    */
 
   modelsMaker(selectedModels, opts) {
-    if (!opts) opts = { depth: 0, comment: false }
+    if (!opts) opts = { depth: 0, comments: false }
     let models = new Object()
     let baseModels = this.modelMiner(selectedModels, opts)
     for (let selectedModelName of selectedModels) {
@@ -431,7 +431,7 @@ module.exports = class ThingBuilder {
     model.fields = new Object()
     model.name = selectedModelName
     model.subs = this._parentClassesOf([...modelDef.subs])
-    if (opts.comment) {
+    if (opts.comments) {
       model.comment = modelDef.comment
     }
     // Resolve this Model's fields
@@ -472,7 +472,7 @@ module.exports = class ThingBuilder {
       } else {
         fieldTypeDef = this.PRIMTS.get(field.type)
       }
-      if (opts.comment) {
+      if (opts.comments) {
         field.comment = fieldDef.comment
       }
       model.fields[fieldName] = field
@@ -487,12 +487,12 @@ module.exports = class ThingBuilder {
    *
    * @param {str} selectedModelName to build.
    * @param {Array} baseModels output from this.modelMiner.
-   * @param {Object} opts {depth, comment}
+   * @param {Object} opts {depth, comments}
    * @returns {Object} JSON format version of the Model.
    */
   _Thing(selectedModelName, baseModels, opts) {
     // Default options.
-    if (!opts) opts = { depth: 0, comment: false }
+    if (!opts) opts = { depth: 0, comments: false }
     // Return a Thing,
     let thing = this.sortObjKeysAlphabetically(
       this.modelMaker("Thing", baseModels, opts).fields
@@ -529,11 +529,11 @@ module.exports = class ThingBuilder {
   /**
    * @file Build all the Schemas, with meta, your app needs.
    * @param {str} selectedModelNames to build.
-   * @param {Object} opts {depth, comment}
+   * @param {Object} opts {depth, comments}
    * @returns {Object} JSON format version of the Model with data types.
    */
   Thing(selectedModelNames, opts) {
-    if (!opts) opts = { depth: 0, comment: false }
+    if (!opts) opts = { depth: 0, comments: false }
     let things = new Object()
     let modelsMined = this.modelMiner(selectedModelNames, opts)
     for (let modelName of modelsMined) {
@@ -612,6 +612,7 @@ module.exports = class ThingBuilder {
   writeOut(thingType, Thing, opts) {
     let thinglet = this.thinglet(Thing, thingType)
     this.say(`- ${thingType}`)
+
     if (!opts.write) {
       if (opts.thinglet) {
         this.say("thinglet")
@@ -620,6 +621,10 @@ module.exports = class ThingBuilder {
       if (opts.schema) {
         this.say("schema")
         this.say(JSON.stringify(Thing, null, "  "))
+      }
+      if (opts.list) {
+        this.say("list")
+        this.say(JSON.stringify(this._listSubs(thingType),null,"  "))
       }
     } else {
       let hierarchy = this._parentClassesOf([thingType])
@@ -640,6 +645,21 @@ module.exports = class ThingBuilder {
         this.say("       schemed ✔ ")
         this.say(`           ${writePath}`)
       }
+      if (opts.list) {
+        let writePath = path.join(thingPath, `${opts.thingletName}.json`)
+        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  "))
+        this.say("       found ✔ ")
+        this.say(JSON.stringify(thingBuilder._setModel(commander.args)))
+      }
     }
+  }
+  _listSubs(schemaName) {
+    return this.graphList.filter(
+        a =>
+          a["@type"] === "rdfs:Class"
+         && a["rdfs:comment"].slice(0, 10) !== "Data type:"
+          && [...this._setOf(a, "rdfs:subClassOf")].includes(schemaName)
+      )
+      .map(a => typeof a["rdfs:label"] === "object"? a["rdfs:label"]["@value"] : a["rdfs:label"]).sort()
   }
 }

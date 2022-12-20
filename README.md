@@ -22,24 +22,38 @@ A class which converts <https://schema.org> (and other jsonld formats) into simp
 git clone https://gitlab.com/eliothing/thing.git
 cd thing
 npm i
+
+
 # prints "thinglet" to screen
 npm run thing -- Action
-# prints "thinglet" to screen
-npm run thing -- Action --thinglet
-# prints "schema" to screen
-npm run thing -- Action --schema
-# prints "schema" with schema comments to screen
-npm run thing -- Action --schema --comment
-# writes out "schema" to a hierarchical folder inside `output`
-npm run thing -- Action --schema --output="~/MyStuff/"
-# writes out "thinglet" inside `output`
-npm run thing -- Action --thinglet --output="~/MyStuff/"
-# writes out "thinglet" AND "schema"  inside `output`
-npm run thing -- Action --schema --thinglet  --output="~/MyStuff/"
-# prints "schema" with schema comments to screen
-npm run thing -- Permit Action --depth 2 --schema
-# Shouldn't be needed, but for prettier output
-npm run prettier
+
+
+# Default: print a thinglet to screen
+npm run thing
+
+# print a thinglet to screen
+npm run thing -- --thinglet
+
+# print an Action thinglet
+npm run thing -- Action
+
+# print an Thing schema
+npm run thing -- --schema
+
+# include SchemaOrg comments to your schema
+npm run thing -- --schema --comments
+
+# change the depth to which ThingBuilder will seek "typed" relationships
+npm run thing -- --schema --depth 2
+
+# write any result into this folder.
+npm run thing -- --write "./myThings/"
+
+# list all the subtypes of Thing
+npm run thing -- --list
+
+# list all the subtypes of Action
+npm run thing -- Action --list
 ```
 
 ## Nutshell

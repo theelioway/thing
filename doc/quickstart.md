@@ -19,7 +19,7 @@ const ThingBuilder = require("@elioway/thing")
 
 A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of its Things. ThingBuilder is the first step to autogenerating date models for your MVC frameworks.
 
-**thing** delivers a JSON object with the meta data you'll need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing. For instance if you selected the MoveAction
+**thing** `ThingBuilder` delivers a JSON object with the meta data you'll need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing. For instance if you selected the MoveAction
 
 For instance, calling `ThingBuilder.thing("MoveAction")` or from the command like, `npm run thing MoveAction --depth 1`, you will get the following output.
 
@@ -89,6 +89,36 @@ For instance, calling `ThingBuilder.thing("MoveAction")` or from the command lik
 In the `MoveAction` property, first fields, `potentialAction`, `identifier`, `sameAs` and so on belong to the main `Thing` class. All Things share these fields.
 
 Inside the `engage` Map, you'll see the fields for a `Thing` subclass called `Action` and its subsubclass `MoveAction`. This means you have all the field names and their datatype grouped by the different ThingTypes in the inheritance tree. You can use these groupings logically in your client apps, but rendering forms with fieldsets for each ThingType, e.g. for `MoveAction` a fieldset for the main `Thing`, a fieldset for the `Action` fields and another for the additional Action fields for `MoveAction`.
+
+## thing CLI
+
+```
+npm i @elioway/thing
+
+# Default: print a thinglet
+thing
+
+# print a thinglet
+thing --thinglet
+
+# print an Action thinglet
+thing Action
+
+# print an Thing schema
+thing --schema
+
+# change the depth to which ThingBuilder will seek "typed" relationships
+thing --schema --comments
+
+# change the depth to which ThingBuilder will seek "typed" relationships
+thing --schema --depth 2
+
+# write any result into this folder.
+thing --write "./myThings/"
+
+# write any result into this folder.
+thing --write "./myThings/"
+```
 
 ## Using thing in your frameworks
 
@@ -226,7 +256,7 @@ Return a fully round Thing with all its fields and fields of those it subclasses
 
 ```javascript
 let thing = thingBuilder.thing("StructuredValue", modelsMined, {
-  comment: false
+  comments: false
 })
 ```
 
@@ -356,7 +386,7 @@ Returns:
 
 ### `Options`
 
-- `comment` if true includes the `rdfs:comment`, a brief explaination of the purpose of the field. It could be useful to include this so that when you build your web forms, you can use this value in tooltips, for instance.
+- `comments` if true includes the `rdfs:comment`, a brief explaination of the purpose of the field. It could be useful to include this so that when you build your web forms, you can use this value in tooltips, for instance.
 
 - `depth` is complicated. When we are building Things of types like `Action` and `MediaObject`, these schemas come with fields whose type are also Things, like `Thing` or `CreativeWork`. The `modelMiner` judges which of those fields should use that ThingType, or those which are best converted to a simple String type. Controlling the `depth` when your "mine" for models restricts the number of ThingTypes you'll end up needing to Model. A high depth means that nearly every field contains a foreign key to another Thing. That could get difficult to maintain, and would be annoying when all your want to store is a name.
 

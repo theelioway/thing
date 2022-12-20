@@ -12,13 +12,34 @@ A ThingBuilder class converts <https://schema.org> (and other jsonld formats) in
 # Seeing is believing
 
 ```
-thing Thing
-thing Thing --schema
-thing Thing --schema --comment
-thing Thing --thinglet
-thing Place --thinglet
-thing Person --thinglet
-thing Book --thinglet
+npm i @elioway/thing
+
+# Default: print a thinglet to screen
+thing
+
+# print a thinglet to screen
+thing --thinglet
+
+# print an Action thinglet
+thing Action
+
+# print an Thing schema
+thing --schema
+
+# include SchemaOrg comments to your schema
+thing --schema --comments
+
+# change the depth to which ThingBuilder will seek "typed" relationships
+thing --schema --depth 2
+
+# write any result into this folder.
+thing --write "./myThings/"
+
+# list all the subtypes of Thing
+thing --list
+
+# list all the subtypes of Action
+thing Action --list
 ```
 
 # What to expect

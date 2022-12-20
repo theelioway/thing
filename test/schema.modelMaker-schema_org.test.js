@@ -1288,7 +1288,7 @@ for (let [model, tests] of Object.entries({
   describe(`class | ThingBuilder | ${model} modelMaker schemaorg 9.0`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {
       it(`${model} at depth ${depth}`, () => {
-        let opts = { depth: depth, comment: false }
+        let opts = { depth: depth, comments: false }
         let modelsMined = this.thingBuilder.modelMiner([model], opts)
         let modelMade = this.thingBuilder.modelMaker(model, modelsMined, opts)
         if (debug) {

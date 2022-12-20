@@ -21,21 +21,21 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
   it("depth 0", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], 0)
     this.thingBuilder
-      .modelMaker("Cosmos", modelsMined, { comment: true })
+      .modelMaker("Cosmos", modelsMined, { comments: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("self mines", () => {
     let modelsMined = undefined
     this.thingBuilder
-      .modelMaker("Cosmos", modelsMined, { comment: true })
+      .modelMaker("Cosmos", modelsMined, { comments: true })
       .should.be.eql(SIMPLESTEXPECTEDMODEL)
   })
 
   it("depth 1", () => {
     let modelsMined = this.thingBuilder.modelMiner(["Cosmos"], { depth: 1 })
     this.thingBuilder
-      .modelMaker("Cosmos", modelsMined, { depth: 1, comment: true })
+      .modelMaker("Cosmos", modelsMined, { depth: 1, comments: true })
       .should.eql({
         fields: {
           size: {
