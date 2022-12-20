@@ -1,10 +1,8 @@
 ![](https://elioway.gitlab.io/eliothing/thing/elio-thing-Thing-logo.png)
 
-> whose eye, Views all things at one view, **the elioWay**
+> In the grand schema of things, **the elioWay**
 
-# thing
-
-![experimental](https://elioway.gitlab.io/eliosin/icon/devops/experimental/favicon.ico "experimental")
+# thing ![beta](https://elioway.gitlab.io/eliosin/icon/devops/beta/favicon.ico "beta")
 
 A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 

@@ -32,7 +32,7 @@ Object.entries(Thing).forEach(([thingType, thing]) => {
   thingBuilder.writeOut(thingType, thing, {
     output: allThingsPath,
     schema: true,
-    thingletName: thingType[0].toLowerCase() + thingType.slice(1),
+    thingletName: thingType[0].toLowerCase() + thingType.slice(1)
   })
 })
 

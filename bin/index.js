@@ -32,13 +32,16 @@ if (!schema && !thinglet) {
   thinglet = true
 }
 // Build
-let Thing = thingBuilder.Thing(commander.args, commander.opts())
+console.log(commander.args)
+let Thing = thingBuilder.Thing(commander.args || ["Thing"], commander.opts())
 // Write Out
 Object.entries(Thing).forEach(([thingType, thing]) => {
   if (commander.args.includes(thingType)) {
     thingBuilder.writeOut(thingType, thing, {
-      write, schema, thinglet,
-      thingletName: thingType[0].toLowerCase() + thingType.slice(1),
+      write,
+      schema,
+      thinglet,
+      thingletName: thingType[0].toLowerCase() + thingType.slice(1)
     })
   }
 })

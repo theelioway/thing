@@ -1,7 +1,9 @@
 const should = require("chai").should()
 
-describe("mocha testing where", function () {
+describe("mocha testing where", function() {
   it("never fails", () => {
-    true.should.be.ok
+
+    `Saying "Tis nought but hopes and prayers, not code, if you don't test it"`
+      .should.be.ok
   })
 })

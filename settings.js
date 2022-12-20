@@ -13,7 +13,7 @@ module.exports = {
       queryString = queryString || {}
       queryString.depth = Number(queryString.depth) || 0
       return queryString
-    },
+    }
   },
   slim: {
     // additionalType: 1,
@@ -32,6 +32,6 @@ module.exports = {
     // god: 1,
     // created: 1,
     // createdBy: 1,
-    _id: 1,
-  },
+    _id: 1
+  }
 }

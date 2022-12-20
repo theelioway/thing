@@ -34,7 +34,7 @@ module.exports = class ThingBuilder {
       for (let primitiveName of fixedPrimitives) {
         this.PRIMTS.set(primitiveName, {
           name: primitiveName,
-          comment: "Fixed as Primitive in constructor.",
+          comment: "Fixed as Primitive in constructor."
         })
       }
     }
@@ -62,7 +62,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
           comment: schemaComment,
-          name: schemaName,
+          name: schemaName
         })
       }
     }
@@ -76,7 +76,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Class") {
         this._setModel(schemaName, {
           comment: schemaComment,
-          subs: this._setOf(schemaObj, "rdfs:subClassOf"),
+          subs: this._setOf(schemaObj, "rdfs:subClassOf")
         })
       }
       // Handle a Property/Field
@@ -87,7 +87,7 @@ module.exports = class ThingBuilder {
           comment: schemaComment,
           models: fieldOf,
           name: schemaName,
-          types: typeOf,
+          types: typeOf
         })
         // Add this property to any related Domain/Type/Class/Model
         for (let classType of fieldOf) {
@@ -120,7 +120,7 @@ module.exports = class ThingBuilder {
     ) {
       let p = this.PRIMTS.get(name) || {
         comment: opts.comment,
-        name: name,
+        name: name
       }
       this.PRIMTS.set(name, p)
       return
@@ -129,7 +129,7 @@ module.exports = class ThingBuilder {
     let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
-      enums: new Set(),
+      enums: new Set()
     }
     t.comment = opts.comment ? opts.comment : t.comment
     t.subs = opts.subs ? opts.subs : t.subs
@@ -554,7 +554,7 @@ module.exports = class ThingBuilder {
       if (!def.hasOwnProperty("type")) {
         thing[field] = this.thinglet(def, field)
       } else {
-        if (field === "additionalType") {
+        if (field === "mainEntityOfPage") {
           thing[field] = thingType
         } else if (field === "itemListElement") {
           thing[field] = []
@@ -574,7 +574,7 @@ module.exports = class ThingBuilder {
             "Integer",
             "Number",
             "Quantity",
-            "Time",
+            "Time"
           ].includes(def.type)
         ) {
           thing[field] = 0
@@ -585,7 +585,7 @@ module.exports = class ThingBuilder {
             "minValue",
             "maxValue",
             "price",
-            "value",
+            "value"
           ].includes(field)
         ) {
           thing[field] = 0.0
@@ -628,15 +628,15 @@ module.exports = class ThingBuilder {
       sh.mkdir("-p", thingPath)
       if (opts.thinglet) {
         let writePath = path.join(thingPath, `${opts.thingletName}.json`)
-        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  ")    )
+        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  "))
         this.say("       thinglet ✔ ")
         this.say(`           ${writePath}`)
       }
       if (opts.schema) {
         let thingSchemaPath = path.join(opts.write, ...hierarchy)
-        let writePath =   path.join(thingSchemaPath, `${thingType}.json`)
+        let writePath = path.join(thingSchemaPath, `${thingType}.json`)
         sh.mkdir("-p", thingSchemaPath)
-        fs.writeFileSync(writePath, JSON.stringify(Thing, null, "  ")        )
+        fs.writeFileSync(writePath, JSON.stringify(Thing, null, "  "))
         this.say("       schemed ✔ ")
         this.say(`           ${writePath}`)
       }

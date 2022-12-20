@@ -1,9 +1,14 @@
 {
-  "author": "Tim Bushell",
+  "author": {
+    "name": "Tim Bushell",
+    "email": "theElioWay@gmail.com",
+    "url": "https://gitlab.com/elioway"
+  },
   "description": "In the grand scheme of Things, **the elioWay**",
   "name": "@elioway/thing",
   "version": "1.0.1",
   "tew": {
+    "lifecycle": "beta",
     "chisel": {
       "Home": "eliothing"
     }

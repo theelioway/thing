@@ -1,16 +1,27 @@
-# thing
-
-<figure>
-  <img src="star.png" alt="">
-</figure>
-
-> In the grand scheme of Things, **the elioWay**
-
-![experimental](/eliosin/icon/devops/experimental/favicon.ico "experimental")
+<aside>
+  <dl>
+  <dd>created all</dd>
+  <dd>Such to perfection, one first matter all,</dd>
+  <dd>Endued with various forms, various degrees</dd>
+  <dd>Of substance, and, in things that live, of life;</dd>
+</dl>
+</aside>
 
 A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
-## What to expect
+# Seeing is believing
+
+```
+thing Thing
+thing Thing --schema
+thing Thing --schema --comment
+thing Thing --thinglet
+thing Place --thinglet
+thing Person --thinglet
+thing Book --thinglet
+```
+
+# What to expect
 
 **thing** delivers a JSON object with the meta data your need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing.
 
@@ -57,7 +68,7 @@ For instance, the `npm run thing MoveAction --depth 1` command returns:
 }
 ```
 
-## Family
+# Family
 
 - [eliothing/django-thing](/eliothing/django-thing)
 - [eliothing/thing-liar](/eliothing/thing-liar)

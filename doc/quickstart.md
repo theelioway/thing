@@ -226,7 +226,7 @@ Return a fully round Thing with all its fields and fields of those it subclasses
 
 ```javascript
 let thing = thingBuilder.thing("StructuredValue", modelsMined, {
-  comment: false,
+  comment: false
 })
 ```
 

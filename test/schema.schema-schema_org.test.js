@@ -13,7 +13,7 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
       "Number",
       "Text",
       "Time",
-      "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
+      "Quantity" // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     let thingBuilder = new ThingBuilder(
       "schemaorg/data/releases/3.9/all-layers",
@@ -44,7 +44,7 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
         "Integer",
         "Mass",
         "URL",
-        "XPathType",
+        "XPathType"
       ])
     )
   })
