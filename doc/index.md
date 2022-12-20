@@ -9,7 +9,7 @@
 
 A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
 
-# Seeing is believing
+# Seeing is Believing
 
 ```
 npm i @elioway/thing
