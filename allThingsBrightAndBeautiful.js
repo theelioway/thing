@@ -1,6 +1,5 @@
 const fs = require("fs")
 const sh = require("shelljs")
-const { set } = require("lodash")
 const ThingBuilder = require("./thing-builder")
 const { getSchema, schemaDomainUrl } = require("./utils/get-schema")
 
