@@ -16,8 +16,7 @@
   "bin": "./bin/index.js",
   "dependencies": {
     "commander": "^9.4.1",
-    "lodash": "^4.17.21",
-    "winston": "^3.8.2"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "chai": "^4.3.7",

@@ -46,7 +46,7 @@ Object.entries(Thing).forEach(([thingType, thing]) => {
       schema,
       thinglet,
       list,
-      thingletName: thingType[0].toLowerCase() + thingType.slice(1)
+      thingletName: thingType[0].toLowerCase() + thingType.slice(1),
     })
   }
 })

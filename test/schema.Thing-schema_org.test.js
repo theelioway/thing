@@ -38,7 +38,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Action: {
       actionStatus: {
@@ -47,8 +47,8 @@ let expectAction = {
           "FailedActionStatus",
           "CompletedActionStatus",
           "ActiveActionStatus",
-          "PotentialActionStatus"
-        ]
+          "PotentialActionStatus",
+        ],
       },
       agent: { type: "Person", foreign: true },
       endTime: { type: "Time" },
@@ -59,8 +59,8 @@ let expectAction = {
       participant: { type: "Person", foreign: true },
       result: { type: "Thing", foreign: true },
       startTime: { type: "Time" },
-      target: { type: "EntryPoint", foreign: true }
-    }
+      target: { type: "EntryPoint", foreign: true },
+    },
   },
   Thing: {
     additionalType: { type: "URL" },
@@ -78,8 +78,8 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Person: {
     additionalType: { type: "URL" },
@@ -97,7 +97,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Person: {
       additionalName: { type: "Text" },
@@ -128,7 +128,7 @@ let expectAction = {
       globalLocationNumber: { type: "Text" },
       hasCredential: {
         type: "EducationalOccupationalCredential",
-        foreign: true
+        foreign: true,
       },
       hasOccupation: { type: "Occupation", foreign: true },
       hasOfferCatalog: { type: "OfferCatalog", foreign: true },
@@ -164,8 +164,8 @@ let expectAction = {
       vatID: { type: "Text" },
       weight: { type: "QuantitativeValue", foreign: true },
       workLocation: { type: "Place", foreign: true },
-      worksFor: { type: "Organization", foreign: true }
-    }
+      worksFor: { type: "Organization", foreign: true },
+    },
   },
   ActionStatusType: {
     additionalType: { type: "URL" },
@@ -183,14 +183,14 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     ActionStatusType: {},
     Intangible: {},
     Enumeration: {
-      supersededBy: { type: "Enumeration", foreign: true }
+      supersededBy: { type: "Enumeration", foreign: true },
     },
-    StatusEnumeration: {}
+    StatusEnumeration: {},
   },
   EntryPoint: {
     additionalType: { type: "URL" },
@@ -208,7 +208,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     EntryPoint: {
       actionApplication: { type: "SoftwareApplication", foreign: true },
@@ -217,9 +217,9 @@ let expectAction = {
       contentType: { type: "Text" },
       encodingType: { type: "Text" },
       httpMethod: { type: "Text" },
-      urlTemplate: { type: "Text" }
+      urlTemplate: { type: "Text" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   PostalAddress: {
     additionalType: { type: "URL" },
@@ -237,7 +237,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     PostalAddress: {
       addressCountry: { type: "Country", foreign: true },
@@ -245,7 +245,7 @@ let expectAction = {
       addressRegion: { type: "Text" },
       postalCode: { type: "Text" },
       postOfficeBoxNumber: { type: "Text" },
-      streetAddress: { type: "Text" }
+      streetAddress: { type: "Text" },
     },
     Intangible: {},
     StructuredValue: {},
@@ -254,19 +254,19 @@ let expectAction = {
       availableLanguage: { type: "Language", foreign: true },
       contactOption: {
         type: "Text",
-        enums: ["TollFree", "HearingImpairedSupported"]
+        enums: ["TollFree", "HearingImpairedSupported"],
       },
       contactType: { type: "Text" },
       email: { type: "Text" },
       faxNumber: { type: "Text" },
       hoursAvailable: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       productSupported: { type: "Product", foreign: true },
       serviceArea: { type: "Place", foreign: true },
-      telephone: { type: "Text" }
-    }
+      telephone: { type: "Text" },
+    },
   },
   Place: {
     additionalType: { type: "URL" },
@@ -284,7 +284,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Place: {
       additionalProperty: { type: "PropertyValue", foreign: true },
@@ -292,7 +292,7 @@ let expectAction = {
       aggregateRating: { type: "AggregateRating", foreign: true },
       amenityFeature: {
         type: "LocationFeatureSpecification",
-        foreign: true
+        foreign: true,
       },
       branchCode: { type: "Text" },
       containedIn: { type: "Place", foreign: true },
@@ -325,7 +325,7 @@ let expectAction = {
       maximumAttendeeCapacity: { type: "Integer" },
       openingHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       photo: { type: "ImageObject", foreign: true },
       photos: { type: "ImageObject", foreign: true },
@@ -336,11 +336,11 @@ let expectAction = {
       smokingAllowed: { type: "Boolean" },
       specialOpeningHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       telephone: { type: "Text" },
-      tourBookingPage: { type: "URL" }
-    }
+      tourBookingPage: { type: "URL" },
+    },
   },
   Organization: {
     additionalType: { type: "URL" },
@@ -358,7 +358,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Organization: {
       actionableFeedbackPolicy: { type: "CreativeWork", foreign: true },
@@ -392,17 +392,17 @@ let expectAction = {
       globalLocationNumber: { type: "Text" },
       hasCredential: {
         type: "EducationalOccupationalCredential",
-        foreign: true
+        foreign: true,
       },
       hasMerchantReturnPolicy: {
         type: "MerchantReturnPolicy",
-        foreign: true
+        foreign: true,
       },
       hasOfferCatalog: { type: "OfferCatalog", foreign: true },
       hasPOS: { type: "Place", foreign: true },
       hasProductReturnPolicy: {
         type: "ProductReturnPolicy",
-        foreign: true
+        foreign: true,
       },
       interactionStatistic: { type: "InteractionCounter", foreign: true },
       isicV4: { type: "Text" },
@@ -433,8 +433,8 @@ let expectAction = {
       taxID: { type: "Text" },
       telephone: { type: "Text" },
       unnamedSourcesPolicy: { type: "CreativeWork", foreign: true },
-      vatID: { type: "Text" }
-    }
+      vatID: { type: "Text" },
+    },
   },
   Intangible: {
     additionalType: { type: "URL" },
@@ -452,9 +452,9 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   Enumeration: {
     additionalType: { type: "URL" },
@@ -472,12 +472,12 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Enumeration: {
-      supersededBy: { type: "Enumeration", foreign: true }
+      supersededBy: { type: "Enumeration", foreign: true },
     },
-    Intangible: {}
+    Intangible: {},
   },
   StatusEnumeration: {
     additionalType: { type: "URL" },
@@ -495,13 +495,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     StatusEnumeration: {},
     Intangible: {},
     Enumeration: {
-      supersededBy: { type: "Enumeration", foreign: true }
-    }
+      supersededBy: { type: "Enumeration", foreign: true },
+    },
   },
   StructuredValue: {
     additionalType: { type: "URL" },
@@ -519,10 +519,10 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     StructuredValue: {},
-    Intangible: {}
+    Intangible: {},
   },
   ContactPoint: {
     additionalType: { type: "URL" },
@@ -540,28 +540,28 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     ContactPoint: {
       areaServed: { type: "Place", foreign: true },
       availableLanguage: { type: "Language", foreign: true },
       contactOption: {
         type: "Text",
-        enums: ["TollFree", "HearingImpairedSupported"]
+        enums: ["TollFree", "HearingImpairedSupported"],
       },
       contactType: { type: "Text" },
       email: { type: "Text" },
       faxNumber: { type: "Text" },
       hoursAvailable: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       productSupported: { type: "Product", foreign: true },
       serviceArea: { type: "Place", foreign: true },
-      telephone: { type: "Text" }
+      telephone: { type: "Text" },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   PropertyValue: {
     additionalType: { type: "URL" },
@@ -579,7 +579,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     PropertyValue: {
       maxValue: { type: "Number" },
@@ -589,10 +589,10 @@ let expectAction = {
       unitCode: { type: "Text" },
       unitText: { type: "Text" },
       value: { type: "StructuredValue", foreign: true },
-      valueReference: { type: "Enumeration", foreign: true }
+      valueReference: { type: "Enumeration", foreign: true },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   ImageObject: {
     additionalType: { type: "URL" },
@@ -610,13 +610,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     ImageObject: {
       caption: { type: "MediaObject", foreign: true },
       exifData: { type: "PropertyValue", foreign: true },
       representativeOfPage: { type: "Boolean" },
-      thumbnail: { type: "ImageObject", foreign: true }
+      thumbnail: { type: "ImageObject", foreign: true },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -724,7 +724,7 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
+      workTranslation: { type: "CreativeWork", foreign: true },
     },
     MediaObject: {
       associatedArticle: { type: "Text" },
@@ -743,8 +743,8 @@ let expectAction = {
       requiresSubscription: { type: "Boolean" },
       startTime: { type: "Time" },
       uploadDate: { type: "Date" },
-      width: { type: "Distance", foreign: true }
-    }
+      width: { type: "Distance", foreign: true },
+    },
   },
   CreativeWork: {
     additionalType: { type: "URL" },
@@ -762,7 +762,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -870,8 +870,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   GenderType: {
     additionalType: { type: "URL" },
@@ -889,13 +889,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     GenderType: {},
     Intangible: {},
     Enumeration: {
-      supersededBy: { type: "Enumeration", foreign: true }
-    }
+      supersededBy: { type: "Enumeration", foreign: true },
+    },
   },
   Offer: {
     additionalType: { type: "URL" },
@@ -913,14 +913,14 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Offer: {
       acceptedPaymentMethod: { type: "Text" },
       addOn: { type: "Offer", foreign: true },
       advanceBookingRequirement: {
         type: "QuantitativeValue",
-        foreign: true
+        foreign: true,
       },
       aggregateRating: { type: "AggregateRating", foreign: true },
       areaServed: { type: "Place", foreign: true },
@@ -935,15 +935,15 @@ let expectAction = {
           "InStock",
           "LimitedAvailability",
           "Discontinued",
-          "OutOfStock"
-        ]
+          "OutOfStock",
+        ],
       },
       availabilityEnds: { type: "Time" },
       availabilityStarts: { type: "Time" },
       availableAtOrFrom: { type: "Place", foreign: true },
       availableDeliveryMethod: {
         type: "Text",
-        enums: ["ParcelService", "OnSitePickup", "LockerDelivery"]
+        enums: ["ParcelService", "OnSitePickup", "LockerDelivery"],
       },
       businessFunction: { type: "Text" },
       category: { type: "Thing", foreign: true },
@@ -954,7 +954,7 @@ let expectAction = {
       eligibleRegion: { type: "Place", foreign: true },
       eligibleTransactionVolume: {
         type: "PriceSpecification",
-        foreign: true
+        foreign: true,
       },
       gtin: { type: "Text" },
       gtin12: { type: "Text" },
@@ -970,8 +970,8 @@ let expectAction = {
           "DamagedCondition",
           "RefurbishedCondition",
           "UsedCondition",
-          "NewCondition"
-        ]
+          "NewCondition",
+        ],
       },
       itemOffered: { type: "CreativeWork", foreign: true },
       leaseLength: { type: "QuantitativeValue", foreign: true },
@@ -989,9 +989,9 @@ let expectAction = {
       sku: { type: "Text" },
       validFrom: { type: "Date" },
       validThrough: { type: "Date" },
-      warranty: { type: "Text" }
+      warranty: { type: "Text" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   PriceSpecification: {
     additionalType: { type: "URL" },
@@ -1009,13 +1009,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     PriceSpecification: {
       eligibleQuantity: { type: "QuantitativeValue", foreign: true },
       eligibleTransactionVolume: {
         type: "PriceSpecification",
-        foreign: true
+        foreign: true,
       },
       maxPrice: { type: "Number" },
       minPrice: { type: "Number" },
@@ -1023,10 +1023,10 @@ let expectAction = {
       priceCurrency: { type: "Text" },
       validFrom: { type: "Date" },
       validThrough: { type: "Date" },
-      valueAddedTaxIncluded: { type: "Boolean" }
+      valueAddedTaxIncluded: { type: "Boolean" },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   Demand: {
     additionalType: { type: "URL" },
@@ -1044,13 +1044,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Demand: {
       acceptedPaymentMethod: { type: "Text" },
       advanceBookingRequirement: {
         type: "QuantitativeValue",
-        foreign: true
+        foreign: true,
       },
       areaServed: { type: "Place", foreign: true },
       availability: {
@@ -1064,15 +1064,15 @@ let expectAction = {
           "InStock",
           "LimitedAvailability",
           "Discontinued",
-          "OutOfStock"
-        ]
+          "OutOfStock",
+        ],
       },
       availabilityEnds: { type: "Time" },
       availabilityStarts: { type: "Time" },
       availableAtOrFrom: { type: "Place", foreign: true },
       availableDeliveryMethod: {
         type: "Text",
-        enums: ["ParcelService", "OnSitePickup", "LockerDelivery"]
+        enums: ["ParcelService", "OnSitePickup", "LockerDelivery"],
       },
       businessFunction: { type: "Text" },
       deliveryLeadTime: { type: "QuantitativeValue", foreign: true },
@@ -1082,7 +1082,7 @@ let expectAction = {
       eligibleRegion: { type: "Place", foreign: true },
       eligibleTransactionVolume: {
         type: "PriceSpecification",
-        foreign: true
+        foreign: true,
       },
       gtin: { type: "Text" },
       gtin12: { type: "Text" },
@@ -1098,8 +1098,8 @@ let expectAction = {
           "DamagedCondition",
           "RefurbishedCondition",
           "UsedCondition",
-          "NewCondition"
-        ]
+          "NewCondition",
+        ],
       },
       itemOffered: { type: "CreativeWork", foreign: true },
       mpn: { type: "Text" },
@@ -1109,9 +1109,9 @@ let expectAction = {
       sku: { type: "Text" },
       validFrom: { type: "Date" },
       validThrough: { type: "Date" },
-      warranty: { type: "Text" }
+      warranty: { type: "Text" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   Distance: {
     additionalType: { type: "URL" },
@@ -1129,11 +1129,11 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Distance: {},
     Intangible: {},
-    Quantity: {}
+    Quantity: {},
   },
   Occupation: {
     additionalType: { type: "URL" },
@@ -1151,12 +1151,12 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Occupation: {
       educationRequirements: {
         type: "EducationalOccupationalCredential",
-        foreign: true
+        foreign: true,
       },
       estimatedSalary: { type: "MonetaryAmount", foreign: true },
       experienceRequirements: { type: "Text" },
@@ -1164,12 +1164,12 @@ let expectAction = {
       occupationLocation: { type: "AdministrativeArea", foreign: true },
       qualifications: {
         type: "EducationalOccupationalCredential",
-        foreign: true
+        foreign: true,
       },
       responsibilities: { type: "Text" },
-      skills: { type: "DefinedTerm", foreign: true }
+      skills: { type: "DefinedTerm", foreign: true },
     },
-    Intangible: {}
+    Intangible: {},
   },
   DefinedTerm: {
     additionalType: { type: "URL" },
@@ -1187,13 +1187,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     DefinedTerm: {
       inDefinedTermSet: { type: "URL" },
-      termCode: { type: "Text" }
+      termCode: { type: "Text" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   OfferCatalog: {
     additionalType: { type: "URL" },
@@ -1211,10 +1211,10 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     OfferCatalog: {},
-    Intangible: {}
+    Intangible: {},
   },
   Product: {
     additionalType: { type: "URL" },
@@ -1232,7 +1232,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Product: {
       additionalProperty: { type: "PropertyValue", foreign: true },
@@ -1251,11 +1251,11 @@ let expectAction = {
       gtin8: { type: "Text" },
       hasMerchantReturnPolicy: {
         type: "MerchantReturnPolicy",
-        foreign: true
+        foreign: true,
       },
       hasProductReturnPolicy: {
         type: "ProductReturnPolicy",
-        foreign: true
+        foreign: true,
       },
       height: { type: "Distance", foreign: true },
       inProductGroupWithID: { type: "Text" },
@@ -1270,8 +1270,8 @@ let expectAction = {
           "DamagedCondition",
           "RefurbishedCondition",
           "UsedCondition",
-          "NewCondition"
-        ]
+          "NewCondition",
+        ],
       },
       logo: { type: "ImageObject", foreign: true },
       manufacturer: { type: "Organization", foreign: true },
@@ -1291,8 +1291,8 @@ let expectAction = {
       sku: { type: "Text" },
       slogan: { type: "Text" },
       weight: { type: "QuantitativeValue", foreign: true },
-      width: { type: "Distance", foreign: true }
-    }
+      width: { type: "Distance", foreign: true },
+    },
   },
   Country: {
     additionalType: { type: "URL" },
@@ -1310,7 +1310,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Country: {},
     Place: {
@@ -1319,7 +1319,7 @@ let expectAction = {
       aggregateRating: { type: "AggregateRating", foreign: true },
       amenityFeature: {
         type: "LocationFeatureSpecification",
-        foreign: true
+        foreign: true,
       },
       branchCode: { type: "Text" },
       containedIn: { type: "Place", foreign: true },
@@ -1352,7 +1352,7 @@ let expectAction = {
       maximumAttendeeCapacity: { type: "Integer" },
       openingHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       photo: { type: "ImageObject", foreign: true },
       photos: { type: "ImageObject", foreign: true },
@@ -1363,12 +1363,12 @@ let expectAction = {
       smokingAllowed: { type: "Boolean" },
       specialOpeningHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       telephone: { type: "Text" },
-      tourBookingPage: { type: "URL" }
+      tourBookingPage: { type: "URL" },
     },
-    AdministrativeArea: {}
+    AdministrativeArea: {},
   },
   EducationalOccupationalCredential: {
     additionalType: { type: "URL" },
@@ -1386,7 +1386,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     EducationalOccupationalCredential: {
       competencyRequired: { type: "DefinedTerm", foreign: true },
@@ -1394,7 +1394,7 @@ let expectAction = {
       educationalLevel: { type: "DefinedTerm", foreign: true },
       recognizedBy: { type: "Organization", foreign: true },
       validFor: { type: "Text" },
-      validIn: { type: "AdministrativeArea", foreign: true }
+      validIn: { type: "AdministrativeArea", foreign: true },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -1502,8 +1502,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   Language: {
     additionalType: { type: "URL" },
@@ -1521,10 +1521,10 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Language: {},
-    Intangible: {}
+    Intangible: {},
   },
   Event: {
     additionalType: { type: "URL" },
@@ -1542,7 +1542,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Event: {
       about: { type: "Thing", foreign: true },
@@ -1562,8 +1562,8 @@ let expectAction = {
         enums: [
           "OnlineEventAttendanceMode",
           "MixedEventAttendanceMode",
-          "OfflineEventAttendanceMode"
-        ]
+          "OfflineEventAttendanceMode",
+        ],
       },
       eventSchedule: { type: "Text" },
       eventStatus: {
@@ -1573,8 +1573,8 @@ let expectAction = {
           "EventMovedOnline",
           "EventRescheduled",
           "EventScheduled",
-          "EventCancelled"
-        ]
+          "EventCancelled",
+        ],
       },
       funder: { type: "Person", foreign: true },
       inLanguage: { type: "Language", foreign: true },
@@ -1599,8 +1599,8 @@ let expectAction = {
       translator: { type: "Person", foreign: true },
       typicalAgeRange: { type: "Text" },
       workFeatured: { type: "CreativeWork", foreign: true },
-      workPerformed: { type: "CreativeWork", foreign: true }
-    }
+      workPerformed: { type: "CreativeWork", foreign: true },
+    },
   },
   InteractionCounter: {
     additionalType: { type: "URL" },
@@ -1618,15 +1618,15 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     InteractionCounter: {
       interactionService: { type: "SoftwareApplication", foreign: true },
       interactionType: { type: "Action", foreign: true },
-      userInteractionCount: { type: "Integer" }
+      userInteractionCount: { type: "Integer" },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   QuantitativeValue: {
     additionalType: { type: "URL" },
@@ -1644,7 +1644,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     QuantitativeValue: {
       additionalProperty: { type: "PropertyValue", foreign: true },
@@ -1653,10 +1653,10 @@ let expectAction = {
       unitCode: { type: "Text" },
       unitText: { type: "Text" },
       value: { type: "StructuredValue", foreign: true },
-      valueReference: { type: "Enumeration", foreign: true }
+      valueReference: { type: "Enumeration", foreign: true },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   SoftwareApplication: {
     additionalType: { type: "URL" },
@@ -1674,7 +1674,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     SoftwareApplication: {
       applicationCategory: { type: "Text" },
@@ -1700,7 +1700,7 @@ let expectAction = {
       softwareRequirements: { type: "Text" },
       softwareVersion: { type: "Text" },
       storageRequirements: { type: "Text" },
-      supportingData: { type: "Text" }
+      supportingData: { type: "Text" },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -1808,8 +1808,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   AggregateRating: {
     additionalType: { type: "URL" },
@@ -1827,12 +1827,12 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     AggregateRating: {
       itemReviewed: { type: "Thing", foreign: true },
       ratingCount: { type: "Integer" },
-      reviewCount: { type: "Integer" }
+      reviewCount: { type: "Integer" },
     },
     Intangible: {},
     Rating: {
@@ -1841,8 +1841,8 @@ let expectAction = {
       ratingExplanation: { type: "Text" },
       ratingValue: { type: "Text" },
       reviewAspect: { type: "Text" },
-      worstRating: { type: "Text" }
-    }
+      worstRating: { type: "Text" },
+    },
   },
   Review: {
     additionalType: { type: "URL" },
@@ -1860,13 +1860,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Review: {
       itemReviewed: { type: "Thing", foreign: true },
       reviewAspect: { type: "Text" },
       reviewBody: { type: "Text" },
-      reviewRating: { type: "Rating", foreign: true }
+      reviewRating: { type: "Rating", foreign: true },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -1974,8 +1974,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   Map: {
     additionalType: { type: "URL" },
@@ -1993,13 +1993,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Map: {
       mapType: {
         type: "Text",
-        enums: ["ParkingMap", "VenueMap", "TransitMap", "SeatingMap"]
-      }
+        enums: ["ParkingMap", "VenueMap", "TransitMap", "SeatingMap"],
+      },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -2107,8 +2107,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   OpeningHoursSpecification: {
     additionalType: { type: "URL" },
@@ -2126,7 +2126,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     OpeningHoursSpecification: {
       closes: { type: "Time" },
@@ -2140,15 +2140,15 @@ let expectAction = {
           "Sunday",
           "Thursday",
           "Tuesday",
-          "Saturday"
-        ]
+          "Saturday",
+        ],
       },
       opens: { type: "Time" },
       validFrom: { type: "Date" },
-      validThrough: { type: "Date" }
+      validThrough: { type: "Date" },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   LocationFeatureSpecification: {
     additionalType: { type: "URL" },
@@ -2166,15 +2166,15 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     LocationFeatureSpecification: {
       hoursAvailable: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       validFrom: { type: "Date" },
-      validThrough: { type: "Date" }
+      validThrough: { type: "Date" },
     },
     Intangible: {},
     StructuredValue: {},
@@ -2186,8 +2186,8 @@ let expectAction = {
       unitCode: { type: "Text" },
       unitText: { type: "Text" },
       value: { type: "StructuredValue", foreign: true },
-      valueReference: { type: "Enumeration", foreign: true }
-    }
+      valueReference: { type: "Enumeration", foreign: true },
+    },
   },
   GeoShape: {
     additionalType: { type: "URL" },
@@ -2205,7 +2205,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     GeoShape: {
       address: { type: "PostalAddress", foreign: true },
@@ -2215,10 +2215,10 @@ let expectAction = {
       elevation: { type: "Text" },
       line: { type: "Text" },
       polygon: { type: "Text" },
-      postalCode: { type: "Text" }
+      postalCode: { type: "Text" },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   ProductReturnPolicy: {
     additionalType: { type: "URL" },
@@ -2236,13 +2236,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     ProductReturnPolicy: {
       productReturnDays: { type: "Integer" },
-      productReturnLink: { type: "URL" }
+      productReturnLink: { type: "URL" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   Article: {
     additionalType: { type: "URL" },
@@ -2260,7 +2260,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Article: {
       articleBody: { type: "Text" },
@@ -2270,7 +2270,7 @@ let expectAction = {
       pageStart: { type: "Text" },
       pagination: { type: "Text" },
       speakable: { type: "URL" },
-      wordCount: { type: "Integer" }
+      wordCount: { type: "Integer" },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -2378,8 +2378,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   NonprofitType: {
     additionalType: { type: "URL" },
@@ -2397,13 +2397,13 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     NonprofitType: {},
     Intangible: {},
     Enumeration: {
-      supersededBy: { type: "Enumeration", foreign: true }
-    }
+      supersededBy: { type: "Enumeration", foreign: true },
+    },
   },
   MerchantReturnPolicy: {
     additionalType: { type: "URL" },
@@ -2421,7 +2421,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     MerchantReturnPolicy: {
       inStoreReturnsOffered: { type: "Boolean" },
@@ -2429,11 +2429,11 @@ let expectAction = {
       merchantReturnLink: { type: "URL" },
       refundType: {
         type: "Text",
-        enums: ["StoreCreditRefund", "ExchangeRefund", "FullRefund"]
+        enums: ["StoreCreditRefund", "ExchangeRefund", "FullRefund"],
       },
       returnFees: {
         type: "Text",
-        enums: ["RestockingFees", "OriginalShippingFees", "ReturnShippingFees"]
+        enums: ["RestockingFees", "OriginalShippingFees", "ReturnShippingFees"],
       },
       returnPolicyCategory: {
         type: "Text",
@@ -2441,11 +2441,11 @@ let expectAction = {
           "MerchantReturnFiniteReturnWindow",
           "MerchantReturnNotPermitted",
           "MerchantReturnUnlimitedWindow",
-          "MerchantReturnUnspecified"
-        ]
-      }
+          "MerchantReturnUnspecified",
+        ],
+      },
     },
-    Intangible: {}
+    Intangible: {},
   },
   MediaObject: {
     additionalType: { type: "URL" },
@@ -2463,7 +2463,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     MediaObject: {
       associatedArticle: { type: "Text" },
@@ -2482,7 +2482,7 @@ let expectAction = {
       requiresSubscription: { type: "Boolean" },
       startTime: { type: "Time" },
       uploadDate: { type: "Date" },
-      width: { type: "Distance", foreign: true }
+      width: { type: "Distance", foreign: true },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -2590,8 +2590,8 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
   },
   Quantity: {
     additionalType: { type: "URL" },
@@ -2609,10 +2609,10 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Quantity: {},
-    Intangible: {}
+    Intangible: {},
   },
   MonetaryAmount: {
     additionalType: { type: "URL" },
@@ -2630,7 +2630,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     MonetaryAmount: {
       currency: { type: "Text" },
@@ -2638,10 +2638,10 @@ let expectAction = {
       minValue: { type: "Number" },
       validFrom: { type: "Date" },
       validThrough: { type: "Date" },
-      value: { type: "StructuredValue", foreign: true }
+      value: { type: "StructuredValue", foreign: true },
     },
     Intangible: {},
-    StructuredValue: {}
+    StructuredValue: {},
   },
   ItemList: {
     additionalType: { type: "URL" },
@@ -2659,9 +2659,9 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   AdministrativeArea: {
     additionalType: { type: "URL" },
@@ -2679,7 +2679,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     AdministrativeArea: {},
     Place: {
@@ -2688,7 +2688,7 @@ let expectAction = {
       aggregateRating: { type: "AggregateRating", foreign: true },
       amenityFeature: {
         type: "LocationFeatureSpecification",
-        foreign: true
+        foreign: true,
       },
       branchCode: { type: "Text" },
       containedIn: { type: "Place", foreign: true },
@@ -2721,7 +2721,7 @@ let expectAction = {
       maximumAttendeeCapacity: { type: "Integer" },
       openingHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       photo: { type: "ImageObject", foreign: true },
       photos: { type: "ImageObject", foreign: true },
@@ -2732,11 +2732,11 @@ let expectAction = {
       smokingAllowed: { type: "Boolean" },
       specialOpeningHoursSpecification: {
         type: "OpeningHoursSpecification",
-        foreign: true
+        foreign: true,
       },
       telephone: { type: "Text" },
-      tourBookingPage: { type: "URL" }
-    }
+      tourBookingPage: { type: "URL" },
+    },
   },
   Rating: {
     additionalType: { type: "URL" },
@@ -2754,7 +2754,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     Rating: {
       author: { type: "Person", foreign: true },
@@ -2762,9 +2762,9 @@ let expectAction = {
       ratingExplanation: { type: "Text" },
       ratingValue: { type: "Text" },
       reviewAspect: { type: "Text" },
-      worstRating: { type: "Text" }
+      worstRating: { type: "Text" },
     },
-    Intangible: {}
+    Intangible: {},
   },
   WebPage: {
     additionalType: { type: "URL" },
@@ -2782,7 +2782,7 @@ let expectAction = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
+      numberOfItems: { type: "Integer" },
     },
     WebPage: {
       breadcrumb: { type: "Text" },
@@ -2794,7 +2794,7 @@ let expectAction = {
       significantLink: { type: "URL" },
       significantLinks: { type: "URL" },
       speakable: { type: "URL" },
-      specialty: { type: "Text" }
+      specialty: { type: "Text" },
     },
     CreativeWork: {
       about: { type: "Thing", foreign: true },
@@ -2902,9 +2902,9 @@ let expectAction = {
       version: { type: "Text" },
       video: { type: "Text" },
       workExample: { type: "CreativeWork", foreign: true },
-      workTranslation: { type: "CreativeWork", foreign: true }
-    }
-  }
+      workTranslation: { type: "CreativeWork", foreign: true },
+    },
+  },
 }
 
 let expectHealthAndBeautyBusiness = {
@@ -2965,7 +2965,7 @@ let expectHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     Organization: {
       members: { type: "Organization", foreign: true },
@@ -3031,21 +3031,21 @@ let expectHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     LocalBusiness: {
       priceRange: { type: "Text" },
       openingHours: { type: "Text" },
       currenciesAccepted: { type: "Text" },
       branchOf: { type: "Organization", foreign: true },
-      paymentAccepted: { type: "Text" }
+      paymentAccepted: { type: "Text" },
     },
     HealthAndBeautyBusiness: {},
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Thing: {
     potentialAction: { type: "Text" },
@@ -3063,8 +3063,8 @@ let expectHealthAndBeautyBusiness = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Place: {
     potentialAction: { type: "Text" },
@@ -3123,13 +3123,13 @@ let expectHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Organization: {
     potentialAction: { type: "Text" },
@@ -3208,13 +3208,13 @@ let expectHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   LocalBusiness: {
     potentialAction: { type: "Text" },
@@ -3273,7 +3273,7 @@ let expectHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     Organization: {
       members: { type: "Organization", foreign: true },
@@ -3339,21 +3339,21 @@ let expectHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     LocalBusiness: {
       priceRange: { type: "Text" },
       openingHours: { type: "Text" },
       currenciesAccepted: { type: "Text" },
       branchOf: { type: "Organization", foreign: true },
-      paymentAccepted: { type: "Text" }
+      paymentAccepted: { type: "Text" },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
-  }
+      numberOfItems: { type: "Integer" },
+    },
+  },
 }
 
 let expectDrugClassHealthAndBeautyBusiness = {
@@ -3379,8 +3379,8 @@ let expectDrugClassHealthAndBeautyBusiness = {
           "Osteopathic",
           "WesternConventional",
           "Ayurvedic",
-          "Chiropractic"
-        ]
+          "Chiropractic",
+        ],
       },
       guideline: { type: "Text" },
       relevantSpecialty: {
@@ -3427,20 +3427,20 @@ let expectDrugClassHealthAndBeautyBusiness = {
           "Infectious",
           "Optometric",
           "Pediatric",
-          "Radiography"
-        ]
+          "Radiography",
+        ],
       },
       legalStatus: { type: "Text" },
       recognizingAuthority: { type: "Organization", foreign: true },
       code: { type: "Text" },
-      study: { type: "Text" }
+      study: { type: "Text" },
     },
     DrugClass: { drug: { type: "Text" } },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   HealthAndBeautyBusiness: {
     potentialAction: { type: "Text" },
@@ -3499,7 +3499,7 @@ let expectDrugClassHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     Organization: {
       members: { type: "Organization", foreign: true },
@@ -3565,21 +3565,21 @@ let expectDrugClassHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     LocalBusiness: {
       priceRange: { type: "Text" },
       openingHours: { type: "Text" },
       currenciesAccepted: { type: "Text" },
       branchOf: { type: "Organization", foreign: true },
-      paymentAccepted: { type: "Text" }
+      paymentAccepted: { type: "Text" },
     },
     HealthAndBeautyBusiness: {},
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Thing: {
     potentialAction: { type: "Text" },
@@ -3597,8 +3597,8 @@ let expectDrugClassHealthAndBeautyBusiness = {
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   MedicalEntity: {
     potentialAction: { type: "Text" },
@@ -3622,8 +3622,8 @@ let expectDrugClassHealthAndBeautyBusiness = {
           "Osteopathic",
           "WesternConventional",
           "Ayurvedic",
-          "Chiropractic"
-        ]
+          "Chiropractic",
+        ],
       },
       guideline: { type: "Text" },
       relevantSpecialty: {
@@ -3670,19 +3670,19 @@ let expectDrugClassHealthAndBeautyBusiness = {
           "Infectious",
           "Optometric",
           "Pediatric",
-          "Radiography"
-        ]
+          "Radiography",
+        ],
       },
       legalStatus: { type: "Text" },
       recognizingAuthority: { type: "Organization", foreign: true },
       code: { type: "Text" },
-      study: { type: "Text" }
+      study: { type: "Text" },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Place: {
     potentialAction: { type: "Text" },
@@ -3741,13 +3741,13 @@ let expectDrugClassHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   Organization: {
     potentialAction: { type: "Text" },
@@ -3826,13 +3826,13 @@ let expectDrugClassHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
+      numberOfItems: { type: "Integer" },
+    },
   },
   LocalBusiness: {
     potentialAction: { type: "Text" },
@@ -3891,7 +3891,7 @@ let expectDrugClassHealthAndBeautyBusiness = {
       telephone: { type: "Text" },
       geo: { type: "Text" },
       geoCovers: { type: "Place", foreign: true },
-      geoEquals: { type: "Place", foreign: true }
+      geoEquals: { type: "Place", foreign: true },
     },
     Organization: {
       members: { type: "Organization", foreign: true },
@@ -3957,21 +3957,21 @@ let expectDrugClassHealthAndBeautyBusiness = {
       employee: { type: "Text" },
       numberOfEmployees: { type: "Text" },
       naics: { type: "Text" },
-      hasPOS: { type: "Place", foreign: true }
+      hasPOS: { type: "Place", foreign: true },
     },
     LocalBusiness: {
       priceRange: { type: "Text" },
       openingHours: { type: "Text" },
       currenciesAccepted: { type: "Text" },
       branchOf: { type: "Organization", foreign: true },
-      paymentAccepted: { type: "Text" }
+      paymentAccepted: { type: "Text" },
     },
     ItemList: {
       itemListElement: { type: "Thing", foreign: true },
       itemListOrder: { type: "Text" },
-      numberOfItems: { type: "Integer" }
-    }
-  }
+      numberOfItems: { type: "Integer" },
+    },
+  },
 }
 
 describe(`class | ThingBuilder | Thing schemaorg 9.0`, () => {

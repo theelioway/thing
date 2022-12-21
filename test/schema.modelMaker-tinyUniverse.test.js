@@ -10,12 +10,12 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
     fields: {
       size: {
         type: "Text",
-        comment: "Comment size"
-      }
+        comment: "Comment size",
+      },
     },
     name: "Cosmos",
     comment: "Comment Cosmos",
-    subs: []
+    subs: [],
   }
 
   it("depth 0", () => {
@@ -41,12 +41,12 @@ describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
           size: {
             type: "Text",
             comment: "Comment size",
-            enums: ["Big"]
-          }
+            enums: ["Big"],
+          },
         },
         name: "Cosmos",
         comment: "Comment Cosmos",
-        subs: []
+        subs: [],
       })
   })
 

@@ -36,10 +36,10 @@ for (let [model, tests] of Object.entries({
         mainEntityOfPage: { type: "URL" },
         disambiguatingDescription: { type: "Text" },
         subjectOf: { type: "Text" },
-        additionalType: { type: "URL" }
+        additionalType: { type: "URL" },
       },
       name: "Thing",
-      subs: []
+      subs: [],
     },
     1: {
       fields: {
@@ -54,11 +54,11 @@ for (let [model, tests] of Object.entries({
         mainEntityOfPage: { type: "CreativeWork", foreign: true },
         disambiguatingDescription: { type: "Text" },
         subjectOf: { type: "CreativeWork", foreign: true },
-        additionalType: { type: "URL" }
+        additionalType: { type: "URL" },
       },
       name: "Thing",
-      subs: []
-    }
+      subs: [],
+    },
   },
   Action: {
     0: {
@@ -74,17 +74,17 @@ for (let [model, tests] of Object.entries({
             "FailedActionStatus",
             "CompletedActionStatus",
             "ActiveActionStatus",
-            "PotentialActionStatus"
-          ]
+            "PotentialActionStatus",
+          ],
         },
         target: { type: "Text" },
         agent: { type: "Text" },
         error: { type: "Thing", foreign: true },
         location: { type: "Text" },
-        object: { type: "Thing", foreign: true }
+        object: { type: "Thing", foreign: true },
       },
       name: "Action",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -99,18 +99,18 @@ for (let [model, tests] of Object.entries({
             "FailedActionStatus",
             "CompletedActionStatus",
             "ActiveActionStatus",
-            "PotentialActionStatus"
-          ]
+            "PotentialActionStatus",
+          ],
         },
         target: { type: "EntryPoint", foreign: true },
         agent: { type: "Person", foreign: true },
         error: { type: "Thing", foreign: true },
         location: { type: "PostalAddress", foreign: true },
-        object: { type: "Thing", foreign: true }
+        object: { type: "Thing", foreign: true },
       },
       name: "Action",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   CreativeWork: {
     0: {
@@ -220,10 +220,10 @@ for (let [model, tests] of Object.entries({
         isBasedOnUrl: { type: "CreativeWork", foreign: true },
         thumbnailUrl: { type: "URL" },
         expires: { type: "Date" },
-        comment: { type: "Text" }
+        comment: { type: "Text" },
       },
       name: "CreativeWork",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -332,11 +332,11 @@ for (let [model, tests] of Object.entries({
         isBasedOnUrl: { type: "CreativeWork", foreign: true },
         thumbnailUrl: { type: "URL" },
         expires: { type: "Date" },
-        comment: { type: "Comment", foreign: true }
+        comment: { type: "Comment", foreign: true },
       },
       name: "CreativeWork",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Event: {
     0: {
@@ -378,8 +378,8 @@ for (let [model, tests] of Object.entries({
             "EventMovedOnline",
             "EventRescheduled",
             "EventScheduled",
-            "EventCancelled"
-          ]
+            "EventCancelled",
+          ],
         },
         director: { type: "Text" },
         duration: { type: "Text" },
@@ -390,15 +390,15 @@ for (let [model, tests] of Object.entries({
           enums: [
             "OnlineEventAttendanceMode",
             "MixedEventAttendanceMode",
-            "OfflineEventAttendanceMode"
-          ]
+            "OfflineEventAttendanceMode",
+          ],
         },
         startDate: { type: "Date" },
         superEvent: { type: "Event", foreign: true },
-        previousStartDate: { type: "Date" }
+        previousStartDate: { type: "Date" },
       },
       name: "Event",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -439,8 +439,8 @@ for (let [model, tests] of Object.entries({
             "EventMovedOnline",
             "EventRescheduled",
             "EventScheduled",
-            "EventCancelled"
-          ]
+            "EventCancelled",
+          ],
         },
         director: { type: "Person", foreign: true },
         duration: { type: "Duration", foreign: true },
@@ -451,16 +451,16 @@ for (let [model, tests] of Object.entries({
           enums: [
             "OnlineEventAttendanceMode",
             "MixedEventAttendanceMode",
-            "OfflineEventAttendanceMode"
-          ]
+            "OfflineEventAttendanceMode",
+          ],
         },
         startDate: { type: "Date" },
         superEvent: { type: "Event", foreign: true },
-        previousStartDate: { type: "Date" }
+        previousStartDate: { type: "Date" },
       },
       name: "Event",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   MedicalEntity: {
     0: {
@@ -473,8 +473,8 @@ for (let [model, tests] of Object.entries({
             "Osteopathic",
             "WesternConventional",
             "Ayurvedic",
-            "Chiropractic"
-          ]
+            "Chiropractic",
+          ],
         },
         guideline: { type: "Text" },
         relevantSpecialty: {
@@ -521,16 +521,16 @@ for (let [model, tests] of Object.entries({
             "Infectious",
             "Optometric",
             "Pediatric",
-            "Radiography"
-          ]
+            "Radiography",
+          ],
         },
         legalStatus: { type: "Text" },
         recognizingAuthority: { type: "Text" },
         code: { type: "Text" },
-        study: { type: "Text" }
+        study: { type: "Text" },
       },
       name: "MedicalEntity",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -542,8 +542,8 @@ for (let [model, tests] of Object.entries({
             "Osteopathic",
             "WesternConventional",
             "Ayurvedic",
-            "Chiropractic"
-          ]
+            "Chiropractic",
+          ],
         },
         guideline: { type: "MedicalGuideline", foreign: true },
         relevantSpecialty: {
@@ -590,17 +590,17 @@ for (let [model, tests] of Object.entries({
             "Infectious",
             "Optometric",
             "Pediatric",
-            "Radiography"
-          ]
+            "Radiography",
+          ],
         },
         legalStatus: { type: "DrugLegalStatus", foreign: true },
         recognizingAuthority: { type: "Organization", foreign: true },
         code: { type: "MedicalCode", foreign: true },
-        study: { type: "MedicalStudy", foreign: true }
+        study: { type: "MedicalStudy", foreign: true },
       },
       name: "MedicalEntity",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Organization: {
     0: {
@@ -668,10 +668,10 @@ for (let [model, tests] of Object.entries({
         employee: { type: "Text" },
         numberOfEmployees: { type: "Text" },
         naics: { type: "Text" },
-        hasPOS: { type: "Text" }
+        hasPOS: { type: "Text" },
       },
       name: "Organization",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -717,7 +717,7 @@ for (let [model, tests] of Object.entries({
         vatID: { type: "Text" },
         hasCredential: {
           type: "EducationalOccupationalCredential",
-          foreign: true
+          foreign: true,
         },
         knowsLanguage: { type: "Language", foreign: true },
         events: { type: "Event", foreign: true },
@@ -732,7 +732,7 @@ for (let [model, tests] of Object.entries({
         telephone: { type: "Text" },
         hasMerchantReturnPolicy: {
           type: "MerchantReturnPolicy",
-          foreign: true
+          foreign: true,
         },
         email: { type: "Text" },
         department: { type: "Organization", foreign: true },
@@ -744,11 +744,11 @@ for (let [model, tests] of Object.entries({
         employee: { type: "Person", foreign: true },
         numberOfEmployees: { type: "QuantitativeValue", foreign: true },
         naics: { type: "Text" },
-        hasPOS: { type: "Place", foreign: true }
+        hasPOS: { type: "Place", foreign: true },
       },
       name: "Organization",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Person: {
     0: {
@@ -814,10 +814,10 @@ for (let [model, tests] of Object.entries({
         givenName: { type: "Text" },
         parent: { type: "Person", foreign: true },
         naics: { type: "Text" },
-        hasPOS: { type: "Text" }
+        hasPOS: { type: "Text" },
       },
       name: "Person",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -863,7 +863,7 @@ for (let [model, tests] of Object.entries({
         vatID: { type: "Text" },
         hasCredential: {
           type: "EducationalOccupationalCredential",
-          foreign: true
+          foreign: true,
         },
         knowsLanguage: { type: "Language", foreign: true },
         relatedTo: { type: "Person", foreign: true },
@@ -885,11 +885,11 @@ for (let [model, tests] of Object.entries({
         givenName: { type: "Text" },
         parent: { type: "Person", foreign: true },
         naics: { type: "Text" },
-        hasPOS: { type: "Place", foreign: true }
+        hasPOS: { type: "Place", foreign: true },
       },
       name: "Person",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Place: {
     0: {
@@ -908,7 +908,7 @@ for (let [model, tests] of Object.entries({
         containedIn: { type: "Place", foreign: true },
         geoWithin: { type: "Place", foreign: true },
         hasDriveThroughService: {
-          type: "Boolean"
+          type: "Boolean",
         },
         geoContains: { type: "Place", foreign: true },
         latitude: { type: "Text" },
@@ -939,10 +939,10 @@ for (let [model, tests] of Object.entries({
         telephone: { type: "Text" },
         geo: { type: "Text" },
         geoCovers: { type: "Place", foreign: true },
-        geoEquals: { type: "Place", foreign: true }
+        geoEquals: { type: "Place", foreign: true },
       },
       name: "Place",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -960,13 +960,13 @@ for (let [model, tests] of Object.entries({
         containedIn: { type: "Place", foreign: true },
         geoWithin: { type: "Place", foreign: true },
         hasDriveThroughService: {
-          type: "Boolean"
+          type: "Boolean",
         },
         geoContains: { type: "Place", foreign: true },
         latitude: { type: "Text" },
         openingHoursSpecification: {
           type: "OpeningHoursSpecification",
-          foreign: true
+          foreign: true,
         },
         faxNumber: { type: "Text" },
         geoIntersects: { type: "Place", foreign: true },
@@ -990,18 +990,18 @@ for (let [model, tests] of Object.entries({
         tourBookingPage: { type: "URL" },
         specialOpeningHoursSpecification: {
           type: "OpeningHoursSpecification",
-          foreign: true
+          foreign: true,
         },
         logo: { type: "ImageObject", foreign: true },
         amenityFeature: { type: "LocationFeatureSpecification", foreign: true },
         telephone: { type: "Text" },
         geo: { type: "GeoShape", foreign: true },
         geoCovers: { type: "Place", foreign: true },
-        geoEquals: { type: "Place", foreign: true }
+        geoEquals: { type: "Place", foreign: true },
       },
       name: "Place",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Product: {
     0: {
@@ -1035,8 +1035,8 @@ for (let [model, tests] of Object.entries({
             "DamagedCondition",
             "RefurbishedCondition",
             "UsedCondition",
-            "NewCondition"
-          ]
+            "NewCondition",
+          ],
         },
         slogan: { type: "Text" },
         brand: { type: "Text" },
@@ -1056,10 +1056,10 @@ for (let [model, tests] of Object.entries({
         gtin: { type: "Text" },
         color: { type: "Text" },
         isRelatedTo: { type: "Product", foreign: true }, // Beautiful. This is when you know it's working.
-        productID: { type: "Text" }
+        productID: { type: "Text" },
       },
       name: "Product",
-      subs: ["Thing"]
+      subs: ["Thing"],
     },
     1: {
       fields: {
@@ -1092,8 +1092,8 @@ for (let [model, tests] of Object.entries({
             "DamagedCondition",
             "RefurbishedCondition",
             "UsedCondition",
-            "NewCondition"
-          ]
+            "NewCondition",
+          ],
         },
         slogan: { type: "Text" },
         brand: { type: "Organization", foreign: true },
@@ -1107,7 +1107,7 @@ for (let [model, tests] of Object.entries({
         material: { type: "Product", foreign: true },
         hasMerchantReturnPolicy: {
           type: "MerchantReturnPolicy",
-          foreign: true
+          foreign: true,
         },
         weight: { type: "QuantitativeValue", foreign: true },
         isSimilarTo: { type: "Product", foreign: true },
@@ -1116,41 +1116,41 @@ for (let [model, tests] of Object.entries({
         gtin: { type: "Text" },
         color: { type: "Text" },
         isRelatedTo: { type: "Product", foreign: true },
-        productID: { type: "Text" }
+        productID: { type: "Text" },
       },
       name: "Product",
-      subs: ["Thing"]
-    }
+      subs: ["Thing"],
+    },
   },
   Audiobook: {
     0: {
       fields: {
         readBy: { type: "Text" },
-        duration: { type: "Text" }
+        duration: { type: "Text" },
       },
       name: "Audiobook",
-      subs: ["Thing", "MediaObject", "CreativeWork", "AudioObject", "Book"]
+      subs: ["Thing", "MediaObject", "CreativeWork", "AudioObject", "Book"],
     },
     1: {
       fields: {
         readBy: { type: "Person", foreign: true },
-        duration: { type: "Duration", foreign: true }
+        duration: { type: "Duration", foreign: true },
       },
       name: "Audiobook",
-      subs: ["Thing", "MediaObject", "CreativeWork", "AudioObject", "Book"]
-    }
+      subs: ["Thing", "MediaObject", "CreativeWork", "AudioObject", "Book"],
+    },
   },
   ArriveAction: {
     0: {
       fields: {},
       name: "ArriveAction",
-      subs: ["Thing", "Action", "MoveAction"]
+      subs: ["Thing", "Action", "MoveAction"],
     },
     1: {
       fields: {},
       name: "ArriveAction",
-      subs: ["Thing", "Action", "MoveAction"]
-    }
+      subs: ["Thing", "Action", "MoveAction"],
+    },
   },
   MedicalOrganization: {
     0: {
@@ -1200,13 +1200,13 @@ for (let [model, tests] of Object.entries({
             "Infectious",
             "Optometric",
             "Pediatric",
-            "Radiography"
-          ]
+            "Radiography",
+          ],
         },
-        isAcceptingNewPatients: { type: "Boolean" }
+        isAcceptingNewPatients: { type: "Boolean" },
       },
       name: "MedicalOrganization",
-      subs: ["Thing", "Organization"]
+      subs: ["Thing", "Organization"],
     },
     1: {
       fields: {
@@ -1255,35 +1255,35 @@ for (let [model, tests] of Object.entries({
             "Infectious",
             "Optometric",
             "Pediatric",
-            "Radiography"
-          ]
+            "Radiography",
+          ],
         },
-        isAcceptingNewPatients: { type: "Boolean" }
+        isAcceptingNewPatients: { type: "Boolean" },
       },
       name: "MedicalOrganization",
-      subs: ["Thing", "Organization"]
-    }
+      subs: ["Thing", "Organization"],
+    },
   },
   ProductGroup: {
     0: {
       fields: {
         productGroupID: { type: "Text" },
         hasVariant: { type: "Product", foreign: true },
-        variesBy: { type: "Text" }
+        variesBy: { type: "Text" },
       },
       name: "ProductGroup",
-      subs: ["Thing", "Product"]
+      subs: ["Thing", "Product"],
     },
     1: {
       fields: {
         productGroupID: { type: "Text" },
         hasVariant: { type: "Product", foreign: true },
-        variesBy: { type: "DefinedTerm", foreign: true }
+        variesBy: { type: "DefinedTerm", foreign: true },
       },
       name: "ProductGroup",
-      subs: ["Thing", "Product"]
-    }
-  }
+      subs: ["Thing", "Product"],
+    },
+  },
 })) {
   describe(`class | ThingBuilder | ${model} modelMaker schemaorg 9.0`, () => {
     for (let [depth, expectModelMade] of Object.entries(tests)) {

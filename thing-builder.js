@@ -2,14 +2,13 @@
 const _ = require("lodash")
 const difference = require("./utils/difference")
 const fs = require("fs")
-const logger = require("./utils/logger")
 const path = require("path")
 const sh = require("shelljs")
 const union = require("./utils/union")
 const xor = require("./utils/xor")
 const { getSchema } = require("./utils/get-schema")
 
-const log = logger.debug
+
 
 module.exports = class ThingBuilder {
   /**
@@ -35,7 +34,7 @@ module.exports = class ThingBuilder {
       for (let primitiveName of fixedPrimitives) {
         this.PRIMTS.set(primitiveName, {
           name: primitiveName,
-          comment: "Fixed as Primitive in constructor."
+          comment: "Fixed as Primitive in constructor.",
         })
       }
     }
@@ -63,7 +62,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
           comment: schemaComment,
-          name: schemaName
+          name: schemaName,
         })
       }
     }
@@ -77,7 +76,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Class") {
         this._setModel(schemaName, {
           comment: schemaComment,
-          subs: this._setOf(schemaObj, "rdfs:subClassOf")
+          subs: this._setOf(schemaObj, "rdfs:subClassOf"),
         })
       }
       // Handle a Property/Field
@@ -88,7 +87,7 @@ module.exports = class ThingBuilder {
           comment: schemaComment,
           models: fieldOf,
           name: schemaName,
-          types: typeOf
+          types: typeOf,
         })
         // Add this property to any related Domain/Type/Class/Model
         for (let classType of fieldOf) {
@@ -115,13 +114,10 @@ module.exports = class ThingBuilder {
   _setModel(name, cfg) {
     // Check to see if subClasses a primitive.
     let primts = [...this.PRIMTS.keys()]
-    if (
-      cfg.subs &&
-      [...cfg.subs].filter(sub => primts.includes(sub)).length
-    ) {
+    if (cfg.subs && [...cfg.subs].filter(sub => primts.includes(sub)).length) {
       let p = this.PRIMTS.get(name) || {
         comment: cfg.comment,
-        name: name
+        name: name,
       }
       this.PRIMTS.set(name, p)
       return
@@ -130,7 +126,7 @@ module.exports = class ThingBuilder {
     let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
-      enums: new Set()
+      enums: new Set(),
     }
     t.comment = cfg.comment ? cfg.comment : t.comment
     t.subs = cfg.subs ? cfg.subs : t.subs
@@ -302,11 +298,11 @@ module.exports = class ThingBuilder {
     candidateModels = _.union(selectedModels, candidateModels)
 
     let PRIMITIVES = [...this.PRIMTS.keys()]
-    log(`PRIMITIVES: ${PRIMITIVES}`)
-    log(`DEPTH: ${opts.depth}`)
-    log(`CURRENTDEPTH: ${currentDepth}`)
-    log(`${currentDepth} selectedModels: ${selectedModels}`)
-    log(`${currentDepth} candidateModels: ${candidateModels}`)
+    // log(`PRIMITIVES: ${PRIMITIVES}`)
+    // log(`DEPTH: ${opts.depth}`)
+    // log(`CURRENTDEPTH: ${currentDepth}`)
+    // log(`${currentDepth} selectedModels: ${selectedModels}`)
+    // log(`${currentDepth} candidateModels: ${candidateModels}`)
     // Models mined at this depth.
     let modelsMined = new Array()
     // Models to check for the next depth.
@@ -320,9 +316,9 @@ module.exports = class ThingBuilder {
           modelsMined,
           this._parentClassesOf([...(modelDef.subs || [])])
         )
-        log(`${currentDepth} SubsMined: ${modelsMined}`)
+        // log(`${currentDepth} SubsMined: ${modelsMined}`)
         // Check the ModelType(s) of its fields.
-        log(`${currentDepth} modelDef.fields: ${[...modelDef.fields]}`)
+        // log(`${currentDepth} modelDef.fields: ${[...modelDef.fields]}`)
         for (let fieldName of modelDef.fields) {
           let fieldDef = this.FIELDS.get(fieldName)
           // Put them in order: selectedModels, candidateModels then primitives.
@@ -330,12 +326,12 @@ module.exports = class ThingBuilder {
           // use them,
           let selectFromModels = _.union(candidateModels, PRIMITIVES)
           // Select the most appropriate type for this fieldDef.
-          log(`${currentDepth} fieldDef.types ${[...fieldDef.types]}`)
+          // log(`${currentDepth} fieldDef.types ${[...fieldDef.types]}`)
           let chosenFieldType = this._bestFieldType(
             fieldDef.types,
             selectFromModels
           )
-          log(`${currentDepth} chosenFieldType: ${chosenFieldType}`)
+          // log(`${currentDepth} chosenFieldType: ${chosenFieldType}`)
           // See whether this is a ModelType, or a simple Primitive.
           if (this.MODELS.get(chosenFieldType)) {
             // If ModelType, add to the Set of models we will need.
@@ -343,7 +339,7 @@ module.exports = class ThingBuilder {
           } else {
             // Build a list of future Models to check.
             let fieldsModelTypes = _.difference([...fieldDef.types], PRIMITIVES)
-            log(`${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`)
+            // log(`${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`)
             deeperModels = _.union(deeperModels, fieldsModelTypes)
           }
         } // end for each field of modelDef
@@ -353,12 +349,12 @@ module.exports = class ThingBuilder {
       selectedModels,
       _.difference(modelsMined, PRIMITIVES)
     )
-    log("------")
+    // log("------")
     // Only go deeper if there are unmined ModelTypes.
     deeperModels = xor(modelResults, deeperModels)
-    log(`${currentDepth} modelResults: ${modelResults}`)
-    log(`${currentDepth} deeperModels: ${deeperModels}`)
-    log(`==================== end depth ${currentDepth}`)
+    // log(`${currentDepth} modelResults: ${modelResults}`)
+    // log(`${currentDepth} deeperModels: ${deeperModels}`)
+    // log(`==================== end depth ${currentDepth}`)
     // Allow to go deeper?
     if (currentDepth < opts.depth && deeperModels && deeperModels.length) {
       return this.modelMiner(
@@ -417,7 +413,7 @@ module.exports = class ThingBuilder {
       .map(m => m.name)
     // Primitives and Enum should permanently be available as Field Types.
     let PERMANENTLY = _.union(PRIMITIVES, ENUMTYPES)
-    log(`PERMANENTLY: ${PERMANENTLY}`)
+    // log(`PERMANENTLY: ${PERMANENTLY}`)
     // Internal Model definition resolved by `schemify` function.
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
@@ -574,7 +570,7 @@ module.exports = class ThingBuilder {
             "Integer",
             "Number",
             "Quantity",
-            "Time"
+            "Time",
           ].includes(def.type)
         ) {
           thing[field] = 0
@@ -585,7 +581,7 @@ module.exports = class ThingBuilder {
             "minValue",
             "maxValue",
             "price",
-            "value"
+            "value",
           ].includes(field)
         ) {
           thing[field] = 0.0
@@ -611,22 +607,19 @@ module.exports = class ThingBuilder {
   }
   writeOut(thingType, Thing, opts) {
     let thinglet = this.thinglet(Thing, thingType)
-    this.say(`- ${thingType}`)
 
     if (!opts.write) {
       if (opts.thinglet) {
-        this.say("thinglet")
         this.say(JSON.stringify(thinglet, null, "  "))
       }
       if (opts.schema) {
-        this.say("schema")
         this.say(JSON.stringify(Thing, null, "  "))
       }
       if (opts.list) {
-        this.say("list")
-        this.say(JSON.stringify(this._listSubs(thingType),null,"  "))
+        this.say([thingType, ...this._listSubs(thingType)].join("\n"))
       }
     } else {
+      this.say(`- ${thingType}:`)
       let hierarchy = this._parentClassesOf([thingType])
       hierarchy.pop()
       let thingPath = path.join(opts.write)
@@ -654,12 +647,18 @@ module.exports = class ThingBuilder {
     }
   }
   _listSubs(schemaName) {
-    return this.graphList.filter(
+    return this.graphList
+      .filter(
         a =>
-          a["@type"] === "rdfs:Class"
-         && a["rdfs:comment"].slice(0, 10) !== "Data type:"
-          && [...this._setOf(a, "rdfs:subClassOf")].includes(schemaName)
+          a["@type"] === "rdfs:Class" &&
+          a["rdfs:comment"].slice(0, 10) !== "Data type:" &&
+          [...this._setOf(a, "rdfs:subClassOf")].includes(schemaName)
       )
-      .map(a => typeof a["rdfs:label"] === "object"? a["rdfs:label"]["@value"] : a["rdfs:label"]).sort()
+      .map(a =>
+        typeof a["rdfs:label"] === "object"
+          ? a["rdfs:label"]["@value"]
+          : a["rdfs:label"]
+      )
+      .sort()
   }
 }
