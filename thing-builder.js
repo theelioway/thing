@@ -8,8 +8,6 @@ const union = require("./utils/union")
 const xor = require("./utils/xor")
 const { getSchema } = require("./utils/get-schema")
 
-
-
 module.exports = class ThingBuilder {
   /**
    * @file
@@ -550,7 +548,9 @@ module.exports = class ThingBuilder {
       if (!def.hasOwnProperty("type")) {
         thing[field] = this.thinglet(def, field)
       } else {
-        if (field === "mainEntityOfPage") {
+        if (field === "identifier") {
+          thing[field] = thingType[0].toLowerCase() + thingType.slice(1)
+        } else if (field === "mainEntityOfPage") {
           thing[field] = thingType
         } else if (field === "itemListElement") {
           thing[field] = []
@@ -639,10 +639,13 @@ module.exports = class ThingBuilder {
         this.say(`           ${writePath}`)
       }
       if (opts.list) {
-        let writePath = path.join(thingPath, `${opts.thingletName}.json`)
-        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  "))
+        let writePath = path.join(thingPath, `${thingType}sList.json`)
+        fs.writeFileSync(
+          writePath,
+          JSON.stringify([thingType, ...this._listSubs(thingType)], null, "  ")
+        )
         this.say("       found ✔ ")
-        this.say(JSON.stringify(thingBuilder._setModel(commander.args)))
+        this.say(`           ${writePath}`)
       }
     }
   }
