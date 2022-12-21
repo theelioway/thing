@@ -1,13 +1,19 @@
 <aside>
   <dl>
-  <dd>created all</dd>
+  <dd>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; created all</dd>
   <dd>Such to perfection, one first matter all,</dd>
   <dd>Endued with various forms, various degrees</dd>
   <dd>Of substance, and, in things that live, of life;</dd>
 </dl>
 </aside>
 
-A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models.
+
+Two reasons to love this **thing**:
+
+1. `ThingBuilder` is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+
+2. **thing** CLI is brilliant for writing out thinglets, Things or lists of Things.
 
 # Seeing is Believing
 

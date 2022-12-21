@@ -4,9 +4,15 @@
 
 # thing ![beta](https://elioway.gitlab.io/eliosin/icon/devops/beta/favicon.ico "beta")
 
-A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models. ThingBuilder is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models.
 
-- [thing Documentation](https://elioway.gitlab.io/eliothing/thing/)
+Two reasons to love this **thing**:
+
+1. `ThingBuilder` is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+
+2. **thing** CLI is brilliant for writing out thinglets, Things or lists of Things.
+
+3. [thing Documentation](https://elioway.gitlab.io/eliothing/thing/)
 
 ## Installing
 
@@ -23,10 +29,8 @@ git clone https://gitlab.com/eliothing/thing.git
 cd thing
 npm i
 
-
 # prints "thinglet" to screen
 npm run thing -- Action
-
 
 # Default: print a thinglet to screen
 npm run thing
@@ -43,10 +47,13 @@ npm run thing -- --schema
 # include SchemaOrg comments to your schema
 npm run thing -- --schema --comments
 
-# change the depth to which ThingBuilder will seek "typed" relationships
+# change the depth to which ThingBuilder will seek less primitively "typed" properties and relationships.
 npm run thing -- --schema --depth 2
 
 # write any result into this folder.
+npm run thing -- --write "."
+
+# write any result into any folder.
 npm run thing -- --write "./myThings/"
 
 # list all the subtypes of Thing
