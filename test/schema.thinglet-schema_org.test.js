@@ -25,7 +25,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
   for (let [modelName, expectThinglet] of Object.entries({
     Thing: {
       potentialAction: "",
-      identifier: "",
+      identifier: "thing",
       sameAs: "",
       url: "",
       image: "",
@@ -44,7 +44,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
     },
     HealthAndBeautyBusiness: {
       potentialAction: "",
-      identifier: "",
+      identifier: "healthAndBeautyBusiness",
       sameAs: "",
       url: "",
       image: "",
@@ -183,7 +183,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
     },
     ComicIssue: {
       potentialAction: "",
-      identifier: "",
+      identifier: "comicIssue",
       sameAs: "",
       url: "",
       image: "",
