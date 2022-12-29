@@ -32,7 +32,7 @@
   "main": "./thing-builder.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/elioway/eliothing/thing"
+    "url": "https://gitlab.com/eliothing/thing"
   },
   "scripts": {
     "thing": "node bin/index.js",
