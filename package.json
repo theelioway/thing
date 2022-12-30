@@ -16,7 +16,8 @@
   "bin": "./bin/index.js",
   "dependencies": {
     "commander": "^9.4.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "chai": "^4.3.7",
