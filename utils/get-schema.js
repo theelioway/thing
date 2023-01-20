@@ -7,5 +7,5 @@ module.exports = {
     const schemaContents = fs.readFileSync(schemaPath, "utf-8")
     return JSON.parse(schemaContents)["@graph"]
   },
-  schemaDomainUrl: "http://schema.org/",
+  schemaDomainUrl: "http://schema.org/"
 }

@@ -39,8 +39,8 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0,
-      },
+        numberOfItems: 0
+      }
     },
     HealthAndBeautyBusiness: {
       potentialAction: "",
@@ -99,7 +99,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         telephone: "",
         geo: "",
         geoCovers: "",
-        geoEquals: "",
+        geoEquals: ""
       },
       Organization: {
         members: "",
@@ -165,21 +165,21 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         employee: "",
         numberOfEmployees: "",
         naics: "",
-        hasPOS: "",
+        hasPOS: ""
       },
       LocalBusiness: {
         priceRange: "",
         openingHours: "",
         currenciesAccepted: "",
         branchOf: "",
-        paymentAccepted: "",
+        paymentAccepted: ""
       },
       HealthAndBeautyBusiness: {},
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0,
-      },
+        numberOfItems: 0
+      }
     },
     ComicIssue: {
       potentialAction: "",
@@ -300,13 +300,13 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         isBasedOnUrl: "",
         thumbnailUrl: "",
         expires: "1970-01-01",
-        comment: "",
+        comment: ""
       },
       PublicationIssue: {
         issueNumber: "",
         pageEnd: "",
         pageStart: "",
-        pagination: "",
+        pagination: ""
       },
       ComicIssue: {
         artist: "",
@@ -314,14 +314,14 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         inker: "",
         colorist: "",
         letterer: "",
-        penciler: "",
+        penciler: ""
       },
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0,
-      },
-    },
+        numberOfItems: 0
+      }
+    }
   })) {
     it(`${modelName} thing`, () => {
       let opts = { depth: 0, comments: false }

@@ -32,7 +32,7 @@ module.exports = class ThingBuilder {
       for (let primitiveName of fixedPrimitives) {
         this.PRIMTS.set(primitiveName, {
           name: primitiveName,
-          comment: "Fixed as Primitive in constructor.",
+          comment: "Fixed as Primitive in constructor."
         })
       }
     }
@@ -60,7 +60,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
           comment: schemaComment,
-          name: schemaName,
+          name: schemaName
         })
       }
     }
@@ -74,7 +74,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Class") {
         this._setModel(schemaName, {
           comment: schemaComment,
-          subs: this._setOf(schemaObj, "rdfs:subClassOf"),
+          subs: this._setOf(schemaObj, "rdfs:subClassOf")
         })
       }
       // Handle a Property/Field
@@ -85,7 +85,7 @@ module.exports = class ThingBuilder {
           comment: schemaComment,
           models: fieldOf,
           name: schemaName,
-          types: typeOf,
+          types: typeOf
         })
         // Add this property to any related Domain/Type/Class/Model
         for (let classType of fieldOf) {
@@ -115,7 +115,7 @@ module.exports = class ThingBuilder {
     if (cfg.subs && [...cfg.subs].filter(sub => primts.includes(sub)).length) {
       let p = this.PRIMTS.get(name) || {
         comment: cfg.comment,
-        name: name,
+        name: name
       }
       this.PRIMTS.set(name, p)
       return
@@ -124,7 +124,7 @@ module.exports = class ThingBuilder {
     let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
-      enums: new Set(),
+      enums: new Set()
     }
     t.comment = cfg.comment ? cfg.comment : t.comment
     t.subs = cfg.subs ? cfg.subs : t.subs
@@ -570,7 +570,7 @@ module.exports = class ThingBuilder {
             "Integer",
             "Number",
             "Quantity",
-            "Time",
+            "Time"
           ].includes(def.type)
         ) {
           thing[field] = 0
@@ -581,7 +581,7 @@ module.exports = class ThingBuilder {
             "minValue",
             "maxValue",
             "price",
-            "value",
+            "value"
           ].includes(field)
         ) {
           thing[field] = 0.0
