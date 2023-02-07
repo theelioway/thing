@@ -6,7 +6,7 @@
   },
   "description": "In the grand scheme of Things, **the elioWay**",
   "name": "@elioway/thing",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "tew": {
     "lifecycle": "beta",
     "chisel": {
