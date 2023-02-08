@@ -1,3 +1,3 @@
 # thing Prerequisites
 
-- [elioThing Prerequisites](/eliothing/prerequisites.html)
+- [eliothing Prerequisites](/eliothing/prerequisites.html)
