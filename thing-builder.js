@@ -1,10 +1,10 @@
 "use strict"
-const _ = require("lodash")
-const difference = require("./utils/difference")
+const { difference, union } = require("lodash")
 const fs = require("fs")
 const path = require("path")
 const sh = require("shelljs")
-const union = require("./utils/union")
+// const difference = require("./utils/difference")
+// const union = require("./utils/union")
 const xor = require("./utils/xor")
 const { getSchema } = require("./utils/get-schema")
 
@@ -13,7 +13,8 @@ module.exports = class ThingBuilder {
    * @file
    * @author Tim Bushell
    *
-   * @tutorial Doing this makes it easier to build the "DNA" of Models.
+   * @tutorial 
+   * You'll want to use this. A lot. Thing CLI uses it extensively so the best "tutorial" for now is
    *
    * @param {Array} graphList of schema objects from jsonld.
    * @param {String} domain used in jsonld.
@@ -64,8 +65,7 @@ module.exports = class ThingBuilder {
         })
       }
     }
-
-    // Collect all the known Primitives first.
+    // Collect Type/Class/Models.
     for (let schemaObj of graphList) {
       let schemaName = this._labelOf(schemaObj["rdfs:label"])
       let schemaType = this._typeOf(schemaObj["@type"])
@@ -247,12 +247,12 @@ module.exports = class ThingBuilder {
     for (let parent of knownSubs) {
       let parentClass = this.MODELS.get(parent)
       if (parentClass) {
-        let unKnownSubs = _.difference([...parentClass.subs], knownSubs)
-        newSubs = _.union(newSubs, unKnownSubs)
+        let unKnownSubs = difference([...parentClass.subs], knownSubs)
+        newSubs = union(newSubs, unKnownSubs)
       }
     }
     if (newSubs.length) {
-      knownSubs = _.union(this._parentClassesOf(newSubs), knownSubs)
+      knownSubs = union(this._parentClassesOf(newSubs), knownSubs)
     }
     return knownSubs
   }
@@ -293,7 +293,7 @@ module.exports = class ThingBuilder {
     // Defaults for recursive parameters.
     if (!currentDepth) currentDepth = 0
     // At each depth, search with the current models and the candidates.
-    candidateModels = _.union(selectedModels, candidateModels)
+    candidateModels = union(selectedModels, candidateModels)
 
     let PRIMITIVES = [...this.PRIMTS.keys()]
     // log(`PRIMITIVES: ${PRIMITIVES}`)
@@ -310,7 +310,7 @@ module.exports = class ThingBuilder {
       let modelDef = this.MODELS.get(modelName)
       // Null if Primitive type. Ignore.
       if (modelDef) {
-        modelsMined = _.union(
+        modelsMined = union(
           modelsMined,
           this._parentClassesOf([...(modelDef.subs || [])])
         )
@@ -322,7 +322,7 @@ module.exports = class ThingBuilder {
           // Put them in order: selectedModels, candidateModels then primitives.
           // We're adding candidateModels here because there's a chance we might
           // use them,
-          let selectFromModels = _.union(candidateModels, PRIMITIVES)
+          let selectFromModels = union(candidateModels, PRIMITIVES)
           // Select the most appropriate type for this fieldDef.
           // log(`${currentDepth} fieldDef.types ${[...fieldDef.types]}`)
           let chosenFieldType = this._bestFieldType(
@@ -336,16 +336,16 @@ module.exports = class ThingBuilder {
             modelsMined.push(chosenFieldType)
           } else {
             // Build a list of future Models to check.
-            let fieldsModelTypes = _.difference([...fieldDef.types], PRIMITIVES)
+            let fieldsModelTypes = difference([...fieldDef.types], PRIMITIVES)
             // log(`${currentDepth} fieldsModelTypes: ${fieldsModelTypes}`)
-            deeperModels = _.union(deeperModels, fieldsModelTypes)
+            deeperModels = union(deeperModels, fieldsModelTypes)
           }
         } // end for each field of modelDef
       } // end if modelDef
     }
-    let modelResults = _.union(
+    let modelResults = union(
       selectedModels,
-      _.difference(modelsMined, PRIMITIVES)
+      difference(modelsMined, PRIMITIVES)
     )
     // log("------")
     // Only go deeper if there are unmined ModelTypes.
@@ -390,7 +390,7 @@ module.exports = class ThingBuilder {
     return models
   }
   /**
-   * @file Make a simple JSON, version of a Model.
+   * @file Make a simple JSON version of a Model.
    * @tutorial To build a Model prepared for a backend database, you have two
    * choices. Either override this function, or use it's return value as the
    * basis for a custom function.
@@ -410,7 +410,7 @@ module.exports = class ThingBuilder {
       .filter(m => m.enums.size)
       .map(m => m.name)
     // Primitives and Enum should permanently be available as Field Types.
-    let PERMANENTLY = _.union(PRIMITIVES, ENUMTYPES)
+    let PERMANENTLY = union(PRIMITIVES, ENUMTYPES)
     // log(`PERMANENTLY: ${PERMANENTLY}`)
     // Internal Model definition resolved by `schemify` function.
     let modelDef = this.MODELS.get(selectedModelName)
@@ -440,7 +440,7 @@ module.exports = class ThingBuilder {
       // field type to matches one of those Models which will be selected -
       // otherwise we will default to a Primitive. In the unlikely event none
       // are matched: Fallsback to Text.
-      let selectFromModels = _.union(baseModels, PERMANENTLY)
+      let selectFromModels = union(baseModels, PERMANENTLY)
       field.type =
         this._bestFieldType(fieldDef.types, selectFromModels) || "Text"
       // Internal Model definition resolved by `schemify` function.
@@ -453,7 +453,7 @@ module.exports = class ThingBuilder {
           let fieldEnums = [...fieldTypeDef.enums.values()]
           if (fieldEnums.length) {
             delete field.foreign
-            if (!_.difference(fieldEnums, ["True", "False"]).length) {
+            if (!difference(fieldEnums, ["True", "False"]).length) {
               // Convert to Text + enumerated values.
               field.type = "Boolean"
             } else {
@@ -476,7 +476,7 @@ module.exports = class ThingBuilder {
 
   /**
    * @file Make a simple JSON, version of a complete Thing.
-   * @tutorial This creates a Thing with the Thing type's fields and  a map
+   * @tutorial This creates a Thing with the Thing type's fields and a map
    * of all the sub-Types.
    *
    * @param {str} selectedModelName to build.

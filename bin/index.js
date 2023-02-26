@@ -27,7 +27,7 @@ let thingBuilder = new ThingBuilder(
   "schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl
 )
-let { comments, depth, list, schema, thinglet, write } = commander.opts()
+let { list, schema, thinglet, write } = commander.opts()
 // It has to do something!
 if (!schema && !thinglet && !list) {
   thinglet = true
