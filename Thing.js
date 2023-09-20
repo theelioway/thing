@@ -1,10 +1,5 @@
-#!/usr/bin/env node
-// import commander from "commander"
-// import path from "path"
 
-// commander
-//   .version("1.0.0", "-v, --version")
-//   .usage("[OPTIONS]...")
+
 //   .option(
 //     "-d, --depth <int>",
 //     "How deep should we mine for related Thing Types",
@@ -19,6 +14,22 @@
 //   .option("-t, --thinglet", "Create the thinglet?", false)
 //   .option("-l, --list", "Find the perfect Thing", false)
 //   .parse(process.argv)
+
+
+import ItemList from "./Thing/Intangible/ItemList.js"
+
+/** Thing returns very least `thing`
+ *
+ * @param {Thing} thing (optional)
+ * @returns {Thing}
+ */
+export const Thing = thing => {
+  thing = ItemList(thing)
+  thing.mainEntityOfPage = thing.mainEntityOfPage || "Thing"
+  return thing
+}
+
+export default Thing
 
 import ThingBuilder from "./thing-builder.js"
 import { schemaDomainUrl } from "./utils/get-schema.js"
