@@ -1,25 +1,14 @@
 "use strict"
-const should = require("chai").should()
-const fs = require("fs")
+import { should } from "chai"
+import ThingBuilder from "../thing-builder.js"
+import { schemaDomainUrl } from "../utils/get-schema.js"
 
-const ThingBuilder = require("../thing-builder")
-const { schemaDomainUrl } = require("../utils/get-schema")
+should()
 
-let debug = false
-
-before(() => {
-  this.thingBuilder = new ThingBuilder(
-    "schemaorg/data/releases/9.0/schemaorg-all-http",
-    schemaDomainUrl
-  )
-  if (debug) this.jay = {}
-})
-
-after(() => {
-  if (debug && this.jay) {
-    fs.writeFileSync(`./expected.json`, JSON.stringify(this.jay))
-  }
-})
+const thingBuilder = new ThingBuilder(
+  "schemaorg/data/releases/9.0/schemaorg-all-http",
+  schemaDomainUrl,
+)
 
 describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
   for (let [modelName, expectThinglet] of Object.entries({
@@ -39,8 +28,8 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0
-      }
+        numberOfItems: 0,
+      },
     },
     HealthAndBeautyBusiness: {
       potentialAction: "",
@@ -99,7 +88,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         telephone: "",
         geo: "",
         geoCovers: "",
-        geoEquals: ""
+        geoEquals: "",
       },
       Organization: {
         members: "",
@@ -115,7 +104,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         makesOffer: "",
         contactPoints: "",
         awards: "",
-        foundingDate: "",
+        foundingDate: "1970-01-01",
         ownershipFundingInfo: "",
         founders: "",
         seeks: "",
@@ -149,7 +138,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         nonprofitStatus: "",
         address: "",
         alumni: "",
-        dissolutionDate: "",
+        dissolutionDate: "1970-01-01",
         interactionStatistic: "",
         logo: "",
         employees: "",
@@ -165,21 +154,21 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         employee: "",
         numberOfEmployees: "",
         naics: "",
-        hasPOS: ""
+        hasPOS: "",
       },
       LocalBusiness: {
         priceRange: "",
         openingHours: "",
         currenciesAccepted: "",
         branchOf: "",
-        paymentAccepted: ""
+        paymentAccepted: "",
       },
       HealthAndBeautyBusiness: {},
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0
-      }
+        numberOfItems: 0,
+      },
     },
     ComicIssue: {
       potentialAction: "",
@@ -197,7 +186,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
       CreativeWork: {
         typicalAgeRange: "",
         hasPart: "",
-        sdDatePublished: "",
+        sdDatePublished: "1970-01-01",
         educationalLevel: "",
         releasedEvent: "",
         schemaVersion: "",
@@ -265,12 +254,12 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         correction: "",
         workTranslation: "",
         mentions: "",
-        contentReferenceTime: "",
-        dateCreated: "",
+        contentReferenceTime: "1970-01-01T00:00:00.000Z",
+        dateCreated: "1970-01-01",
         educationalUse: "",
         teaches: "",
         alternativeHeadline: "",
-        datePublished: "",
+        datePublished: "1970-01-01",
         isAccessibleForFree: 0,
         headline: "",
         translationOfWork: "",
@@ -286,7 +275,7 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         assesses: "",
         keywords: "",
         version: "",
-        dateModified: "",
+        dateModified: "1970-01-01",
         learningResourceType: "",
         genre: "",
         creativeWorkStatus: "",
@@ -299,14 +288,14 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         usageInfo: "",
         isBasedOnUrl: "",
         thumbnailUrl: "",
-        expires: "",
-        comment: ""
+        expires: "1970-01-01",
+        comment: "",
       },
       PublicationIssue: {
         issueNumber: "",
         pageEnd: "",
         pageStart: "",
-        pagination: ""
+        pagination: "",
       },
       ComicIssue: {
         artist: "",
@@ -314,19 +303,19 @@ describe(`class | ThingBuilder | thinglet schemaorg 9.0`, () => {
         inker: "",
         colorist: "",
         letterer: "",
-        penciler: ""
+        penciler: "",
       },
       ItemList: {
         itemListElement: [],
         itemListOrder: "",
-        numberOfItems: 0
-      }
-    }
+        numberOfItems: 0,
+      },
+    },
   })) {
     it(`${modelName} thing`, () => {
       let opts = { depth: 0, comments: false }
-      let Thing = this.thingBuilder.Thing([modelName], opts)
-      let thinglet = this.thingBuilder.thinglet(Thing[modelName], modelName)
+      let Thing = thingBuilder.Thing([modelName], opts)
+      let thinglet = thingBuilder.thinglet(Thing[modelName], modelName)
       thinglet.should.be.eql(expectThinglet)
     })
   }

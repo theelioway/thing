@@ -1,34 +1,20 @@
 {
-  "author": {
-    "name": "Tim Bushell",
-    "email": "theElioWay@gmail.com",
-    "url": "https://gitlab.com/elioway"
-  },
-  "description": "In the grand scheme of Things, **the elioWay**",
+  "alternateName": "to basest things, the elioWay",
+  "description": "Working with Schema.org Things, the elioWay.",
+  "disambiguatingDescription": "After their kinds; I bring them to receive, the elioWay",
+  "identifier": "thing",
+  "mainEntityOfPage": "SoftwareSourceCode",
   "name": "@elioway/thing",
+  "subjectOf": "eliothing",
   "version": "1.1.8",
-  "tew": {
-    "lifecycle": "beta",
-    "chisel": {
-      "Home": "eliothing"
-    }
-  },
   "bin": "./bin/index.js",
-  "dependencies": {
-    "commander": "^10.0.0",
-    "lodash": "^4.17.21",
-    "shelljs": "^0.8.5"
-  },
   "devDependencies": {
-    "chai": "^4.3.7",
+    "chai": "^4.3.8",
+    "lodash-es": "^4.17.21",
     "mocha": "^10.2.0",
-    "prettier": "^2.8.3"
+    "prettier": "^3.0.3"
   },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
-  "keywords": [
-    "nodejs",
-    "schema"
-  ],
   "license": "MIT",
   "main": "./thing-builder.js",
   "repository": {
@@ -39,6 +25,7 @@
     "thing": "node bin/index.js",
     "allThingsBrightAndBeautiful": "node allThingsBrightAndBeautiful.js",
     "test": "mocha --recursive",
-    "prettier": "prettier --write \"**/*.{css,html,js,json,md,mjs,scss,ts,yaml}\" \"!package.json\""
-  }
+    "prettier": "prettier --list-different --write \"**/*.{css,html,js,json,md,mjs,scss,ts,yaml}\" \"!package.json\""
+  },
+  "type": "module"
 }

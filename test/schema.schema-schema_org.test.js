@@ -1,8 +1,9 @@
-const should = require("chai").should()
-const fs = require("fs")
+"use strict"
+import { should } from "chai"
+import ThingBuilder from "../thing-builder.js"
+import { schemaDomainUrl } from "../utils/get-schema.js"
 
-const ThingBuilder = require("../thing-builder")
-const { schemaDomainUrl } = require("../utils/get-schema")
+should()
 
 describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
   it("crispy_schema_versioning_members", () => {
@@ -13,18 +14,18 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
       "Number",
       "Text",
       "Time",
-      "Quantity" // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
+      "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     let thingBuilder = new ThingBuilder(
       "schemaorg/data/releases/3.9/all-layers",
       schemaDomainUrl,
-      fixedPrimitives
+      fixedPrimitives,
     )
     /**Correct as of 3.9.*/
     thingBuilder.MODELS.size.should.be.equal(802)
 
     let modelDefs = [...thingBuilder.MODELS.values()]
-    let enumedModels = modelDefs.filter(m => m.enums.size)
+    let enumedModels = modelDefs.filter((m) => m.enums.size)
     enumedModels.length.should.be.equal(56)
 
     let enumsSize = modelDefs.reduce((enumsTotalLength, m) => {
@@ -44,8 +45,8 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
         "Integer",
         "Mass",
         "URL",
-        "XPathType"
-      ])
+        "XPathType",
+      ]),
     )
   })
 })

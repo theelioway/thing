@@ -1,6 +1,9 @@
-const should = require("chai").should()
-const customDifference = require("../utils/difference")
-const { difference } = require("lodash")
+"use strict"
+import { should } from "chai"
+import { default as customDifference } from "../utils/difference.js"
+import { difference } from "lodash-es"
+
+should()
 
 let differenceTests = [
   [[], [], []],
@@ -29,13 +32,13 @@ let differenceTests = [
   [
     [6, 9, 8, 5],
     [4, 3, 2, 7, 1],
-    [6, 9, 8, 5]
+    [6, 9, 8, 5],
   ],
   [[1, 2], [2, 3], [1]],
   [[1, 2], [1, 2, 3], []],
   [[1, 3], [2, 3], [1]],
   [[1, 2, 3], [1, 2, 3], []],
-  [[1, 2, 3], [4, 2, 3], [1]]
+  [[1, 2, 3], [4, 2, 3], [1]],
 ]
 
 let speedTests = 11111
@@ -59,7 +62,7 @@ describe("utils | customDifference", () => {
 })
 
 describe("utils | difference", () => {
-  it.skip("tis fast", () => {
+  it("tis fast", () => {
     let stamp = Date.now()
     for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {
@@ -71,7 +74,7 @@ describe("utils | difference", () => {
 })
 
 describe("utils | customDifference", () => {
-  it.skip("tis faster", () => {
+  it("tis faster", () => {
     let stamp = Date.now()
     for (let i = 0; i < speedTests; i++) {
       for (let [l1, l2, expectDifference] of differenceTests) {

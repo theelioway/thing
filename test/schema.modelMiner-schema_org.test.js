@@ -1,34 +1,33 @@
-const should = require("chai").should()
-const fs = require("fs")
+"use strict"
+import { should } from "chai"
+import ThingBuilder from "../thing-builder.js"
+import { schemaDomainUrl } from "../utils/get-schema.js"
 
-const ThingBuilder = require("../thing-builder")
-const { schemaDomainUrl } = require("../utils/get-schema")
+should()
 
 describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
-  before(() => {
-    this.fixedPrimitives = [
-      "Boolean",
-      "Date",
-      "DateTime",
-      "Number",
-      "Text",
-      "Time",
-      "Quantity" // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
-    ]
-    this.thingBuilder = new ThingBuilder(
-      "schemaorg/data/releases/3.9/all-layers",
-      schemaDomainUrl,
-      this.fixedPrimitives
-    )
-  })
+  const fixedPrimitives = [
+    "Boolean",
+    "Date",
+    "DateTime",
+    "Number",
+    "Text",
+    "Time",
+    "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
+  ]
+  const thingBuilder = new ThingBuilder(
+    "schemaorg/data/releases/3.9/all-layers",
+    schemaDomainUrl,
+    fixedPrimitives,
+  )
 
   it("Thing", () => {
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"])
+    let modelsMined = thingBuilder.modelMiner(["Thing"])
     modelsMined.should.have.members(["Thing"])
   })
 
   it("Thing at depth 0", () => {
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 0 })
+    let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 0 })
     modelsMined.should.have.members(["Thing"])
   })
 
@@ -42,9 +41,9 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "MediaObject",
       "PropertyValue",
       "Thing",
-      "StructuredValue"
+      "StructuredValue",
     ]
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 1 })
+    let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 1 })
     modelsMined.should.have.members(thus)
   })
 
@@ -83,16 +82,16 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "PostalAddress",
       "ActionStatusType",
       "EntryPoint",
-      "ContactPoint"
+      "ContactPoint",
     ]
-    let modelsMined = this.thingBuilder.modelMiner(["Thing"], { depth: 2 })
+    let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 2 })
     modelsMined.should.have.members(thus)
   })
 
   /**Three tier subclasses otherwise only primitive types because no depth.*/
   it("MusicComposition at depth 0", () => {
     let thus = ["CreativeWork", "MusicComposition", "Thing"]
-    let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"])
+    let modelsMined = thingBuilder.modelMiner(["MusicComposition"])
     modelsMined.should.have.members(thus)
   })
 
@@ -104,9 +103,9 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
       "Notary",
       "Organization",
       "Place",
-      "Thing"
+      "Thing",
     ]
-    let modelsMined = this.thingBuilder.modelMiner(["Notary"])
+    let modelsMined = thingBuilder.modelMiner(["Notary"])
     // Subclass dependency otherwise primitive types.
     modelsMined.should.have.members(thus)
   })
@@ -117,14 +116,14 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     4: 85,
     5: 89,
     6: 91,
-    7: 91 // eventually we reach a max
+    7: 91, // eventually we reach a max
   })) {
     it(`Thing at depth ${depth}`, () => {
       {
         depth: depth
       }
-      let modelsMined = this.thingBuilder.modelMiner(["Thing"], {
-        depth: depth
+      let modelsMined = thingBuilder.modelMiner(["Thing"], {
+        depth: depth,
       })
       modelsMined.length.should.be.equal(modelCount)
     })
@@ -137,11 +136,11 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     4: 94,
     5: 97,
     6: 99,
-    7: 99 // eventually we reach a max
+    7: 99, // eventually we reach a max
   })) {
     it(`MusicComposition at depth ${depth}`, () => {
-      let modelsMined = this.thingBuilder.modelMiner(["MusicComposition"], {
-        depth: depth
+      let modelsMined = thingBuilder.modelMiner(["MusicComposition"], {
+        depth: depth,
       })
       modelsMined.length.should.be.equal(modelCount)
     })
@@ -155,11 +154,11 @@ describe("class | ThingBuilder | modelMiner schemaorg 3.9", () => {
     5: 94,
     6: 96,
     7: 98,
-    8: 98 // eventually we reach a max
+    8: 98, // eventually we reach a max
   })) {
     it(`Notary at depth ${depth}`, () => {
-      let modelsMined = this.thingBuilder.modelMiner(["Notary"], {
-        depth: depth
+      let modelsMined = thingBuilder.modelMiner(["Notary"], {
+        depth: depth,
       })
       modelsMined.length.should.be.equal(modelCount)
     })

@@ -1,6 +1,5 @@
 "use strict"
-const union = require("./union")
-const _ = require("lodash")
+import union from "./union.js"
 
 /**Returns what is left in both lists because the function makes same values
  * in each list cancel each other out.
@@ -19,11 +18,12 @@ const _ = require("lodash")
  * >> xor([true, false], [false]) === [true]
  * >> xor([true, false], [false, true]) === []
  */
-module.exports = (l1, l2) => {
+export const xor = (l1, l2) => {
   let s1 = new Set(l1)
   let s2 = new Set(l2)
-  return _.union(
-    [...s1].filter(x => !s2.has(x)),
-    [...s2].filter(x => !s1.has(x))
+  return union(
+    [...s1].filter((x) => !s2.has(x)),
+    [...s2].filter((x) => !s1.has(x)),
   )
 }
+export default xor

@@ -8,11 +8,11 @@
 - `git clone https://github.com/schemaorg/schemaorg.git` -
 
 ```javascript
-const { schemaDomainUrl } = require("@elioway/thing/utils/get-schema")
+import { schemaDomainUrl } from "@elioway/thing/utils/get-schema"
 ```
 
 ```javascript
-const ThingBuilder = require("@elioway/thing")
+import ThingBuilder from "@elioway/thing"
 ```
 
 ## How to get Schema
@@ -129,9 +129,9 @@ Selecting a specific version of <https://schema.org>
 - `git clone https://github.com/schemaorg/schemaorg.git`
 
 ```javascript
-const ThingBuilder = require("../thing-builder")
-const { schemaDomainUrl } = require("@elioway/thing/utils/get-schema")
-const releaseV9 = "schemaorg/data/releases/9.0/schemaorg-all-http"
+import ThingBuilder from "@elioway/thing/thing-builder.js"
+import { schemaDomainUrl } from "@elioway/thing/utils/get-schema.js"
+import releaseV9 = "schemaorg/data/releases/9.0/schemaorg-all-http"
 let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 ```
 
@@ -140,7 +140,7 @@ let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 Instantiate the ThingBuilder:
 
 ```javascript
-const ThingBuilder = require("../thing-builder")
+import ThingBuilder from "@elioway/thing/thing-builder"
 let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 ```
 
@@ -256,7 +256,7 @@ Return a fully round Thing with all its fields and fields of those it subclasses
 
 ```javascript
 let thing = thingBuilder.thing("StructuredValue", modelsMined, {
-  comments: false
+  comments: false,
 })
 ```
 

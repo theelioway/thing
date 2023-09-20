@@ -1,11 +1,12 @@
 "use strict"
-const fs = require("fs")
+import fs from "fs"
 
-module.exports = {
-  getSchema: schemaVersion => {
-    const schemaPath = `${schemaVersion}.jsonld`
-    const schemaContents = fs.readFileSync(schemaPath, "utf-8")
-    return JSON.parse(schemaContents)["@graph"]
-  },
-  schemaDomainUrl: "http://schema.org/"
+export const getSchema = (schemaVersion) => {
+  const schemaPath = `${schemaVersion}.jsonld`
+  const schemaContents = fs.readFileSync(schemaPath, "utf-8")
+  return JSON.parse(schemaContents)["@graph"]
 }
+
+export const schemaDomainUrl = "http://schema.org/"
+
+export default getSchema

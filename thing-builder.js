@@ -1,19 +1,20 @@
 "use strict"
-const { difference, union } = require("lodash")
-const fs = require("fs")
-const path = require("path")
-const sh = require("shelljs")
-// const difference = require("./utils/difference")
-// const union = require("./utils/union")
-const xor = require("./utils/xor")
-const { getSchema } = require("./utils/get-schema")
+import path from "path"
+import { fileURLToPath } from 'url';
+import difference from "./utils/difference.js"
+import union from "./utils/union.js"
+import xor from "./utils/xor.js"
+import { getSchema } from "./utils/get-schema.js"
 
-module.exports = class ThingBuilder {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export class ThingBuilder {
   /**
    * @file
    * @author Tim Bushell
    *
-   * @tutorial 
+   * @tutorial
    * You'll want to use this. A lot. Thing CLI uses it extensively so the best "tutorial" for now is
    *
    * @param {Array} graphList of schema objects from jsonld.
@@ -33,7 +34,7 @@ module.exports = class ThingBuilder {
       for (let primitiveName of fixedPrimitives) {
         this.PRIMTS.set(primitiveName, {
           name: primitiveName,
-          comment: "Fixed as Primitive in constructor."
+          comment: "Fixed as Primitive in constructor.",
         })
       }
     }
@@ -61,7 +62,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Primitive") {
         this.PRIMTS.set(schemaName, {
           comment: schemaComment,
-          name: schemaName
+          name: schemaName,
         })
       }
     }
@@ -74,7 +75,7 @@ module.exports = class ThingBuilder {
       if (schemaType === "Class") {
         this._setModel(schemaName, {
           comment: schemaComment,
-          subs: this._setOf(schemaObj, "rdfs:subClassOf")
+          subs: this._setOf(schemaObj, "rdfs:subClassOf"),
         })
       }
       // Handle a Property/Field
@@ -85,7 +86,7 @@ module.exports = class ThingBuilder {
           comment: schemaComment,
           models: fieldOf,
           name: schemaName,
-          types: typeOf
+          types: typeOf,
         })
         // Add this property to any related Domain/Type/Class/Model
         for (let classType of fieldOf) {
@@ -112,10 +113,13 @@ module.exports = class ThingBuilder {
   _setModel(name, cfg) {
     // Check to see if subClasses a primitive.
     let primts = [...this.PRIMTS.keys()]
-    if (cfg.subs && [...cfg.subs].filter(sub => primts.includes(sub)).length) {
+    if (
+      cfg.subs &&
+      [...cfg.subs].filter((sub) => primts.includes(sub)).length
+    ) {
       let p = this.PRIMTS.get(name) || {
         comment: cfg.comment,
-        name: name
+        name: name,
       }
       this.PRIMTS.set(name, p)
       return
@@ -124,7 +128,7 @@ module.exports = class ThingBuilder {
     let t = this.MODELS.get(name) || {
       name: name,
       fields: new Set(),
-      enums: new Set()
+      enums: new Set(),
     }
     t.comment = cfg.comment ? cfg.comment : t.comment
     t.subs = cfg.subs ? cfg.subs : t.subs
@@ -214,7 +218,7 @@ module.exports = class ThingBuilder {
       return new Set()
     }
     return new Set(
-      this._listAnyway(obj[key]).map(d => d["@id"].replace(this.domain, ""))
+      this._listAnyway(obj[key]).map((d) => d["@id"].replace(this.domain, "")),
     )
   }
 
@@ -312,7 +316,7 @@ module.exports = class ThingBuilder {
       if (modelDef) {
         modelsMined = union(
           modelsMined,
-          this._parentClassesOf([...(modelDef.subs || [])])
+          this._parentClassesOf([...(modelDef.subs || [])]),
         )
         // log(`${currentDepth} SubsMined: ${modelsMined}`)
         // Check the ModelType(s) of its fields.
@@ -327,7 +331,7 @@ module.exports = class ThingBuilder {
           // log(`${currentDepth} fieldDef.types ${[...fieldDef.types]}`)
           let chosenFieldType = this._bestFieldType(
             fieldDef.types,
-            selectFromModels
+            selectFromModels,
           )
           // log(`${currentDepth} chosenFieldType: ${chosenFieldType}`)
           // See whether this is a ModelType, or a simple Primitive.
@@ -345,7 +349,7 @@ module.exports = class ThingBuilder {
     }
     let modelResults = union(
       selectedModels,
-      difference(modelsMined, PRIMITIVES)
+      difference(modelsMined, PRIMITIVES),
     )
     // log("------")
     // Only go deeper if there are unmined ModelTypes.
@@ -359,7 +363,7 @@ module.exports = class ThingBuilder {
         modelResults,
         opts,
         deeperModels,
-        (currentDepth += 1)
+        (currentDepth += 1),
       )
     } else {
       // Return as Array
@@ -384,7 +388,7 @@ module.exports = class ThingBuilder {
       models[selectedModelName] = this.modelMaker(
         selectedModelName,
         baseModels,
-        opts
+        opts,
       )
     }
     return models
@@ -407,8 +411,8 @@ module.exports = class ThingBuilder {
     // Fall back if Field Type is not a Schema Class.
     let PRIMITIVES = [...this.PRIMTS.keys()]
     let ENUMTYPES = [...this.MODELS.values()]
-      .filter(m => m.enums.size)
-      .map(m => m.name)
+      .filter((m) => m.enums.size)
+      .map((m) => m.name)
     // Primitives and Enum should permanently be available as Field Types.
     let PERMANENTLY = union(PRIMITIVES, ENUMTYPES)
     // log(`PERMANENTLY: ${PERMANENTLY}`)
@@ -416,7 +420,7 @@ module.exports = class ThingBuilder {
     let modelDef = this.MODELS.get(selectedModelName)
     if (!modelDef) {
       throw new RangeError(
-        `${selectedModelName} Model not found. Is Class Type in Schema?`
+        `${selectedModelName} Model not found. Is Class Type in Schema?`,
       )
     }
     // Return object.
@@ -489,11 +493,11 @@ module.exports = class ThingBuilder {
     if (!opts) opts = { depth: 0, comments: false }
     // Return a Thing,
     let thing = this.sortObjKeysAlphabetically(
-      this.modelMaker("Thing", baseModels, opts).fields
+      this.modelMaker("Thing", baseModels, opts).fields,
     )
     // Add ItemList to the the Thing model.
     thing.ItemList = this.sortObjKeysAlphabetically(
-      this.modelMaker("ItemList", baseModels, opts).fields
+      this.modelMaker("ItemList", baseModels, opts).fields,
     )
     // If selectedModelName is not super class.
     if (
@@ -504,15 +508,15 @@ module.exports = class ThingBuilder {
       let selectedModel = this.modelMaker(selectedModelName, baseModels, opts)
       // "Engage" the selectedModel.
       thing[selectedModelName] = this.sortObjKeysAlphabetically(
-        selectedModel.fields
+        selectedModel.fields,
       )
       // Find all the Types this thing subclasses.
-      let subs = selectedModel.subs.map(s => s)
+      let subs = selectedModel.subs.map((s) => s)
       for (let sub of subs) {
         if (sub !== "Thing" && sub !== "ItemList") {
           // "Engage" the selectedModel's subclasses.
           thing[sub] = this.sortObjKeysAlphabetically(
-            this.modelMaker(sub, baseModels, opts).fields
+            this.modelMaker(sub, baseModels, opts).fields,
           )
         }
       }
@@ -570,7 +574,7 @@ module.exports = class ThingBuilder {
             "Integer",
             "Number",
             "Quantity",
-            "Time"
+            "Time",
           ].includes(def.type)
         ) {
           thing[field] = 0
@@ -581,7 +585,7 @@ module.exports = class ThingBuilder {
             "minValue",
             "maxValue",
             "price",
-            "value"
+            "value",
           ].includes(field)
         ) {
           thing[field] = 0.0
@@ -605,63 +609,65 @@ module.exports = class ThingBuilder {
   say(msg) {
     console.log(msg)
   }
-  writeOut(thingType, Thing, opts) {
-    let thinglet = this.thinglet(Thing, thingType)
+  // writeOut(thingType, Thing, opts) {
+  //   let thinglet = this.thinglet(Thing, thingType)
 
-    if (!opts.write) {
-      if (opts.thinglet) {
-        this.say(JSON.stringify(thinglet, null, "  "))
-      }
-      if (opts.schema) {
-        this.say(JSON.stringify(Thing, null, "  "))
-      }
-      if (opts.list) {
-        this.say([thingType, ...this._listSubs(thingType)].join("\n"))
-      }
-    } else {
-      this.say(`- ${thingType}:`)
-      let hierarchy = this._parentClassesOf([thingType])
-      hierarchy.pop()
-      let thingPath = path.join(opts.write)
-      sh.mkdir("-p", thingPath)
-      if (opts.thinglet) {
-        let writePath = path.join(thingPath, `${opts.thingletName}.json`)
-        fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  "))
-        this.say("       thinglet ✔ ")
-        this.say(`           ${writePath}`)
-      }
-      if (opts.schema) {
-        let thingSchemaPath = path.join(opts.write, ...hierarchy)
-        let writePath = path.join(thingSchemaPath, `${thingType}.json`)
-        sh.mkdir("-p", thingSchemaPath)
-        fs.writeFileSync(writePath, JSON.stringify(Thing, null, "  "))
-        this.say("       schemed ✔ ")
-        this.say(`           ${writePath}`)
-      }
-      if (opts.list) {
-        let writePath = path.join(thingPath, `${thingType}sList.json`)
-        fs.writeFileSync(
-          writePath,
-          JSON.stringify([thingType, ...this._listSubs(thingType)], null, "  ")
-        )
-        this.say("       found ✔ ")
-        this.say(`           ${writePath}`)
-      }
-    }
-  }
+  //   if (!opts.write) {
+  //     if (opts.thinglet) {
+  //       this.say(JSON.stringify(thinglet, null, "  "))
+  //     }
+  //     if (opts.schema) {
+  //       this.say(JSON.stringify(Thing, null, "  "))
+  //     }
+  //     if (opts.list) {
+  //       this.say([thingType, ...this._listSubs(thingType)].join("\n"))
+  //     }
+  //   } else {
+  //     this.say(`- ${thingType}:`)
+  //     let hierarchy = this._parentClassesOf([thingType])
+  //     hierarchy.pop()
+  //     let thingPath = path.join(opts.write)
+  //     sh.mkdir("-p", thingPath)
+  //     if (opts.thinglet) {
+  //       let writePath = path.join(thingPath, `${opts.thingletName}.json`)
+  //       fs.writeFileSync(writePath, JSON.stringify(thinglet, null, "  "))
+  //       this.say("       thinglet ✔ ")
+  //       this.say(`           ${writePath}`)
+  //     }
+  //     if (opts.schema) {
+  //       let thingSchemaPath = path.join(opts.write, ...hierarchy)
+  //       let writePath = path.join(thingSchemaPath, `${thingType}.json`)
+  //       sh.mkdir("-p", thingSchemaPath)
+  //       fs.writeFileSync(writePath, JSON.stringify(Thing, null, "  "))
+  //       this.say("       schemed ✔ ")
+  //       this.say(`           ${writePath}`)
+  //     }
+  //     if (opts.list) {
+  //       let writePath = path.join(thingPath, `${thingType}sList.json`)
+  //       fs.writeFileSync(
+  //         writePath,
+  //         JSON.stringify([thingType, ...this._listSubs(thingType)], null, "  "),
+  //       )
+  //       this.say("       found ✔ ")
+  //       this.say(`           ${writePath}`)
+  //     }
+  //   }
+  // }
   _listSubs(schemaName) {
     return this.graphList
       .filter(
-        a =>
+        (a) =>
           a["@type"] === "rdfs:Class" &&
           a["rdfs:comment"].slice(0, 10) !== "Data type:" &&
-          [...this._setOf(a, "rdfs:subClassOf")].includes(schemaName)
+          [...this._setOf(a, "rdfs:subClassOf")].includes(schemaName),
       )
-      .map(a =>
+      .map((a) =>
         typeof a["rdfs:label"] === "object"
           ? a["rdfs:label"]["@value"]
-          : a["rdfs:label"]
+          : a["rdfs:label"],
       )
       .sort()
   }
 }
+
+export default ThingBuilder
