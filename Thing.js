@@ -22,7 +22,7 @@
 
 
 import ThingBuilder from "./thing-builder.js"
-import { schemaDomainUrl } from "./utils/get-schema.js"
+import { schemaDomainUrl } from "./src/utils/get-schema.js"
 // import ItemList from "./Thing/Intangible/ItemList.js"
 
 /**

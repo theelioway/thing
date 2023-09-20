@@ -5,7 +5,7 @@ import ThingBuilder from "../thing-builder.js"
 should()
 
 describe("class | ThingBuilder | modelMaker tinyUniverse", () => {
-  const thingBuilder = new ThingBuilder("test/fixtures/tinyUniverse", "d:/")
+  const thingBuilder = new ThingBuilder("./test/fixtures/tinyUniverse", "d:/")
 
   let SIMPLESTEXPECTEDMODEL = {
     fields: {

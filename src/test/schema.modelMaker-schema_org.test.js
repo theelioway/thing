@@ -5,8 +5,9 @@ import { schemaDomainUrl } from "../utils/get-schema.js"
 
 should()
 
+
 const thingBuilder = new ThingBuilder(
-  "schemaorg/data/releases/9.0/schemaorg-all-http",
+  "./schemaorg/data/releases/9.0/schemaorg-all-http",
   schemaDomainUrl,
 )
 

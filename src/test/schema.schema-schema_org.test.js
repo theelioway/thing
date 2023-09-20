@@ -17,7 +17,7 @@ describe("class | ThingBuilder | schemify schemaorg  3.9", () => {
       "Quantity", // Put this here to resolve Distance, Duration, Energy, Mass as Primitive.
     ]
     let thingBuilder = new ThingBuilder(
-      "schemaorg/data/releases/3.9/all-layers",
+      "./schemaorg/data/releases/3.9/all-layers",
       schemaDomainUrl,
       fixedPrimitives,
     )

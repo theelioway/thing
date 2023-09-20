@@ -4,7 +4,7 @@ import ThingBuilder from "../thing-builder.js"
 
 should()
 
-const thingBuilder = new ThingBuilder("test/fixtures/quantumUniverse", "d:/")
+const thingBuilder = new ThingBuilder("./test/fixtures/quantumUniverse", "d:/")
 
 describe("class | ThingBuilder | modelMiner quantumUniverse [Cosmos] Primitive Integer", () => {
   it("depth 0", () => {
