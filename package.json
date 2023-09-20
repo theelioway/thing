@@ -16,7 +16,7 @@
   },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "license": "MIT",
-  "main": "./thing-builder.js",
+  "main": "./src/thing-builder.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/eliothing/thing"
