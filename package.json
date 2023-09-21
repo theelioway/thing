@@ -16,16 +16,19 @@
   },
   "homepage": "https://elioway.gitlab.io/eliothing/thing",
   "license": "MIT",
-  "main": "./thing-builder.js",
+  "main": "./src/thing-builder.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/eliothing/thing"
   },
   "scripts": {
     "thing": "node bin/index.js",
-    "allThingsBrightAndBeautiful": "node allThingsBrightAndBeautiful.js",
-    "test": "mocha --recursive",
+    "beautiful": "node allThingsBrightAndBeautiful.js",
+    "test": "mocha",
     "prettier": "prettier --list-different --write \"**/*.{css,html,js,json,md,mjs,scss,ts,yaml}\" \"!package.json\""
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "humps": "^2.0.1"
+  }
 }
