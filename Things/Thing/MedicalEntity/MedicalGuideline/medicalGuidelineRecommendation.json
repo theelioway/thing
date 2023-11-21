@@ -1,0 +1,35 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "MedicalGuidelineRecommendation",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalGuidelineRecommendation": { "recommendationStrength": "" },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  },
+  "MedicalGuideline": {
+    "evidenceLevel": "",
+    "evidenceOrigin": "",
+    "guidelineDate": "1970-01-01",
+    "guidelineSubject": ""
+  }
+}

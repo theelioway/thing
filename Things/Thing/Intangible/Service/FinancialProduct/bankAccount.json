@@ -1,0 +1,56 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "BankAccount",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "BankAccount": {
+    "accountMinimumInflow": "",
+    "accountOverdraftLimit": "",
+    "bankAccountType": ""
+  },
+  "Intangible": {},
+  "Service": {
+    "aggregateRating": "",
+    "areaServed": "",
+    "audience": "",
+    "availableChannel": "",
+    "award": "",
+    "brand": "",
+    "broker": "",
+    "category": "",
+    "hasOfferCatalog": "",
+    "hoursAvailable": "",
+    "isRelatedTo": "",
+    "isSimilarTo": "",
+    "logo": "",
+    "offers": "",
+    "produces": "",
+    "provider": "",
+    "providerMobility": "",
+    "review": "",
+    "serviceArea": "",
+    "serviceAudience": "",
+    "serviceOutput": "",
+    "serviceType": "",
+    "slogan": "",
+    "termsOfService": ""
+  },
+  "FinancialProduct": {
+    "annualPercentageRate": 0,
+    "feesAndCommissionsSpecification": "",
+    "interestRate": 0
+  }
+}

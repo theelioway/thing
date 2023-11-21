@@ -1,0 +1,48 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "MedicalSign",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalSign": { "identifyingExam": "", "identifyingTest": "" },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  },
+  "MedicalCondition": {
+    "associatedAnatomy": "",
+    "differentialDiagnosis": "",
+    "drug": "",
+    "epidemiology": "",
+    "expectedPrognosis": "",
+    "naturalProgression": "",
+    "pathophysiology": "",
+    "possibleComplication": "",
+    "possibleTreatment": "",
+    "primaryPrevention": "",
+    "riskFactor": "",
+    "secondaryPrevention": "",
+    "signOrSymptom": "",
+    "stage": "",
+    "status": "",
+    "typicalTest": ""
+  },
+  "MedicalSignOrSymptom": { "possibleTreatment": "" }
+}

@@ -1,0 +1,3 @@
+# ImageObject
+
+An image file.

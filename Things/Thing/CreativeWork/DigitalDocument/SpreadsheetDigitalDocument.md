@@ -1,0 +1,3 @@
+# SpreadsheetDigitalDocument
+
+A spreadsheet file.

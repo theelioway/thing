@@ -1,0 +1,3 @@
+# BuddhistTemple
+
+A Buddhist temple.

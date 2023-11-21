@@ -1,0 +1,31 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "QualitativeValue",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "QualitativeValue": {
+    "additionalProperty": "",
+    "equal": "",
+    "greater": "",
+    "greaterOrEqual": "",
+    "lesser": "",
+    "lesserOrEqual": "",
+    "nonEqual": "",
+    "valueReference": ""
+  },
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" }
+}

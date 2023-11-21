@@ -1,0 +1,3 @@
+# School
+
+A school.

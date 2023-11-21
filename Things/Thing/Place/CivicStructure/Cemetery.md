@@ -1,0 +1,3 @@
+# Cemetery
+
+A graveyard.

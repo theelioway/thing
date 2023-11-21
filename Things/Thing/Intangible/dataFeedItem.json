@@ -1,0 +1,26 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "DataFeedItem",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "DataFeedItem": {
+    "dateCreated": "1970-01-01",
+    "dateDeleted": "1970-01-01",
+    "dateModified": "1970-01-01",
+    "item": ""
+  },
+  "Intangible": {}
+}

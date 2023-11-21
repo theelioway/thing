@@ -1,0 +1,29 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "AggregateRating",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "AggregateRating": { "itemReviewed": "", "ratingCount": 0, "reviewCount": 0 },
+  "Intangible": {},
+  "Rating": {
+    "author": "",
+    "bestRating": "",
+    "ratingExplanation": "",
+    "ratingValue": "",
+    "reviewAspect": "",
+    "worstRating": ""
+  }
+}

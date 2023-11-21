@@ -1,0 +1,29 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "GeoCoordinates",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "GeoCoordinates": {
+    "address": "",
+    "addressCountry": "",
+    "elevation": "",
+    "latitude": "",
+    "longitude": "",
+    "postalCode": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

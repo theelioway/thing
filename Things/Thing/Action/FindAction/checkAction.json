@@ -1,0 +1,34 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "CheckAction",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "CheckAction": {},
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "FindAction": {}
+}

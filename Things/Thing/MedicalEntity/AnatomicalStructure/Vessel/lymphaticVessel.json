@@ -1,0 +1,44 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "LymphaticVessel",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "LymphaticVessel": {
+    "originatesFrom": "",
+    "regionDrained": "",
+    "runsTo": ""
+  },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  },
+  "AnatomicalStructure": {
+    "associatedPathophysiology": "",
+    "bodyLocation": "",
+    "connectedTo": "",
+    "diagram": "",
+    "partOfSystem": "",
+    "relatedCondition": "",
+    "relatedTherapy": "",
+    "subStructure": ""
+  },
+  "Vessel": {}
+}

@@ -1,0 +1,30 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "Occupation",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Occupation": {
+    "educationRequirements": "",
+    "estimatedSalary": 0,
+    "experienceRequirements": "",
+    "occupationalCategory": "",
+    "occupationLocation": "",
+    "qualifications": "",
+    "responsibilities": "",
+    "skills": ""
+  },
+  "Intangible": {}
+}

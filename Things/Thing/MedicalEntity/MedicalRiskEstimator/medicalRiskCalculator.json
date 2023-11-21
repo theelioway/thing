@@ -1,0 +1,30 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "MedicalRiskCalculator",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalRiskCalculator": {},
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  },
+  "MedicalRiskEstimator": { "estimatesRiskOf": "", "includedRiskFactor": "" }
+}

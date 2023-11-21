@@ -1,0 +1,49 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "Flight": {
+    "aircraft": { "type": "Text" },
+    "arrivalAirport": { "type": "Text" },
+    "arrivalGate": { "type": "Text" },
+    "arrivalTerminal": { "type": "Text" },
+    "boardingPolicy": {
+      "type": "Text",
+      "enums": ["GroupBoardingPolicy", "ZoneBoardingPolicy"]
+    },
+    "carrier": { "type": "Text" },
+    "departureAirport": { "type": "Text" },
+    "departureGate": { "type": "Text" },
+    "departureTerminal": { "type": "Text" },
+    "estimatedFlightDuration": { "type": "Text" },
+    "flightDistance": { "type": "Text" },
+    "flightNumber": { "type": "Text" },
+    "mealService": { "type": "Text" },
+    "seller": { "type": "Text" },
+    "webCheckinTime": { "type": "DateTime" }
+  },
+  "Intangible": {},
+  "Trip": {
+    "arrivalTime": { "type": "Time" },
+    "departureTime": { "type": "Time" },
+    "itinerary": { "type": "Text" },
+    "offers": { "type": "Text" },
+    "partOfTrip": { "type": "Trip", "foreign": true },
+    "provider": { "type": "Text" },
+    "subTrip": { "type": "Trip", "foreign": true }
+  }
+}

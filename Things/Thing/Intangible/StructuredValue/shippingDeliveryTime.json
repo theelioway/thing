@@ -1,0 +1,27 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "ShippingDeliveryTime",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ShippingDeliveryTime": {
+    "businessDays": "",
+    "cutoffTime": "",
+    "handlingTime": "",
+    "transitTime": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

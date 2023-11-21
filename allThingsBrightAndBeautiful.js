@@ -1,38 +1,41 @@
-import fs from "fs"
-import humps from "humps"
-import ThingBuilder from "./src/thing-builder.js"
-import { schemaDomainUrl } from "./src/utils/get-schema.js"
+import fs from "fs";
+import humps from "humps";
+import { ThingBuilder, schemaDomainUrl } from "./thing-builder/index.js";
 
-const schemaVersion = "./schemaorg/data/releases/9.0/schemaorg-all-http"
-const thingBuilder = new ThingBuilder(schemaVersion, schemaDomainUrl)
-const rootOfAllThings = "./Things"
+const schemaVersion = "./schemaorg/data/releases/9.0/schemaorg-all-http";
+const thingBuilder = new ThingBuilder(schemaVersion, schemaDomainUrl);
 
 const mkdirIfNotExists = (folderPath) => {
   if (!fs.existsSync(folderPath)) {
-    fs.mkdirSync(folderPath)
+    fs.mkdirSync(folderPath);
   }
-}
+};
+
+const writeOut = (thingType, path) => {
+  let bright = thingBuilder.Thing(thingType);
+  let beautiful = thingBuilder.thinglet(bright, thingType);
+  let { comment } = thingBuilder.MODELS.get(thingType);
+  mkdirIfNotExists(path);
+  fs.writeFileSync(`./${path}/${thingType}.md`, `# ${thingType}\n\n${comment}`);
+  fs.writeFileSync(`./${path}/${thingType}.json`, JSON.stringify(bright));
+  fs.writeFileSync(
+    `./${path}/${humps.camelize(thingType)}.json`,
+    JSON.stringify(beautiful),
+  );
+};
 
 const allThings = (parentType, path) => {
-  path = path + "/" + parentType
-  mkdirIfNotExists(path)
-  thingBuilder._listSubs(parentType).forEach((childType) => {
-    let bright = thingBuilder.Thing(childType)
-    let beautiful = thingBuilder.thinglet(bright, childType)
-    console.log({ bright, beautiful })
-    fs.writeFileSync(
-      `./${path}/${childType}.json`,
-      JSON.stringify(bright, null, 2),
-    )
+  let childTypes = thingBuilder._listSubs(parentType);
+  if (childTypes.length) {
+    path = path + "/" + parentType;
+    childTypes.forEach((childType) => {
+      writeOut(childType, path);
+      allThings(childType, path);
+    });
+  }
+};
 
-    fs.writeFileSync(
-      `./${path}/${humps.camelize(childType)}.json`,
-      JSON.stringify(beautiful, null, 2),
-    )
-    // allThings(childType, path)
-  })
-}
-
-mkdirIfNotExists(rootOfAllThings)
-
-allThings("Thing", rootOfAllThings)
+const rootOfAllThings = "./Things";
+mkdirIfNotExists(rootOfAllThings);
+writeOut("Thing", rootOfAllThings);
+allThings("Thing", rootOfAllThings);

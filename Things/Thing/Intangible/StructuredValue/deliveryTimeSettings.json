@@ -1,0 +1,27 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "DeliveryTimeSettings",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "DeliveryTimeSettings": {
+    "deliveryTime": "",
+    "isUnlabelledFallback": 0,
+    "shippingDestination": "",
+    "transitTimeLabel": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

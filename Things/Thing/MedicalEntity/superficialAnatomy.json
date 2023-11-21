@@ -1,0 +1,35 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "SuperficialAnatomy",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "SuperficialAnatomy": {
+    "associatedPathophysiology": "",
+    "relatedAnatomy": "",
+    "relatedCondition": "",
+    "relatedTherapy": "",
+    "significance": ""
+  },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  }
+}

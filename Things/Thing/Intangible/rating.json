@@ -1,0 +1,28 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "Rating",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Rating": {
+    "author": "",
+    "bestRating": "",
+    "ratingExplanation": "",
+    "ratingValue": "",
+    "reviewAspect": "",
+    "worstRating": ""
+  },
+  "Intangible": {}
+}

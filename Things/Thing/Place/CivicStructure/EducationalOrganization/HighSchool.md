@@ -1,0 +1,3 @@
+# HighSchool
+
+A high school.

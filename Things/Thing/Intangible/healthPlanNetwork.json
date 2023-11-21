@@ -1,0 +1,25 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "HealthPlanNetwork",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "HealthPlanNetwork": {
+    "healthPlanCostSharing": 0,
+    "healthPlanNetworkId": "",
+    "healthPlanNetworkTier": ""
+  },
+  "Intangible": {}
+}

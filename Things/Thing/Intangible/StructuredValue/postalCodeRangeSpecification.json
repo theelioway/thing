@@ -1,0 +1,25 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "PostalCodeRangeSpecification",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PostalCodeRangeSpecification": {
+    "postalCodeBegin": "",
+    "postalCodeEnd": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-console.log("wire me up!")
+import Thing from "../Thing.js";
+
+console.log(Thing({ mainEntityOfPage: "ItemList" }));

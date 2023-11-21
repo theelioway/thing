@@ -1,0 +1,33 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "BoatTrip": {
+    "arrivalBoatTerminal": { "type": "Text" },
+    "departureBoatTerminal": { "type": "Text" }
+  },
+  "Intangible": {},
+  "Trip": {
+    "arrivalTime": { "type": "Time" },
+    "departureTime": { "type": "Time" },
+    "itinerary": { "type": "Text" },
+    "offers": { "type": "Text" },
+    "partOfTrip": { "type": "Trip", "foreign": true },
+    "provider": { "type": "Text" },
+    "subTrip": { "type": "Trip", "foreign": true }
+  }
+}

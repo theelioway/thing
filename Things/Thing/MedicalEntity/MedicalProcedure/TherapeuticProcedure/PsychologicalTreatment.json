@@ -1,0 +1,101 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "PsychologicalTreatment": {},
+  "MedicalEntity": {
+    "code": { "type": "Text" },
+    "guideline": { "type": "Text" },
+    "legalStatus": { "type": "Text" },
+    "medicineSystem": {
+      "type": "Text",
+      "enums": [
+        "TraditionalChinese",
+        "Homeopathic",
+        "Osteopathic",
+        "WesternConventional",
+        "Ayurvedic",
+        "Chiropractic"
+      ]
+    },
+    "recognizingAuthority": { "type": "Text" },
+    "relevantSpecialty": {
+      "type": "Text",
+      "enums": [
+        "PrimaryCare",
+        "SpeechPathology",
+        "Genetic",
+        "Rheumatologic",
+        "Anesthesia",
+        "Emergency",
+        "Gynecologic",
+        "Surgical",
+        "Dentistry",
+        "Nursing",
+        "Hematologic",
+        "Pulmonary",
+        "Neurologic",
+        "PharmacySpecialty",
+        "PublicHealth",
+        "Geriatric",
+        "Podiatric",
+        "Urologic",
+        "Midwifery",
+        "Musculoskeletal",
+        "Dermatology",
+        "DietNutrition",
+        "Physiotherapy",
+        "RespiratoryTherapy",
+        "Psychiatric",
+        "CommunityHealth",
+        "Cardiovascular",
+        "Toxicologic",
+        "Gastroenterologic",
+        "Oncologic",
+        "Renal",
+        "Dermatologic",
+        "PlasticSurgery",
+        "LaboratoryScience",
+        "Obstetric",
+        "Otolaryngologic",
+        "Endocrine",
+        "Pathology",
+        "Infectious",
+        "Optometric",
+        "Pediatric",
+        "Radiography"
+      ]
+    },
+    "study": { "type": "Text" }
+  },
+  "MedicalProcedure": {
+    "bodyLocation": { "type": "Text" },
+    "followup": { "type": "Text" },
+    "howPerformed": { "type": "Text" },
+    "preparation": { "type": "MedicalEntity", "foreign": true },
+    "procedureType": {
+      "type": "Text",
+      "enums": ["NoninvasiveProcedure", "PercutaneousProcedure"]
+    },
+    "status": { "type": "Text" }
+  },
+  "TherapeuticProcedure": {
+    "adverseOutcome": { "type": "MedicalEntity", "foreign": true },
+    "doseSchedule": { "type": "Text" },
+    "drug": { "type": "Text" }
+  }
+}

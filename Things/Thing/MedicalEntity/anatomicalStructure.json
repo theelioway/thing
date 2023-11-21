@@ -1,0 +1,38 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "AnatomicalStructure",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "AnatomicalStructure": {
+    "associatedPathophysiology": "",
+    "bodyLocation": "",
+    "connectedTo": "",
+    "diagram": "",
+    "partOfSystem": "",
+    "relatedCondition": "",
+    "relatedTherapy": "",
+    "subStructure": ""
+  },
+  "MedicalEntity": {
+    "code": "",
+    "guideline": "",
+    "legalStatus": "",
+    "medicineSystem": "",
+    "recognizingAuthority": "",
+    "relevantSpecialty": "",
+    "study": ""
+  }
+}

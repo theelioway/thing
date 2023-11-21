@@ -1,0 +1,25 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "HealthPlanFormulary",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "HealthPlanFormulary": {
+    "healthPlanCostSharing": 0,
+    "healthPlanDrugTier": "",
+    "offersPrescriptionByMail": 0
+  },
+  "Intangible": {}
+}

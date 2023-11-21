@@ -1,0 +1,79 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "Demand": {
+    "acceptedPaymentMethod": { "type": "Text" },
+    "advanceBookingRequirement": { "type": "Text" },
+    "areaServed": { "type": "Text" },
+    "availability": {
+      "type": "Text",
+      "enums": [
+        "SoldOut",
+        "PreOrder",
+        "PreSale",
+        "OnlineOnly",
+        "InStoreOnly",
+        "InStock",
+        "LimitedAvailability",
+        "Discontinued",
+        "OutOfStock"
+      ]
+    },
+    "availabilityEnds": { "type": "Time" },
+    "availabilityStarts": { "type": "Time" },
+    "availableAtOrFrom": { "type": "Text" },
+    "availableDeliveryMethod": {
+      "type": "Text",
+      "enums": ["ParcelService", "OnSitePickup", "LockerDelivery"]
+    },
+    "businessFunction": { "type": "Text" },
+    "deliveryLeadTime": { "type": "Text" },
+    "eligibleCustomerType": { "type": "Text" },
+    "eligibleDuration": { "type": "Text" },
+    "eligibleQuantity": { "type": "Text" },
+    "eligibleRegion": { "type": "Text" },
+    "eligibleTransactionVolume": { "type": "Text" },
+    "gtin": { "type": "Text" },
+    "gtin12": { "type": "Text" },
+    "gtin13": { "type": "Text" },
+    "gtin14": { "type": "Text" },
+    "gtin8": { "type": "Text" },
+    "includesObject": { "type": "Text" },
+    "ineligibleRegion": { "type": "Text" },
+    "inventoryLevel": { "type": "Text" },
+    "itemCondition": {
+      "type": "Text",
+      "enums": [
+        "DamagedCondition",
+        "RefurbishedCondition",
+        "UsedCondition",
+        "NewCondition"
+      ]
+    },
+    "itemOffered": { "type": "Text" },
+    "mpn": { "type": "Text" },
+    "priceSpecification": { "type": "Text" },
+    "seller": { "type": "Text" },
+    "serialNumber": { "type": "Text" },
+    "sku": { "type": "Text" },
+    "validFrom": { "type": "Date" },
+    "validThrough": { "type": "Date" },
+    "warranty": { "type": "Text" }
+  },
+  "Intangible": {}
+}

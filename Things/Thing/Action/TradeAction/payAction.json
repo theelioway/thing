@@ -1,0 +1,34 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "PayAction",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "PayAction": { "recipient": "" },
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "TradeAction": { "price": 0, "priceCurrency": "", "priceSpecification": "" }
+}

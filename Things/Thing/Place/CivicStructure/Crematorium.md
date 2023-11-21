@@ -1,0 +1,3 @@
+# Crematorium
+
+A crematorium.

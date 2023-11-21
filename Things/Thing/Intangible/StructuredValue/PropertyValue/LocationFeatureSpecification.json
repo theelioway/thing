@@ -1,0 +1,36 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "PropertyValue", "foreign": true },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "LocationFeatureSpecification": {
+    "hoursAvailable": { "type": "Text" },
+    "validFrom": { "type": "Date" },
+    "validThrough": { "type": "Date" }
+  },
+  "Intangible": {},
+  "StructuredValue": {},
+  "PropertyValue": {
+    "maxValue": { "type": "Number" },
+    "measurementTechnique": { "type": "Text" },
+    "minValue": { "type": "Number" },
+    "propertyID": { "type": "Text" },
+    "unitCode": { "type": "Text" },
+    "unitText": { "type": "Text" },
+    "value": { "type": "StructuredValue", "foreign": true },
+    "valueReference": { "type": "StructuredValue", "foreign": true }
+  }
+}

@@ -8,20 +8,27 @@
 - `git clone https://github.com/schemaorg/schemaorg.git` -
 
 ```javascript
-import { schemaDomainUrl } from "@elioway/thing/utils/get-schema"
+import { schemaDomainUrl } from "@elioway/thing/utils/get-schema";
 ```
 
 ```javascript
-import ThingBuilder from "@elioway/thing"
+import ThingBuilder from "@elioway/thing";
 ```
 
 ## How to get Schema
 
-A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of its Things. ThingBuilder is the first step to autogenerating date models for your MVC frameworks.
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats)
+into simple JSON definitions of its Things. ThingBuilder is the first step to
+autogenerating date models for your MVC frameworks.
 
-**thing** `ThingBuilder` delivers a JSON object with the meta data you'll need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing. For instance if you selected the MoveAction
+**thing** `ThingBuilder` delivers a JSON object with the meta data you'll need
+to autogenerate Models for frameworks like Django, Mongoose and GraphL. The
+package is a Map with a key matching the "ThingType" you are asking for, plus
+keys to any other ThingTypes referenced by your Thing. For instance if you
+selected the MoveAction
 
-For instance, calling `ThingBuilder.thing("MoveAction")` or from the command like, `npm run thing MoveAction --depth 1`, you will get the following output.
+For instance, calling `ThingBuilder.thing("MoveAction")` or from the command
+like, `npm run thing MoveAction --depth 1`, you will get the following output.
 
 ```
 {
@@ -86,9 +93,17 @@ For instance, calling `ThingBuilder.thing("MoveAction")` or from the command lik
 }
 ```
 
-In the `MoveAction` property, first fields, `potentialAction`, `identifier`, `sameAs` and so on belong to the main `Thing` class. All Things share these fields.
+In the `MoveAction` property, first fields, `potentialAction`, `identifier`,
+`sameAs` and so on belong to the main `Thing` class. All Things share these
+fields.
 
-Inside the `engage` Map, you'll see the fields for a `Thing` subclass called `Action` and its subsubclass `MoveAction`. This means you have all the field names and their datatype grouped by the different ThingTypes in the inheritance tree. You can use these groupings logically in your client apps, but rendering forms with fieldsets for each ThingType, e.g. for `MoveAction` a fieldset for the main `Thing`, a fieldset for the `Action` fields and another for the additional Action fields for `MoveAction`.
+Inside the `engage` Map, you'll see the fields for a `Thing` subclass called
+`Action` and its subsubclass `MoveAction`. This means you have all the field
+names and their datatype grouped by the different ThingTypes in the inheritance
+tree. You can use these groupings logically in your client apps, but rendering
+forms with fieldsets for each ThingType, e.g. for `MoveAction` a fieldset for
+the main `Thing`, a fieldset for the `Action` fields and another for the
+additional Action fields for `MoveAction`.
 
 ## thing CLI
 
@@ -140,19 +155,22 @@ let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
 Instantiate the ThingBuilder:
 
 ```javascript
-import ThingBuilder from "@elioway/thing/thing-builder"
-let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl)
+import ThingBuilder from "@elioway/thing/thing-builder";
+let thingBuilder = new ThingBuilder(releaseV9, schemaDomainUrl);
 ```
 
 ### `modelMiner`
 
-"Mine" the models which would be needed to support your chosen Schema Class/Type(s).
+"Mine" the models which would be needed to support your chosen Schema
+Class/Type(s).
 
-- `modelMiner` 1st parameter: An array of chosen Schema Class/Type(s) you want to support in your application.
-- `modelMiner` 2nd parameter: Field Types can also be Schema Class/Type(s). How deep do you want to go?
+- `modelMiner` 1st parameter: An array of chosen Schema Class/Type(s) you want
+  to support in your application.
+- `modelMiner` 2nd parameter: Field Types can also be Schema Class/Type(s). How
+  deep do you want to go?
 
 ```javascript
-let modelsMined = thingBuilder.modelMiner(["Notary"], { depth: 0 })
+let modelsMined = thingBuilder.modelMiner(["Notary"], { depth: 0 });
 ```
 
 Returns
@@ -169,7 +187,7 @@ Returns
 ```
 
 ```javascript
-let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 0 })
+let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 0 });
 ```
 
 Returns
@@ -179,7 +197,7 @@ Returns
 ```
 
 ```javascript
-let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 1 })
+let modelsMined = thingBuilder.modelMiner(["Thing"], { depth: 1 });
 ```
 
 Returns:
@@ -203,7 +221,7 @@ Returns:
 Gets the particular schema you need.
 
 ```javascript
-let schema = thingBuilder.modelMaker("Thing", modelsMined)
+let schema = thingBuilder.modelMaker("Thing", modelsMined);
 ```
 
 Returns:
@@ -230,7 +248,7 @@ Returns:
 ```
 
 ```javascript
-let schema = thingBuilder.modelMaker("MoveAction", modelsMined)
+let schema = thingBuilder.modelMaker("MoveAction", modelsMined);
 ```
 
 Returns:
@@ -252,12 +270,13 @@ Returns:
 
 ### `thing`
 
-Return a fully round Thing with all its fields and fields of those it subclasses.
+Return a fully round Thing with all its fields and fields of those it
+subclasses.
 
 ```javascript
 let thing = thingBuilder.thing("StructuredValue", modelsMined, {
   comments: false,
-})
+});
 ```
 
 Returns:
@@ -386,8 +405,24 @@ Returns:
 
 ### `Options`
 
-- `comments` if true includes the `rdfs:comment`, a brief explaination of the purpose of the field. It could be useful to include this so that when you build your web forms, you can use this value in tooltips, for instance.
+- `comments` if true includes the `rdfs:comment`, a brief explaination of the
+  purpose of the field. It could be useful to include this so that when you
+  build your web forms, you can use this value in tooltips, for instance.
 
-- `depth` is complicated. When we are building Things of types like `Action` and `MediaObject`, these schemas come with fields whose type are also Things, like `Thing` or `CreativeWork`. The `modelMiner` judges which of those fields should use that ThingType, or those which are best converted to a simple String type. Controlling the `depth` when your "mine" for models restricts the number of ThingTypes you'll end up needing to Model. A high depth means that nearly every field contains a foreign key to another Thing. That could get difficult to maintain, and would be annoying when all your want to store is a name.
+- `depth` is complicated. When we are building Things of types like `Action` and
+  `MediaObject`, these schemas come with fields whose type are also Things, like
+  `Thing` or `CreativeWork`. The `modelMiner` judges which of those fields
+  should use that ThingType, or those which are best converted to a simple
+  String type. Controlling the `depth` when your "mine" for models restricts the
+  number of ThingTypes you'll end up needing to Model. A high depth means that
+  nearly every field contains a foreign key to another Thing. That could get
+  difficult to maintain, and would be annoying when all your want to store is a
+  name.
 
-It's worthing mentioning that you can force ThingTypes to be included as foreign keys. So imagine an App storing campsites. It might be that you want to store some very basic information, so you will want to use a setting of `{ depth: 0 }`. However, you do want the geo-coords fields to point to the GeoCoordinates ThingType. Simply add `GeoCoordinates` to either the `candidateModels` parameter of the `modelMiner` function; or to the `baseModels` parameter of the `modelMaker` function.
+It's worthing mentioning that you can force ThingTypes to be included as foreign
+keys. So imagine an App storing campsites. It might be that you want to store
+some very basic information, so you will want to use a setting of
+`{ depth: 0 }`. However, you do want the geo-coords fields to point to the
+GeoCoordinates ThingType. Simply add `GeoCoordinates` to either the
+`candidateModels` parameter of the `modelMiner` function; or to the `baseModels`
+parameter of the `modelMaker` function.

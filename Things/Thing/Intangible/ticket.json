@@ -1,0 +1,30 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "Ticket",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "Ticket": {
+    "dateIssued": "1970-01-01",
+    "issuedBy": "",
+    "priceCurrency": "",
+    "ticketedSeat": "",
+    "ticketNumber": "",
+    "ticketToken": "",
+    "totalPrice": "",
+    "underName": ""
+  },
+  "Intangible": {}
+}

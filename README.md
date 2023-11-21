@@ -4,13 +4,16 @@
 
 # thing ![beta](https://elioway.gitlab.io/eliosin/icon/devops/beta/favicon.ico "beta")
 
-A class which converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models.
+A class which converts <https://schema.org> (and other jsonld formats) into
+simple JSON definitions of Models.
 
 Two reasons to love this **thing**:
 
-1. `ThingBuilder` is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+1. `ThingBuilder` is the first step to preparing Model classes and modules for
+   databases and MVC projects like Django, Mongoose, etc.
 
-2. **thing** CLI is brilliant for writing out thinglets, Things or lists of Things.
+2. **thing** CLI is brilliant for writing out thinglets, Things or lists of
+   Things.
 
 3. [thing Documentation](https://elioway.gitlab.io/eliothing/thing/)
 

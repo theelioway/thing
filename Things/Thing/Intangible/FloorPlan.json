@@ -1,0 +1,33 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "FloorPlan": {
+    "amenityFeature": { "type": "Text" },
+    "floorSize": { "type": "Text" },
+    "isPlanForApartment": { "type": "Text" },
+    "numberOfAccommodationUnits": { "type": "Text" },
+    "numberOfAvailableAccommodationUnits": { "type": "Text" },
+    "numberOfBathroomsTotal": { "type": "Integer" },
+    "numberOfBedrooms": { "type": "Number" },
+    "numberOfFullBathrooms": { "type": "Number" },
+    "numberOfPartialBathrooms": { "type": "Number" },
+    "numberOfRooms": { "type": "Number" },
+    "petsAllowed": { "type": "Text" }
+  },
+  "Intangible": {}
+}

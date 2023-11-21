@@ -1,0 +1,30 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "QuantitativeValue",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "QuantitativeValue": {
+    "additionalProperty": "",
+    "maxValue": 0,
+    "minValue": 0,
+    "unitCode": "",
+    "unitText": "",
+    "value": 0,
+    "valueReference": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

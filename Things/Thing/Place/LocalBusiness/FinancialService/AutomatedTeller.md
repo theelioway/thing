@@ -1,0 +1,3 @@
+# AutomatedTeller
+
+ATM/cash machine.

@@ -1,0 +1,3 @@
+# Mosque
+
+A mosque.

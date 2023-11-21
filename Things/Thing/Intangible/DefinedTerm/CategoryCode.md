@@ -1,0 +1,3 @@
+# CategoryCode
+
+A Category Code.

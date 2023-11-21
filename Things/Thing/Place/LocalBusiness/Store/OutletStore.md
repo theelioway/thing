@@ -1,0 +1,3 @@
+# OutletStore
+
+An outlet store.

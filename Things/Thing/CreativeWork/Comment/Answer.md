@@ -1,0 +1,3 @@
+# Answer
+
+An answer offered to a question; perhaps correct, perhaps opinionated or wrong.

@@ -1,0 +1,23 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "MedicalDevicePurpose",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "MedicalDevicePurpose": {},
+  "Intangible": {},
+  "Enumeration": { "supersededBy": "" },
+  "MedicalEnumeration": {}
+}

@@ -7,13 +7,16 @@
 </dl>
 </aside>
 
-A ThingBuilder class converts <https://schema.org> (and other jsonld formats) into simple JSON definitions of Models.
+A ThingBuilder class converts <https://schema.org> (and other jsonld formats)
+into simple JSON definitions of Models.
 
 Two reasons to love this **thing**:
 
-1. `ThingBuilder` is the first step to preparing Model classes and modules for databases and MVC projects like Django, Mongoose, etc.
+1. `ThingBuilder` is the first step to preparing Model classes and modules for
+   databases and MVC projects like Django, Mongoose, etc.
 
-2. **thing** CLI is brilliant for writing out thinglets, Things or lists of Things.
+2. **thing** CLI is brilliant for writing out thinglets, Things or lists of
+   Things.
 
 # Seeing is Believing
 
@@ -50,7 +53,10 @@ thing Action --list
 
 # What to expect
 
-**thing** delivers a JSON object with the meta data your need to autogenerate Models for frameworks like Django, Mongoose and GraphL. The package is a Map with a key matching the "ThingType" you are asking for, plus keys to any other ThingTypes referenced by your Thing.
+**thing** delivers a JSON object with the meta data your need to autogenerate
+Models for frameworks like Django, Mongoose and GraphL. The package is a Map
+with a key matching the "ThingType" you are asking for, plus keys to any other
+ThingTypes referenced by your Thing.
 
 For instance, the `npm run thing MoveAction --depth 1` command returns:
 

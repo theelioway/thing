@@ -1,0 +1,3 @@
+# BlogPosting
+
+A blog post.

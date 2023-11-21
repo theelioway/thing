@@ -1,0 +1,34 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "TravelAction",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "TravelAction": { "distance": "" },
+  "Action": {
+    "actionStatus": "",
+    "agent": "",
+    "endTime": "",
+    "error": "",
+    "instrument": "",
+    "location": "",
+    "object": "",
+    "participant": "",
+    "result": "",
+    "startTime": "",
+    "target": ""
+  },
+  "MoveAction": { "fromLocation": "", "toLocation": "" }
+}

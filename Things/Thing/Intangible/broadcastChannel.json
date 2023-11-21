@@ -1,0 +1,28 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "BroadcastChannel",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "BroadcastChannel": {
+    "broadcastChannelId": "",
+    "broadcastFrequency": "",
+    "broadcastServiceTier": "",
+    "genre": "",
+    "inBroadcastLineup": "",
+    "providesBroadcastService": ""
+  },
+  "Intangible": {}
+}

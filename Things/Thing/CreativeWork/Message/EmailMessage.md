@@ -1,0 +1,3 @@
+# EmailMessage
+
+An email message.

@@ -1,0 +1,31 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "ParentAudience",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ParentAudience": { "childMaxAge": 0, "childMinAge": 0 },
+  "Intangible": {},
+  "Audience": { "audienceType": "", "geographicArea": "" },
+  "PeopleAudience": {
+    "healthCondition": "",
+    "requiredGender": "",
+    "requiredMaxAge": 0,
+    "requiredMinAge": 0,
+    "suggestedGender": "",
+    "suggestedMaxAge": 0,
+    "suggestedMinAge": 0
+  }
+}

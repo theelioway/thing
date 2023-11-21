@@ -1,0 +1,3 @@
+# ScholarlyArticle
+
+A scholarly article.

@@ -1,0 +1,3 @@
+# Synagogue
+
+A synagogue.

@@ -1,0 +1,33 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "ContactPoint",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "ContactPoint": {
+    "areaServed": "",
+    "availableLanguage": "",
+    "contactOption": "",
+    "contactType": "",
+    "email": "",
+    "faxNumber": "",
+    "hoursAvailable": "",
+    "productSupported": "",
+    "serviceArea": "",
+    "telephone": ""
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

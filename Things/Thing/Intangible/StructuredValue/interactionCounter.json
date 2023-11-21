@@ -1,0 +1,26 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "InteractionCounter",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "InteractionCounter": {
+    "interactionService": "",
+    "interactionType": "",
+    "userInteractionCount": 0
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}

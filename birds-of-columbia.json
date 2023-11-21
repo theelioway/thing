@@ -1,0 +1,93 @@
+{
+  "alternateName": "Bird Watching, the elioWay",
+  "description": "A log of birds seen on my trip to Colombia",
+  "identifier": "birdwatching-in-colombia",
+  "mainEntityOfPage": "Observation",
+  "name": "Birdwatching in Colombia",
+  "sameAs": "https://en.wikipedia.org/wiki/List_of_birds_of_Colombia",
+  "url": "https://birdwatching-in-colombia.thing.theElioWay.com",
+  "Observation": {
+    "measurementMethod": "Binoculars",
+    "observationAbout": "Bird"
+  },
+  "ItemList": {
+    "itemListElement": [
+      {
+        "identifier": "bird-1",
+        "mainEntityOfPage": "Person",
+        "name": "Scarlet Macaw",
+        "Person": {
+          "familyName": "Psittacidae"
+        },
+        "ItemList": {
+          "itemListElement": [
+            {
+              "identifier": "scarlet-macaw-sighting-1",
+              "mainEntityOfPage": "Observation",
+              "name": "Observation 1",
+              "Observation": {
+                "location": "Santa Marta Mountains",
+                "date": "2023-08-15T08:00:00Z",
+                "observationAbout": "bird-1"
+              }
+            },
+            {
+              "identifier": "scarlet-macaw-sighting-2",
+              "mainEntityOfPage": "Observation",
+              "name": "Observation 2",
+              "Observation": {
+                "location": "Santa Marta Mountains",
+                "date": "2023-06-15T05:00:00Z",
+                "observationAbout": "bird-1"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "identifier": "bird-2",
+        "mainEntityOfPage": "Person",
+        "name": "Andean Condor",
+        "Person": {
+          "familyName": "Cathartidae"
+        },
+        "ItemList": {
+          "itemListElement": [
+            {
+              "identifier": "andean-condor-sighting-1",
+              "mainEntityOfPage": "Observation",
+              "name": "Observation 1",
+              "Observation": {
+                "location": "Andes Mountains",
+                "date": "2023-08-16T10:30:00Z",
+                "observationAbout": "bird-2"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "identifier": "golden-tanager",
+        "mainEntityOfPage": "Person",
+        "name": "Golden Tanager",
+        "Person": {
+          "familyName": "Thraupidae"
+        },
+        "ItemList": {
+          "itemListElement": [
+            {
+              "identifier": "golden-tanager-sighting-1",
+              "mainEntityOfPage": "Observation",
+              "name": "Observation 3",
+              "Observation": {
+                "location": "Amazon Rainforest",
+                "date": "2023-08-17T14:15:00Z",
+                "observationAbout": "golden-tanager"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "Occupation": {
+    "educationRequirements": { "type": "Text" },
+    "estimatedSalary": { "type": "Number" },
+    "experienceRequirements": { "type": "Text" },
+    "occupationalCategory": { "type": "Text" },
+    "occupationLocation": { "type": "Text" },
+    "qualifications": { "type": "Text" },
+    "responsibilities": { "type": "Text" },
+    "skills": { "type": "Text" }
+  },
+  "Intangible": {}
+}

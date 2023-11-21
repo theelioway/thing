@@ -1,0 +1,3 @@
+# Festival
+
+Event type: Festival.

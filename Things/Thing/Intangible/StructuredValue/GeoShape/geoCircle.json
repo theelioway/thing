@@ -1,0 +1,32 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "GeoCircle",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "GeoCircle": { "geoMidpoint": "", "geoRadius": "" },
+  "Intangible": {},
+  "StructuredValue": {},
+  "GeoShape": {
+    "address": "",
+    "addressCountry": "",
+    "box": "",
+    "circle": "",
+    "elevation": "",
+    "line": "",
+    "polygon": "",
+    "postalCode": ""
+  }
+}

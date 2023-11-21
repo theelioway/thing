@@ -1,0 +1,3 @@
+# Embassy
+
+An embassy.

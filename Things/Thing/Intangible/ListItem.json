@@ -1,0 +1,26 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Text" },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "ListItem", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "ListItem": {
+    "item": { "type": "Thing", "foreign": true },
+    "nextItem": { "type": "ListItem", "foreign": true },
+    "position": { "type": "Text" },
+    "previousItem": { "type": "ListItem", "foreign": true }
+  },
+  "Intangible": {}
+}

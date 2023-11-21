@@ -1,0 +1,59 @@
+{
+  "additionalType": { "type": "URL" },
+  "alternateName": { "type": "Text" },
+  "description": { "type": "Text" },
+  "disambiguatingDescription": { "type": "Text" },
+  "identifier": { "type": "Text" },
+  "image": { "type": "URL" },
+  "mainEntityOfPage": { "type": "URL" },
+  "name": { "type": "Text" },
+  "potentialAction": { "type": "Action", "foreign": true },
+  "sameAs": { "type": "URL" },
+  "subjectOf": { "type": "Text" },
+  "url": { "type": "URL" },
+  "ItemList": {
+    "itemListElement": { "type": "Thing", "foreign": true },
+    "itemListOrder": { "type": "Text" },
+    "numberOfItems": { "type": "Integer" }
+  },
+  "ExerciseAction": {
+    "course": { "type": "Text" },
+    "diet": { "type": "Text" },
+    "distance": { "type": "Text" },
+    "exerciseCourse": { "type": "Text" },
+    "exercisePlan": { "type": "Text" },
+    "exerciseRelatedDiet": { "type": "Text" },
+    "exerciseType": { "type": "Text" },
+    "fromLocation": { "type": "Text" },
+    "opponent": { "type": "Text" },
+    "sportsActivityLocation": { "type": "Text" },
+    "sportsEvent": { "type": "Text" },
+    "sportsTeam": { "type": "Text" },
+    "toLocation": { "type": "Text" }
+  },
+  "Action": {
+    "actionStatus": {
+      "type": "Text",
+      "enums": [
+        "FailedActionStatus",
+        "CompletedActionStatus",
+        "ActiveActionStatus",
+        "PotentialActionStatus"
+      ]
+    },
+    "agent": { "type": "Text" },
+    "endTime": { "type": "Time" },
+    "error": { "type": "Thing", "foreign": true },
+    "instrument": { "type": "Thing", "foreign": true },
+    "location": { "type": "Text" },
+    "object": { "type": "Thing", "foreign": true },
+    "participant": { "type": "Text" },
+    "result": { "type": "Thing", "foreign": true },
+    "startTime": { "type": "Time" },
+    "target": { "type": "Text" }
+  },
+  "PlayAction": {
+    "audience": { "type": "Text", "enums": ["Researcher"] },
+    "event": { "type": "Text" }
+  }
+}

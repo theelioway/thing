@@ -1,0 +1,3 @@
+# Photograph
+
+A photograph.

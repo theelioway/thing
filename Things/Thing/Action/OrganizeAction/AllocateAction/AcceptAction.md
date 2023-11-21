@@ -1,0 +1,9 @@
+# AcceptAction
+
+The act of committing to/adopting an object.<br/><br/>
+
+Related actions:<br/><br/>
+
+<ul>
+<li><a class="localLink" href="http://schema.org/RejectAction">RejectAction</a>: The antonym of AcceptAction.</li>
+</ul>

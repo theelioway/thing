@@ -1,0 +1,28 @@
+{
+  "additionalType": "",
+  "alternateName": "",
+  "description": "",
+  "disambiguatingDescription": "",
+  "identifier": "",
+  "image": "",
+  "mainEntityOfPage": "RepaymentSpecification",
+  "name": "",
+  "potentialAction": "",
+  "sameAs": "",
+  "subjectOf": "",
+  "url": "",
+  "ItemList": {
+    "itemListElement": [],
+    "itemListOrder": "",
+    "numberOfItems": 0
+  },
+  "RepaymentSpecification": {
+    "downPayment": 0,
+    "earlyPrepaymentPenalty": "",
+    "loanPaymentAmount": "",
+    "loanPaymentFrequency": 0,
+    "numberOfLoanPayments": 0
+  },
+  "Intangible": {},
+  "StructuredValue": {}
+}
