@@ -1,7 +1,7 @@
 "use strict";
 
-const propertyValue = (property) => {
-  let { id, rangeIncludes, domainIncludes } = property;
+export const propertyElementToDefaultValue = (element) => {
+  let { id, rangeIncludes, domainIncludes } = element;
   if (id === "mainEntityOfPage") {
     return domainIncludes[0];
   } else if (id === "itemListElement") {
@@ -14,16 +14,16 @@ const propertyValue = (property) => {
     return 0.0;
   } else if (rangeIncludes.includes("DateTime")) {
     return new Date(0).toISOString();
-  } else if (rangeIncludes.includes("Time")) {
-    return new Date(0).toISOString().slice(11);
   } else if (rangeIncludes.includes("Date")) {
     return new Date(0).toISOString().slice(0, 10);
+  } else if (rangeIncludes.includes("Time")) {
+    return new Date(0).toISOString().slice(11).replace("Z", "");
   } else if (rangeIncludes.includes("Boolean")) {
     return false;
   } else if (
-    rangeIncludes.some((propertyType) =>
+    rangeIncludes.some((elementType) =>
       ["Distance", "Duration", "Integer", "Number", "Quantity"].includes(
-        propertyType,
+        elementType,
       ),
     )
   ) {
@@ -33,9 +33,4 @@ const propertyValue = (property) => {
   }
 };
 
-export const reducePropertiesToThinglet = (acc, property) => {
-  acc[property.id] = propertyValue(property);
-  return acc;
-};
-
-export default reducePropertiesToThinglet;
+export default propertyElementToDefaultValue;

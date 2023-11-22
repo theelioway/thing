@@ -1,36 +1,37 @@
+"use strict";
 import { should } from "chai";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import filterTypeProperties from "../../src/filter-type-properties.js";
+import filterClassProperties from "../src/filter-class-properties.js";
 
 should();
 
 let DIR = dirname(fileURLToPath(import.meta.url));
 
-describe("function | filterTypeProperties", () => {
+describe("function | filterClassProperties", () => {
   it("gets tinyUniverse", async () => {
-    const tinyUniverse = JSON.parse(
+    const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/tinyUniverse-simplified-20231121.json"),
         "utf-8",
       ),
     );
-    tinyUniverse
-      .filter(filterTypeProperties("Cosmos"))
+    graph
+      .filter(filterClassProperties("Cosmos"))
       .map((p) => p.id)
       .should.eql(["size"]);
   });
   it("gets schemaorg 9.0", async () => {
-    const schemaorg = JSON.parse(
+    const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/schemaorg-simplified-20231121.json"),
         "utf-8",
       ),
     );
-    schemaorg
-      .filter(filterTypeProperties("Thing"))
+    graph
+      .filter(filterClassProperties("Thing"))
       .map((p) => p.id)
       .should.eql([
         "potentialAction",

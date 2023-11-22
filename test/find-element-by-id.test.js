@@ -1,6 +1,7 @@
+"use strict";
 import { should } from "chai";
 
-import findElementById from "../../src/find-element-by-id.js";
+import findElementById from "../src/find-element-by-id.js";
 
 should();
 

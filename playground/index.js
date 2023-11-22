@@ -1,32 +1,43 @@
 "use strict";
 // import fs from "fs";
 // import { objectPicker } from "@elioway/abdiel";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import {
-  filterTypeProperties,
+  filterClassProperties,
   findElementById,
-  mapSimpleElements,
+  mapGraphToSimpleElements,
+  propertyElementToDefaultValue,
+  reduceProperties,
+  reduceClasses,
   readGraphFile,
-  reducePropertiesToSchema,
-  reducePropertiesToThinglet,
   sortElementsById,
-  reduceTypes,
 } from "../src/index.js";
 
-let DIR = dirname(fileURLToPath(import.meta.url));
-const PATH = join(
-  DIR,
-  "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
-);
-const graph = readGraphFile(PATH).map(mapSimpleElements).sort(sortElementsById);
-let mainEntityOfPage = "WebPage";
-const engaged = graph.find(findElementById(mainEntityOfPage));
-const thing = graph
-  .filter(filterTypeProperties("Thing"))
-  .reduce(reducePropertiesToThinglet);
-const subtypes = [...engaged.subClassOf, mainEntityOfPage].reduce(
-  reduceTypes(graph, reducePropertiesToThinglet),
-);
+const thingletMaker = reduceProperties(propertyElementToDefaultValue);
+
+// The requested "Thing" type
+const mainEntityOfPage = "WebPage";
+// Read the schema RDF file...
+const DIR = dirname(fileURLToPath(import.meta.url));
+const PATH = join(DIR, "schemaorg-v9.jsonld");
+const graph = readGraphFile(PATH)
+  .map(mapGraphToSimpleElements) // map graph list to simpler elements.
+  .sort(sortElementsById); // map sort elements by the `id` field.
+// Get the element for `mainEntityOfPage`.
+const thing = graph.find(findElementById(mainEntityOfPage));
+// Get the list of properties for the super type `Thing`.
+const thingProperties = graph
+  .filter(filterClassProperties("Thing"))
+  .reduce(thingletMaker);
+// For `mainEntityOfPage` and ever parent type...
+const thingSubTypes = [
+  ...new Set(["ItemList", mainEntityOfPage, ...thing.subClassOf]),
+]
+  .filter((t) => t !== "Thing") // ...except the super type `Thing`.
+  .reduce(reduceClasses(graph, thingletMaker)); // ...reduce each type to a key for its properties.
+// Output
 console.log({
-  ...thing,
-  ...subtypes,
+  ...thingProperties,
+  ...thingSubTypes,
 });

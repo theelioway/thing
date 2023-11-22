@@ -1,8 +1,8 @@
 "use strict";
 
-export const filterTypeProperties =
+export const filterClassProperties =
   (_id) =>
   ({ domainIncludes }) =>
     domainIncludes && domainIncludes.includes(_id);
 
-export default filterTypeProperties;
+export default filterClassProperties;

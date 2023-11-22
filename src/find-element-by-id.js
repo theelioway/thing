@@ -1,8 +1,8 @@
 "use strict";
 
 export const findElementById =
-  (_id) =>
+  (byId) =>
   ({ id }) =>
-    id === _id;
+    id === byId;
 
 export default findElementById;

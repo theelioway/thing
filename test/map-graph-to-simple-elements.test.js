@@ -1,20 +1,29 @@
+"use strict";
 import { should } from "chai";
 import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import readGraphFile from "../../src/read-graph-file.js";
-import mapSimpleElements from "../../src/map-simple-elements.js";
+import readGraphFile from "../src/read-graph-file.js";
+import mapGraphToSimpleElements from "../src/map-graph-to-simple-elements.js";
 
 should();
 
-const TIMESTAMP = new Date().toISOString().replace(/\D/g, "").slice(0, 8);
+let newFixtureDate = false;
+/** @TODO Uncomment if anything changes and you need a new fixture. */
+// newFixtureDate = new Date().toISOString().replace(/\D/g, "").slice(0, 8);
 const DIR = dirname(fileURLToPath(import.meta.url));
 
-describe("function | mapSimpleElements", () => {
+describe("function | mapGraphToSimpleElements", () => {
   it("simplifies quantumUniverse", async () => {
     const rdfPath = join(DIR, "./fixtures/quantumUniverse.jsonld");
-    const simpler = readGraphFile(rdfPath).map(mapSimpleElements("d:/"));
+    const simpler = readGraphFile(rdfPath).map(mapGraphToSimpleElements("d:/"));
+    const graph = JSON.parse(
+      fs.readFileSync(
+        join(DIR, "./fixtures/quantumUniverse-simplified-20231121.json"),
+        "utf-8",
+      ),
+    );
     simpler.should.eql([
       {
         id: "Cosmos",
@@ -35,22 +44,21 @@ describe("function | mapSimpleElements", () => {
         rangeIncludes: ["Bigness", "Text"],
       },
     ]);
-    const expected = JSON.parse(
-      fs.readFileSync(
-        join(DIR, "./fixtures/quantumUniverse-simplified-20231121.json"),
+    simpler.should.eql(graph);
+    if (newFixtureDate) {
+      fs.writeFileSync(
+        join(
+          DIR,
+          `./fixtures/quantumUniverse-simplified-${newFixtureDate}.json`,
+        ),
+        JSON.stringify(simpler, null, 2),
         "utf-8",
-      ),
-    );
-    simpler.should.eql(expected);
-    // fs.writeFileSync(
-    //   join(DIR, `./fixtures/quantumUniverse-simplified-${TIMESTAMP}.json`),
-    //   JSON.stringify(simpler, null, 2),
-    //   "utf-8",
-    // );
+      );
+    }
   });
   it("simplifies tinyUniverse", async () => {
     const rdfPath = join(DIR, "./fixtures/tinyUniverse.jsonld");
-    const simpler = readGraphFile(rdfPath).map(mapSimpleElements("d:/"));
+    const simpler = readGraphFile(rdfPath).map(mapGraphToSimpleElements("d:/"));
     simpler.should.eql([
       {
         id: "Cosmos",
@@ -80,38 +88,42 @@ describe("function | mapSimpleElements", () => {
         comment: "Comment Text",
       },
     ]);
-    const expected = JSON.parse(
+    const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/tinyUniverse-simplified-20231121.json"),
         "utf-8",
       ),
     );
-    simpler.should.eql(expected);
-    // fs.writeFileSync(
-    //   join(DIR, `./fixtures/tinyUniverse-simplified-${TIMESTAMP}.json`),
-    //   JSON.stringify(simpler, null, 2),
-    //   "utf-8",
-    // );
+    simpler.should.eql(graph);
+    if (newFixtureDate) {
+      fs.writeFileSync(
+        join(DIR, `./fixtures/tinyUniverse-simplified-${newFixtureDate}.json`),
+        JSON.stringify(simpler, null, 2),
+        "utf-8",
+      );
+    }
   });
   it("simplifies schemaorg 9.0", async () => {
     const rdfPath = join(
       DIR,
-      "../../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
+      "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
     );
     const simpler = readGraphFile(rdfPath).map(
-      mapSimpleElements("http://schema.org/"),
+      mapGraphToSimpleElements("http://schema.org/"),
     );
-    const expected = JSON.parse(
+    const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/schemaorg-simplified-20231121.json"),
         "utf-8",
       ),
     );
-    simpler.should.eql(expected);
-    // fs.writeFileSync(
-    //   join(DIR, `./fixtures/schemaorg-simplified-${TIMESTAMP}.json`),
-    //   JSON.stringify(simpler, null, 2),
-    //   "utf-8",
-    // );
+    simpler.should.eql(graph);
+    if (newFixtureDate) {
+      fs.writeFileSync(
+        join(DIR, `./fixtures/schemaorg-simplified-${newFixtureDate}.json`),
+        JSON.stringify(simpler, null, 2),
+        "utf-8",
+      );
+    }
   });
 });
