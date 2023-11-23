@@ -1,7 +1,7 @@
 "use strict";
 import { should } from "chai";
 
-import sortElementsById from "../src/sort-elements-by-id.js";
+import sortById from "../src/sort-by-id.js";
 
 should();
 
@@ -12,9 +12,9 @@ const SIMPLEGRAPH = [
   { id: "postalCodeRange" },
   { id: "birthPlace" },
 ];
-describe("function | sortElementsById", () => {
+describe("function | sortById", () => {
   it("sorts `SIMPLEGRAPH`", async () => {
-    SIMPLEGRAPH.sort(sortElementsById)
+    SIMPLEGRAPH.sort(sortById)
       .map((p) => p.id)
       .should.eql([
         "Person",

@@ -5,7 +5,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 import readGraphFile from "../src/read-graph-file.js";
-import mapGraphToSimpleElements from "../src/map-graph-to-simple-elements.js";
+import mapSimplerGraph from "../src/map-simpler-graph.js";
 
 should();
 
@@ -14,10 +14,10 @@ let newFixtureDate = false;
 // newFixtureDate = new Date().toISOString().replace(/\D/g, "").slice(0, 8);
 const DIR = dirname(fileURLToPath(import.meta.url));
 
-describe("function | mapGraphToSimpleElements", () => {
-  it("simplifies quantumUniverse", async () => {
+describe("function | mapSimplerGraph", () => {
+  it("simplified the `quantumUniverse` graph", async () => {
     const rdfPath = join(DIR, "./fixtures/quantumUniverse.jsonld");
-    const simpler = readGraphFile(rdfPath).map(mapGraphToSimpleElements("d:/"));
+    const simpler = readGraphFile(rdfPath).map(mapSimplerGraph("d:/"));
     const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/quantumUniverse-simplified-20231121.json"),
@@ -56,9 +56,9 @@ describe("function | mapGraphToSimpleElements", () => {
       );
     }
   });
-  it("simplifies tinyUniverse", async () => {
+  it("simplified the `tinyUniverse` graph", async () => {
     const rdfPath = join(DIR, "./fixtures/tinyUniverse.jsonld");
-    const simpler = readGraphFile(rdfPath).map(mapGraphToSimpleElements("d:/"));
+    const simpler = readGraphFile(rdfPath).map(mapSimplerGraph("d:/"));
     simpler.should.eql([
       {
         id: "Cosmos",
@@ -103,13 +103,13 @@ describe("function | mapGraphToSimpleElements", () => {
       );
     }
   });
-  it("simplifies schemaorg 9.0", async () => {
+  it("simplified the `schemaorgv9.0` graph", async () => {
     const rdfPath = join(
       DIR,
       "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
     );
     const simpler = readGraphFile(rdfPath).map(
-      mapGraphToSimpleElements("http://schema.org/"),
+      mapSimplerGraph("http://schema.org/"),
     );
     const graph = JSON.parse(
       fs.readFileSync(

@@ -1,7 +1,7 @@
 "use strict";
 import { should } from "chai";
 
-import findElementById from "../src/find-element-by-id.js";
+import findById from "../src/find-by-id.js";
 
 should();
 
@@ -13,16 +13,16 @@ const SIMPLEGRAPH = [
   { id: "birthPlace" },
 ];
 
-describe("function | findElementById", () => {
+describe("function | findById", () => {
   it("finds things by `id` in `SIMPLEGRAPH`", async () => {
-    SIMPLEGRAPH.find(findElementById("timeToComplete")).should.eql({
+    SIMPLEGRAPH.find(findById("timeToComplete")).should.eql({
       id: "timeToComplete",
     });
-    SIMPLEGRAPH.find(findElementById("costCurrency")).should.eql({
+    SIMPLEGRAPH.find(findById("costCurrency")).should.eql({
       id: "costCurrency",
     });
   });
   it("handles no match `undefined` in `SIMPLEGRAPH`", async () => {
-    should().equal(SIMPLEGRAPH.find(findElementById("no match")), undefined);
+    should().equal(SIMPLEGRAPH.find(findById("no match")), undefined);
   });
 });

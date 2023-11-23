@@ -1,9 +1,10 @@
-export { default as filterClassProperties } from "./filter-class-properties.js";
-export { default as findElementById } from "./find-element-by-id.js";
-export { default as mapGraphToSimpleElements } from "./map-graph-to-simple-elements.js";
-export { default as propertyElementToDefaultValue } from "./property-element-to-default-value.js";
+export { default as filterProperties } from "./filter-subclasses.js";
+export { default as findById } from "./find-by-id.js";
+export { default as mapRecursiveSubclasses } from "./map-recursive-subclassses.js";
+export { default as mapSimplerGraph } from "./map-simpler-graph.js";
+export { default as propertyDefaultValue } from "./property-default-value.js";
 export { default as readGraphFile } from "./read-graph-file.js";
-export { default as reduceClasses } from "./reduce-classes.js";
+export { default as recursiveSubclasses } from "./recursive-subclassses.js";
 export { default as reduceProperties } from "./reduce-properties.js";
-export { default as recursiveSubClassOf } from "./recursive-sub-class-of.js";
-export { default as sortElementsById } from "./sort-elements-by-id.js";
+export { default as reduceSubclasses } from "./reduce-subclassses.js";
+export { default as sortById } from "./sort-by-id.js";

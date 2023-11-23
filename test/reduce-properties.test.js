@@ -12,16 +12,16 @@ const SIMPLEGRAPH = [
   { id: "postalCodeRange" },
   { id: "birthPlace" },
 ];
-const testTransformer = () => "tested!";
+const testTransformer = () => "found!";
 
 describe("function | reduceProperties", () => {
   it("reduces `SIMPLEGRAPH` to `testTransformer`", async () => {
     SIMPLEGRAPH.reduce(reduceProperties(testTransformer), {}).should.eql({
-      Person: "tested!",
-      birthPlace: "tested!",
-      costCurrency: "tested!",
-      postalCodeRange: "tested!",
-      timeToComplete: "tested!",
+      Person: "found!",
+      birthPlace: "found!",
+      costCurrency: "found!",
+      postalCodeRange: "found!",
+      timeToComplete: "found!",
     });
   });
 });

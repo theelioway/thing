@@ -4,14 +4,14 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import filterClassProperties from "../src/filter-class-properties.js";
+import filterProperties from "../src/filter-properties.js";
 
 should();
 
 let DIR = dirname(fileURLToPath(import.meta.url));
 
-describe("function | filterClassProperties", () => {
-  it("gets tinyUniverse", async () => {
+describe("function | filterProperties", () => {
+  it("filtered `tinyUniverse` properties of `Cosmos`", async () => {
     const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/tinyUniverse-simplified-20231121.json"),
@@ -19,11 +19,11 @@ describe("function | filterClassProperties", () => {
       ),
     );
     graph
-      .filter(filterClassProperties("Cosmos"))
+      .filter(filterProperties("Cosmos"))
       .map((p) => p.id)
       .should.eql(["size"]);
   });
-  it("gets schemaorg 9.0", async () => {
+  it("filtered `schemaorgv9.0` properties of `Thing`", async () => {
     const graph = JSON.parse(
       fs.readFileSync(
         join(DIR, "./fixtures/schemaorg-simplified-20231121.json"),
@@ -31,7 +31,7 @@ describe("function | filterClassProperties", () => {
       ),
     );
     graph
-      .filter(filterClassProperties("Thing"))
+      .filter(filterProperties("Thing"))
       .map((p) => p.id)
       .should.eql([
         "potentialAction",

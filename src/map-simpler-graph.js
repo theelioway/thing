@@ -12,7 +12,7 @@ import {
  * 2. Normalises inconsistencies in the data.
  * 3. Removes meaningless data.
  * 3. Removes unneeded properties. */
-export const mapGraphToSimpleElements = (DOMAIN) => {
+export const mapSimplerGraph = (DOMAIN) => {
   /* Replaces the schema domain name in properties and values. */
   const stringReplaceDomain = (prospect) => prospect.replace(DOMAIN, "");
   /* Replaces "rdfs" prefixes in properties and values. */
@@ -81,4 +81,4 @@ export const mapGraphToSimpleElements = (DOMAIN) => {
   };
 };
 
-export default mapGraphToSimpleElements;
+export default mapSimplerGraph;

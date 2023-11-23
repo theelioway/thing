@@ -1,41 +1,51 @@
 "use strict";
 // import fs from "fs";
-// import { objectPicker } from "@elioway/abdiel";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import {
-  filterClassProperties,
-  findElementById,
-  mapGraphToSimpleElements,
-  propertyElementToDefaultValue,
+  filterProperties,
+  findById,
+  mapRecursiveSubclasses,
+  mapSimplerGraph,
+  propertyDefaultValue,
   reduceProperties,
-  reduceClasses,
+  reduceSubclasses,
   readGraphFile,
-  sortElementsById,
+  sortById,
 } from "../src/index.js";
-
-const thingletMaker = reduceProperties(propertyElementToDefaultValue);
 
 // The requested "Thing" type
 const mainEntityOfPage = "WebPage";
+
+// How properties are reduced: in this case to default values.
+const thingletMaker = reduceProperties(propertyDefaultValue);
+
 // Read the schema RDF file...
 const DIR = dirname(fileURLToPath(import.meta.url));
 const PATH = join(DIR, "schemaorg-v9.jsonld");
 const graph = readGraphFile(PATH)
-  .map(mapGraphToSimpleElements) // map graph list to simpler elements.
-  .sort(sortElementsById); // map sort elements by the `id` field.
-// Get the element for `mainEntityOfPage`.
-const thing = graph.find(findElementById(mainEntityOfPage));
+  // map graph list to simpler elements.
+  .map(mapSimplerGraph("http://schema.org/"))
+  // resolve `subClassOf` property.
+  .map(mapRecursiveSubclasses)
+  // sort elements by the `id` field.
+  .sort(sortById);
+
 // Get the list of properties for the super type `Thing`.
 const thingProperties = graph
-  .filter(filterClassProperties("Thing"))
-  .reduce(thingletMaker);
-// For `mainEntityOfPage` and ever parent type...
+  .filter(filterProperties("Thing"))
+  .reduce(thingletMaker, {});
+
+// Get `mainEntityOfPage` thing.
+const thing = graph.find(findById(mainEntityOfPage));
+
+// With "ItemList" + every subClassOf except the super type `Thing`.
 const thingSubTypes = [
-  ...new Set(["ItemList", mainEntityOfPage, ...thing.subClassOf]),
+  ...new Set(["ItemList", ...thing.subClassOf.filter((t) => t !== "Thing")]),
 ]
-  .filter((t) => t !== "Thing") // ...except the super type `Thing`.
-  .reduce(reduceClasses(graph, thingletMaker)); // ...reduce each type to a key for its properties.
+  // ...reduce each class to a key for its properties.
+  .reduce(reduceSubclasses(graph, thingletMaker), {});
+
 // Output
 console.log({
   ...thingProperties,

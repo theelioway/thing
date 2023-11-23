@@ -1,13 +1,16 @@
 "use strict";
+import { arrayDifference, valueIsLengthlessArray } from "@elioway/abdiel";
 
-export const recursiveSubClassOf = (graph) => (classElement) => {
+const areDiff = (a1, a2) => !valueIsLengthlessArray(arrayDifference(a1, a2));
+
+export const recursiveSubclasses = (inGraph) => (simplerElement) => {
   const recursiveParentsOf = (knownParents) => {
     if (Array.isArray(knownParents) && knownParents.length) {
-      let parentClasses = graph
+      let parentClasses = inGraph
         .filter((c) => knownParents.includes(c.id))
         .map((c) => c?.subClassOf || [])
         .flat();
-      if (parentClasses?.length) {
+      if (parentClasses?.length && areDiff(knownParents, parentClasses)) {
         let parentClassesOfParentClasses = recursiveParentsOf(parentClasses);
         if (parentClassesOfParentClasses?.length) {
           knownParents = knownParents.concat(parentClassesOfParentClasses);
@@ -22,7 +25,9 @@ export const recursiveSubClassOf = (graph) => (classElement) => {
       return knownParents;
     }
   };
-  const knownParents = classElement?.subClassOf || [];
-  return recursiveParentsOf(knownParents);
+  const { id, subClassOf } = simplerElement;
+  const knownParents = subClassOf || [];
+  return recursiveParentsOf([id, ...knownParents]);
 };
-export default recursiveSubClassOf;
+
+export default recursiveSubclasses;
