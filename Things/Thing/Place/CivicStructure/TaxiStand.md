@@ -1,3 +1,0 @@
-# TaxiStand
-
-A taxi stand.

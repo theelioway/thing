@@ -1,3 +1,0 @@
-# Hospital
-
-A hospital.

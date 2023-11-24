@@ -1,3 +1,0 @@
-# Mosque
-
-A mosque.

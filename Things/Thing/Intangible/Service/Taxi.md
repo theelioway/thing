@@ -1,3 +1,0 @@
-# Taxi
-
-A taxi.

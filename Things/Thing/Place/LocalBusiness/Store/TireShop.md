@@ -1,3 +1,0 @@
-# TireShop
-
-A tire shop.

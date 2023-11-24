@@ -1,3 +1,0 @@
-# ClothingStore
-
-A clothing store.

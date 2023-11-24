@@ -1,3 +1,0 @@
-# BowlingAlley
-
-A bowling alley.

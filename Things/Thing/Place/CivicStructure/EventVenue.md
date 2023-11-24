@@ -1,3 +1,0 @@
-# EventVenue
-
-An event venue.

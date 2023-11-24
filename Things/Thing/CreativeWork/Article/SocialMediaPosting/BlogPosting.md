@@ -1,3 +1,0 @@
-# BlogPosting
-
-A blog post.

@@ -1,3 +1,0 @@
-# TelevisionStation
-
-A television station.

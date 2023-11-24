@@ -1,3 +1,0 @@
-# FurnitureStore
-
-A furniture store.

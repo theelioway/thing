@@ -1,3 +1,0 @@
-# DaySpa
-
-A day spa.

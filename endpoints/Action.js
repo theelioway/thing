@@ -1,4 +1,3 @@
-import { set } from "lodash-es";
 import ItemList from "./Intangible/ItemList.js";
 
 /** Action: Creates a new Action of `thing.Action.actionStatus`=`ActionStatusType`.
@@ -17,7 +16,13 @@ export const Action = (thing) => {
       actionStatus: "PotentialActionStatus",
       // Default Action to set `actionStatus` = "CompletedActionStatus"
       target: (thing) =>
-        set(thing || {}, "Action.actionStatus", "CompletedActionStatus"),
+        new Object({
+          ...(thing || {}),
+          Action: {
+            ...(thing?.Action || {}),
+            actionStatus: "CompletedActionStatus",
+          },
+        }),
     },
   });
 };

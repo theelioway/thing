@@ -1,3 +1,0 @@
-# ConvenienceStore
-
-A convenience store.

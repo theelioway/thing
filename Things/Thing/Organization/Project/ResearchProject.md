@@ -1,3 +1,0 @@
-# ResearchProject
-
-A Research project.

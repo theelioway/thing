@@ -1,5 +1,4 @@
-import { filter, some, isEqual } from "lodash-es";
-import { parseArgs } from "../../lib/parseArgs.js";
+import { parseArgs } from "@elioway/michael";
 import ItemList from "../Intangible/ItemList.js";
 
 /** SearchAction: returns partial matches from a `thing`'s list.
@@ -19,8 +18,8 @@ export const SearchAction = (thing) => {
     mainEntityOfPage: "SearchAction",
     name: "Search Results",
     ItemList: {
-      itemListElement: filter(thing.ItemList.itemListElement, (thing) =>
-        some(QUERY, (value, key) => isEqual(thing[key], value)),
+      itemListElement: thing.ItemList.itemListElement.filter((thing) =>
+        Object.entries(QUERY).some(([key, val]) => thing[key] === val),
       ),
     },
   });

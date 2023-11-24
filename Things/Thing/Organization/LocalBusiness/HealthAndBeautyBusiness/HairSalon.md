@@ -1,3 +1,0 @@
-# HairSalon
-
-A hair salon.

@@ -1,3 +1,0 @@
-# MovingCompany
-
-A moving company.

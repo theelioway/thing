@@ -1,3 +1,0 @@
-# DepartmentStore
-
-A department store.

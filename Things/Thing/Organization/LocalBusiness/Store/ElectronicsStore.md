@@ -1,3 +1,0 @@
-# ElectronicsStore
-
-An electronics store.

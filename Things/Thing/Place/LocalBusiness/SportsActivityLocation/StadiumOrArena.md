@@ -1,3 +1,0 @@
-# StadiumOrArena
-
-A stadium.

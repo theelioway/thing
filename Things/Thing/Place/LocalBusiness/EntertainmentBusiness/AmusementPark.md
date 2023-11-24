@@ -1,3 +1,0 @@
-# AmusementPark
-
-An amusement park.

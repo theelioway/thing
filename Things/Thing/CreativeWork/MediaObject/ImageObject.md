@@ -1,3 +1,0 @@
-# ImageObject
-
-An image file.

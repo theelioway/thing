@@ -1,3 +1,0 @@
-# Photograph
-
-A photograph.

@@ -1,3 +1,0 @@
-# PetStore
-
-A pet store.

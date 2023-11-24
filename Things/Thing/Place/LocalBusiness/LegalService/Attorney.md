@@ -1,5 +1,0 @@
-# Attorney
-
-Professional service: Attorney. <br/><br/>
-
-This type is deprecated - <a class="localLink" href="http://schema.org/LegalService">LegalService</a> is more inclusive and less ambiguous.

@@ -1,3 +1,0 @@
-# HealthClub
-
-A health club.

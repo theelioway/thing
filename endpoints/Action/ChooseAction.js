@@ -1,5 +1,4 @@
-import { find, matches } from "lodash-es";
-import { parseArgs } from "../../lib/parseArgs.js";
+import { parseArgs } from "@elioway/michael";
 import ErrorT from "../ErrorT.js";
 import ItemList from "../Intangible/ItemList.js";
 
@@ -16,7 +15,11 @@ export const ChooseAction = (thing) => {
   let ACTIONOPTION = parseArgs(
     thing.ChooseAction.actionOption.replace(/:/g, "=").split(","),
   );
-  let chosenThing = find(thing.ItemList.itemListElement, matches(ACTIONOPTION));
+  let chosenThing = thing.ItemList.itemListElement.find(({ identifier }) =>
+    Object.entries(ACTIONOPTION).every(
+      ([key, val]) => ACTIONOPTION[key] === val,
+    ),
+  );
   if (!chosenThing) {
     return ErrorT({
       ...thing,

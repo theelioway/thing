@@ -1,3 +1,0 @@
-# InternetCafe
-
-An internet cafe.

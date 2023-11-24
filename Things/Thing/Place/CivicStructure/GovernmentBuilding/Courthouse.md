@@ -1,3 +1,0 @@
-# Courthouse
-
-A courthouse.

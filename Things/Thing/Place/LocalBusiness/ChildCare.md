@@ -1,3 +1,0 @@
-# ChildCare
-
-A Childcare center.

@@ -1,3 +1,0 @@
-# TattooParlor
-
-A tattoo parlor.

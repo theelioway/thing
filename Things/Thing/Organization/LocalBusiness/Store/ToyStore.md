@@ -1,3 +1,0 @@
-# ToyStore
-
-A toy store.

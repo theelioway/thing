@@ -1,3 +1,0 @@
-# SportsClub
-
-A sports club.

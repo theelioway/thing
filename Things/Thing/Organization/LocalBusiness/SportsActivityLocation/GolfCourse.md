@@ -1,3 +1,0 @@
-# GolfCourse
-
-A golf course.

@@ -1,3 +1,0 @@
-# SoftwareApplication
-
-A software application.

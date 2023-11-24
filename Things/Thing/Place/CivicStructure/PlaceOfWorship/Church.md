@@ -1,3 +1,0 @@
-# Church
-
-A church.

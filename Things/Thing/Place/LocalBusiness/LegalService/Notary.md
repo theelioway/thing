@@ -1,3 +1,0 @@
-# Notary
-
-A notary.

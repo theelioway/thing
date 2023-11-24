@@ -1,3 +1,0 @@
-# EmploymentAgency
-
-An employment agency.

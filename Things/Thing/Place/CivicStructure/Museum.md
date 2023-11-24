@@ -1,3 +1,0 @@
-# Museum
-
-A museum.

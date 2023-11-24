@@ -1,3 +1,0 @@
-# Flight
-
-An airline flight.

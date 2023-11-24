@@ -1,3 +1,0 @@
-# PostalAddress
-
-The mailing address.

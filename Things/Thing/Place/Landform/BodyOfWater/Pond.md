@@ -1,3 +1,0 @@
-# Pond
-
-A pond.

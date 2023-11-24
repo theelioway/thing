@@ -1,3 +1,0 @@
-# Electrician
-
-An electrician.

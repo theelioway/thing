@@ -1,3 +1,0 @@
-# MusicComposition
-
-A musical composition.

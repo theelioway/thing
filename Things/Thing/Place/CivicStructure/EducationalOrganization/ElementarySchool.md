@@ -1,3 +1,0 @@
-# ElementarySchool
-
-An elementary school.

@@ -1,3 +1,0 @@
-# JewelryStore
-
-A jewelry store.

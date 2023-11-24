@@ -1,3 +1,0 @@
-# ComedyClub
-
-A comedy club.

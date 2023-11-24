@@ -1,3 +1,0 @@
-# AutoRepair
-
-Car repair business.

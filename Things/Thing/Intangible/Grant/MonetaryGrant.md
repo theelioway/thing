@@ -1,3 +1,0 @@
-# MonetaryGrant
-
-A monetary grant.

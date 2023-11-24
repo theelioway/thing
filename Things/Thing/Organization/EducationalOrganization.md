@@ -1,3 +1,0 @@
-# EducationalOrganization
-
-An educational organization.

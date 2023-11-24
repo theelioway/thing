@@ -1,3 +1,0 @@
-# HealthAndBeautyBusiness
-
-Health and beauty.

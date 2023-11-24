@@ -1,3 +1,0 @@
-# Country
-
-A country.

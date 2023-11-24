@@ -1,3 +1,0 @@
-# GeneralContractor
-
-A general contractor.

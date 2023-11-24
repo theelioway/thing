@@ -1,3 +1,0 @@
-# CategoryCode
-
-A Category Code.

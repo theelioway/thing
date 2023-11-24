@@ -1,3 +1,0 @@
-# BikeStore
-
-A bike store.

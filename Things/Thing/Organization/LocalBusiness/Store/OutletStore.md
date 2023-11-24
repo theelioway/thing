@@ -1,3 +1,0 @@
-# OutletStore
-
-An outlet store.

@@ -1,3 +1,0 @@
-# ExerciseGym
-
-A gym.

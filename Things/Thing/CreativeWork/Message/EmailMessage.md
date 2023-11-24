@@ -1,3 +1,0 @@
-# EmailMessage
-
-An email message.

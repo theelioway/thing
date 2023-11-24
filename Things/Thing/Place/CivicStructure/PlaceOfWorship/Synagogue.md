@@ -1,3 +1,0 @@
-# Synagogue
-
-A synagogue.

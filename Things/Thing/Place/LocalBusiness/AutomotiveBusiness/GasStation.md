@@ -1,3 +1,0 @@
-# GasStation
-
-A gas station.

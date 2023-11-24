@@ -1,3 +1,0 @@
-# MotorcycleDealer
-
-A motorcycle dealer.

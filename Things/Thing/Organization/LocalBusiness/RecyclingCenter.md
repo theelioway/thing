@@ -1,3 +1,0 @@
-# RecyclingCenter
-
-A recycling center.

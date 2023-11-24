@@ -1,3 +1,0 @@
-# PoliceStation
-
-A police station.

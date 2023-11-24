@@ -1,3 +1,0 @@
-# WholesaleStore
-
-A wholesale store.

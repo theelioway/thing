@@ -1,3 +1,0 @@
-# Preschool
-
-A preschool.

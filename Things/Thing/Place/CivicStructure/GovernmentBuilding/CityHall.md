@@ -1,3 +1,0 @@
-# CityHall
-
-A city hall.

@@ -1,3 +1,0 @@
-# Guide
-
-<a class="localLink" href="http://schema.org/Guide">Guide</a> is a page or article that recommend specific products or services, or aspects of a thing for a user to consider. A <a class="localLink" href="http://schema.org/Guide">Guide</a> may represent a Buying Guide and detail aspects of products or services for a user to consider. A <a class="localLink" href="http://schema.org/Guide">Guide</a> may represent a Product Guide and recommend specific products or services. A <a class="localLink" href="http://schema.org/Guide">Guide</a> may represent a Ranked List and recommend specific products or services with ranking.

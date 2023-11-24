@@ -1,3 +1,0 @@
-# Distillery
-
-A distillery.

@@ -1,3 +1,0 @@
-# BuddhistTemple
-
-A Buddhist temple.

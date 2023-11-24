@@ -1,6 +1,4 @@
-import { filter, matches } from "lodash-es";
-import { parseArgs } from "../../lib/parseArgs.js";
-import ItemList from "../Intangible/ItemList.js";
+import { parseArgs } from "@elioway/michael";
 
 /** FindAction: Some `things` in  `thing`'s list.
  *
@@ -35,9 +33,8 @@ export const FindAction = (thing) => {
   let INSTRUMENT = parseArgs(
     thing.Action.instrument.replace(/:/g, "=").split(","),
   );
-  let ITEMLISTELEMENT = filter(
-    thing.ItemList.itemListElement,
-    matches(INSTRUMENT),
+  let ITEMLISTELEMENT = thing.ItemList.itemListElement.filter((thing) =>
+    Object.entries(INSTRUMENT).every(([key, val]) => thing[key] === val),
   );
   return new Object({
     ...thing,

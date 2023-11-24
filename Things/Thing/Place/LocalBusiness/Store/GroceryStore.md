@@ -1,3 +1,0 @@
-# GroceryStore
-
-A grocery store.

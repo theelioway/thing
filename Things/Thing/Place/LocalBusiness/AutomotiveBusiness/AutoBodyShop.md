@@ -1,3 +1,0 @@
-# AutoBodyShop
-
-Auto body shop.

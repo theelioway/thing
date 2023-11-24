@@ -1,3 +1,0 @@
-# BusStop
-
-A bus stop.

@@ -1,3 +1,0 @@
-# GovernmentBuilding
-
-A government building.

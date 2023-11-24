@@ -1,3 +1,0 @@
-# SpreadsheetDigitalDocument
-
-A spreadsheet file.

@@ -1,3 +1,0 @@
-# Dentist
-
-A dentist.

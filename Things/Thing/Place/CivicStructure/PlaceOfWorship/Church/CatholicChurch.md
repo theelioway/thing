@@ -1,3 +1,0 @@
-# CatholicChurch
-
-A Catholic church.

@@ -1,3 +1,0 @@
-# BookStore
-
-A bookstore.

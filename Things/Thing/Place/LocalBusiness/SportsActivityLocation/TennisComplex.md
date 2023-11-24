@@ -1,3 +1,0 @@
-# TennisComplex
-
-A tennis complex.

@@ -1,3 +1,0 @@
-# MusicStore
-
-A music store.

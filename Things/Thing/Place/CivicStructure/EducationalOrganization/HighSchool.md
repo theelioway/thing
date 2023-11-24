@@ -1,3 +1,0 @@
-# HighSchool
-
-A high school.

@@ -1,3 +1,0 @@
-# MovieTheater
-
-A movie theater.

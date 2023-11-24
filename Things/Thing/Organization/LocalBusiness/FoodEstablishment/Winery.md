@@ -1,3 +1,0 @@
-# Winery
-
-A winery.

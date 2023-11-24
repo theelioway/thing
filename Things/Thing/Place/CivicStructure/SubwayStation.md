@@ -1,3 +1,0 @@
-# SubwayStation
-
-A subway station.

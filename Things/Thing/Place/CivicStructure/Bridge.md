@@ -1,3 +1,0 @@
-# Bridge
-
-A bridge.

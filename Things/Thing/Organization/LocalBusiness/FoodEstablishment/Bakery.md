@@ -1,3 +1,0 @@
-# Bakery
-
-A bakery.

@@ -1,3 +1,0 @@
-# InsuranceAgency
-
-An Insurance agency.

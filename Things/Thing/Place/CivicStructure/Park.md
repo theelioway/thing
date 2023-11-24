@@ -1,3 +1,0 @@
-# Park
-
-A park.

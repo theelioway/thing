@@ -1,0 +1,32 @@
+{
+  "identifier": "thing-0001",
+  "name": "RedThing",
+  "ItemList": {
+    "itemListElement": [
+      {
+        "identifier": 1,
+        "sameAs": "odd"
+      },
+      {
+        "identifier": 2,
+        "sameAs": "even"
+      },
+      {
+        "identifier": 3,
+        "sameAs": "odd"
+      },
+      {
+        "identifier": 4,
+        "sameAs": "even"
+      },
+      {
+        "identifier": 5,
+        "sameAs": "odd"
+      },
+      {
+        "identifier": 6,
+        "sameAs": "even"
+      }
+    ]
+  }
+}

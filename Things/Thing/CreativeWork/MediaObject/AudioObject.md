@@ -1,3 +1,0 @@
-# AudioObject
-
-An audio file.

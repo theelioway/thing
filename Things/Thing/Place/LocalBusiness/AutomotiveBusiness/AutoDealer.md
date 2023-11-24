@@ -1,3 +1,0 @@
-# AutoDealer
-
-An car dealership.

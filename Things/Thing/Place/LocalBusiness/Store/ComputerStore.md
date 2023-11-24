@@ -1,3 +1,0 @@
-# ComputerStore
-
-A computer store.

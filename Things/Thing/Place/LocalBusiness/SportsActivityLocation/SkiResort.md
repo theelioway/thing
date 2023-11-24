@@ -1,3 +1,0 @@
-# SkiResort
-
-A ski resort.

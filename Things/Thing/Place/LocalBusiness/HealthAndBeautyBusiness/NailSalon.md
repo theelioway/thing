@@ -1,3 +1,0 @@
-# NailSalon
-
-A nail salon.

@@ -1,3 +1,0 @@
-# HardwareStore
-
-A hardware store.

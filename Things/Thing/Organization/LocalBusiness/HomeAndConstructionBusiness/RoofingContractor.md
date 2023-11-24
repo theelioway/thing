@@ -1,3 +1,0 @@
-# RoofingContractor
-
-A roofing contractor.

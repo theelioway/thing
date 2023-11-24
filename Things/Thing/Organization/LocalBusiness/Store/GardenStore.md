@@ -1,3 +1,0 @@
-# GardenStore
-
-A garden store.

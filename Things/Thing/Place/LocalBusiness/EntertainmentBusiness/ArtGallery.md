@@ -1,3 +1,0 @@
-# ArtGallery
-
-An art gallery.

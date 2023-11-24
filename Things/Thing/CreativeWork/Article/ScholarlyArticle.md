@@ -1,3 +1,0 @@
-# ScholarlyArticle
-
-A scholarly article.

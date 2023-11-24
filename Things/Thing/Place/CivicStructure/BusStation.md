@@ -1,3 +1,0 @@
-# BusStation
-
-A bus station.

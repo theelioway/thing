@@ -1,3 +1,0 @@
-# SportsTeam
-
-Organization: Sports team.
