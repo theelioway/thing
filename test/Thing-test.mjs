@@ -5,7 +5,7 @@ import Thing from "../Thing.js";
 should();
 
 describe("Thing", () => {
-  it("ThingUnitTest", () => {
+  it.only("ThingUnitTest", () => {
     ThingUnitTest(Thing);
   });
 });

@@ -1,6 +1,5 @@
-import Immutable from "immutable";
-
 ("use strict");
+import Immutable from "immutable";
 // import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
@@ -14,7 +13,7 @@ import {
   reduceSubclasses,
   readGraphFile,
   sortById,
-} from "../src/index.js";
+} from "./src/index.js";
 
 /**
  * The most generic type of item.
@@ -31,6 +30,11 @@ import {
  * >> console.assert(thing2.identifier==="thing-0001")
  * >> console.assert(thing2.mainEntityOfPage==="Thing")
  * >> console.assert(thing2.ItemList.itemListElement)
+ *
+ * >> const thing3 = await Thing({ main: "WebPage" })
+ * >> console.assert(!thing1.identifier)
+ * >> console.assert(thing2.mainEntityOfPage==="WebPage")
+ * >> console.assert(thing2.ItemList.itemListElement)
  */
 export const Thing = async function Thing(startThing) {
   const mainThing = "Thing";
@@ -38,6 +42,8 @@ export const Thing = async function Thing(startThing) {
     "mainEntityOfPage",
     (value) => value || mainThing,
   );
+
+  console.log({});
 
   // How properties are reduced: in this case to default values.
   const thingletMaker = reduceProperties(propertyDefaultValue);
@@ -61,7 +67,9 @@ export const Thing = async function Thing(startThing) {
     .filter(filterProperties("Thing"))
     .reduce(thingletMaker, {});
 
-  const { mainEntityOfPage } = immutableThing;
+  const { mainEntityOfPage } = immutableThing.toJS();
+
+  console.log({ mainEntityOfPage });
 
   // Get `mainEntityOfPage` thing.
   const thing = graph.find(findById(mainEntityOfPage));

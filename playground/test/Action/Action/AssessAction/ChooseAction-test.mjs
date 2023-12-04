@@ -1,6 +1,6 @@
 import chai from "chai";
-import ThingUnitTest from "../../../../test-helpers/ThingUnitTest.js";
-import ActionStateTest from "../../../../test-helpers/Action/ActionStateTest.js";
+import ThingUnitTest from "../../../../../test-helpers/ThingUnitTest.js";
+import ActionStateTest from "../../../../../test-helpers/Action/ActionStateTest.js";
 import ChooseAction from "../../../../Action/Action/FindAction/DiscoverAction.js";
 
 chai.should();
