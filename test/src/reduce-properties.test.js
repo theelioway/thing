@@ -1,7 +1,7 @@
 "use strict";
 import { should } from "chai";
 
-import { reduceProperties } from "../src/reduce-properties.js";
+import { reduceProperties } from "../../src/reduce-properties.js";
 
 should();
 

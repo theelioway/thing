@@ -4,7 +4,7 @@ import { should } from "chai";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import reduceSubclasses from "../src/reduce-subclassses.js";
+import reduceSubclasses from "../../src/reduce-subclassses.js";
 
 should();
 

@@ -4,8 +4,8 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import readGraphFile from "../src/read-graph-file.js";
-import mapSimplerGraph from "../src/map-simpler-graph.js";
+import readGraphFile from "../../src/read-graph-file.js";
+import mapSimplerGraph from "../../src/map-simpler-graph.js";
 
 should();
 
@@ -106,7 +106,7 @@ describe("function | mapSimplerGraph", () => {
   it("simplified the `schemaorgv9.0` graph", async () => {
     const rdfPath = join(
       DIR,
-      "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
+      "../../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
     );
     const simpler = readGraphFile(rdfPath).map(
       mapSimplerGraph("http://schema.org/"),

@@ -1,6 +1,5 @@
-("use strict");
+"use strict";
 import Immutable from "immutable";
-// import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import {
@@ -13,7 +12,8 @@ import {
   reduceSubclasses,
   readGraphFile,
   sortById,
-} from "./src/index.js";
+  sortObjectEntriesLowercaseFirst,
+} from "../src/index.js";
 
 /**
  * The most generic type of item.
@@ -38,12 +38,10 @@ import {
  */
 export const Thing = async function Thing(startThing) {
   const mainThing = "Thing";
-  const immutableThing = Immutable.fromJS(startThing || {}).update(
+  const immutableThing = await Immutable.fromJS(startThing || {}).update(
     "mainEntityOfPage",
     (value) => value || mainThing,
   );
-
-  console.log({});
 
   // How properties are reduced: in this case to default values.
   const thingletMaker = reduceProperties(propertyDefaultValue);
@@ -52,7 +50,7 @@ export const Thing = async function Thing(startThing) {
   const DIR = dirname(fileURLToPath(import.meta.url));
   const PATH = join(
     DIR,
-    "./schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
+    "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
   );
   const graph = readGraphFile(PATH)
     // map graph list to simpler elements.
@@ -69,13 +67,14 @@ export const Thing = async function Thing(startThing) {
 
   const { mainEntityOfPage } = immutableThing.toJS();
 
-  console.log({ mainEntityOfPage });
-
   // Get `mainEntityOfPage` thing.
-  const thing = graph.find(findById(mainEntityOfPage));
+  const graphThing = graph.find(findById(mainEntityOfPage));
   // Get every subClassOf except the super type `Thing`.
   const thingSubClasses = [
-    ...new Set(["ItemList", ...thing.subClassOf.filter((t) => t !== "Thing")]),
+    ...new Set([
+      "ItemList",
+      ...graphThing.subClassOf.filter((t) => t !== "Thing"),
+    ]),
   ];
 
   // Along with "ItemList" reduce each subclass to a key with properties.
@@ -84,12 +83,15 @@ export const Thing = async function Thing(startThing) {
     {},
   );
 
-  return Immutable.fromJS({
+  let thing = await Immutable.fromJS({
     ...thingProperties,
     ...subClassReduction,
   })
     .merge(immutableThing)
     .toJS();
+  return Object.fromEntries(
+    Object.entries(thing).sort(sortObjectEntriesLowercaseFirst),
+  );
 };
 
 export default Thing;

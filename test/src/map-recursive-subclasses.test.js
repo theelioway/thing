@@ -4,7 +4,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import mapRecursiveSubclasses from "../src/map-recursive-subclassses.js";
+import mapRecursiveSubclasses from "../../src/map-recursive-subclassses.js";
 
 should();
 

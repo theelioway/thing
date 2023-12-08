@@ -4,7 +4,7 @@ import { should } from "chai";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import recursiveSubclasses from "../src/recursive-subclassses.js";
+import recursiveSubclasses from "../../src/recursive-subclassses.js";
 
 should();
 

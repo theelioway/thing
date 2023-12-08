@@ -1,7 +1,7 @@
 "use strict";
 import { should } from "chai";
 
-import sortById from "../src/sort-by-id.js";
+import sortById from "../../src/sort-by-id.js";
 
 should();
 

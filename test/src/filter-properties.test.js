@@ -4,7 +4,7 @@ import fs from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import filterProperties from "../src/filter-properties.js";
+import filterProperties from "../../src/filter-properties.js";
 
 should();
 

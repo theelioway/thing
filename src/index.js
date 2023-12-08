@@ -8,3 +8,8 @@ export { default as recursiveSubclasses } from "./recursive-subclassses.js";
 export { default as reduceProperties } from "./reduce-properties.js";
 export { default as reduceSubclasses } from "./reduce-subclassses.js";
 export { default as sortById } from "./sort-by-id.js";
+export {
+  defaultSort,
+  sortLowercaseFirst,
+  sortObjectEntriesLowercaseFirst,
+} from "./sort-lowercase-first.js";

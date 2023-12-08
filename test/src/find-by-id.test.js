@@ -1,7 +1,7 @@
 "use strict";
 import { should } from "chai";
 
-import findById from "../src/find-by-id.js";
+import findById from "../../src/find-by-id.js";
 
 should();
 

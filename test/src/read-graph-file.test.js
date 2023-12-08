@@ -3,7 +3,7 @@ import { should } from "chai";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import readGraphFile from "../src/read-graph-file.js";
+import readGraphFile from "../../src/read-graph-file.js";
 
 should();
 
@@ -21,7 +21,7 @@ describe("function | readGraphFile", () => {
   it("gets schemaorg 9.0", async () => {
     const rdfPath = join(
       DIR,
-      "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
+      "../../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
     );
     readGraphFile(rdfPath).length.should.eql(2565);
   });

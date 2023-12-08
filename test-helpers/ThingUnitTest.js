@@ -1,6 +1,8 @@
-import { should } from "chai";
+// import { should } from "chai";
+// should();
+import chai from "chai";
 
-should();
+const should = chai.should();
 
 /**
 * @file Wrapper for routine before/beforeEach/after mongoose server prep in tests.
@@ -21,7 +23,7 @@ export const ThingUnitTest = async (Thing) => {
   describe(`${typeName} Unit Test`, () => {
     it("returns a `thing` from undefined input", async () => {
       let thing = await Thing();
-      should().be.equal(thing.identifier, undefined);
+      should.equal(thing.identifier, "");
       thing.mainEntityOfPage.should.eql(typeName);
       thing.ItemList.itemListElement.should.eql([]);
     });

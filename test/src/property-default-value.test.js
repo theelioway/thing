@@ -1,6 +1,6 @@
 "use strict";
 import { should } from "chai";
-import propertyDefaultValue from "../src/property-default-value.js";
+import propertyDefaultValue from "../../src/property-default-value.js";
 
 should();
 
