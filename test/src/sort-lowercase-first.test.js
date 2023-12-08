@@ -44,7 +44,7 @@ const EXPECTED = [
 ];
 
 describe("function | sortLowercaseFirst", () => {
-  it("sorts `sortLowercaseFirst` unremittingly", async () => {
+  it("`.sort(sortLowercaseFirst)` unremittingly", async () => {
     let UNSORTED = [...DEALT];
     let SORTED = [...UNSORTED];
     SORTED.sort(sortLowercaseFirst);
@@ -57,17 +57,17 @@ describe("function | sortLowercaseFirst", () => {
     SORTED.should.eql(UNREVERSED, "SORTED.should.eql(UNREVERSED)");
     SORTED.should.eql(EXPECTED, "SORTED.should.eql(EXPECTED)");
   });
-  it("`defaultSort` same as `DEALT`", async () => {
+  it("`.reverse().sort(defaultSort)` same as `DEALT`", async () => {
     let SORTED = [...DEALT].reverse().sort(defaultSort);
     SORTED.should.not.equal(DEALT, "SORTED.should.not.equal(DEALT)");
     SORTED.should.eql(DEALT, "SORTED.should.eql(DEALT)");
   });
-  it("`DEALT.reverse().sort()` same as `DEALT`", async () => {
+  it("`.reverse().sort()` same as `DEALT`", async () => {
     let SORTED = [...DEALT].reverse().sort();
     SORTED.should.not.equal(DEALT, "SORTED.should.not.equal(DEALT)");
     SORTED.should.eql(DEALT, "SORTED.should.eql(DEALT)");
   });
-  it("`sortObjectEntriesLowercaseFirst` keys `thing`", async () => {
+  it("`Object.entries.sort()` keys", async () => {
     let SORTED = Object.entries({
       sameAs: "",
       subjectOf: "",
