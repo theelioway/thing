@@ -1,6 +1,4 @@
-import Action from "../../../Thing/Action.js";
-import ItemList from "../../../Thing/Intangible/ItemList.js";
-import Message from "../../../Thing/CreativeWork/Message.js";
+import Immutable from "immutable";
 
 /**
  * The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
@@ -12,12 +10,10 @@ import Message from "../../../Thing/CreativeWork/Message.js";
  * const results = await ReceiveAction({ Action: { object: thing } })
  * console.assert(results.Action.result.name === "myThing")
  */
-export const ReturnAction = async function ReturnAction(action) {
-  const mainEntityOfPage = "ReturnAction";
-  action = await Action({ ...action, mainEntityOfPage });
-  action.Action.result = await ItemList({ mainEntityOfPage });
-  action.Action.actionStatus = "CompletedActionStatus";
-  return await Message(action);
+export const ReturnAction = (returnAction) => async (prevAction) => {
+  return await Immutable.fromJS(prevAction.Action.result || {})
+    .merge(returnAction)
+    .toJS();
 };
 
 export default ReturnAction;

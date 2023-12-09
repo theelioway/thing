@@ -8,5 +8,8 @@ export {
   reduceSubclasses,
   readGraphFile,
   sortById,
+  sortLowercaseFirst,
+  sortObjectEntriesLowercaseFirst,
 } from "../src/index.js";
 export { default as Thing } from "./Thing.js";
+export { default as ItemList } from "./Thing/Intangible/ItemList.js";

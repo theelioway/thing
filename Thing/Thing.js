@@ -42,10 +42,8 @@ export const Thing = async function Thing(startThing) {
     "mainEntityOfPage",
     (value) => value || mainThing,
   );
-
   // How properties are reduced: in this case to default values.
   const thingletMaker = reduceProperties(propertyDefaultValue);
-
   // Read the schema RDF file...
   const DIR = dirname(fileURLToPath(import.meta.url));
   const PATH = join(
@@ -64,9 +62,7 @@ export const Thing = async function Thing(startThing) {
   const thingProperties = graph
     .filter(filterProperties("Thing"))
     .reduce(thingletMaker, {});
-
   const { mainEntityOfPage } = immutableThing.toJS();
-
   // Get `mainEntityOfPage` thing.
   const graphThing = graph.find(findById(mainEntityOfPage));
   // Get every subClassOf except the super type `Thing`.
@@ -76,13 +72,12 @@ export const Thing = async function Thing(startThing) {
       ...graphThing.subClassOf.filter((t) => t !== "Thing"),
     ]),
   ];
-
   // Along with "ItemList" reduce each subclass to a key with properties.
   const subClassReduction = thingSubClasses.reduce(
     reduceSubclasses(graph, thingletMaker),
     {},
   );
-
+  // Return Immutable
   let thing = await Immutable.fromJS({
     ...thingProperties,
     ...subClassReduction,

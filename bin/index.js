@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 import { callMicheal, michael } from "@elioway/michael";
 import Thing from "../Thing/Thing.js";
-
-const commands = {
-  SaveAction,
-};
+import WriteAction from "../Action/CreateAction/WriteAction.js";
+import TakeAction from "../Action/TransferAction/TakeAction.js";
+import ReturnAction from "../Action/TransferAction/ReturnAction.js";
 
 const michaelCLI = async (thing) => {
-  thing = callMicheal(thing);
+  thing = await callMicheal(thing);
+  thing = await michael(await Thing(thing), [
+    TakeAction({}),
+    WriteAction({ url: thing.url || "./myThing.json" }),
+    ReturnAction({}),
+  ]);
   console.log({ thing });
-  await michael(thing, commands[thing.potentialAction]);
 };
 
-console.log(Thing(michaelCLI()));
+michaelCLI();
