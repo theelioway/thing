@@ -12,4 +12,4 @@ export {
   sortObjectEntriesLowercaseFirst,
 } from "../src/index.js";
 export { default as Thing } from "./Thing.js";
-export { default as ItemList } from "./Thing/Intangible/ItemList.js";
+export { default as identifier } from "./Thing/identifier.js";
