@@ -129,10 +129,10 @@ thing --schema --comments
 thing --schema --depth 2
 
 # write any result into this folder.
-thing --write "./myThings/"
+thing --write"./myThings/"
 
 # write any result into this folder.
-thing --write "./myThings/"
+thing --write"./myThings/"
 ```
 
 ## Using thing in your frameworks

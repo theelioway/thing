@@ -1,4 +1,4 @@
-import { parseArgs } from "@elioway/michael";
+import { parseCliArgs } from "@elioway/michael";
 import Action from "../../../Thing/Action.js";
 import ItemList from "../../../Thing/Intangible/ItemList.js";
 import Message from "../../../Thing/CreativeWork/Message.js";
@@ -45,13 +45,13 @@ export const AddAction = async function AddAction(action) {
   action = await Action({ ...action, mainEntityOfPage });
   // A sub property of object. The object that is being replaced.
   action.AddAction.replacee = action.AddAction.replacee || "";
-  action.AddAction.replacee = parseArgs(
+  action.AddAction.replacee = parseCliArgs(
     action.AddAction.replacee.split(","),
     ":",
   );
   // 	A sub property of object. The object that replaces.
   action.AddAction.replacer = action.AddAction.replacer || "";
-  action.AddAction.replacer = parseArgs(
+  action.AddAction.replacer = parseCliArgs(
     action.AddAction.replacer.split(","),
     ":",
   );

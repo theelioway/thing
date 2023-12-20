@@ -1,6 +1,3 @@
-const kebabCase = (val) =>
-  val.toString().replace(/\s+/g, " ").trim().toLowerCase().split(" ").join("-");
-
 function* uniqueNumberGenerator() {
   let counter = 0;
   while (true) {
@@ -10,7 +7,7 @@ function* uniqueNumberGenerator() {
 
 const generator = uniqueNumberGenerator();
 
-const identify = () => generator.next().value;
+export const identify = () => generator.next().value;
 
 /**
  * The identifier property represents any kind of identifier for any kind of Thing
@@ -34,12 +31,10 @@ const identify = () => generator.next().value;
  * const thing5 = identifier({ identifier: "my-blue-thing" })
  * console.assert(thing5.identifier==="my-blue-thing")
  */
-export const identifier = async function (thing) {
+export const identifier = (identify) => async function (thing) {
   thing = thing || {};
   if (!thing.identifier) {
-    thing.identifier = kebabCase(
-      [thing.name, thing.disambiguatingDescription, identify()].join(" "),
-    );
+    thing.identifier = identify(thing);
   }
   return thing;
 };

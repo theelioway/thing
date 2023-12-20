@@ -54,10 +54,10 @@ npm run thing -- --schema --comments
 npm run thing -- --schema --depth 2
 
 # write any result into this folder.
-npm run thing -- --write "."
+npm run thing -- --write"."
 
 # write any result into any folder.
-npm run thing -- --write "./myThings/"
+npm run thing -- --write"./myThings/"
 
 # list all the subtypes of Thing
 npm run thing -- --list

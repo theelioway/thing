@@ -1,4 +1,4 @@
-import { parseArgs } from "@elioway/michael";
+import { parseCliArgs } from "@elioway/michael";
 import Action from "../../Thing/Action.js";
 
 /**
@@ -45,7 +45,7 @@ export const SearchAction = async function SearchAction(action) {
   action.Action.result = cloneDeep(action.Action.object);
   action.SearchAction = action.SearchAction || {};
   action.SearchAction.query = action.SearchAction.query || "";
-  action.SearchAction.query = parseArgs(action.Action.query.split(","), ":");
+  action.SearchAction.query = parseCliArgs(action.Action.query.split(","), ":");
   action.Action.result.ItemList.itemListElement =
     action.Action.object.ItemList.itemListElement.filter((thing) =>
       Object.entries(action.SearchAction.query).some(

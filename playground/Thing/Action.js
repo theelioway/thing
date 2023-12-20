@@ -1,4 +1,4 @@
-import { parseArgs } from "@elioway/michael";
+import { parseCliArgs } from "@elioway/michael";
 import ItemList from "./Intangible/ItemList.js";
 import Thing from "../Thing.js";
 
@@ -43,7 +43,7 @@ export const Action = async function Action(thing) {
   // an `Object` to use for `whatever` by `provider` function.
   thing.Action.instrument = thing.Action.instrument || "";
   if (typeof thing.Action.instrument === "string") {
-    thing.Action.instrument = parseArgs(
+    thing.Action.instrument = parseCliArgs(
       thing.Action.instrument.split(","),
       ":",
     );

@@ -3,8 +3,8 @@ import { promises as fs } from "fs";
 import Thing from "../../Thing/Thing.js";
 import { sortObjectEntriesLowercaseFirst } from "../../src/index.js";
 
-/** 
- * @TODO Move to **bones** 
+/**
+ * @TODO Move to **bones**
  * Writes `action.Action.object` to a JSON file.
  * @example
  * let WriteAction = require("@elioway/michael/Action/WriteAction.js")

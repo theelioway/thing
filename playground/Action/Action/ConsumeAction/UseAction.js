@@ -1,4 +1,4 @@
-import { parseArgs } from "@elioway/michael";
+import { parseCliArgs } from "@elioway/michael";
 import Action from "../../../Thing/Action.js";
 import Message from "../../../Thing/CreativeWork/Message.js";
 
@@ -35,7 +35,7 @@ export const UseAction = async function (action) {
   action.UseAction.actionAccessibilityRequirement =
     action.UseAction.actionAccessibilityRequirement || "";
   if (typeof action.UseAction.actionAccessibilityRequirement === "string") {
-    action.UseAction.actionAccessibilityRequirement = parseArgs(
+    action.UseAction.actionAccessibilityRequirement = parseCliArgs(
       action.UseAction.actionAccessibilityRequirement.split(","),
       ":",
     );

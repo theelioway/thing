@@ -1,7 +1,6 @@
 {
-  "alternateName": "to basest things, the elioWay",
   "description": "Working with Schema.org Things, the elioWay.",
-  "disambiguatingDescription": "After their kinds; I bring them to receive, the elioWay",
+  "disambiguatingDescription": "Possess it, and all things that therein live, the elioWay",
   "identifier": "thing",
   "mainEntityOfPage": "SoftwareSourceCode",
   "name": "@elioway/thing",
@@ -30,7 +29,7 @@
     "thing": "node bin/index.js",
     "beautiful": "node allThingsBrightAndBeautiful.js",
     "test": "mocha ./test/ --recursive",
-    "prettier": "prettier --list-different --write \"**/*.{css,html,js,json,md,mjs,scss,ts,yaml}\" \"!package.json\""
+    "prettier": "prettier . --list-different --write"
   },
   "type": "module"
 }
