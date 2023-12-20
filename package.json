@@ -7,8 +7,6 @@
   "sameAs": "https://Thing.theElioWay.com/",
   "subjectOf": "Way",
   "url": "https://thing.Thing.theElioWay.com",
-  "version": "1.1.8",
-  "bin": "./bin/index.js",
   "SoftwareSourceCode": {
     "codeSampleType": "experimental",
     "targetProduct": "eliothing"
@@ -20,6 +18,7 @@
       "thing"
     ]
   },
+  "bin": "./bin/index.js",
   "dependencies": {
     "@elioway/abdiel": "file:../abdiel",
     "@elioway/michael": "file:../michael"
@@ -42,5 +41,6 @@
     "test": "mocha ./test/ --recursive",
     "prettier": "prettier . --list-different --write"
   },
-  "type": "module"
+  "type": "module",
+  "version": "1.1.8"
 }
