@@ -1,5 +1,4 @@
 "use strict";
-import Immutable from "immutable";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import {
@@ -13,7 +12,8 @@ import {
   readGraphFile,
   sortById,
   sortObjectEntriesLowercaseFirst,
-} from "../src/index.js";
+} from "@elioway/belial";
+import { thingClone } from "../src/index.js";
 
 /**
  * The most generic type of item.
@@ -38,10 +38,8 @@ import {
  */
 export const Thing = async function Thing(startThing) {
   const mainThing = "Thing";
-  const immutableThing = await Immutable.fromJS(startThing || {}).update(
-    "mainEntityOfPage",
-    (value) => value || mainThing,
-  );
+  const immutableThing = await  Object.assign({}, {mainEntityOfPage: mainThing}, thingCloner(startThing));
+
   // How properties are reduced: in this case to default values.
   const thingletMaker = reduceProperties(propertyDefaultValue);
   // Read the schema RDF file...
