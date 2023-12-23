@@ -6,11 +6,11 @@ import {
   findOf,
   mapRecursiveSubclasses,
   mapSimplerGraph,
-  propertyDefaultValueOf,
+  valueOf,
   reduceProperties,
   reduceSubclasses,
   readGraphFile,
-  sortById,
+  objectArraySortById,
   sortObjectEntriesLowercaseFirst,
 } from "@elioway/belial";
 import { thingClone } from "../src/index.js";
@@ -38,10 +38,14 @@ import { thingClone } from "../src/index.js";
  */
 export const Thing = async function Thing(startThing) {
   const mainThing = "Thing";
-  const immutableThing = await  Object.assign({}, {mainEntityOfPage: mainThing}, thingCloner(startThing));
+  const immutableThing = await Object.assign(
+    {},
+    { mainEntityOfPage: mainThing },
+    thingCloner(startThing),
+  );
 
   // How properties are reduced: in this case to default values.
-  const thingletMaker = reduceProperties(propertyDefaultValueOf);
+  const thingletMaker = reduceProperties(valueOf);
   // Read the schema RDF file...
   const DIR = dirname(fileURLToPath(import.meta.url));
   const PATH = join(
@@ -54,7 +58,7 @@ export const Thing = async function Thing(startThing) {
     // resolve `subClassOf` property.
     .map(mapRecursiveSubclasses)
     // sort elements by the `id` field.
-    .sort(sortById);
+    .sort(objectArraySortById);
 
   // Get the list of properties for the super type `Thing`.
   const thingProperties = graph

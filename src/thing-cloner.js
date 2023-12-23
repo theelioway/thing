@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 import { objectClone } from "@elioway/abdiel";
 /**
  * Creates a deep clone of an thing by serializing it to JSON and then parsing it.
@@ -12,13 +12,12 @@ import { objectClone } from "@elioway/abdiel";
  * console.assert(clonedObject.address.city === "New York")
  */
 export const thingClone = (thing) =>
-Object.assign({
-  ...thing,
-  ItemList: {
-    ...thing.ItemList,
-    itemListElement: thing.ItemList.itemListElement.map(objectClone),
-  },
-});
+  Object.assign({
+    ...thing,
+    ItemList: {
+      ...thing.ItemList,
+      itemListElement: thing.ItemList.itemListElement.map(objectClone),
+    },
+  });
 
-
-export default thingClone
+export default thingClone;

@@ -1,53 +1,40 @@
 "use strict";
-// import fs from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
 import {
-  filterProperties,
+  filterPropertiesOf,
   findOf,
-  mapRecursiveSubclasses,
   mapSimplerGraph,
-  propertyDefaultValueOf,
-  reduceProperties,
-  reduceSubclasses,
-  readGraphFile,
-  sortById,
-} from "../src/index.js";
+  objectArrayReduceProperties,
+  valueOf,
+  reduceAncestorClassesOf,
+} from "@elioway/belial";
+import { readGraphFileRelatively } from "@elioway/belial/utils";
 
-// The requested "Thing" type
-const mainEntityOfPage = "WebPage";
+const graph = readGraphFileRelatively(
+  import.meta.url,
+  "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
+).map(mapSimplerGraph("http://schema.org/"));
 
-// How properties are reduced: in this case to default values.
-const thingletMaker = reduceProperties(propertyDefaultValueOf);
+// The requested entity type
+const id = "WebPage";
 
-// Read the schema RDF file...
-const DIR = dirname(fileURLToPath(import.meta.url));
-const PATH = join(DIR, "schemaorg-v9.jsonld");
-const graph = readGraphFile(PATH)
-  // map graph list to simpler elements.
-  .map(mapSimplerGraph("http://schema.org/"))
-  // resolve `subClassOf` property.
-  .map(mapRecursiveSubclasses)
-  // sort elements by the `id` field.
-  .sort(sortById);
+let entity = graph.find(findOf({ id }));
+const ancestors = graph
+  .reduce(reduceAncestorClassesOf(entity), [])
+  .filter((ent) => ent.id !== "Thing");
+// const descendants = graph.reduce(reduceDescendantClassesOf(entity), [])
+// const children = graph.filter(filterChildClassesOf(entity));
+const properties = graph.filter(filterPropertiesOf(entity));
 
-// Get the list of properties for the super type `Thing`.
-const thingProperties = graph
-  .filter(filterProperties("Thing"))
-  .reduce(thingletMaker, {});
+ancestors = [...new Set(ancestors).add(graph.find(findOf({ id: "ItemList" })))];
 
-// Get `mainEntityOfPage` thing.
-const thing = graph.find(findOf(mainEntityOfPage));
+// Reduce entities to default/blank values.
+const asThinglet = objectArrayReduceProperties(valueOf);
+// Reduce entities to default/blank values.
+const asMeta = objectArrayReduceProperties((entity) => entity);
 
-// With "ItemList" + every subClassOf except the super type `Thing`.
-const thingSubTypes = [
-  ...new Set(["ItemList", ...thing.subClassOf.filter((t) => t !== "Thing")]),
-]
-  // ...reduce each class to a key for its properties.
-  .reduce(reduceSubclasses(graph, thingletMaker), {});
-
-// Output
-console.log({
-  ...thingProperties,
-  ...thingSubTypes,
-});
+new Array(asThinglet, asMeta).forEach((reducer) =>
+  console.log({
+    ...properties.reduce(reducer, {}),
+    ...ancestors.reduce(reducer, {}),
+  }),
+);
