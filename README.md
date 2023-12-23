@@ -1,4 +1,4 @@
-![](https://elioway.gitlab.io/eliothing/thing/elio-thing-Thing-logo.png)
+![](./postcard.jpg)
 
 > In the grand schema of things, **the elioWay**
 

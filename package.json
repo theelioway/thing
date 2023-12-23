@@ -21,6 +21,7 @@
   "bin": "./bin/index.js",
   "dependencies": {
     "@elioway/abdiel": "file:../abdiel",
+    "@elioway/belial": "file:../belial",
     "@elioway/michael": "file:../michael"
   },
   "devDependencies": {

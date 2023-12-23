@@ -4,10 +4,10 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import {
   filterProperties,
-  findById,
+  findOf,
   mapRecursiveSubclasses,
   mapSimplerGraph,
-  propertyDefaultValue,
+  propertyDefaultValueOf,
   reduceProperties,
   reduceSubclasses,
   readGraphFile,
@@ -18,7 +18,7 @@ import {
 const mainEntityOfPage = "WebPage";
 
 // How properties are reduced: in this case to default values.
-const thingletMaker = reduceProperties(propertyDefaultValue);
+const thingletMaker = reduceProperties(propertyDefaultValueOf);
 
 // Read the schema RDF file...
 const DIR = dirname(fileURLToPath(import.meta.url));
@@ -37,7 +37,7 @@ const thingProperties = graph
   .reduce(thingletMaker, {});
 
 // Get `mainEntityOfPage` thing.
-const thing = graph.find(findById(mainEntityOfPage));
+const thing = graph.find(findOf(mainEntityOfPage));
 
 // With "ItemList" + every subClassOf except the super type `Thing`.
 const thingSubTypes = [

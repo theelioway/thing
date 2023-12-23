@@ -3,10 +3,10 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import {
   filterProperties,
-  findById,
+  findOf,
   mapRecursiveSubclasses,
   mapSimplerGraph,
-  propertyDefaultValue,
+  propertyDefaultValueOf,
   reduceProperties,
   reduceSubclasses,
   readGraphFile,
@@ -41,7 +41,7 @@ export const Thing = async function Thing(startThing) {
   const immutableThing = await  Object.assign({}, {mainEntityOfPage: mainThing}, thingCloner(startThing));
 
   // How properties are reduced: in this case to default values.
-  const thingletMaker = reduceProperties(propertyDefaultValue);
+  const thingletMaker = reduceProperties(propertyDefaultValueOf);
   // Read the schema RDF file...
   const DIR = dirname(fileURLToPath(import.meta.url));
   const PATH = join(
@@ -62,7 +62,7 @@ export const Thing = async function Thing(startThing) {
     .reduce(thingletMaker, {});
   const { mainEntityOfPage } = immutableThing.toJS();
   // Get `mainEntityOfPage` thing.
-  const graphThing = graph.find(findById(mainEntityOfPage));
+  const graphThing = graph.find(findOf(mainEntityOfPage));
   // Get every subClassOf except the super type `Thing`.
   const thingSubClasses = [
     ...new Set([
