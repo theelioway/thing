@@ -1,8 +1,8 @@
 "use strict";
 
-export const findById =
+export const findOf =
   (byId) =>
   ({ id }) =>
     id === byId;
 
-export default findById;
+export default findOf;

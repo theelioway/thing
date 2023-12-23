@@ -1,6 +1,6 @@
 "use strict";
 
-export const propertyDefaultValue = (element) => {
+export const propertyDefaultValueOf = (element) => {
   let { id, rangeIncludes, domainIncludes } = element;
   if (id === "mainEntityOfPage") {
     return domainIncludes[0];
@@ -33,4 +33,4 @@ export const propertyDefaultValue = (element) => {
   }
 };
 
-export default propertyDefaultValue;
+export default propertyDefaultValueOf;

@@ -1,9 +1,9 @@
 export {
   filterProperties,
-  findById,
+  findOf,
   mapRecursiveSubclasses,
   mapSimplerGraph,
-  propertyDefaultValue,
+  propertyDefaultValueOf,
   reduceProperties,
   reduceSubclasses,
   readGraphFile,

@@ -1,6 +1,6 @@
 "use strict";
-import { arraySortByProperty } from "@elioway/abdiel";
+import { objectArraySortByProperty } from "@elioway/abdiel";
 
-export const sortById = arraySortByProperty("id");
+export const sortById = objectArraySortByProperty("id");
 
 export default sortById;
