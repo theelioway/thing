@@ -1,7 +1,7 @@
 import Immutable from "immutable";
 import { promises as fs } from "fs";
-import Thing from "../../Thing/Thing.js";
-import { sortObjectEntriesLowercaseFirst } from "../../src/index.js";
+import Thing from "../../../Thing/Thing.js";
+import { sortObjectEntriesLowercaseFirst } from "../../../src/index.js";
 
 /**
  * @TODO Move to **bones**
@@ -10,7 +10,7 @@ import { sortObjectEntriesLowercaseFirst } from "../../src/index.js";
  * let WriteAction = require("@elioway/michael/Action/WriteAction.js")
  * let engagedThing = { identifier: "myThing" }
  * const result = await WriteAction({ url: "myThing.json", Action: { object: engagedThing }})
- * console.log(`File written: ${result.url}`)
+ * console.assert(FileExists(result.url))
  */
 export const WriteAction = (writeAction) => async (prevAction) => {
   const mainEntityOfPage = "WriteAction";

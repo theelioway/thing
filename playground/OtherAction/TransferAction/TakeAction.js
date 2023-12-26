@@ -1,5 +1,5 @@
 import Immutable from "immutable";
-import Thing from "../../Thing/Thing.js";
+import Thing from "../../../Thing/Thing.js";
 
 /**
  * An action performed by a direct agent and indirect participants upon

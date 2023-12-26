@@ -1,5 +1,6 @@
 "use strict";
-import { objectClone } from "@elioway/abdiel";
+import { jsonClone } from "@elioway/abdiel";
+
 /**
  * Creates a deep clone of an thing by serializing it to JSON and then parsing it.
  *
@@ -16,7 +17,7 @@ export const thingClone = (thing) =>
     ...thing,
     ItemList: {
       ...thing.ItemList,
-      itemListElement: thing.ItemList.itemListElement.map(objectClone),
+      itemListElement: thing.ItemList.itemListElement.map(jsonClone),
     },
   });
 

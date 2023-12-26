@@ -621,7 +621,7 @@ export class ThingBuilder {
       }, {});
   }
   say(msg) {
-    console.log(msg);
+    console.info(msg);
   }
   // writeOut(thingType, Thing, opts) {
   //   let thinglet = this.thinglet(Thing, thingType)

@@ -1,5 +1,5 @@
 import { should } from "chai";
-import identifier from "../../Thing/Thing/identifier.js";
+import identifier from "../Thing/Thing/identifier.js";
 
 should();
 

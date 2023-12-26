@@ -1,3 +1,6 @@
+import { jsonMerge } from "@elioway/abdiel";
+import { thingClone } from "./src/index.js";
+
 let baby = { identifier: "baby" };
 
 let thing = {
@@ -5,21 +8,10 @@ let thing = {
   ItemList: { itemListElement: [baby] },
 };
 
-const clone = (object) => JSON.parse(JSON.stringify(object));
-
-const cloneThing = (object) =>
-  Object.assign({
-    ...object,
-    ItemList: {
-      ...object.ItemList,
-      itemListElement: object.ItemList.itemListElement.map(clone),
-    },
-  });
-
 const ExampleAction = (action) => {
-  let result = cloneThing(action.Action.result);
+  let result = thingClone(action.Action.result);
   result.ItemList.itemListElement[0].identifier = "baby2";
-  return Object.assign({}, action, {
+  return jsonMerge(action, {
     mainEntityOfPage: "TakeAction",
     Action: {
       actionStatus: "CompletedActionStatus",

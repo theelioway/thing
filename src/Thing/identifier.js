@@ -31,11 +31,11 @@ export const identify = () => generator.next().value;
  * const thing5 = identifier({ identifier: "my-blue-thing" })
  * console.assert(thing5.identifier==="my-blue-thing")
  */
-export const identifier = (identify) =>
+export const identifier = (identifierFunc) =>
   async function (thing) {
-    thing = thing || {};
+    thing = thingClone(thing || {});
     if (!thing.identifier) {
-      thing.identifier = identify(thing);
+      thing.identifier = identifierFunc(thing);
     }
     return thing;
   };

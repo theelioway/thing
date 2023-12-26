@@ -1,18 +1,40 @@
 #!/usr/bin/env node
-import { cliThing, michael } from "@elioway/michael";
-import Thing from "../Thing/Thing.js";
-import WriteAction from "../Action/CreateAction/WriteAction.js";
-import TakeAction from "../Action/TransferAction/TakeAction.js";
-import ReturnAction from "../Action/TransferAction/ReturnAction.js";
+import { jsonMerge, objectPick } from "@elioway/abdiel";
+import { cli, pipeActions } from "@elioway/michael";
+import {
+  helloWorldReducer,
+  thingletReducer,
+  thingCreatorCreator,
+  itemListCreatorCreator,
+  schemaReducer,
+} from "../src/index.js";
+// import WriteAction from "../Action/CreateAction/WriteAction.js";
+// import ReturnAction from "../Action/TransferAction/ReturnAction.js";
 
-const michaelCLI = async (thing) => {
-  thing = await cliThing(thing);
-  thing = await michael(await Thing(thing), [
-    TakeAction({}),
-    WriteAction({ url: thing.url || "./myThing.json" }),
-    ReturnAction({}),
-  ]);
-  console.log({ thing });
+const miniMe = objectPick(["identifier"]);
+const potentialActions = {
+  HelloWorld: thingCreatorCreator(helloWorldReducer),
+  Thinglet: thingCreatorCreator(thingletReducer),
+  Schema: thingCreatorCreator(schemaReducer),
+  ItemList: itemListCreatorCreator(thingletReducer, miniMe),
 };
 
-michaelCLI();
+const thingCLI = async () => {
+  const cliThing = cli();
+  const { mainEntityOfPage, potentialAction } = cliThing;
+  const thingCreator =
+    potentialActions[potentialAction] || thingCreatorCreator(thingletReducer);
+  const blankThing = await thingCreator(mainEntityOfPage || "Thing");
+  let thing = jsonMerge(blankThing, cliThing);
+  // thing = await pipeActions(thing, [
+  //   // WriteAction({ url: url || "./myThing.json" }),
+  //   // ReturnAction({}),
+  // ]);
+  console.log(
+    "## thing ##\n\n",
+    thing,
+    "\n\n## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ##",
+  );
+};
+
+thingCLI();
