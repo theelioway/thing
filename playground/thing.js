@@ -1,25 +1,8 @@
-// import { cliThing, michael } from "@elioway/michael";
-import {
-  helloWorldReducer,
-  thingletReducer,
-  schemaReducer,
-  createThing,
-} from "../src/index.js";
+import thingletCreator from "../src/thinglet-creator.js";
+import itemListCreator from "../src/item-list-creator.js";
 
-// import Thing from "../Thing/Thing.js";
-// import WriteAction from "../Action/CreateAction/WriteAction.js";
-// import TakeAction from "../Action/TransferAction/TakeAction.js";
-// import ReturnAction from "../Action/TransferAction/ReturnAction.js";
-// const michaelCLI = async (thing) => {
-//   thing = await cliThing(thing);
-//   thing = await michael(await Thing(thing), [
-//     TakeAction({}),
-//     WriteAction({ url: thing.url || "./myThing.json" }),
-//     ReturnAction({}),
-//   ]);
-// };
-// michaelCLI();
+let thing = await thingletCreator("Thing");
+console.log(thing);
 
-let createThinglet = createThing(thingletReducer);
-let helloWorld = createThing(helloWorldReducer);
-let createSchema = createThing(schemaReducer);
+let itemList = await itemListCreator("Thing");
+console.log(itemList);

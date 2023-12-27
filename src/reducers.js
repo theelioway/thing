@@ -3,9 +3,9 @@ import {
   objectArrayReduceProperties,
   valueOf,
 } from "@elioway/belial";
-import { aSlimmerEntity } from "../utils/index.js";
+import { metaOf } from "../utils/index.js";
 
-/** Reduces an array of schemaorg entities to a single object where
+/** @debugging Reduces an array of schemaorg entities to a single object where
  * the `id` field of each entity is used as the key, and where its
  * value = `transformerFunc(entity)`.
  *
@@ -36,17 +36,23 @@ export const thingletReducer = objectArrayReduceProperties(valueOf);
  * a value for each property, which we can use as the underlying information we
  * can use to validate data and dynamically build forms and other cool stuff.
  *
- * @tutorial Notice that we are passing the `aSlimmerEntity`  as its "transformer"
+ * @tutorial Notice that we are passing the `metaOf`  as its "transformer"
  * function, which runs an objectPick pruning away some of the schemaorg stuff
  * we don't need. */
-export const schemaReducer = objectArrayReduceProperties(aSlimmerEntity);
+export const schemaReducer = objectArrayReduceProperties(metaOf);
 
 /** Reduces { "type": ["Class"] } entities and then further reduces each's
  * { "type": ["Property"] } entities to any { "type": ["Property"] } reducer. */
 export const subTypeReducer = (propertyReducer, GRAPH) =>
   objectArrayReduceProperties((entity) =>
-    GRAPH.filter(filterPropertiesOf(entity))
-      .slice(0, 3)
+    GRAPH.filter(filterPropertiesOf(entity)).reduce(propertyReducer, {}),
+  );
+
+/** @debugging Only returns 5 of each propertie of any subclass. Useful for debugging. */
+export const subTypeReducerWithExtraReduction = (propertyReducer, GRAPH) =>
+  objectArrayReduceProperties((entity) =>
+    [...GRAPH.filter(filterPropertiesOf(entity))]
+      .slice(0, 5)
       .reduce(propertyReducer, {}),
   );
 

@@ -2,12 +2,12 @@
 import { objectPick } from "@elioway/abdiel";
 
 /** An "object picker" to make a slimmer schemaorg entity object. */
-export const aSlimmerEntity = objectPick([
+export const metaOf = objectPick([
   "type",
   // "comment",
   "domainIncludes",
   "rangeIncludes",
-  "subPropertyOf",
+  // "subPropertyOf",
 ]);
 
-export default aSlimmerEntity;
+export default metaOf;

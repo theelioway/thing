@@ -1,0 +1,19 @@
+{
+  "identifier": "hello, i am the identifier entity",
+  "mainEntityOfPage": "hello, i am the mainEntityOfPage entity",
+  "ItemList": {
+    "itemListElement": [
+      { "identifier": "Action" },
+      { "identifier": "CreativeWork" },
+      { "identifier": "Event" },
+      { "identifier": "Intangible" },
+      { "identifier": "MedicalEntity" },
+      { "identifier": "Organization" },
+      { "identifier": "Person" },
+      { "identifier": "Place" },
+      { "identifier": "Product" },
+      { "identifier": "StupidType" }
+    ],
+    "numberOfItems": 10
+  }
+}
