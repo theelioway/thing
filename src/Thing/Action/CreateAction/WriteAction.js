@@ -1,6 +1,6 @@
-import {  fsPathMustExist, fsWriteJson } from "@elioway/abdiel"
-import { thingClone } from "../../../thing-clone.js"
-import Action from "../../Action.js"
+import { fsPathMustExist, fsWriteJson } from "@elioway/abdiel";
+import { thingClone } from "../../../thing-clone.js";
+import Action from "../../Action.js";
 
 /**
  * @TODO Move to **bones**
@@ -13,15 +13,15 @@ import Action from "../../Action.js"
  */
 export const WriteAction = (writeAction) => async (prevAction) => {
   const mainEntityOfPage = "WriteAction";
-  writeAction = await Action({...writeAction, mainEntityOfPage })(prevAction)
+  writeAction = await Action({ ...writeAction, mainEntityOfPage })(prevAction);
 
   if (!writeAction.url) {
     writeAction.Action.error = "Missing `action.url`";
     writeAction.Action.actionStatus = "FailedActionStatus";
   } else {
-    await fsPathMustExist(writeAction.url)
-    await fsWriteJson(      writeAction.url,writeAction.Action.object    );
-    writeAction.Action.result = thingClone(writeAction.Action.object)
+    await fsPathMustExist(writeAction.url);
+    await fsWriteJson(writeAction.url, writeAction.Action.object);
+    writeAction.Action.result = thingClone(writeAction.Action.object);
     writeAction.Action.actionStatus = "CompletedActionStatus";
   }
   return writeAction;

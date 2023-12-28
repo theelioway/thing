@@ -1,5 +1,5 @@
-import { thingClone } from "../../../thing-clone.js"
-import Action from "../../Action.js"
+import { thingClone } from "../../../thing-clone.js";
+import Action from "../../Action.js";
 
 /**
  * The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
@@ -13,8 +13,10 @@ import Action from "../../Action.js"
  */
 export const ReturnAction = (returnAction) => async (prevAction) => {
   const mainEntityOfPage = "ReturnAction";
-  returnAction =await Action({...returnAction, mainEntityOfPage })(prevAction)
-  returnAction.Action.result = thingClone(returnAction.Action.object)
+  returnAction = await Action({ ...returnAction, mainEntityOfPage })(
+    prevAction,
+  );
+  returnAction.Action.result = thingClone(returnAction.Action.object);
   returnAction.Action.actionStatus = "CompletedActionStatus";
   return returnAction.Action.result;
 };

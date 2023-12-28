@@ -13,10 +13,7 @@ import {
   thingCreatorCreator,
   thingletCreator,
 } from "../src/index.js";
-import {
-  WriteAction,
-  ReturnAction,
-} from "../src/Thing/index.js";
+import { WriteAction, ReturnAction } from "../src/Thing/index.js";
 
 const getPotentialAction = (potentialAction) =>
   new Object({
@@ -29,8 +26,7 @@ const getPotentialAction = (potentialAction) =>
     ItemList: itemListCreatorCreator(thingletReducer, (entity) =>
       objectDotNotatedGet(entity, "id"),
     ),
-  })[potentialAction] ||
-  thingCreatorCreator(thingletReducer, subTypeReducer);
+  })[potentialAction] || thingCreatorCreator(thingletReducer, subTypeReducer);
 
 const thingCLI = async () => {
   const cliThing = cli();
@@ -43,7 +39,9 @@ const thingCLI = async () => {
     ReturnAction({}),
   ]);
   console.log(
-    `  ________${mainEntityOfPage || "Thing"}______________________________________________} \n`,
+    `  ________${
+      mainEntityOfPage || "Thing"
+    }______________________________________________} \n`,
     thing,
   );
 };

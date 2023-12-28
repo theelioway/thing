@@ -7,5 +7,4 @@ console.log(thing);
 let itemList = await itemListCreator("Thing");
 console.log(itemList);
 
-
-let a = (thing) => new Object({ ...thing, a: "added" })
+let a = (thing) => new Object({ ...thing, a: "added" });
