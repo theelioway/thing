@@ -3,6 +3,7 @@ import { jsonMerge, objectDotNotatedGet, objectPick } from "@elioway/abdiel";
 import { cli, pipeActions } from "@elioway/michael";
 import {
   helloWorldReducer,
+  subTypeReducer,
   subTypeReducerWithExtraReduction,
   thingletReducer,
 } from "../src/reducers.js";
@@ -12,10 +13,10 @@ import {
   thingCreatorCreator,
   thingletCreator,
 } from "../src/index.js";
-// import WriteAction from "../Action/CreateAction/WriteAction.js";
-// import ReturnAction from "../Action/TransferAction/ReturnAction.js";
-
-const miniMe = objectPick(["id"]);
+import {
+  WriteAction,
+  ReturnAction,
+} from "../src/Thing/index.js";
 
 const getPotentialAction = (potentialAction) =>
   new Object({
@@ -29,20 +30,20 @@ const getPotentialAction = (potentialAction) =>
       objectDotNotatedGet(entity, "id"),
     ),
   })[potentialAction] ||
-  thingCreatorCreator(thingletReducer, subTypeReducerWithExtraReduction);
+  thingCreatorCreator(thingletReducer, subTypeReducer);
 
 const thingCLI = async () => {
   const cliThing = cli();
-  const { mainEntityOfPage, potentialAction } = cliThing;
+  const { mainEntityOfPage, potentialAction, url } = cliThing;
   const thingletCreator = getPotentialAction(potentialAction);
   const newBlankThing = await thingletCreator(mainEntityOfPage || "Thing");
   let thing = jsonMerge(newBlankThing, cliThing);
-  // thing = await pipeActions(thing, [
-  //   // WriteAction({ url: url || "./myThing.json" }),
-  //   // ReturnAction({}),
-  // ]);
+  thing = await pipeActions(thing, [
+    WriteAction({ url: url || "./Thing.json" }),
+    ReturnAction({}),
+  ]);
   console.log(
-    `  ________${mainEntityOfPage}______________________________________________} \n`,
+    `  ________${mainEntityOfPage || "Thing"}______________________________________________} \n`,
     thing,
   );
 };

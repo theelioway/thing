@@ -1,16 +1,18 @@
 "use strict";
-import { objectArraySortByProperty } from "@elioway/abdiel";
+import { fsImportMetaUrlPath, fsReadJson, objectArraySortByProperty } from "@elioway/abdiel";
 import { mapSimplerGraph } from "@elioway/belial";
-import { readGraphFileRelatively } from "@elioway/belial/utils";
 
 export const getGraph = async () => {
-  let GRAPH = await readGraphFileRelatively(
+  let schemaPath = fsImportMetaUrlPath(
     import.meta.url,
     "../schemaorg/data/releases/9.0/schemaorg-all-http.jsonld",
   );
-  GRAPH = GRAPH.map(mapSimplerGraph("http://schema.org/")).sort(
-    objectArraySortByProperty("id"),
-  );
-  return GRAPH;
+  const GRAPH = await fsReadJson(schemaPath);
+  return GRAPH["@graph"]
+  // Normalise for elioWay use.
+  .map(mapSimplerGraph("http://schema.org/")) 
+  // Sort all the entities so that output propeties of objects are also;
+  .sort(    objectArraySortByProperty("id")) 
 };
+
 export default getGraph;

@@ -1,9 +1,9 @@
 import {
   filterPropertiesOf,
+  metaOf,
   objectArrayReduceProperties,
   valueOf,
 } from "@elioway/belial";
-import { metaOf } from "../utils/index.js";
 
 /** @debugging Reduces an array of schemaorg entities to a single object where
  * the `id` field of each entity is used as the key, and where its

@@ -1,4 +1,5 @@
-import Immutable from "immutable";
+import { thingClone } from "../../../thing-clone.js"
+import Action from "../../Action.js"
 
 /**
  * The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
@@ -11,9 +12,11 @@ import Immutable from "immutable";
  * console.assert(results.Action.result.name === "myThing")
  */
 export const ReturnAction = (returnAction) => async (prevAction) => {
-  return await Immutable.fromJS(prevAction.Action.result || {})
-    .merge(returnAction)
-    .toJS();
+  const mainEntityOfPage = "ReturnAction";
+  returnAction =await Action({...returnAction, mainEntityOfPage })(prevAction)
+  returnAction.Action.result = thingClone(returnAction.Action.object)
+  returnAction.Action.actionStatus = "CompletedActionStatus";
+  return returnAction.Action.result;
 };
 
 export default ReturnAction;
